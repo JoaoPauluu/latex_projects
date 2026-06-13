@@ -1,0 +1,67 @@
+{
+    "latex-workshop.view.pdf.viewer": "tab",
+
+    "latex-workshop.latex.autoBuild.run": "onSave",
+
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+
+    "latex-workshop.latex.outDir": "%DIR%/../build",
+
+    "latex-workshop.linting.chktex.exec.path": "C:\\Users\\João Paulo\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64",
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-pdf",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-outdir=%DIR%/../build",
+                "%DOC%"
+            ]
+        }
+    ],
+
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (XeLaTeX)",
+            "tools": [
+                "latexmk"
+            ]
+        }
+    ],
+
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.bcf",
+        "*.blg",
+        "*.fdb_latexmk",
+        "*.fls",
+        "*.log",
+        "*.nav",
+        "*.out",
+        "*.run.xml",
+        "*.snm",
+        //"*.synctex.gz",
+        "*.toc"
+    ],
+
+    "files.exclude": {
+        "**/*.aux": true,
+        "**/*.bbl": true,
+        "**/*.bcf": true,
+        "**/*.blg": true,
+        "**/*.fdb_latexmk": true,
+        "**/*.fls": true,
+        "**/*.log": true,
+        "**/*.nav": true,
+        "**/*.out": true,
+        "**/*.run.xml": true,
+        "**/*.snm": true,
+        //"**/*.synctex.gz": true,
+        "**/*.toc": true
+    }
+}
