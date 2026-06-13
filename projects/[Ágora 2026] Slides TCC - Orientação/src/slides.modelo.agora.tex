@@ -1,0 +1,77 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
+
+\setbeamertemplate{title page}{
+	\vfill
+	\begin{centering}
+		{\usebeamerfont{title}\usebeamercolor[fg]{title}\Huge \textbf{\inserttitle}}\par
+		\vspace{1cm}
+		{\usebeamerfont{author}\large \insertauthor}\par
+	\end{centering}
+	\vfill
+	\begin{center}
+		\includegraphics[height=1.6cm]{../figures/logo_unespar.png} \hfill
+		\includegraphics[height=1.2cm]{../figures/logo_evento.png} \hfill
+		\includegraphics[height=1.2cm]{../figures/mat.png} \hfill
+		\includegraphics[height=1.2cm]{../figures/prpgem.png}
+	\end{center}
+	\vspace{0.2cm}
+}
+
+\setbeamertemplate{footline}{
+	\ifnum\insertframenumber>1
+	\hbox{%
+		\begin{beamercolorbox}[wd=.8\paperwidth,ht=1cm,dp=0.5cm,leftskip=1cm]{}
+			\scriptsize\color{gray} X Ágora Matemática – Unespar, campus de Campo Mourão
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.2\paperwidth,ht=1cm,dp=0.5cm,right,rightskip=0.8cm]{}
+			\includegraphics[height=1.2cm]{../figures/logo_evento.png}
+		\end{beamercolorbox}%
+	}
+	\fi
+}
+
+%Página de título
+\title{Tasdfasdfaaaa}
+\author{\Large
+	Autor 1\\
+	Autor 2\\
+	Autor 3\\
+}
+\date{}
+
+\begin{document}
+	
+	% Capa
+	\begin{frame}[plain]
+		\titlepage
+	\end{frame}
+	
+	% Demais slides
+	\begin{frame}{Título do Slide}
+		\vspace{0.5cm}
+		Este é um modelo Beamer personalizado para o evento \textbf{X Ágora Matemática}.
+		$x^2 = 3$
+		\begin{itemize}
+			\item este é um;
+			\item exemplo deasrutura;
+			\item com vários itens.
+		\end{itemize}
+		
+		\begin{block}{Isso é um bloco}
+			O uso de fontes sem serifa facilita a leitura em projeções digitais.
+		\end{block}
+	\end{frame}
+	
+\end{document}
