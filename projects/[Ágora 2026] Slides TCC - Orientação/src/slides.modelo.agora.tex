@@ -15,13 +15,16 @@
 
 
 %\input{../../../templates/theoremstyles}
+%\usetheme{Jacquenetta}
+\usetheme{metropolis}
+\metroset{sectionpage=none}
 
 
-\usetheme{default}
+
 \setbeamertemplate{navigation symbols}{}
 \setbeamercolor{background canvas}{bg=white}
 \setbeamercolor{title}{fg=black}
-\setbeamercolor{frametitle}{fg=black}
+%\setbeamercolor{frametitle}{fg=black}
 \setbeamerfont{frametitle}{size=\Large, series=\bfseries}
 
 \setbeamertemplate{title page}{
@@ -81,11 +84,16 @@
 \begin{frame}{Variedades Diferenciáveis}
 	\begin{block}{Definição}
 		Uma variedade diferenciável de dimensão $n$ é um conjunto $M$, e uma família $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$, onde os $U_{\alpha}$ são abertos do $\mathbb{R}^{n}$, e $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ são bijeções, satisfazendo:
+		\pause
 		\begin{enumerate}
 			\item $\cup_{\alpha} \mathbf{x}_{\alpha}(U_{\alpha})=M$
+			      \pause
 			\item Se $\alpha$ e $\beta$ são índices, tais que $\mathbf{x}_{\alpha}(U_{\alpha})\cap \mathbf{x}_{\beta}(U_{\beta}) = W \neq \emptyset$ e $\mathbf{x}^{-1}_{\alpha}(W)$ e $\mathbf{x}^{-1}_{\beta}(W)$ são abertos do $\mathbb{R}^{n}$, então $\mathbf{x}_{\beta}^{-1} \circ\mathbf{x}_{\alpha}|_{\mathbf{x_{\alpha}^{-1}(W)}}$ é uma função diferenciável.
-			\item A família $\{ (U_{\alpha}, \mathbf{x}_{\alpha} \}$ é maximal relativamente às condições 1) e 2).
+			      \pause
+			\item A família $\{ (U_{\alpha}, \mathbf{x}_{\alpha} )\}$ é maximal relativamente às condições 1) e 2).
 		\end{enumerate}
+		\pause
+
 		Uma família $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \}$ satisfazendo 1) e 2) (não necessariamente maximal) é chamada de estrutura diferenciável de $M$. Note aqui que tal família é compatível com a família maximal de $M$, isto é, $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \} \subset\{ (U_{\alpha}, \mathbf{x}_{\alpha} \}$.
 	\end{block}
 \end{frame}
@@ -164,6 +172,8 @@
 \begin{frame}{Diferenciabilidade}
 	\begin{block}{Definição}
 		Sejam $M_{1}^{n}$ e $M_{2}^{m}$ variedades diferenciáveis. $\varphi:M_{1} \to M_{2}$ é dita diferenciável em $p \in M_{1}$ se dada $\mathbf{y}:V\to M_{2}$ parametrização de $\varphi(p)$ existe $\mathbf{x}:U\to M_{1}$ parametrização de $p$, tal que $\varphi(\mathbf{x}(U)) \subset \mathbf{y}(V)$ e $\tilde{\varphi}=\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}:U \to \mathbb{R}^{n}$ é diferenciável.
+
+		\pause
 
 		Dizemos que $\varphi:M_{1}\to M_{2}$ é diferenciável se for diferenciável em todo $p \in M_{1}$.
 	\end{block}
@@ -249,8 +259,12 @@
 \begin{frame}{Ação de grupo}
 	\begin{block}{Definição}
 		Dizemos que um grupo $G$ age em uma variedade diferenciável $M$ se existe $\varphi:G\times M\to M$, tal que:
+		\pause
+
 		\begin{enumerate}
 			\item Para todo $g \in G$, a função $\varphi_{g}:M\to M$, definida por $\varphi_{g}(x)=\varphi(g, x)$ é um difeomorfismo;
+			      \pause
+
 			\item Se $g_{1}, g_{2} \in G$, então $\varphi_{g_{1}g_{2}}=\varphi_{g_{1}}\circ\varphi_{g_{2}}$, isto é $\varphi(g_{1}, \varphi(g_{2}, p))=\varphi (g_{1}g_{2}, p)$ para todo $p \in M$.
 		\end{enumerate}
 		Normalmente, denotamos $\varphi(g,p)=gp$.
@@ -335,6 +349,8 @@
 		\end{itemize}
 		Do contrário, $M$ é dita não orientável.
 
+		\pause
+
 		Uma escolha de estrutura diferenciável que satisfaz (i) é chamada de orientação de $M$.
 		Duas estruturas diferenciáveis que satisfazem (i) são ditas de mesma orientação se sua união ainda satisfaz (i).
 	\end{block}
@@ -357,6 +373,42 @@
 	\begin{block}{Proposição}
 		Uma superfície $S \subset \mathbb{R}^3$ é orientável se, e somente se, existe um mapa de Gauss $N:S \to S^2$
 	\end{block}
+\end{frame}
+
+\begin{frame}{Critério de orientabilidade}
+	\begin{block}{Proposição}
+		Se $M$ é coberta por duas vizinhanças coordenadas, cuja interseção é conexa, então $M$ é orientável.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Exemplo}
+	A esfera $S^{n}=\{ \left( x_{1}, \dots, x_{n+1}\right)\in \mathbb{R}^{n+1};\sum x_{i}^{2}=1 \}$ é orientável.
+
+	Basta considerar as projeções estereográficas do polo norte e do polo sul.
+\end{frame}
+
+\begin{frame}{Critério de orientabilidade}
+	\begin{block}{Proposição}
+		A variedade $M/G$ é orientável se, e somente se, existe uma orientação de $M$ que é preservada por todos os difeormosfismos de $G$.
+	\end{block}
+
+	Isto é, sendo $\{ (U_{\alpha}, \mathbf{x}_{\alpha} )\}$ uma orientação de $M$, para todo $g \in G$, $\{ (U_{\alpha}, \varphi_g \circ \mathbf{x}_{\alpha} )\} \cup \{ (U_{\alpha}, \mathbf{x}_{\alpha} )\}$ também o é.
+\end{frame}
+
+\begin{frame}{Exemplos}
+	O plano projetivo $P^2(\mathbb{R})$ e a faixa de Möbius não são orientáveis.
+\end{frame}
+
+\begin{frame}{Critério de orientabilidade}
+	\begin{block}{Proposição}
+		Se $M,N$ são duas variedades diferenciáveis munidas com uma ação de um grupo $G$, $M/G$ é orientável e existe um difeomorfismo $f:M \to N$ compatível com a ação de grupo, isto é, $f(gp)=gf(p)$, então $N/G$ é orientável.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Exemplo}
+	A faixa de Möbius infinita, obtida quocientando o cilindro $\{(x, y, z) \in \mathbb{R}^3; x^2 + y^2 = 1\}$ não é orientável.
+
+	Basta considerar a faixa de Möbius e a contrapositiva da proposição, juntamente com o difeormofismo $f(x,y,z)=(x, y, \tan(\frac{\pi z}{2}))$.
 \end{frame}
 
 
