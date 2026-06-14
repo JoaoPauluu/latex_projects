@@ -1,0 +1,433 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{helvet}
+
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{amsmath,amssymb}
+
+
+\renewcommand{\familydefault}{\sfdefault}
+
+
+%\input{../../../templates/theoremstyles}
+%\usetheme{Jacquenetta}
+\usetheme{metropolis}
+\metroset{sectionpage=none}
+
+
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{title}{fg=black}
+%\setbeamercolor{frametitle}{fg=black}
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
+
+\setbeamertemplate{title page}{
+	\vfill
+	\begin{centering}
+		{\usebeamerfont{title}\usebeamercolor[fg]{title}\Huge \textbf{\inserttitle}}\par
+		\vspace{1cm}
+		{\usebeamerfont{author}\large \insertauthor}\par
+	\end{centering}
+	\vfill
+	\begin{center}
+		\includegraphics[height=1.6cm]{../figures/logo_unespar.png} \hfill
+		\includegraphics[height=1.2cm]{../figures/logo_evento.png} \hfill
+		\includegraphics[height=1.2cm]{../figures/mat.png} \hfill
+		\includegraphics[height=1.2cm]{../figures/prpgem.png}
+	\end{center}
+	\vspace{0.2cm}
+}
+
+\setbeamertemplate{footline}{
+	\ifnum\insertframenumber>1
+	\hbox{%
+		\begin{beamercolorbox}[wd=.8\paperwidth,ht=1cm,dp=0.5cm,leftskip=1cm]{}
+			\scriptsize\color{gray} X Ágora Matemática – Unespar, campus de Campo Mourão
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.2\paperwidth,ht=1cm,dp=0.5cm,right,rightskip=0.8cm]{}
+			\includegraphics[height=1.2cm]{../figures/logo_evento.png}
+		\end{beamercolorbox}%
+	}
+	\fi
+}
+
+%Página de título
+\title{Variedades Diferenciáveis Orientáveis e Não Orientáveis}
+\author{\Large
+	João Paulo Chiari de Gasperi\\
+	Welinton Anderson Rocha\\
+	Roger Emanuel Moraes Pezzott\\
+}
+\date{}
+
+
+\begin{document}
+
+% Capa
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+\begin{frame}{Conteúdo}
+	\tableofcontents
+\end{frame}
+
+
+\section{Variedades Diferenciáveis}
+
+\begin{frame}{Variedades Diferenciáveis}
+	\begin{block}{Definição}
+		Uma variedade diferenciável de dimensão $n$ é um conjunto $M$, e uma família $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$, onde os $U_{\alpha}$ são abertos do $\mathbb{R}^{n}$, e $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ são bijeções, satisfazendo:
+		\pause
+		\begin{enumerate}
+			\item $\cup_{\alpha} \mathbf{x}_{\alpha}(U_{\alpha})=M$
+			      \pause
+			\item Se $\alpha$ e $\beta$ são índices, tais que $\mathbf{x}_{\alpha}(U_{\alpha})\cap \mathbf{x}_{\beta}(U_{\beta}) = W \neq \emptyset$ e $\mathbf{x}^{-1}_{\alpha}(W)$ e $\mathbf{x}^{-1}_{\beta}(W)$ são abertos do $\mathbb{R}^{n}$, então $\mathbf{x}_{\beta}^{-1} \circ\mathbf{x}_{\alpha}|_{\mathbf{x_{\alpha}^{-1}(W)}}$ é uma função diferenciável.
+			      \pause
+			\item A família $\{ (U_{\alpha}, \mathbf{x}_{\alpha} )\}$ é maximal relativamente às condições 1) e 2).
+		\end{enumerate}
+		\pause
+
+		Uma família $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \}$ satisfazendo 1) e 2) (não necessariamente maximal) é chamada de estrutura diferenciável de $M$. Note aqui que tal família é compatível com a família maximal de $M$, isto é, $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \} \subset\{ (U_{\alpha}, \mathbf{x}_{\alpha} \}$.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+
+			% ==========================
+			% MANIFOLD M
+			% ==========================
+			% Draw a smooth, organic blob to represent the manifold M
+			\draw [thick, fill=gray!10]
+			(-5, 5) .. controls (-6, 7.5) and (-2, 8.5) ..
+			(0, 8)  .. controls (2, 8.5) and (6, 7.5) ..
+			(5, 5)  .. controls (4, 2.5) and (2, 3) ..
+			(0, 3.5).. controls (-2, 3) and (-4, 2.5) .. (-5, 5);
+			\node at (-5.5, 7) {\Large $M$};
+
+			% Parametrization X(U)
+			\draw[thick, fill=blue!30, fill opacity=0.5] (-1.2, 5.5) circle (1.8cm);
+			\node[blue!80!black] at (-2.3, 6.5) {\large $X(U)$};
+
+			% Parametrization Y(V)
+			\draw[thick, fill=red!30, fill opacity=0.5] (1.2, 5.5) circle (1.8cm);
+			\node[red!80!black] at (2.3, 6.5) {\large $Y(V)$};
+
+			% Intersection W in M
+			\node[font=\bfseries] at (0, 5.5) {$W$};
+			\node at (0, 4.2) {$W = X(U) \cap Y(V)$};
+
+			% ==========================
+			% DOMAIN U (Left)
+			% ==========================
+			% Open set U in R^n
+			\draw[thick, fill=blue!10] (-5, 0) ellipse (2.5cm and 1.5cm);
+			\node[blue!80!black] at (-6.5, 0) {\Large $U$};
+			\node at (-5, -2) {\large $\mathbb{R}^n$};
+
+			% Preimage of the intersection in U
+			\draw[thick, fill=blue!30] (-3.5, 0.2) ellipse (0.8cm and 1cm);
+			\node at (-3.5, 0.2) {$X^{-1}(W)$};
+
+			% ==========================
+			% DOMAIN V (Right)
+			% ==========================
+			% Open set V in R^n
+			\draw[thick, fill=red!10] (5, 0) ellipse (2.5cm and 1.5cm);
+			\node[red!80!black] at (6.5, 0) {\Large $V$};
+			\node at (5, -2) {\large $\mathbb{R}^n$};
+
+			% Preimage of the intersection in V
+			\draw[thick, fill=red!30] (3.5, 0.2) ellipse (0.8cm and 1cm);
+			\node at (3.5, 0.2) {$Y^{-1}(W)$};
+
+			% ==========================
+			% MAPPINGS (Arrows)
+			% ==========================
+			% Map X
+			\draw[->, thick, shorten >= 2pt, shorten <= 2pt]
+			(-5, 1.5) to[out=90, in=225] node[midway, left=0.3cm] {\Large $X$} (-2.5, 4.2);
+
+			% Map Y
+			\draw[->, thick, shorten >= 2pt, shorten <= 2pt]
+			(5, 1.5) to[out=90, in=-45] node[midway, right=0.3cm] {\Large $Y$} (2.5, 4.2);
+
+			% Transition Map (Y^{-1} \circ X)
+			\draw[->, thick, dashed]
+			(-2.6, 0.2) to[out=25, in=155] node[midway, above] {\Large $Y^{-1} \circ X$} (2.6, 0.2);
+
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}{Diferenciabilidade}
+	\begin{block}{Definição}
+		Sejam $M_{1}^{n}$ e $M_{2}^{m}$ variedades diferenciáveis. $\varphi:M_{1} \to M_{2}$ é dita diferenciável em $p \in M_{1}$ se dada $\mathbf{y}:V\to M_{2}$ parametrização de $\varphi(p)$ existe $\mathbf{x}:U\to M_{1}$ parametrização de $p$, tal que $\varphi(\mathbf{x}(U)) \subset \mathbf{y}(V)$ e $\tilde{\varphi}=\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}:U \to \mathbb{R}^{n}$ é diferenciável.
+
+		\pause
+
+		Dizemos que $\varphi:M_{1}\to M_{2}$ é diferenciável se for diferenciável em todo $p \in M_{1}$.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=0.7]
+			% ==========================
+			% VARIEDADE M1 (Esquerda)
+			% ==========================
+			\draw [thick, fill=gray!10]
+			(-6, 3) .. controls (-7, 5) and (-4, 6) ..
+			(-2, 5) .. controls (-1, 4) and (-2, 2) ..
+			(-4, 2) .. controls (-5, 2) and (-5.5, 2.5) .. (-6, 3);
+			\node at (-5.5, 5.5) {\Large $M_1^n$};
+
+			% Parametrização x(U)
+			\draw[thick, fill=blue!20] (-3.5, 4) ellipse (1.2cm and 1cm);
+			\node[blue!80!black] at (-3.5, 4.6) {$\mathbf{x}(U)$};
+			\filldraw (-3.5, 3.8) circle (1.5pt) node[below] {$p$};
+
+			% ==========================
+			% VARIEDADE M2 (Direita)
+			% ==========================
+			\draw [thick, fill=gray!10]
+			(2, 3) .. controls (1, 5) and (4, 6) ..
+			(6, 5) .. controls (7, 4) and (6, 2) ..
+			(4, 2) .. controls (3, 2) and (2.5, 2.5) .. (2, 3);
+			\node at (5.5, 5.5) {\Large $M_2^m$};
+
+			% Parametrização y(V)
+			\draw[thick, fill=red!20] (4, 4) ellipse (1.5cm and 1.2cm);
+			\node[red!80!black] at (4.5, 4.8) {$\mathbf{y}(V)$};
+
+			% Imagem \varphi(x(U)) contida em y(V)
+			\draw[thick, fill=blue!10, dashed] (3.8, 3.8) ellipse (0.8cm and 0.6cm);
+			\node[blue!80!black, font=\scriptsize] at (3.8, 3.4) {$\varphi(\mathbf{x}(U))$};
+			\filldraw (4.1, 4.0) circle (1.5pt) node[right] {$\varphi(p)$};
+
+			% ==========================
+			% DOMÍNIO U em R^n (Esquerda inferior)
+			% ==========================
+			\draw[thick, fill=blue!10] (-3.5, -2) ellipse (1.5cm and 1cm);
+			\node[blue!80!black] at (-4.5, -1.5) {\Large $U$};
+			\node at (-3.5, -3.5) {\large $\mathbb{R}^n$};
+			\filldraw (-3.5, -2) circle (1.5pt) node[below] {$\mathbf{x}^{-1}(p)$};
+
+
+			% ==========================
+			% DOMÍNIO V em R^m (Direita inferior)
+			% ==========================
+			\draw[thick, fill=red!10] (4, -2) ellipse (1.8cm and 1.2cm);
+			\node[red!80!black] at (5, -1.5) {\Large $V$};
+			\node at (4, -3.5) {\large $\mathbb{R}^m$};
+			\filldraw (4.1, -1.8) circle (1.5pt) node[below] {$\mathbf{y}^{-1}(\varphi(p))$};
+
+
+			% ==========================
+			% APLICAÇÕES (Setas)
+			% ==========================
+			% Aplicação \varphi
+			\draw[->, thick, shorten >= 5pt, shorten <= 5pt]
+			(-2.1, 4) to[out=20, in=160] node[midway, above] {\Large $\varphi$} (2.3, 4);
+
+			% Parametrização x
+			\draw[->, thick, shorten >= 2pt, shorten <= 2pt]
+			(-3.5, -0.8) -- node[midway, left] {\Large $\mathbf{x}$} (-3.5, 2.8);
+
+			% Parametrização y
+			\draw[->, thick, shorten >= 2pt, shorten <= 2pt]
+			(4.1, -0.6) -- node[midway, right] {\Large $\mathbf{y}$} (4.1, 2.6);
+
+			% Expressão local \tilde{\varphi}
+			\draw[->, thick, dashed, shorten >= 5pt, shorten <= 5pt]
+			(-1.8, -2) to[out=15, in=165] node[midway, above] {\Large $\tilde{\varphi} = \mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$} (2.1, -2);
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+\section{Variedades Quociente}
+
+\begin{frame}{Ação de grupo}
+	\begin{block}{Definição}
+		Dizemos que um grupo $G$ age em uma variedade diferenciável $M$ se existe $\varphi:G\times M\to M$, tal que:
+		\pause
+
+		\begin{enumerate}
+			\item Para todo $g \in G$, a função $\varphi_{g}:M\to M$, definida por $\varphi_{g}(x)=\varphi(g, x)$ é um difeomorfismo;
+			      \pause
+
+			\item Se $g_{1}, g_{2} \in G$, então $\varphi_{g_{1}g_{2}}=\varphi_{g_{1}}\circ\varphi_{g_{2}}$, isto é $\varphi(g_{1}, \varphi(g_{2}, p))=\varphi (g_{1}g_{2}, p)$ para todo $p \in M$.
+		\end{enumerate}
+		Normalmente, denotamos $\varphi(g,p)=gp$.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Ação de grupo propriamente descontínua}
+	\begin{block}{Definição}
+		Uma ação é dita propriamente descontínua se todo $p \in M$ possuí uma vizinhança $U \subset M$, tal que $U \cap g(U)=\emptyset$, para todo $g \in G$, com $g\neq e$.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Variedade Quociente}
+	\begin{block}{Definição}
+		Dados $p_{1}, p_{2} \in M$, definimos a relação $p_{1} \sim  p_{2}$ se existe $g \in G$, tal que $p_{1}=gp_{2}$. Tal relação é, trivialmente, de equivalência. Denotamos o conjunto $M/\sim$ das classes de equivalência por $M/G$ e $\pi:M \ni p\to Gp=\bar{p} \in M/G$ a projeção.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Exemplo}
+	\begin{columns}
+		\begin{column}{0.48\textwidth}
+			\begin{center}
+				\small $C=\{(x, y, z) \in \mathbb{R}^{3}; x^{2}+y^{2}=1, \text{e }|z|=1 \}$
+				\includegraphics[height=0.65\paperheight]{../figures/cilinder.png}
+			\end{center}
+		\end{column}
+
+		\pause
+
+		\begin{column}{0.1\textwidth}
+			\begin{center}
+				\Large$\overset{G=\{-1, 1\}}{\longrightarrow}$
+			\end{center}
+		\end{column}
+
+		\pause
+
+		\begin{column}{0.48\textwidth}
+			\begin{center}
+				\small $C/G=$ Faixa de Möbius
+				\includegraphics[height=0.65\paperheight]{../figures/mobius.png}
+			\end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Exemplo}
+	\begin{columns}
+		\begin{column}{0.48\textwidth}
+			\begin{center}
+				\small $S^2=\{x \in \mathbb{R}^2; |x|=1\}$
+				\includegraphics[height=0.65\paperheight]{../figures/sphere.png}
+			\end{center}
+		\end{column}
+
+		\pause
+
+		\begin{column}{0.1\textwidth}
+			\begin{center}
+				\Large$\overset{G=\{-1, 1\}}{\longrightarrow}$
+			\end{center}
+		\end{column}
+
+		\pause
+
+		\begin{column}{0.48\textwidth}
+			\begin{center}
+				\small $S^2/G=P^2(\mathbb{R})$
+				\includegraphics[height=0.65\paperheight]{../figures/projective_plane.png}
+			\end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\section{Orientabilidade}
+
+\begin{frame}{Orientabilidade}
+	\begin{block}{Definição}
+		Seja $M$ uma variedade diferenciável. M é dita orientável se existe uma estrutura diferenciável $\{ (U_{\alpha}, \mathbf{x}_{\alpha} \}_{\alpha \in L}$ tal que:
+		\begin{itemize}
+			\item (i) Para todo $\alpha, \beta \in L$ com $\mathbf{x}_{\alpha}(U_{\alpha})\cap \mathbf{x}_{\beta}(U_{\beta}) = W \neq \emptyset$, temos que $\det d(\mathbf{x}_{\beta}^{-1}\circ \mathbf{x}_{\alpha}|_{\mathbf{x_{\alpha}}^{-1}(W)})_{q} >0$ para todo $q\in \mathbf{x_{\alpha}}^{-1}(W)$.
+		\end{itemize}
+		Do contrário, $M$ é dita não orientável.
+
+		\pause
+
+		Uma escolha de estrutura diferenciável que satisfaz (i) é chamada de orientação de $M$.
+		Duas estruturas diferenciáveis que satisfazem (i) são ditas de mesma orientação se sua união ainda satisfaz (i).
+	\end{block}
+\end{frame}
+
+\subsection{Critérios de Orientabilidade}
+
+\begin{frame}{Mapa de Gauss}
+	\begin{block}{Definição}
+		O mapa de Gauss de uma superfície $S \subset \mathbb{R}^3$ é uma aplicação $N:S \to S^2$ diferenciável, tal que
+		$N(p)$ é tangente a $S$ em $p$.
+	\end{block}
+
+	\begin{center}
+		\includegraphics[height=0.5\paperheight]{../figures/gauss_map.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Orientabilidade em $\mathbb{R}^3$}
+	\begin{block}{Proposição}
+		Uma superfície $S \subset \mathbb{R}^3$ é orientável se, e somente se, existe um mapa de Gauss $N:S \to S^2$
+	\end{block}
+\end{frame}
+
+\begin{frame}{Critério de orientabilidade}
+	\begin{block}{Proposição}
+		Se $M$ é coberta por duas vizinhanças coordenadas, cuja interseção é conexa, então $M$ é orientável.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Exemplo}
+	A esfera $S^{n}=\{ \left( x_{1}, \dots, x_{n+1}\right)\in \mathbb{R}^{n+1};\sum x_{i}^{2}=1 \}$ é orientável.
+
+	Basta considerar as projeções estereográficas do polo norte e do polo sul.
+\end{frame}
+
+\begin{frame}{Critério de orientabilidade}
+	\begin{block}{Proposição}
+		A variedade $M/G$ é orientável se, e somente se, existe uma orientação de $M$ que é preservada por todos os difeormosfismos de $G$.
+	\end{block}
+
+	Isto é, sendo $\{ (U_{\alpha}, \mathbf{x}_{\alpha} )\}$ uma orientação de $M$, para todo $g \in G$, $\{ (U_{\alpha}, \varphi_g \circ \mathbf{x}_{\alpha} )\} \cup \{ (U_{\alpha}, \mathbf{x}_{\alpha} )\}$ também o é.
+\end{frame}
+
+\begin{frame}{Exemplos}
+	O plano projetivo $P^2(\mathbb{R})$ e a faixa de Möbius não são orientáveis.
+\end{frame}
+
+\begin{frame}{Critério de orientabilidade}
+	\begin{block}{Proposição}
+		Se $M,N$ são duas variedades diferenciáveis munidas com uma ação de um grupo $G$, $M/G$ é orientável e existe um difeomorfismo $f:M \to N$ compatível com a ação de grupo, isto é, $f(gp)=gf(p)$, então $N/G$ é orientável.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Exemplo}
+	A faixa de Möbius infinita, obtida quocientando o cilindro $\{(x, y, z) \in \mathbb{R}^3; x^2 + y^2 = 1\}$ não é orientável.
+
+	Basta considerar a faixa de Möbius e a contrapositiva da proposição, juntamente com o difeormofismo $f(x,y,z)=(x, y, \tan(\frac{\pi z}{2}))$.
+\end{frame}
+
+
+
+
+% Demais slides
+% \begin{frame}{Título do Slide}
+% 	\vspace{0.5cm}
+% 	Este é um modelo Beamer personalizado para o evento \textbf{X Ágora Matemática}.
+% 	$x^2 = 3$
+% 	\begin{itemize}
+% 		\item este é um;
+% 		\item exemplo deasrutura;
+% 		\item com vários itens.
+% 	\end{itemize}
+
+% 	\begin{block}{Isso é um bloco}
+% 		O uso de fontes sem serifa facilita a leitura em projeções digitais.
+% 	\end{block}
+% \end{frame}
+
+\end{document}
