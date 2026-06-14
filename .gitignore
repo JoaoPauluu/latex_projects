@@ -8,6 +8,8 @@
 **/build/*.out
 **/build/*.xdv
 **/build/*.synctex.gz
+**/build/*.vrb
+
 
 
 *.aux
@@ -21,3 +23,4 @@
 *.synctex.gz
 *.bbl
 *.blg
+*.vrb

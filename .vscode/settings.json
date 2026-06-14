@@ -61,7 +61,8 @@
         "**/*.out": true,
         "**/*.run.xml": true,
         "**/*.snm": true,
-        //"**/*.synctex.gz": true,
-        "**/*.toc": true
+        "**/*.synctex.gz": true,
+        "**/*.toc": true,
+        "**/*.vrb": true
     }
 }
