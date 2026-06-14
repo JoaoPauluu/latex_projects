@@ -1,14 +1,17 @@
 {
+    "editor.formatOnSave": true,
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop",
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "on"
+    },
+    "latex-workshop.formatting.latex": "latexindent",
     "latex-workshop.view.pdf.viewer": "tab",
-
     "latex-workshop.latex.autoBuild.run": "onSave",
-
     "latex-workshop.latex.autoClean.run": "onBuilt",
-
     "latex-workshop.latex.outDir": "%DIR%/../build",
-
-    "latex-workshop.linting.chktex.exec.path": "C:\\Users\\João Paulo\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64",
-
+    "latex-workshop.linting.chktex.enabled": false,
+    //"latex-workshop.linting.chktex.exec.path": "C:/Users/João Paulo/AppData/Local/Programs/MiKTeX/miktex/bin/x64/chktex.exe",
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk",
@@ -23,7 +26,6 @@
             ]
         }
     ],
-
     "latex-workshop.latex.recipes": [
         {
             "name": "latexmk (XeLaTeX)",
@@ -32,7 +34,6 @@
             ]
         }
     ],
-
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
         "*.bbl",
@@ -48,7 +49,6 @@
         //"*.synctex.gz",
         "*.toc"
     ],
-
     "files.exclude": {
         "**/*.aux": true,
         "**/*.bbl": true,
