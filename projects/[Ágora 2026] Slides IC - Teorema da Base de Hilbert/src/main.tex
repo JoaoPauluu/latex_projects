@@ -12,6 +12,10 @@
 \usepackage{tikz-cd}
 \usepackage{amssymb}
 
+\usepackage[backend=biber, style=authoryear]{biblatex}
+
+\addbibresource{refs.bib}
+
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -154,7 +158,7 @@
 		\begin{itemize}
 			\item Um módulo Noetheriano é tal que toda sequência ascendente de ideais $$M_0 \subseteq M_1 \subseteq \ldots \subseteq M_n$$ é estacionária.
 			      \pause
-			\item Um módulo Noetheriano é tal que toda sequência descendente de ideais $$M_0 \supseteq M_1 \supseteq \ldots \supseteq M_n$$ é estacionária.
+			\item Um módulo Artiniano é tal que toda sequência descendente de ideais $$M_0 \supseteq M_1 \supseteq \ldots \supseteq M_n$$ é estacionária.
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -303,6 +307,10 @@
 		\vspace{0.3cm}
 		Portanto, $\mathfrak{a}$ é gerado finitamente pelos $f_i$ unidos aos geradores de $\mathfrak{a} \cap M$.
 	\end{block}
+\end{frame}
+
+\begin{frame}{Referências}
+	\printbibliography
 \end{frame}
 
 \end{document}

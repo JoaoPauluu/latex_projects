@@ -9,6 +9,9 @@
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
 \usepackage{amsmath,amssymb}
+\usepackage[backend=biber, style=authoryear]{biblatex}
+
+\addbibresource{refs.bib}
 
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -344,7 +347,7 @@
 
 \begin{frame}{Orientabilidade}
 	\begin{block}{Definição}
-		Seja $M$ uma variedade diferenciável. M é dita orientável se existe uma estrutura diferenciável $\{ (U_{\alpha}, \mathbf{x}_{\alpha} \}_{\alpha \in L}$ tal que:
+		Seja $M$ uma variedade diferenciável. M é dita orientável se existe uma estrutura diferenciável $\{ (U_{\alpha}, \mathbf{x}_{\alpha} ) \}_{\alpha \in L}$ tal que:
 		\begin{itemize}
 			\item (i) Para todo $\alpha, \beta \in L$ com $\mathbf{x}_{\alpha}(U_{\alpha})\cap \mathbf{x}_{\beta}(U_{\beta}) = W \neq \emptyset$, temos que $\det d(\mathbf{x}_{\beta}^{-1}\circ \mathbf{x}_{\alpha}|_{\mathbf{x_{\alpha}}^{-1}(W)})_{q} >0$ para todo $q\in \mathbf{x_{\alpha}}^{-1}(W)$.
 		\end{itemize}
@@ -400,17 +403,21 @@
 	O plano projetivo $P^2(\mathbb{R})$ e a faixa de Möbius não são orientáveis.
 \end{frame}
 
-\begin{frame}{Critério de orientabilidade}
-	\begin{block}{Proposição}
-		Se $M,N$ são duas variedades diferenciáveis munidas com uma ação de um grupo $G$, $M/G$ é orientável e existe um difeomorfismo $f:M \to N$ compatível com a ação de grupo, isto é, $f(gp)=gf(p)$, então $N/G$ é orientável.
-	\end{block}
+\begin{frame}{Referências}
+	\printbibliography
 \end{frame}
 
-\begin{frame}{Exemplo}
-	A faixa de Möbius infinita, obtida quocientando o cilindro $\{(x, y, z) \in \mathbb{R}^3; x^2 + y^2 = 1\}$ não é orientável.
+% \begin{frame}{Critério de orientabilidade}
+% 	\begin{block}{Proposição}
+% 		Se $M,N$ são duas variedades diferenciáveis munidas com uma ação de um grupo $G$, $M/G$ é orientável e existe um difeomorfismo $f:M \to N$ compatível com a ação de grupo, isto é, $f(gp)=gf(p)$, então $N/G$ é orientável.
+% 	\end{block}
+% \end{frame}
 
-	Basta considerar a faixa de Möbius e a contrapositiva da proposição, juntamente com o difeormofismo $f(x,y,z)=(x, y, \tan(\frac{\pi z}{2}))$.
-\end{frame}
+% \begin{frame}{Exemplo}
+% 	A faixa de Möbius infinita, obtida quocientando o cilindro $\{(x, y, z) \in \mathbb{R}^3; x^2 + y^2 = 1\}$ não é orientável.
+
+% 	Basta considerar a faixa de Möbius e a contrapositiva da proposição, juntamente com o difeormofismo $f(x,y,z)=(x, y, \tan(\frac{\pi z}{2}))$.
+% \end{frame}
 
 
 
