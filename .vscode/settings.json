@@ -7,17 +7,22 @@
     },
     "latex-workshop.formatting.latex": "latexindent",
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.latex.autoBuild.run": "onSave",
-    "latex-workshop.latex.autoClean.run": "onBuilt",
+    // "onFileChange" observa os arquivos que o main.tex realmente \input,
+    // não só o arquivo ativo no editor — necessário pro autobuild
+    // funcionar corretamente ao editar capítulos separados.
+    "latex-workshop.latex.autoBuild.run": "onFileChange",
+    // NÃO limpar após cada build: apagar aux/bcf/toc destrói o cache
+    // incremental do latexmk e força reruns completos toda vez.
+    // Limpe só quando a build falhar (evita lixo de builds quebradas).
+    "latex-workshop.latex.autoClean.run": "onFailed",
     "latex-workshop.latex.outDir": "%DIR%/../build",
     "latex-workshop.linting.chktex.enabled": false,
-    //"latex-workshop.linting.chktex.exec.path": "C:/Users/João Paulo/AppData/Local/Programs/MiKTeX/miktex/bin/x64/chktex.exe",
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk",
             "command": "latexmk",
             "args": [
-                "-xelatex",
+                "-pdf",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
@@ -28,7 +33,7 @@
     ],
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk (XeLaTeX)",
+            "name": "latexmk (pdflatex)",
             "tools": [
                 "latexmk"
             ]
@@ -46,7 +51,6 @@
         "*.out",
         "*.run.xml",
         "*.snm",
-        //"*.synctex.gz",
         "*.toc"
     ],
     "files.exclude": {
