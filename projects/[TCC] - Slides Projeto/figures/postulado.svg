@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="800"
+   height="600"
+   id="svg2">
+  <defs
+     id="defs4" />
+  <g
+     id="layer1">
+    <g
+       transform="matrix(1.1061224,0,0,1.1061224,-38.02449,-56.84129)"
+       id="g8142">
+      <path
+         d="M 47.5,430 L 308.5,180.5"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.71217704;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path2248" />
+      <path
+         d="M 197.5,176 L 480,316.5"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.71217704;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4192" />
+      <path
+         d="M 492.5,322.5 L 738.5,445"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.71217704;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:32.54612546, 32.54612546;stroke-dashoffset:0;stroke-opacity:1"
+         id="path4194" />
+      <path
+         d="M 60.5,354.5 L 455.5,398.5"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.71217704;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path5165" />
+      <path
+         d="M 472.5,400 L 744.5,430.5"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.71217704;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:32.54612546, 32.54612546;stroke-dashoffset:0;stroke-opacity:1"
+         id="path5167" />
+      <text
+         x="143.16414"
+         y="358.78366"
+         style="font-size:34.00123596px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         id="text8104"
+         xml:space="preserve"><tspan
+           x="143.16414"
+           y="358.78366"
+           id="tspan8106">α</tspan></text>
+      <text
+         x="265.93396"
+         y="253.21402"
+         style="font-size:34.41074753px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         id="text8108"
+         xml:space="preserve"><tspan
+           x="265.93396"
+           y="253.21402"
+           id="tspan8110">β</tspan></text>
+      <path
+         d="M 312.44912,233.4662 A 43.941635,43.941635 0 0 1 242.17485,244.68808"
+         transform="matrix(1.3103448,0,0,1.3103448,-84.80057,-66.294824)"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.06981945;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+         id="path8116" />
+      <path
+         d="M 304.87792,183.11572 A 43.941635,43.941635 0 0 1 316.76535,219.69592"
+         transform="matrix(1.3103448,0,0,1.3103448,-237.83868,80.177295)"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.06981945;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+         id="path8118" />
+    </g>
+  </g>
+</svg>
