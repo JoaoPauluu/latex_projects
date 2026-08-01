@@ -1,0 +1,48 @@
+\documentclass[12pt, oneside]{book}
+
+% =====================================================
+% Preâmbulo (pacotes, ambientes de teorema, etc.)
+% =====================================================
+\input{preambulo}
+
+% =====================================================
+% Dados do trabalho
+% =====================================================
+\newcommand{\tituloTCC}{Geodésicas e o Teorema de Hopf-Rinow na Geometria Riemanniana}
+\newcommand{\autorUm}{João Paulo Chiari de Gasperi}
+\newcommand{\autorDois}{Welinton Anderson Rocha}
+\newcommand{\autorTres}{Roger Emanuel Moraes Pezzott}
+
+\title{\tituloTCC}
+\author{\autorUm \and \autorDois \and \autorTres}
+\date{\today}
+
+\begin{document}
+
+% =====================================================
+% Elementos pré-textuais
+% =====================================================
+\input{capitulos/capa}
+
+\frontmatter
+\tableofcontents
+\clearpage
+
+% (opcional) Resumo/Abstract — descomente se desejar usar
+% \input{capitulos/resumo}
+
+% =====================================================
+% Corpo do texto — cada capítulo em um arquivo próprio
+% =====================================================
+\mainmatter
+
+\input{capitulos/cap0_introducao.tex}
+\input{capitulos/cap1_preliminares.tex}
+
+
+% =====================================================
+% Referências bibliográficas
+% =====================================================
+\printbibliography[title={Referências Bibliográficas}]
+
+\end{document}

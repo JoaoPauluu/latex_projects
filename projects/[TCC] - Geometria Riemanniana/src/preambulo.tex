@@ -1,0 +1,83 @@
+% !TEX root = ./main.tex
+
+% =====================================================
+% PREÂMBULO — pacotes, configurações e ambientes
+% =====================================================
+
+% ---------- Codificação e idioma ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+
+% ---------- Matemática ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}               % negrito em símbolos matemáticos
+
+% ---------- Figuras e desenhos ----------
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, positioning, decorations.markings, angles, quotes}
+\usepackage{float}
+\usepackage{subcaption}
+
+% ---------- Layout de página ----------
+\usepackage[a4paper, top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+
+% ---------- Tabelas ----------
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% ---------- Referências cruzadas e citações ----------
+\usepackage[
+  backend=biber,
+  style=abnt-numeric,
+  sorting=none
+]{biblatex}
+\addbibresource{referencias.bib}
+
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+  pdftitle={Geometria Riemanniana: Geodésicas e o Teorema de Hopf-Rinow},
+  pdfauthor={João Paulo Chiari de Gasperi, Welinton Anderson Rocha, Roger Emanuel Moraes Pezzott}
+}
+
+% ---------- Cabeçalho/rodapé ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% =====================================================
+% AMBIENTES MATEMÁTICOS
+% Numerados por capítulo (ex.: Teorema 2.1, Lema 2.2, ...)
+% Todos compartilham o mesmo contador para manter a ordem
+% cronológica de aparição no texto.
+% =====================================================
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{corolario}[teorema]{Corolário}
+
+\theoremstyle{definition}
+\newtheorem{exemplo}[teorema]{Exemplo}
+\newtheorem{definicao}[teorema]{Definição}
+
+\theoremstyle{remark}
+\newtheorem{observacao}[teorema]{Observação}
+
+% Fim de demonstração customizado (símbolo QED)
+\renewcommand{\qedsymbol}{$\blacksquare$}
