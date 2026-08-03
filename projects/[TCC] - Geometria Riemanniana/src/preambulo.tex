@@ -21,11 +21,14 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, calc, positioning, decorations.markings, angles, quotes}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shadows}
 \usepackage{float}
 \usepackage{subcaption}
 
 % ---------- Layout de página ----------
-\usepackage[a4paper, top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage[a4paper, top=3cm, bottom=2cm, left=3cm, right=2cm, headheight=14.5pt]{geometry}
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{indentfirst}
@@ -67,39 +70,47 @@
 % cronológica de aparição no texto.
 % =====================================================
 \theoremstyle{plain}
-\newtheorem{teorema}{Teorema}[chapter]
-\newtheorem{proposicao}[teorema]{Proposição}
-\newtheorem{lema}[teorema]{Lema}
-\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{proposition}[theorem]{Proposição}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolário}
 
 \theoremstyle{definition}
-\newtheorem{exemplo}[teorema]{Exemplo}
-\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{example}[theorem]{Exemplo}
+\newtheorem{examples}[theorem]{Exemplos}
+\newtheorem{definition}[theorem]{Definição}
+\newtheorem{axiom}[chapter]{Axioma}
 
 \theoremstyle{remark}
-\newtheorem{observacao}[teorema]{Observação}
+\newtheorem{observation}[theorem]{Observação}
 
 % Fim de demonstração customizado (símbolo QED)
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
 % Nome em minúsculo (uso em \cref) e maiúsculo (uso em \Cref)
-\crefname{teorema}{teorema}{teoremas}
-\Crefname{teorema}{Teorema}{Teoremas}
+\crefname{axiom}{axioma}{axiomas}
+\Crefname{axiom}{Axioma}{Axiomas}
 
-\crefname{proposicao}{proposição}{proposições}
-\Crefname{proposicao}{Proposição}{Proposições}
+\crefname{theorem}{teorema}{teoremas}
+\Crefname{theorem}{Teorema}{Teoremas}
 
-\crefname{lema}{lema}{lemas}
-\Crefname{lema}{Lema}{Lemas}
+\crefname{proposition}{proposição}{proposições}
+\Crefname{proposition}{Proposição}{Proposições}
 
-\crefname{corolario}{corolário}{corolários}
-\Crefname{corolario}{Corolário}{Corolários}
+\crefname{lemma}{lema}{lemas}
+\Crefname{lemma}{Lema}{Lemas}
 
-\crefname{exemplo}{exemplo}{exemplos}
-\Crefname{exemplo}{Exemplo}{Exemplos}
+\crefname{corollary}{corolário}{corolários}
+\Crefname{corollary}{Corolário}{Corolários}
 
-\crefname{definicao}{definição}{definições}
-\Crefname{definicao}{Definição}{Definições}
+\crefname{example}{exemplo}{exemplos}
+\Crefname{example}{Exemplo}{Exemplos}
 
-\crefname{observacao}{observação}{observações}
-\Crefname{observacao}{Observação}{Observações}
+\crefname{examples}{exemplos}{exemplos}
+\Crefname{examples}{Exemplos}{Exemplos}
+
+\crefname{definition}{definição}{definições}
+\Crefname{definition}{Definição}{Definições}
+
+\crefname{observation}{observação}{observações}
+\Crefname{observation}{Observação}{Observações}
