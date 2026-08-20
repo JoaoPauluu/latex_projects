@@ -1,0 +1,81 @@
+% !TEX root = ./main.tex
+% =====================================================
+% PREÂMBULO — pacotes, configurações e ambientes
+% (complementa o main.tex; NÃO redefine fontes, idioma,
+%  margens, cabeçalho/rodapé ou hyperref — isso já está
+%  configurado no main.tex)
+% =====================================================
+
+% ---------- Matemática ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}               % negrito em símbolos matemáticos
+
+% ---------- Figuras e desenhos ----------
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, positioning, decorations.markings, angles, quotes}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shadows}
+\usepackage{float}
+\usepackage{subcaption}
+
+% ---------- Tabelas ----------
+\usepackage{multirow}
+
+% ---------- Referências cruzadas e citações ----------
+\usepackage[
+  backend=biber,
+  style=abnt-numeric,
+  sorting=none
+]{biblatex}
+\addbibresource{referencias.bib}
+
+\usepackage[capitalise,brazilian]{cleveref}
+
+% =====================================================
+% AMBIENTES MATEMÁTICOS
+% Numerados por capítulo (ex.: Teorema 2.1, Lema 2.2, ...)
+% Todos compartilham o mesmo contador para manter a ordem
+% cronológica de aparição no texto.
+% =====================================================
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}[theorem]{Proposição}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolário}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Exemplo}
+\newtheorem{examples}[theorem]{Exemplos}
+\newtheorem{definition}[theorem]{Definição}
+\newtheorem{axiom}{Axioma}
+
+\theoremstyle{remark}
+\newtheorem{observation}[theorem]{Observação}
+
+% Fim de demonstração customizado (símbolo QED)
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% Nome em minúsculo (uso em \cref) e maiúsculo (uso em \Cref)
+\crefname{axiom}{axioma}{axiomas}
+\Crefname{axiom}{Axioma}{Axiomas}
+\crefname{theorem}{teorema}{teoremas}
+\Crefname{theorem}{Teorema}{Teoremas}
+\crefname{proposition}{proposição}{proposições}
+\Crefname{proposition}{Proposição}{Proposições}
+\crefname{lemma}{lema}{lemas}
+\Crefname{lemma}{Lema}{Lemas}
+\crefname{corollary}{corolário}{corolários}
+\Crefname{corollary}{Corolário}{Corolários}
+\crefname{example}{exemplo}{exemplos}
+\Crefname{example}{Exemplo}{Exemplos}
+\crefname{examples}{exemplos}{exemplos}
+\Crefname{examples}{Exemplos}{Exemplos}
+\crefname{definition}{definição}{definições}
+\Crefname{definition}{Definição}{Definições}
+\crefname{observation}{observação}{observações}
+\Crefname{observation}{Observação}{Observações}

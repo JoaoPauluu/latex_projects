@@ -22,7 +22,8 @@
             "name": "latexmk",
             "command": "latexmk",
             "args": [
-                "-pdf",
+                //"-pdf",
+                "-xelatex",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
