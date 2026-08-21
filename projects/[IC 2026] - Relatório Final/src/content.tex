@@ -1,22 +1,29 @@
 % !TEX root = ./main.tex
 
+\newcommand{\recuo}{\hspace*{1.25cm}}
+
 \section*{Introdução}
-É fato que, no anel dos inteiros $\mathbb{Z}$, todo elemento $n$ possuí uma única expressão, a menos da ordem, em números primos. Tal resultado é comumente mostrado em um curso introdutório de Teoria de Números ou de Álgebra. Emmy Noether, em seu artigo "Teoria de Ideais em Anéis", publicado no ano de 1921, (https://arxiv.org/pdf/1401.2577) busca condições para generalizar tal fatoração prima em anéis que possuem algumas propriedades semelhantes as de $\mathbb{Z}$. E. Noether demonstrou que, sob algumas condições, todo ideal de um anel comutativo pode ser decomposto como uma interseção finita de Ideais primários, e é única, no sentido que os radicais dos ideais de tal decomposição são os mesmos, independente da decomposição. Os anéis que satisfazem tal condição são conhecidos hoje em dia como Anéis Noetherianos, em homenagem a matemática.
+
+\recuo É fato que, no anel dos inteiros $\mathbb{Z}$, todo elemento $n$ possuí uma única expressão, a menos da ordem, em um produto de números primos. Tal resultado é comumente mostrado em um curso introdutório de Teoria de Números ou de Álgebra. \textcite{noether}, em seu artigo "Teoria de Ideais em Anéis", busca condições para generalizar tal fatoração prima em anéis que possuem algumas propriedades semelhantes as de $\mathbb{Z}$. Noether demonstrou que, sob algumas condições, todo ideal de um anel comutativo pode ser decomposto como uma interseção finita de ideais primários, e é única, no sentido que os radicais dos ideais de tal decomposição são os mesmos, independente da decomposição. Os anéis que satisfazem tal condição são conhecidos hoje em dia como Anéis Noetherianos, em homenagem a matemática.
 A propriedade Noetheriana afirma que, dada qualquer cadeia ascendente de ideais $\mathfrak{p}_{1} \subseteq \mathfrak{p}_{2} \subseteq\dots$ é estacionária, isto é, existe $n$, tal que $\mathfrak{p}_{n+i}=\mathfrak{p}_{i}$, para todo $i \in \mathbb{Z}_{+}$. 
-O objetivo dessa pesquisa é estudar as condições de cadeia, isto é, a propriedade Noetheriana, e a Artiniana, a qual é análoga a ascendente, porém considerando cadeias descendentes. Como de costume, consideraremos tais propriedades em objetos mais gerais que anéis: módulos.
+
+O objetivo dessa pesquisa é estudar as condições de cadeia, isto é, a propriedade Noetheriana, e a Artiniana, a qual é análoga a ascendente, porém considerando cadeias descendentes. Consideraremos tais propriedades em objetos mais gerais que anéis: módulos.
 Os módulos são como espaços vetoriais, isto é, um grupo Abeliano, munido de uma ação de um conjunto. No caso da Álgebra Linear, tal conjunto é um corpo, já no caso dos módulos, o conjunto que age sobre o grupo é um anel comutativo e com unidade multiplicativa. É facil ver que, deduzindo propriedades sobre módulos, tais propriedades também valem para um anel, pois, de forma análoga aos espaços vetoriais, todo anel é um módulo sobre si mesmo.
-O objetivo dessa pesquisa é estudar as propriedades dos módulos noetherianos e artinianos e comparar tais módulos com os espaços vetoriais finitamente gerados. Ela justifica-se pela relevância matemática e histórico-matemática do tema, e pela capacidade de generalização.
+O objetivo dessa pesquisa é estudar as propriedades dos módulos Noetherianos e Artinianos e comparar tais módulos com os espaços vetoriais finitamente gerados. Ela justifica-se pela relevância matemática e histórico-matemática do tema, e pela sua capacidade de generalização de conceitos estudados em Álgebra Linear.
 
 \section*{Materiais e método}
-A pesquisa é de cunho qualitativo-dedutivo, e procura exibir, seguindo o costume matemático, definições apropriadas, demonstrações lógicas e exemplos, que ajudam a ilustrar os conceitos estudados. Baseando-se na obra "Álgebra Comutativa" de Atiyah e McDonald (CITAR O MACDONALDS), explicitaremos as definições em ordem lógica e intuitiva, e evidenciaremos os sentidos nos quais os módulos generalizam os espaços vetoriais e quais propriedades mudam ao remover a não divisibilidade por zero e os elementos inversos.
+
+\recuo A pesquisa é de cunho qualitativo-dedutivo, e procura exibir, seguindo o costume matemático, definições apropriadas, demonstrações lógicas e exemplos, que ajudam a ilustrar os conceitos estudados. Baseando-se na obra "Álgebra Comutativa" de \textcite{macdonald}, explicitaremos as definições em ordem lógica e intuitiva, e evidenciaremos os sentidos nos quais os módulos generalizam os espaços vetoriais e quais propriedades surgem ou desaparecem ao remover a não divisibilidade por zero e os elementos inversos dos elementos escalares.
 
 \section*{Resultados e Discussão}
-Começaremos por apresentar a definição e alguns exemplos de módulos. Depois, introduziremos as condições de cadeia e mostraremos uma classificação dos módulos Noetherianos, seguida por diversas propriedades do mesmo.
+
+\recuo Começaremos por apresentar a definição e alguns exemplos de módulos. Depois, introduziremos as condições de cadeia e mostraremos uma classificação dos módulos Noetherianos, seguida por diversas propriedades do mesmo.
 
 
 \subsection*{Módulos}
+
 \label{loc:módulos}
-Nesse texto, todos os anéis são comutativos e com unidade, salvo menção contrária.
+\recuo Nesse texto, todos os anéis são comutativos e com unidade, salvo menção contrária.
 A primeira definição e a fundamental da teoria é a de módulo. Intuitivamente, módulos são objetos que generalizam os espaços vetoriais no sentido de serem um grupo aditivo, munidos com uma ação: de um corpo, no caso do espaço vetorial e de um anel, no caso do módulo.
 \begin{definition}
 \label{loc:def_1_:_módulos_e_homomorfismos.definição}
@@ -31,7 +38,8 @@ Isto é, um $A$-Módulo é um par $(M, \mu)$, em que $M$ é um grupo abeliano e 
 \end{definition}
 	Alguns exemplos de módulos:
 \begin{examples}
-\label{loc:def_1_:_módulos_e_homomorfismos.exemplos}
+	\label{loc:def_1_:_módulos_e_homomorfismos.exemplos}
+	$ $\newline
 \begin{enumerate}
 \item Um ideal $\mathfrak{a}\subseteq A$ é um $A$-módulo. Basta definir $\mu(a,x) = ax$ (produto do anel). Em particular, o anel $A$ é um $A$-módulo. A recíproca também é verdade, isto é, todo submódulo de $A$ é um ideal de $A$. Isso quer dizer que o conjunto de submódulos de um anel $A$ (como um A-módulo) é o conjunto de ideais de $A$.
 \item Se $A=k$ é um corpo, então os $A$-módulos são precisamente os $k$-espaços vetoriais. Isso evidencia que módulo é uma generalização de espaço vetorial.
@@ -131,8 +139,9 @@ Isso implica que $\phi(e_{1}), \dots, \phi(e_{n})$ gera $M$. Com efeito, se $m \
 
 
 \subsection*{Condições de Cadeia}
+
 \label{loc:condições_de_cadeia}
-Nesta sessão, introduziremos o conceito central da pesquisa: Cadeias ascendentes e descendentes. Primeiramente, retomemos uma definição da teoria de conjuntos, a qual será conveniente nas definições.
+\recuo Nesta sessão, introduziremos o conceito central da pesquisa: Cadeias ascendentes e descendentes. Primeiramente, retomemos uma definição da teoria de conjuntos, a qual será conveniente nas definições.
 \begin{definition}
 \label{loc:def_1_:_conjunto_parcialmente_ordenado}
 Um conjunto $\Sigma$ parcialmente ordenado é um conjunto munido por uma relação $\leq$, a qual é transitiva ($x \leq y$ e $y\leq z$ implica que $x\leq z$), antissimétrica ($x\leq y$ e $y\leq x$ implica que $x=y$) e reflexiva ($x \leq x$),
@@ -146,7 +155,7 @@ Se $\Sigma$ é um conjunto parcialmente ordenado, então as seguintes afirmaçõ
 \end{enumerate}
 \begin{proof}
 
-Consultar (CITAR REFERENCIA)
+Consultar \textcite{geronimo}.
 \end{proof}
 \end{proposition}
 Em seguida, podemos definir a noção de módulos e anéis Noetherianos e Artinianos.
@@ -165,7 +174,8 @@ De forma equivalente, se seus ideais satisfazem a.c.c. (respectivamente d.c.c.).
 \end{definition}
 É imediato verificar que se um módulo $M$ é Noetheriano ou Artiniano, então todo submódulo de $M$ também o é.
 \begin{examples}
-\label{loc:def_2_:_noetheriano_e_artiniano.exemplos}
+	\label{loc:def_2_:_noetheriano_e_artiniano.exemplos}
+	$ $\newline
 \begin{enumerate}
 \item Um $K-$espaço vetorial de dimensão finita $n$ é um $K-$módulo Noetheriano e Artiniano.
 	Com efeito, seus submódulos são os seus subespaços vetoriais, implicando que toda sequência, ascendente ou descendente, de módulos, é formado por no máximo $n+1$ elementos. 
@@ -466,9 +476,11 @@ dim(V)=dim(ker(T))+dim(\mathrm{Im}(T)).
 
 
 \section*{Conclusões}
-Após apresentarmos a definição formal de módulo, módulo Noetheriano e módulo Artiniano e diversas propriedades sobre tais módulos, ficou evidente que os mesmos cumprem o papel de uma generalização dos espaços vetoriais. Também classificamos os módulos Noetherianos como aqueles em que todos os submódulos são finitamente gerados. As propriedades exibidas servem como uma introdução a teoria de módulos, além de proporcionarem uma maior compreensão das propriedades dos espaços vetoriais, tornando mais clara a escência por trás delas, como no caso do teorema do núcleo e da imagem, por exemplo.
+
+\recuo Após apresentarmos a definição formal de módulo, módulo Noetheriano e módulo Artiniano e diversas propriedades sobre tais módulos, ficou evidente que os mesmos cumprem o papel de uma generalização dos espaços vetoriais. Também classificamos os módulos Noetherianos como aqueles em que todos os submódulos são finitamente gerados. As propriedades exibidas servem como uma introdução a teoria de módulos, além de proporcionarem uma maior compreensão das propriedades dos espaços vetoriais, tornando mais clara a escência por trás delas, como no caso do teorema do núcleo e da imagem, por exemplo.
 
 
 \section*{Referências}
-sex
+
+\printbibliography
 
