@@ -4,11 +4,11 @@
 
 \section*{Introdução}
 
-\recuo É fato que, no anel dos inteiros $\mathbb{Z}$, todo elemento $n$ possuí uma única expressão, a menos da ordem, em um produto de números primos. Tal resultado é comumente mostrado em um curso introdutório de Teoria de Números ou de Álgebra. \textcite{noether}, em seu artigo "Teoria de Ideais em Anéis", busca condições para generalizar tal fatoração prima em anéis que possuem algumas propriedades semelhantes as de $\mathbb{Z}$. Noether demonstrou que, sob algumas condições, todo ideal de um anel comutativo pode ser decomposto como uma interseção finita de ideais primários, e é única, no sentido que os radicais dos ideais de tal decomposição são os mesmos, independente da decomposição. Os anéis que satisfazem tal condição são conhecidos hoje em dia como Anéis Noetherianos, em homenagem a matemática.
-A propriedade Noetheriana afirma que, dada qualquer cadeia ascendente de ideais $\mathfrak{p}_{1} \subseteq \mathfrak{p}_{2} \subseteq\dots$ é estacionária, isto é, existe $n$, tal que $\mathfrak{p}_{n+i}=\mathfrak{p}_{i}$, para todo $i \in \mathbb{Z}_{+}$. 
+\recuo É fato que, no anel dos inteiros $\mathbb{Z}$, todo elemento $n$ possui uma única expressão, a menos da ordem, em um produto de números primos. Tal resultado é comumente mostrado em um curso introdutório de Teoria de Números ou de Álgebra. \textcite{noether}, em seu artigo ``Teoria de Ideais em Anéis'', busca condições para generalizar tal fatoração prima em anéis que possuem algumas propriedades semelhantes às de $\mathbb{Z}$. Noether demonstrou que, sob algumas condições, todo ideal de um anel comutativo pode ser decomposto como uma interseção finita de ideais primários, e é única, no sentido que os radicais dos ideais de tal decomposição são os mesmos, independente da decomposição. Os anéis que satisfazem tal condição são conhecidos atualmente como Anéis Noetherianos, em homenagem à matemática.
+A propriedade Noetheriana afirma que toda cadeia ascendente de ideais $\mathfrak{p}_{1} \subseteq \mathfrak{p}_{2} \subseteq\dots$ é estacionária, isto é, existe $n$, tal que $\mathfrak{p}_{n+i}=\mathfrak{p}_{i}$, para todo $i \in \mathbb{Z}_{+}$.
 
-O objetivo dessa pesquisa é estudar as condições de cadeia, isto é, a propriedade Noetheriana, e a Artiniana, a qual é análoga a ascendente, porém considerando cadeias descendentes. Consideraremos tais propriedades em objetos mais gerais que anéis: módulos.
-Os módulos são como espaços vetoriais, isto é, um grupo Abeliano, munido de uma ação de um conjunto. No caso da Álgebra Linear, tal conjunto é um corpo, já no caso dos módulos, o conjunto que age sobre o grupo é um anel comutativo e com unidade multiplicativa. É facil ver que, deduzindo propriedades sobre módulos, tais propriedades também valem para um anel, pois, de forma análoga aos espaços vetoriais, todo anel é um módulo sobre si mesmo.
+O objetivo dessa pesquisa é estudar as condições de cadeia, isto é, a propriedade Noetheriana, e a Artiniana, a qual é análoga à ascendente, porém considerando cadeias descendentes. Consideraremos tais propriedades em objetos mais gerais que anéis: módulos.
+Os módulos são como espaços vetoriais, isto é, um grupo abeliano, munido de uma ação de um conjunto. No caso da Álgebra Linear, tal conjunto é um corpo, já no caso dos módulos, o conjunto que age sobre o grupo é um anel comutativo e com unidade multiplicativa. É facil ver que, deduzindo propriedades sobre módulos, tais propriedades também valem para um anel, pois, de forma análoga aos espaços vetoriais, todo anel é um módulo sobre si mesmo.
 O objetivo dessa pesquisa é estudar as propriedades dos módulos Noetherianos e Artinianos e comparar tais módulos com os espaços vetoriais finitamente gerados. Ela justifica-se pela relevância matemática e histórico-matemática do tema, e pela sua capacidade de generalização de conceitos estudados em Álgebra Linear.
 
 \section*{Materiais e método}
@@ -26,25 +26,25 @@ O objetivo dessa pesquisa é estudar as propriedades dos módulos Noetherianos e
 \recuo Nesse texto, todos os anéis são comutativos e com unidade, salvo menção contrária.
 A primeira definição e a fundamental da teoria é a de módulo. Intuitivamente, módulos são objetos que generalizam os espaços vetoriais no sentido de serem um grupo aditivo, munidos com uma ação: de um corpo, no caso do espaço vetorial e de um anel, no caso do módulo.
 \begin{definition}
-\label{loc:def_1_:_módulos_e_homomorfismos.definição}
-Um $A-$módulo é um grupo abeliano $M$ no qual $A$ age linearmente.
-Isto é, um $A$-Módulo é um par $(M, \mu)$, em que $M$ é um grupo abeliano e $\mu:A \times M \to M$ é uma função que satisfaz as seguintes propriedades, indicando $\mu(a, x) = ax$: 
-\begin{enumerate}
-\item $a(x+y) = ax + ay$
-\item $(a+b)x = ax + bx$
-\item $(ab)x = a(bx)$
-\item $1x = x$
-\end{enumerate}
+	\label{loc:def_1_:_módulos_e_homomorfismos.definição}
+	Um $A-$módulo é um grupo abeliano $M$ no qual $A$ age linearmente.
+	Isto é, um $A$-Módulo é um par $(M, \mu)$, em que $M$ é um grupo abeliano e $\mu:A \times M \to M$ é uma função que satisfaz as seguintes propriedades, indicando $\mu(a, x) = ax$:
+	\begin{enumerate}
+		\item $a(x+y) = ax + ay$
+		\item $(a+b)x = ax + bx$
+		\item $(ab)x = a(bx)$
+		\item $1x = x$
+	\end{enumerate}
 \end{definition}
-	Alguns exemplos de módulos:
+Alguns exemplos de módulos:
 \begin{examples}
 	\label{loc:def_1_:_módulos_e_homomorfismos.exemplos}
 	$ $\newline
-\begin{enumerate}
-\item Um ideal $\mathfrak{a}\subseteq A$ é um $A$-módulo. Basta definir $\mu(a,x) = ax$ (produto do anel). Em particular, o anel $A$ é um $A$-módulo. A recíproca também é verdade, isto é, todo submódulo de $A$ é um ideal de $A$. Isso quer dizer que o conjunto de submódulos de um anel $A$ (como um A-módulo) é o conjunto de ideais de $A$.
-\item Se $A=k$ é um corpo, então os $A$-módulos são precisamente os $k$-espaços vetoriais. Isso evidencia que módulo é uma generalização de espaço vetorial.
-\item Todo grupo é um $\mathbb{Z}$-módulo. Se $n>0$ basta definir $\mu(n,x) = x + x + \dots + x$ $= \sum_{i\leq n}x$. Se $n<0, \mu(n,x) = -\mu(-n,x)$ e $\mu(0,x)=0$.
-\end{enumerate}
+	\begin{enumerate}
+		\item Um ideal $\mathfrak{a}\subseteq A$ é um $A$-módulo. Basta definir $\mu(a,x) = ax$ (produto do anel). Em particular, o anel $A$ é um $A$-módulo. A recíproca também é verdade, isto é, todo submódulo de $A$ é um ideal de $A$. Isso quer dizer que o conjunto de submódulos de um anel $A$ (como um A-módulo) é o conjunto de ideais de $A$.
+		\item Se $A=k$ é um corpo, então os $A$-módulos são precisamente os $k$-espaços vetoriais. Isso evidencia que módulo é uma generalização de espaço vetorial.
+		\item Todo grupo é um $\mathbb{Z}$-módulo. Se $n>0$ basta definir $\mu(n,x) = x + x + \dots + x$ $= \sum_{i\leq n}x$. Se $n<0, \mu(n,x) = -\mu(-n,x)$ e $\mu(0,x)=0$.
+	\end{enumerate}
 \end{examples}
 O primeiro exemplo afirma que, assim como todo corpo pode ser pensado como um espaço vetorial considerando suas operações usuais, o mesmo ocorre com anéis. Isso será explorado a fundo posteriormente.
 
@@ -52,87 +52,87 @@ O segundo exemplo acima ilustra o fato de módulos serem generalizações de esp
 
 Como é usual na matemática, quando definimos alguma estrutura, queremos alguma forma de identificar quais estruturas possuem propriedades semelhantes. A ferramenta da Álgebra Comutativa para esse fim são os homomorfismos e isomorfismos de módulos.
 \begin{definition}
-\label{loc:def_1_:_módulos_e_homomorfismos.homomorfismo_de_a:módulos}
-Se $M, N$ são $A$-módulos, então $f:M \to N$ é dito um homomorfismo de $A$-módulos se:
-$f(x+y) = f(x) + f(y), \forall x,y \in M$ ($f$ é um homomorfismo de grupos entre $M$ e $N$).
-$f(ax) = af(x), \forall a \in A, x \in M$.
+	\label{loc:def_1_:_módulos_e_homomorfismos.homomorfismo_de_a:módulos}
+	Se $M, N$ são $A$-módulos, então $f:M \to N$ é dito um homomorfismo de $A$-módulos se:
+	$f(x+y) = f(x) + f(y), \forall x,y \in M$ ($f$ é um homomorfismo de grupos entre $M$ e $N$).
+	$f(ax) = af(x), \forall a \in A, x \in M$.
 
-Note que a composição de dois homomorfismos de $A$-módulos é também um homomorfismo de $A$-módulos.
+	Note que a composição de dois homomorfismos de $A$-módulos é também um homomorfismo de $A$-módulos.
 \end{definition}
 Um isomorfismo de $A$-módulos é um homomorfismo bijetor.
 
 Naturalmente, definimos submódulos e os módulos quocientes.
 \begin{definition}
-\label{loc:def_3_:_submódulos.definição}
-Um conjunto $M' \subseteq M$ é um submódulo de $M$ (denotamos $M' \leq M$) se for um subgrupo de $M$ fechado para multiplicação por escalar. Ou seja:
-\begin{itemize}
-\item $0 \in M'$
-\item $x \in M' \implies -x \in M'$
-\item $x,y \in M' \implies x+y \in M'$
-\item $a \in A, x \in M' \implies ax \in M'$
-\end{itemize}
+	\label{loc:def_3_:_submódulos.definição}
+	Um conjunto $M' \subseteq M$ é um submódulo de $M$ (denotamos $M' \leq M$) se for um subgrupo de $M$ fechado para multiplicação por escalar. Ou seja:
+	\begin{itemize}
+		\item $0 \in M'$
+		\item $x \in M' \implies -x \in M'$
+		\item $x,y \in M' \implies x+y \in M'$
+		\item $a \in A, x \in M' \implies ax \in M'$
+	\end{itemize}
 \end{definition}
 \begin{definition}
-\label{loc:def_3_:_submódulos.módulo_quociente}
-Como $A$ é comutativo, todo subgrupo de $M$ é normal. Logo, faz sentido considerar o quociente $M/M'= \{ x +M' : x \in M \}$
+	\label{loc:def_3_:_submódulos.módulo_quociente}
+	Como $M$ é comutativo, todo subgrupo de $M$ é normal. Logo, faz sentido considerar o quociente $M/M'= \{ x +M' : x \in M \}$.
 \end{definition}
 \begin{observation}
-\label{loc:def_3_:_submódulos.quociente_como_um_a:módulo}
-Definindo $a \bar{x} = ax + M' = a(x+M') = \overline{ax}$ , com $a \in A, x \in M$ e $x+M' \in M/M'$, temos uma ação linear de $A$ sobre $M/M'$.
+	\label{loc:def_3_:_submódulos.quociente_como_um_a:módulo}
+	Definindo $a \bar{x} = ax + M' = \overline{ax}$ , com $a \in A, x \in M$ e $x+M' \in M/M'$, temos uma ação linear de $A$ sobre $M/M'$.
 
-Definindo $\phi:M \to M/M'$ como $\phi(x) = x+M'$ , temos um homomorfismo de $A$-módulos.
+	Definindo $\phi:M \to M/M'$ como $\phi(x) = x+M'$ , temos um homomorfismo de $A$-módulos.
 \end{observation}
 Na Álgebra Linear, existem subconjuntos de espaços vetoriais denominados geradores, e são tais que qualquer elemento do espaço pode ser escrito como combinação linear dos elementos desse conjunto. Uma definição análoga também existe para módulos:
 \begin{definition}
-\label{loc:def_6_:_módulos_finitamente_gerados_e_livres.definição_:_finitamente_gerado}
-Seja $m \in M$, definimos $(m) = Am = \{ am : a \in A \}$.
+	\label{loc:def_6_:_módulos_finitamente_gerados_e_livres.definição_:_finitamente_gerado}
+	Seja $m \in M$, definimos $(m) = Am = \{ am : a \in A \}$.
 
-Se, fixados $x_{1}, \dots, x_{i}, \dots$, todo elemento $m \in M$ possa ser escrito como $\sum_{i \in I} a_{i}x_{i}$, com $a_{i}\in M$, e $I$ finito, dizemos que os $x_{i}$ geram $M$. 
+	Se, fixados $x_{1}, \dots, x_{i}, \dots$, todo elemento $m \in M$ possa ser escrito como $\sum_{i \in I} a_{i}x_{i}$, com $a_{i}\in M$, e $I$ finito, dizemos que os $x_{i}$ geram $M$.
 
-Se acontecer de tal conjunto dos $x_{i}$ ser finito, dizemos que $M$ é finitamente gerado (por $\{ x_{1}, \dots, x_{n} \}$).
+	Se acontecer de tal conjunto dos $x_{i}$ ser finito, dizemos que $M$ é finitamente gerado (por $\{ x_{1}, \dots, x_{n} \}$).
 \end{definition}
-Diferentemente dos espaços vetoriais, um $A$-módulo finitamente gerado pode possuir submódulos que não são finitamente gerados. Um exemplo é o o anel de polinômios em infinitas variáveis $A[x_{1}, x_{2}, \dots]$ visto como um $A[x_{1}, x_{2}, \dots]$-módulo. $A[x_{1}, x_{2}, \dots]$ é finitamente gerado por $1$, porém o submódulo $(x_{1},x_{2},  \dots)$ gerado pelos polinômios $x_{i}$, para todo $i \in \mathbb{N}$ não é finitamente gerado. Com efeito, se tal ideal fosse finitamente gerado, digamos por $(p_{1}, \dots p_{n})$, podemos tomar $x_{i}$ como a maior variável presente nos $p_{k}$. Segue que $x_{i+1}$ não é combinação linear dos $p_{k}$, porém, $x_{i+1}\in(x_{1},x_{2}, \dots)$.
+Diferentemente dos espaços vetoriais, um $A$-módulo finitamente gerado pode possuir submódulos que não são finitamente gerados. Um exemplo é o o anel de polinômios em infinitas variáveis $A[x_{1}, x_{2}, \dots]$ visto como um $A[x_{1}, x_{2}, \dots]$-módulo. $A[x_{1}, x_{2}, \dots]$ é finitamente gerado por $1$, porém o submódulo $(x_{1},x_{2},  \dots)$ gerado pelos polinômios $x_{i}$, para todo $i \in \mathbb{N}$, não é finitamente gerado. Com efeito, se tal ideal fosse finitamente gerado, digamos por $(p_{1}, \dots p_{n})$, podemos tomar $x_{i}$ como a maior variável presente nos $p_{k}$. Segue que $x_{i+1}$ não é combinação linear dos $p_{k}$, porém, $x_{i+1}\in(x_{1},x_{2}, \dots)$.
 
 É conveniente definir algumas operações no conjunto de submódulos de um $A$-módulo $M$.
 \begin{definition}
-\label{loc:def_5_:_operações_em_submódulos.operações}
-Seja $(M_{i})_{i \in I}$ uma família de submódulos de um $A$-módulo $M$.
+	\label{loc:def_5_:_operações_em_submódulos.operações}
+	Seja $(M_{i})_{i \in I}$ uma família de submódulos de um $A$-módulo $M$.
 
-\begin{itemize}
-\item Definimos $\sum M_{i} = \left\{  \sum x_{i}: x_{i} \in M_{i}, \forall i \text{ e } x_{i} \text{ diferente de zero apenas para finitos i's}  \right\}$. O conjunto $\sum M_{i}$ é o menor submódulo de $M$ que contém todos os $M_{i}$ (é o conjunto gerado por tais).
-\item Seja $\mathfrak{a}$ um ideal do anel $A$. Definimos $\mathfrak{a}M =  \left\{  \sum_{i=0}^n a_{i}x_{i}:a_{i} \in \mathfrak{a}, x_{i}\in M  \right\}$. Note que $\mathfrak{a}M \leq M$.
-\item Definimos o produto de módulos como $\prod_{i \in I} M_{i}$, o qual é o conjunto de todas as funções $f:I \to\cup M_{i}$, tal que $f(i) = x_{i} \in M_{i}$ para todo $i$. No caso de $I$ ser enumerável, escrevemos $\prod_{i \in I} M_{i} = \{(x_1, x_2, \ldots, x_i, \ldots) | x_i \in M_i, \forall i \in I\}$.
-\item A soma direta é denotada como $\oplus_{i \in I}M_{i} \subseteq \prod M_{i}$  é o conjunto de todas as funções $f:I \to \cup M_{i},$ tal que $f(i)= x_{i} \in M_{i}, \forall i$ e $f(i) \neq 0$ apenas para um número finito de índices $i$.
-\end{itemize}
+	\begin{itemize}
+		\item Definimos $\sum M_{i} = \left\{  \sum x_{i}: x_{i} \in M_{i}, \forall i \text{ e } x_{i}\not= 0 \text{ apenas para finitos i's}  \right\}$. O conjunto $\sum M_{i}$ é o menor submódulo de $M$ que contém todos os $M_{i}$ (é o conjunto gerado por tais).
+		\item Seja $\mathfrak{a}$ um ideal do anel $A$. Definimos $\mathfrak{a}M =  \left\{  \sum_{i=0}^n a_{i}x_{i}:a_{i} \in \mathfrak{a}, x_{i}\in M  \right\}$. Note que $\mathfrak{a}M \leq M$.
+		\item Definimos o produto de módulos como $\prod_{i \in I} M_{i}$, o qual é o conjunto de todas as funções $f:I \to\cup M_{i}$, tal que $f(i) = x_{i} \in M_{i}$ para todo $i$. No caso de $I$ ser enumerável, escrevemos $\prod_{i \in I} M_{i} = \{(x_1, x_2, \ldots, x_i, \ldots) : x_i \in M_i, \forall i \in I\}$.
+		\item A soma direta $\oplus_{i \in I}M_{i} \subseteq \prod M_{i}$  é o conjunto de todas as funções $f:I \to \cup M_{i},$ tal que $f(i)= x_{i} \in M_{i}, \forall i$ e $f(i) \neq 0$ apenas para um número finito de índices $i$.
+	\end{itemize}
 \end{definition}
 \begin{definition}
-\label{loc:def_5_:_operações_em_submódulos.módulos_(n_p)}
-Sejam $N, P \leq M$, $A$-módulos.
-Definimos:
-\begin{enumerate}
-\item $(N:P) = \{ a \in A : aP \subseteq N \}$ o quociente de $N$ por $P$;
-\item $Ann(M) = (0:M) = \{ a \in A: aM = 0 \}$ o conjunto anulador de $M$;
-\item Um $A$-módulo é dito fiel se $Ann(M) = 0$.
-\end{enumerate}
+	\label{loc:def_5_:_operações_em_submódulos.módulos_(n_p)}
+	Sejam $N, P \leq M$, $A$-módulos.
+	Definimos:
+	\begin{enumerate}
+		\item $(N:P) = \{ a \in A : aP \subseteq N \}$ o quociente de $N$ por $P$;
+		\item $Ann(M) = (0:M) = \{ a \in A: aM = 0 \}$ o conjunto anulador de $M$;
+		\item Um $A$-módulo é dito fiel se $Ann(M) = 0$.
+	\end{enumerate}
 \end{definition}
 \begin{observation}
-\label{loc:def_5_:_operações_em_submódulos.a/a:módulos}
-Se $\mathfrak{a}$ é um ideal de $A$ contido em $Ann(M)$, podemos considerar $M$ como um $A/\mathfrak{a}$-módulo.
-Com efeito, se $\bar{x} \in A/\mathfrak{a}$ representado por $x \in A$, definimos $\bar{x}m=xm$. Se $\bar{x}=\bar{y}$, temos que $x\equiv y \pmod{\mathfrak{a}}$ implicando que $x-y \in \mathfrak{a} \subseteq Ann(M)$, logo $(x-y)M = 0$ e em particular, $(x-y)m =0$ implicando que $xm = ym$. Portanto, está ação está bem definida.
+	\label{loc:def_5_:_operações_em_submódulos.a/a:módulos}
+	Se $\mathfrak{a}$ é um ideal de $A$ contido em $Ann(M)$, podemos considerar $M$ como um $A/\mathfrak{a}$-módulo.
+	Com efeito, se $\bar{x} \in A/\mathfrak{a}$ representado por $x \in A$, definimos $\bar{x}m=xm$. Se $\bar{x}=\bar{y}$, temos que $x\equiv y \pmod{\mathfrak{a}}$ implicando que $x-y \in \mathfrak{a} \subseteq Ann(M)$, logo $(x-y)M = 0$ e, em particular, $(x-y)m =0$ implicando que $xm = ym$. Portanto, esta ação está bem definida.
 
-Se $\mathfrak{a} = Ann(M)$, então $M$ é fiel se considerado como um $A/\mathfrak{a}$-módulo.
-Com efeito, se $\bar{x} \in A/\mathfrak{a}$ é tal que $\bar{x}m=0$, para todo $m \in M$, temos que $xm = 0$, implicando que $x \in Ann(M)= \mathfrak{a}$, ou seja, $\bar{x}=\bar{0}$.
+	Se $\mathfrak{a} = Ann(M)$, então $M$ é fiel se considerado como um $A/\mathfrak{a}$-módulo.
+	Com efeito, se $\bar{x} \in A/\mathfrak{a}$ é tal que $\bar{x}m=0$, para todo $m \in M$, temos que $xm = 0$, implicando que $x \in Ann(M)= \mathfrak{a}$, ou seja, $\bar{x}=\bar{0}$.
 \end{observation}
 Uma propriedade essencial dos módulos finitamente gerados é a seguinte:
 \begin{proposition}
-\label{loc:2.3_:_equivalência_de_finitamente_gerado.}
-$M$ é finitamente gerado se, e somente se, $M$ é isomorfo a um quociente de $A^{n}$ para algum $n>0$.
-\begin{proof}
+	\label{loc:2.3_:_equivalência_de_finitamente_gerado.}
+	$M$ é finitamente gerado se, e somente se, $M$ é isomorfo a um quociente de $A^{n}$ para algum $n>0$.
+	\begin{proof}
 
-Suponha que  $M$ seja gerado por $x_{1}, \dots, x_{n}$. Defina $\phi:A^n\to M$, pondo $\phi(a_{0}, \dots, a_{n})= \sum a_{i}x_{i}$. Note que $\phi$ é sobrejetora, pois $M$ é gerado por $x_{1}, \dots, x_{n}$. Também, $\phi$ é um homomorfismo de $A$-módulos. Logo $A^{n}/Ker(\phi) \cong \mathrm{Im}(\phi) = M$.	Reciprocamente, seja $\omega :A^n/Q \to M$ um isomorfismo definido em um quociente de $A^{n}$. Defina $\phi:A^n\to M$, pondo $\phi(x) = \omega(x+Q)$. Como $x \mapsto x+Q$ é a projeção, então é homomorfismo sobrejetor, e portanto, como $\omega$ é isomorfismo, $\phi$ é um homomorfismo sobrejetor.
-Defina $e_{i}= (0, \dots, 0, 1, 0, \dots, 0)$, para todo $i$, com $0 < i \leq n$ a $n$-tupla com $1$ na $i$-ésima posição.	Note que $e_{1}, \dots, e_{n}$ é um conjunto gerador de $A^{n}$.
-Isso implica que $\phi(e_{1}), \dots, \phi(e_{n})$ gera $M$. Com efeito, se $m \in M$, existe um $a \in A^n$, tal que $\phi(a) = m$. Como $a \in A$, temos que $a = \sum a_{i}e_{i}$, com $a_{i} \in A$ implicando que $m = \phi\left( \sum a_{i}e_{i} \right)  =\sum a_{i} \phi(e_{i})$.
-\end{proof}
+		Suponha que  $M$ seja gerado por $x_{1}, \dots, x_{n}$. Defina $\phi:A^n\to M$, pondo $\phi(a_{0}, \dots, a_{n})= \sum a_{i}x_{i}$. Note que $\phi$ é sobrejetora, pois $M$ é gerado por $x_{1}, \dots, x_{n}$. Também, $\phi$ é um homomorfismo de $A$-módulos. Logo $A^{n}/Ker(\phi) \cong \mathrm{Im}(\phi) = M$.	Reciprocamente, seja $\omega :A^n/Q \to M$ um isomorfismo definido em um quociente de $A^{n}$. Defina $\phi:A^n\to M$, pondo $\phi(x) = \omega(x+Q)$. Como $x \mapsto x+Q$ é a projeção, então é homomorfismo sobrejetor, e portanto, como $\omega$ é isomorfismo, $\phi$ é um homomorfismo sobrejetor.
+		Defina $e_{i}= (0, \dots, 0, 1, 0, \dots, 0)$, para todo $i$, com $0 < i \leq n$ a $n$-tupla com $1$ na $i$-ésima posição.	Note que $e_{1}, \dots, e_{n}$ é um conjunto gerador de $A^{n}$.
+		Isso implica que $\phi(e_{1}), \dots, \phi(e_{n})$ gera $M$. Com efeito, se $m \in M$, existe um $a \in A^n$, tal que $\phi(a) = m$. Como $a \in A$, temos que $a = \sum a_{i}e_{i}$, com $a_{i} \in A$ implicando que $m = \phi\left( \sum a_{i}e_{i} \right)  =\sum a_{i} \phi(e_{i})$.
+	\end{proof}
 \end{proposition}
 
 
@@ -141,346 +141,342 @@ Isso implica que $\phi(e_{1}), \dots, \phi(e_{n})$ gera $M$. Com efeito, se $m \
 \subsection*{Condições de Cadeia}
 
 \label{loc:condições_de_cadeia}
-\recuo Nesta sessão, introduziremos o conceito central da pesquisa: Cadeias ascendentes e descendentes. Primeiramente, retomemos uma definição da teoria de conjuntos, a qual será conveniente nas definições.
+\recuo Nesta seção, introduziremos o conceito central da pesquisa: cadeias ascendentes e descendentes. Primeiramente, retomemos uma definição da teoria de conjuntos, a qual será conveniente nas definições seguintes.
 \begin{definition}
-\label{loc:def_1_:_conjunto_parcialmente_ordenado}
-Um conjunto $\Sigma$ parcialmente ordenado é um conjunto munido por uma relação $\leq$, a qual é transitiva ($x \leq y$ e $y\leq z$ implica que $x\leq z$), antissimétrica ($x\leq y$ e $y\leq x$ implica que $x=y$) e reflexiva ($x \leq x$),
+	\label{loc:def_1_:_conjunto_parcialmente_ordenado}
+	Um conjunto $\Sigma$ parcialmente ordenado é um conjunto munido por uma relação $\leq$, a qual é transitiva ($x \leq y$ e $y\leq z$ implica que $x\leq z$), antissimétrica ($x\leq y$ e $y\leq x$ implica que $x=y$) e reflexiva ($x \leq x$),
 \end{definition}
 \begin{proposition}
-\label{loc:6.1_:_equivalência_do_acc.enunciado}
-Se $\Sigma$ é um conjunto parcialmente ordenado, então as seguintes afirmações são equivalentes:
-\begin{enumerate}
-\item Toda sequência não decrescente $x_{1}\leq x_{2}\leq\dots\leq x_{i}\leq\dots \in \Sigma$  é estacionária, isto é, existe $n>0$ tal que $x_{n}=x_{n+i}, \forall i\geq0$;
-\item Todo subconjunto não vazio de $\Sigma$ possui um elemento maximal.
-\end{enumerate}
-\begin{proof}
+	\label{loc:6.1_:_equivalência_do_acc.enunciado}
+	Se $\Sigma$ é um conjunto parcialmente ordenado, então as seguintes afirmações são equivalentes:
+	\begin{enumerate}
+		\item Toda sequência não decrescente $x_{1}\leq x_{2}\leq\dots\leq x_{i}\leq\dots \in \Sigma$  é estacionária, isto é, existe $n>0$ tal que $x_{n}=x_{n+i}, \forall i\geq0$;
+		\item Todo subconjunto não vazio de $\Sigma$ possui um elemento maximal.
+	\end{enumerate}
+	\begin{proof}
 
-Consultar \textcite{geronimo}.
-\end{proof}
+		Consultar \textcite{geronimo}.
+	\end{proof}
 \end{proposition}
 Em seguida, podemos definir a noção de módulos e anéis Noetherianos e Artinianos.
 \begin{definition}
-\label{loc:def_2_:_noetheriano_e_artiniano.módulos}
-Seja $\Sigma$ o conjunto dos submódulos de um $A$-módulo $M$, parcialmente ordenado pela inclusão $\subseteq$.
-Se $\Sigma$ satisfaz 1) da \Cref{loc:6.1_:_equivalência_do_acc.enunciado} dizemos que $M$ satisfaz a condição de cadeia ascendente (a.c.c). Se $\Sigma$ satisfaz 2), dizemos que $M$ satisfaz a condição maximal.
-No caso de $\Sigma$ satisfaz qualquer uma das duas (e, consequentemente, ambas), $M$ é dito um módulo Noetheriano.
+	\label{loc:def_2_:_noetheriano_e_artiniano.módulos}
+	Seja $\Sigma$ o conjunto dos submódulos de um $A$-módulo $M$, parcialmente ordenado pela inclusão $\subseteq$.
+	Se $\Sigma$ satisfaz 1) da \Cref{loc:6.1_:_equivalência_do_acc.enunciado} dizemos que $M$ satisfaz a condição de cadeia ascendente (a.c.c). Se $\Sigma$ satisfaz 2), dizemos que $M$ satisfaz a condição maximal.
+	No caso de $\Sigma$ satisfaz qualquer uma das duas (e, consequentemente, ambas), $M$ é dito um módulo Noetheriano.
 
-De forma análoga se define a condição de cadeia descendente e a condição mínima, trocando $\subseteq$ por $\supseteq$. Nesse caso, o módulo é dito Artiniano.
+	De forma análoga se define a condição de cadeia descendente e a condição mínima, trocando $\subseteq$ por $\supseteq$. Nesse caso, o módulo é dito Artiniano.
 \end{definition}
 \begin{definition}
-\label{loc:def_2_:_noetheriano_e_artiniano.anéis}
-Um anel $A$ é dito Noetheriano (respectivamente Artiniano) se for Noetheriano (respectivamente Artiniano) quando considerado como um $A$-módulo.
-De forma equivalente, se seus ideais satisfazem a.c.c. (respectivamente d.c.c.).
+	\label{loc:def_2_:_noetheriano_e_artiniano.anéis}
+	Um anel $A$ é dito Noetheriano (respectivamente Artiniano) se for Noetheriano (respectivamente Artiniano) quando considerado como um $A$-módulo.
+	De forma equivalente, se seus ideais satisfazem a.c.c. (respectivamente d.c.c.).
 \end{definition}
 É imediato verificar que se um módulo $M$ é Noetheriano ou Artiniano, então todo submódulo de $M$ também o é.
 \begin{examples}
 	\label{loc:def_2_:_noetheriano_e_artiniano.exemplos}
 	$ $\newline
-\begin{enumerate}
-\item Um $K-$espaço vetorial de dimensão finita $n$ é um $K-$módulo Noetheriano e Artiniano.
-	Com efeito, seus submódulos são os seus subespaços vetoriais, implicando que toda sequência, ascendente ou descendente, de módulos, é formado por no máximo $n+1$ elementos. 
-\item Um grupo abeliano finito, quando considerado como um $A$-módulo é Noetheriano e Artiniano.
-	Com efeito, todo conjunto de submódulos desse grupo é finito e, portanto, possui elemento maximal e minimal.
-\item  $\mathbb{Z}$ como $\mathbb{Z}$-módulo satisfaz a.c.c., mas não d.c.c..
-    Como $\mathbb{Z}$ é um domínio principal, um ideal $M$ de $\mathbb{Z}$ é da forma $M=(n)$, para algum $n \in \mathbb{Z}$ com $n \geq 0$. Se $(n) \subseteq(m)$, então $n \in (m)$ e, portanto, $n=mp$ para algum $p \in \mathbb{Z}$, ou seja, $m$ divide $n$. Como $n$ possuí um número finito de divisores, segue que $(n)\subseteq(m)$ apenas para um número finito de ideais da forma $(m)$. Assim, se $(n_{1}) \subseteq(n_{2}) \subseteq \dots$ é uma cadeia ascendente de ideais de $\mathbb{Z}$ deverá ser finita, e portanto, estacionária.
-\item Seja $G$ submódulo de $\mathbb{Q}/\mathbb{Z}$, tal que $G$ consiste de todos os elementos de $\mathbb{Q}/\mathbb{Z}$ os quais a ordem é uma potência de $p$ (primo fixo).
-	Aqui, entendemos por o ordem de um elemento $x$ o menor inteiro positivo $n$, tal que $nx = x + x +\dots+x=0$. 
-	Todo elemento de $G$ pode ser representado por $\frac{m}{n}+\mathbb{Z}$, com $mdc(m,n)=1$.
-	A ordem de $\frac{m}{n}+\mathbb{Z} \in \mathbb{Q}/\mathbb{Z}$ é igual a $n$, pois $n\left( \frac{m}{n}+\mathbb{Z} \right) = \frac{mn}{n}+\mathbb{Z}=m+\mathbb{Z}=0$.
-	Logo, todo elemento de $G$ é escrito como $\frac{m}{p^{k}}+\mathbb{Z}$, para algum $k$ arbitrário.
-	Defina $G_{n}=\left\{  \frac{m}{p^{n}}+\mathbb{Z}  :m \in \mathbb{Z}^{+}\right\} \subseteq G$
-	Note que $G_{n}$ possui $p^{n}$ elementos e portanto $G_{n}\subset G_{n+1}$ (inclusão estrita).
-	Dessa forma, $G_{1}\subset G_{2}\dots$ quebra a condição a.c.c e portanto $G$ não é Noetheriano.
-	Mais ainda, todo subgrupo de $G$ é algum $G_{n}$, logo, dada uma sequência de subgrupos de $G$, temos $G_{k_{0}}\supseteq G_{k_{1}}\supseteq\dots \supseteq G_{k_{n}}=G_{1}\supseteq G\supseteq G\dots$ e portanto $G$ é Artiniano.
-\item Seja $H\subseteq \mathbb{Q}$ o conjunto de todos os números na forma $\frac{m}{p^{n}}$, com $m \in \mathbb{Z}$, $n \in \mathbb{N}$, $p$ primo fixo.
-	Construa a seguinte sequência exata: 
-\begin{equation*}
-\begin{CD}
-0@>{}>>\mathbb{Z}@>{f}>>H@>{g}>>G@>{}>>0
-\end{CD}
-\end{equation*}
- onde $G$ é o grupo do exemplo anterior, $f(z)=\frac{z}{p^{0}}$ a imersão e $g\left( \frac{m}{p^{n}} \right)=\frac{m}{p^{n}}+\mathbb{Z}$ a projeção.
-	Pela \hyperref[loc:6.3_:_relação_da_acc_e_dcc_com_sequências_exatas.proposição]{Proposição 6.3}, $H$ não é nem Noetheriano nem Artiniano, pois $G$ não é Noetheriano e $\mathbb{Z}$ não é Artiniano.
+	\begin{enumerate}
+		\item Um $K-$espaço vetorial de dimensão finita $n$ é um $K-$módulo Noetheriano e Artiniano.
+		      Com efeito, seus submódulos são os seus subespaços vetoriais, implicando que toda sequência, ascendente ou descendente, de módulos, é formado por no máximo $n+1$ elementos.
+		\item Um grupo abeliano finito, quando considerado como um $A$-módulo é Noetheriano e Artiniano.
+		      Com efeito, todo conjunto de submódulos desse grupo é finito e, portanto, possui elemento maximal e minimal.
+		\item  $\mathbb{Z}$ como $\mathbb{Z}$-módulo satisfaz a.c.c., mas não d.c.c..
+		      Como $\mathbb{Z}$ é um domínio principal, um ideal $M$ de $\mathbb{Z}$ é da forma $M=(n)$, para algum $n \in \mathbb{Z}$ com $n \geq 0$. Se $(n) \subseteq(m)$, então $n \in (m)$ e, portanto, $n=mp$ para algum $p \in \mathbb{Z}$, ou seja, $m$ divide $n$. Como $n$ possui um número finito de divisores, segue que $(n)\subseteq(m)$ apenas para um número finito de ideais da forma $(m)$. Assim, se $(n_{1}) \subseteq(n_{2}) \subseteq \dots$ é uma cadeia ascendente de ideais de $\mathbb{Z}$ deverá ser finita, e portanto, estacionária.
+		\item Seja $G$ submódulo de $\mathbb{Q}/\mathbb{Z}$, tal que $G$ consiste de todos os elementos de $\mathbb{Q}/\mathbb{Z}$ os quais a ordem é uma potência de $p$ (primo fixo).
+		      Aqui, entendemos por o ordem de um elemento $x$ o menor inteiro positivo $n$, tal que $nx = x + x +\dots+x=0$.
+		      Todo elemento de $G$ pode ser representado por $\frac{m}{n}+\mathbb{Z}$, com $mdc(m,n)=1$.
+		      A ordem de $\frac{m}{n}+\mathbb{Z} \in \mathbb{Q}/\mathbb{Z}$ é igual a $n$, pois $n\left( \frac{m}{n}+\mathbb{Z} \right) = \frac{mn}{n}+\mathbb{Z}=m+\mathbb{Z}=0$.
+		      Logo, todo elemento de $G$ é escrito como $\frac{m}{p^{k}}+\mathbb{Z}$, para algum $k$ arbitrário.
+		      Defina $G_{n}=\left\{  \frac{m}{p^{n}}+\mathbb{Z}  :m \in \mathbb{Z}^{+}\right\} \subseteq G$
+		      Note que $G_{n}$ possui $p^{n}$ elementos e portanto $G_{n}\subset G_{n+1}$ (inclusão estrita).
+		      Dessa forma, $G_{1}\subset G_{2}\dots$ quebra a condição a.c.c e portanto $G$ não é Noetheriano.
+		      Mais ainda, todo subgrupo de $G$ é algum $G_{n}$. Logo, dada uma sequência de subgrupos de $G$, temos $G_{k_{0}}\supseteq G_{k_{1}}\supseteq\dots \supseteq G_{k_{n}}=G_{1}\supseteq G\supseteq G\dots$ e portanto $G$ é Artiniano.
+		      % \item Seja $H\subseteq \mathbb{Q}$ o conjunto de todos os números na forma $\frac{m}{p^{n}}$, com $m \in \mathbb{Z}$, $n \in \mathbb{N}$, $p$ primo fixo.
+		      %       Construa a seguinte sequência exata:
+		      %       \begin{equation*}
+		      % 	      \begin{CD}
+		      % 		      0@>{}>>\mathbb{Z}@>{f}>>H@>{g}>>G@>{}>>0
+		      % 	      \end{CD}
+		      %       \end{equation*}
+		      %       onde $G$ é o grupo do exemplo anterior, $f(z)=\frac{z}{p^{0}}$ a imersão e $g\left( \frac{m}{p^{n}} \right)=\frac{m}{p^{n}}+\mathbb{Z}$ a projeção.
+		      %       Pela \hyperref[loc:6.3_:_relação_da_acc_e_dcc_com_sequências_exatas.proposição]{Proposição 6.3}, $H$ não é nem Noetheriano nem Artiniano, pois $G$ não é Noetheriano e $\mathbb{Z}$ não é Artiniano.
 
 
-\item Todo corpo é Noetheriano e Artiniano. Com efeito, os únicos submódulos de um corpo são 0 e (1).
-\item $\mathbb{Z}/n\mathbb{Z}$ é Noetheriano e Artiniano pois é um grupo finito.
-\end{enumerate}
+		\item Todo corpo é Noetheriano e Artiniano. Com efeito, os únicos submódulos de um corpo são 0 e (1).
+		\item $\mathbb{Z}/n\mathbb{Z}$ é Noetheriano e Artiniano, pois é um grupo finito.
+	\end{enumerate}
 \end{examples}
 Com essas definições, já podemos exibir uma classificação dos módulos Noetherianos:
 \begin{theorem}
-\label{loc:6.2_:_equivalência_de_noetherianos}
-$M$ é Noetheriano se, e somente se, todo submódulo de $M$ é finitamente gerado.
-\begin{proof}
+	\label{loc:6.2_:_equivalência_de_noetherianos}
+	$M$ é Noetheriano se, e somente se, todo submódulo de $M$ é finitamente gerado.
+	\begin{proof}
 
-Sejam $N\leq M$ e $\Sigma$ o conjunto de todos os submódulos de $N$ finitamente gerados.
-Notemos que $0 \in \Sigma$, implicando que $\Sigma$ não é vazio. Além disso, todo conjunto totalmente ordenado de $\Sigma$ possui um limitante superior, pois $M$ é Noetheriano. Assim, $\Sigma$ tem um elemento $N_0$ maximal, pelo Lema de Zorn.
-Por absurdo, suponha $N_{0}\neq N$. Tome $x \in N-N_{0}$ e considere o submódulo de $N_{0}+Ax$, o qual é finitamente gerado (por todos os geradores de $N_{0}$ juntamente com $x$).
-Também, $N_{0}\subset N_{0}+Ax$, o que é absurdo, já que $N_{0}$ é maximal. Portanto, $N_{0}=N$, ou seja, $N$ é finitamente gerado.
+		Sejam $N\leq M$ e $\Sigma$ o conjunto de todos os submódulos de $N$ finitamente gerados.
+		Notemos que $0 \in \Sigma$, implicando que $\Sigma$ não é vazio. Além disso, todo conjunto totalmente ordenado de $\Sigma$ possui um limitante superior, pois $M$ é Noetheriano. Assim, $\Sigma$ tem um elemento $N_0$ maximal, pelo Lema de Zorn.
+		Por absurdo, suponha $N_{0}\neq N$. Tome $x \in N-N_{0}$ e considere o submódulo de $N_{0}+Ax$, o qual é finitamente gerado (por todos os geradores de $N_{0}$ juntamente com $x$).
+		Também, $N_{0}\subset N_{0}+Ax$, o que é absurdo, já que $N_{0}$ é maximal. Portanto, $N_{0}=N$, ou seja, $N$ é finitamente gerado.
 
-Reciprocamente, seja $M_{1}\subseteq M_{2}\subseteq\dots$ uma cadeia ascendente de submódulos de $M$.
-A união $N=\cup_{i=1}^{\infty}M_{i}$ é um submódulo de $M$ e, portanto, é finitamente gerado, digamos por $x_{1}, \dots, x_{r}$.
-Para cada $x_{i}$, existe $n_{i}$, tal que $x_{i} \in M_{n_{i}}$. Faça $n=\max {n_{i}}$. Como $n_{i}\leq n$ para todo $i$, temos que $M_{n_{i}}\subseteq M_{n}$, implicando que ${x_{1}, \dots, x_{r}}\subseteq M_{n}$ e portanto $N=M_{n}$, ou seja, se $k\geq n$, $M_{k}=M_{n}$ concluindo que a cadeia é estacionária, isto é, $M$ é Noetheriano.
-\end{proof}
+		Reciprocamente, seja $M_{1}\subseteq M_{2}\subseteq\dots$ uma cadeia ascendente de submódulos de $M$.
+		A união $N=\cup_{i=1}^{\infty}M_{i}$ é um submódulo de $M$ e, portanto, é finitamente gerado, digamos por $x_{1}, \dots, x_{r}$.
+		Para cada $x_{i}$, existe $n_{i}$, tal que $x_{i} \in M_{n_{i}}$. Faça $n=\max {n_{i}}$. Como $n_{i}\leq n$ para todo $i$, temos que $M_{n_{i}}\subseteq M_{n}$, implicando que ${x_{1}, \dots, x_{r}}\subseteq M_{n}$ e portanto $N=M_{n}$, ou seja, se $k\geq n$, $M_{k}=M_{n}$ concluindo que a cadeia é estacionária, isto é, $M$ é Noetheriano.
+	\end{proof}
 \end{theorem}
 Convém comentar que existem módulos finitamente gerados que não são Noetherianos. Um exemplo é o módulo $A[x_{1}, \dots]$ de polinômios em infinitas variáveis, o qual já mostramos possuir um submódulo que não é finitamente gerado e portanto, pelo \Cref{loc:6.2_:_equivalência_de_noetherianos}, não é Noetheriano.
 
 Para analisarmos outras propriedades desses módulos, precisaremos da noção de sequência exata.
 \begin{definition}
-\label{loc:def_8_:_sequências_exatas.definição}
-Uma sequência é uma família $\{ M_{i} \}$ de $A$-módulos e homomorfismos $f_{i}:M_{i-1}\to M_{i}$. Escrevemos
-\begin{equation*}
-\begin{CD}
-\dots M_{i-1} @>{f_{i}}>>M_{i} @>{f_{i+1}}>> M_{i+1}\dots
-\end{CD}
-\end{equation*}
+	\label{loc:def_8_:_sequências_exatas.definição}
+	Uma sequência é uma família $\{ M_{i} \}$ de $A$-módulos e homomorfismos $f_{i}:M_{i-1}\to M_{i}$. Escrevemos
+	\begin{equation*}
+		\begin{CD}
+			\dots M_{i-1} @>{f_{i}}>>M_{i} @>{f_{i+1}}>> M_{i+1}\dots
+		\end{CD}
+	\end{equation*}
 
-Uma sequência é exata em $M_{i}$ se $\mathrm{Im}(f_{i})=Ker(f_{i+1})$. Uma sequência é exata se for exata em todo elemento.
+	Uma sequência é exata em $M_{i}$ se $\mathrm{Im}(f_{i})=Ker(f_{i+1})$. Uma sequência é exata se for exata em todo elemento.
 
-Sempre que tivermos o módulo $0$ no início de uma sequência, o homomorfismo que conecta $0$ ao próximo módulo é sempre $f:0 \to M$ tal que $f(0)=0$. Se $0$ está no fim da sequência, temos também o homomorfismo constante nulo $f:M\to 0$, com $f(x)=0$ para todo $x$.
+	Sempre que tivermos o módulo $0$ no início de uma sequência, o homomorfismo que conecta $0$ ao próximo módulo é sempre $f:0 \to M$ tal que $f(0)=0$. Se $0$ está no fim da sequência, temos também o homomorfismo constante nulo $f:M\to 0$, com $f(x)=0$ para todo $x$.
 \end{definition}
 \begin{proposition}
-\label{loc:def_8_:_sequências_exatas.propriedades_de_sequências_exatas}
-Sejam $M, M'$ e $M''$ $A$-módulos, $f:M'\to M$ e $g:M\to M''$. Então: 
+	\label{loc:def_8_:_sequências_exatas.propriedades_de_sequências_exatas}
+	Sejam $M, M'$ e $M''$ $A$-módulos, $f:M'\to M$ e $g:M\to M''$. Então:
 
-\begin{enumerate}
-\item A sequência 
-\end{enumerate}
-\begin{equation*}
-\begin{CD}
-0 @>>> M' @>{f}>> M
-\end{CD}
-\end{equation*}
-é exata se, e somente se, $f$ é injetora;
+	\begin{enumerate}
+		\item A sequência
+	\end{enumerate}
+	\begin{equation*}
+		\begin{CD}
+			0 @>>> M' @>{f}>> M
+		\end{CD}
+	\end{equation*}
+	é exata se, e somente se, $f$ é injetora;
 
-2. A sequência 
-\begin{equation*}
-\begin{CD}
-M @>{g}>>M''@>>>0
-\end{CD}
-\end{equation*}
-é exata se, e somente se, $g$ é sobrejetora;
+	2. A sequência
+	\begin{equation*}
+		\begin{CD}
+			M @>{g}>>M''@>>>0
+		\end{CD}
+	\end{equation*}
+	é exata se, e somente se, $g$ é sobrejetora;
 
-3. A sequência 
-\begin{equation*}
-\begin{CD}
-0@>{}>>M'@>{f}>>M@>{g}>>M''@>{}>>0
-\end{CD}
-\end{equation*}
-é exata  se, e somente se, $f$ é injetora, $g$ é sobrejetora e $g$ induz um isomorfismo de $Coker(f)=M/f(M')$ em $M''$.
-\begin{proof}
+	3. A sequência
+	\begin{equation*}
+		\begin{CD}
+			0@>{}>>M'@>{f}>>M@>{g}>>M''@>{}>>0
+		\end{CD}
+	\end{equation*}
+	é exata  se, e somente se, $f$ é injetora, $g$ é sobrejetora e $g$ induz um isomorfismo de $Coker(f)=M/f(M')$ em $M''$.
+	\begin{proof}
 
-\begin{enumerate}
-\item A sequência é exata se, e somente se, é exata em $M'$, ou seja,  $Ker(f)=\mathrm{Im}(0)=0$, em outras palavras, $f$ é injetora.
-\item De forma análoga, a sequência é exata se, e somente se, for exata em $M''$, ou seja, $\mathrm{Im}(g)=Ker(0)=M''$, em outras palavras, $g$ é sobrejetora.
-\item Note que se a sequência for exata, ela é, particularmente, exata em $M'$ e $M''$, implicando, pelos itens 1) e 2), que $f$ é injetora e $g$ é sobrejetora. Definimos $\psi:M/\mathrm{Im}(f)\to M''$ pondo $\psi(\bar{x})=g(x)$. Note que a função está bem definida pois se $\bar{x}=\bar{y}$, temos que $x\equiv y \pmod{ \mathrm{Im}(f)}$ implicando que $x-y \in \mathrm{Im}(f)=Ker(g)$. Ou seja, $g(x-y)=0$ e portanto $\psi(x)=\psi(y)$. Se $\bar{x}, \bar{y} \in M/\mathrm{Im}(f)$ são tais que $\psi(\bar{x})=\psi(\bar{y})$, temos que $g(x-y)=g(x)-g(y)=\psi(\bar{x})-\psi(\bar{y})=0$, logo $x-y \in Ker(g)=\mathrm{Im}(f)$ e portanto $\bar{x}=\bar{y}$. O fato de que $\psi$ é sobrejetora segue do fato de $g$ ser sobrejetora.
-	Reciprocamente, se $f$ for injetora e $g$ sobrejetora, novamente pelos itens 1) e 2), temos que a sequência é exata em $M'$ e $M''$. Resta mostrar que $\mathrm{Im}(f)=Ker(g)$. Seja portanto $\psi:M/\mathrm{Im}(f)\to M''$ um isomorfismo, com $\psi(\bar{x})=g(x)$. Seja $x \in \mathrm{Im}(f)$. Vale que $\bar{x}=\bar{0}$, logo $0=\psi(\bar{0})=\psi(\bar{x})=g(x)$, ou seja, $x \in Ker(g)$. Reciprocamente, se $x \in Ker(g)$, temos que $\psi(\bar{x})=g(x)=0$, ou seja, $\bar{x}=\bar{0}$ e portanto $x \in \mathrm{Im}(f)$.
-\end{enumerate}
-\end{proof}
+		\begin{enumerate}
+			\item A sequência é exata se, e somente se, é exata em $M'$, ou seja,  $Ker(f)=\mathrm{Im}(0)=0$, em outras palavras, $f$ é injetora.
+			\item De forma análoga, a sequência é exata se, e somente se, for exata em $M''$, ou seja, $\mathrm{Im}(g)=Ker(0)=M''$, em outras palavras, $g$ é sobrejetora.
+			\item Note que se a sequência for exata, ela é, particularmente, exata em $M'$ e $M''$, implicando, pelos itens 1) e 2), que $f$ é injetora e $g$ é sobrejetora. Definimos $\psi:M/\mathrm{Im}(f)\to M''$ pondo $\psi(\bar{x})=g(x)$. Note que a função está bem definida pois se $\bar{x}=\bar{y}$, temos que $x\equiv y \pmod{ \mathrm{Im}(f)}$ implicando que $x-y \in \mathrm{Im}(f)=Ker(g)$. Ou seja, $g(x-y)=0$ e, portanto, $\psi(x)=\psi(y)$. Se $\bar{x}, \bar{y} \in M/\mathrm{Im}(f)$ são tais que $\psi(\bar{x})=\psi(\bar{y})$, temos que $g(x-y)=g(x)-g(y)=\psi(\bar{x})-\psi(\bar{y})=0$, logo $x-y \in Ker(g)=\mathrm{Im}(f)$ e portanto $\bar{x}=\bar{y}$. O fato de que $\psi$ é sobrejetora segue do fato de $g$ ser sobrejetora.
+			      Reciprocamente, se $f$ for injetora e $g$ sobrejetora, novamente pelos itens 1) e 2), temos que a sequência é exata em $M'$ e $M''$. Resta mostrar que $\mathrm{Im}(f)=Ker(g)$. Seja $\psi:M/\mathrm{Im}(f)\to M''$ um isomorfismo, com $\psi(\bar{x})=g(x)$. Seja $x \in \mathrm{Im}(f)$. Vale que $\bar{x}=\bar{0}$, logo $0=\psi(\bar{0})=\psi(\bar{x})=g(x)$, ou seja, $x \in Ker(g)$. Reciprocamente, se $x \in Ker(g)$, temos que $\psi(\bar{x})=g(x)=0$, ou seja, $\bar{x}=\bar{0}$ e portanto $x \in \mathrm{Im}(f)$.
+		\end{enumerate}
+	\end{proof}
 \end{proposition}
 \begin{definition}
-\label{loc:def_8_:_sequências_exatas.sequência_exata_curta}
-Se uma sequência da seguinte forma for exata, é dita uma sequência exata curta 
-\begin{equation*}
-\begin{CD}
-0@>{}>>M'@>{f}>>M@>{g}>>M''@>{}>>0    .
-\end{CD}
-\end{equation*}
+	\label{loc:def_8_:_sequências_exatas.sequência_exata_curta}
+	Se uma sequência da seguinte forma for exata, é dita uma sequência exata curta
+	\begin{equation*}
+		\begin{CD}
+			0@>{}>>M'@>{f}>>M@>{g}>>M''@>{}>>0    .
+		\end{CD}
+	\end{equation*}
 
-Note que toda sequência exata pode ser quebrada em sequências exatas curtas. Basta tomar, para cada $M_{i}$, o $A$-módulo $N_{i}=\mathrm{Im}(f_{i})=Ker(f_{i+1})$ e construir a sequência 
-\begin{equation*}
-\begin{CD}
-0 @>{}>>N_{i}@>{i}>>M_{i}@>{\bar{f}_{i+1}}>>N_{i+1}@>{0}>>0,
-\end{CD}
-\end{equation*}
-
-com $i$ sendo a inclusão ($N_{i}\subseteq M_{i}$) e $\bar{f}_{i+1}$ induzida por $f_{i+1}$.
+	Note que toda sequência exata pode ser quebrada em sequências exatas curtas. Basta tomar, para cada $M_{i}$, o $A$-módulo $N_{i}=\mathrm{Im}(f_{i})=Ker(f_{i+1})$ e construir a sequência
+	\begin{equation*}
+		\begin{CD}
+			0 @>{}>>N_{i}@>{i}>>M_{i}@>{\bar{f}_{i+1}}>>N_{i+1}@>{0}>>0,
+		\end{CD}
+	\end{equation*}
+	com $i$ sendo a inclusão ($N_{i}\subseteq M_{i}$) e $\bar{f}_{i+1}$ induzida por $f_{i+1}$.
 \end{definition}
 As sequências exatas curtas preservam a propriedade de um módulo ser ou não Noetheriano e Artiniano no seguinte sentido:
 \begin{proposition}
-\label{loc:6.3_:_relação_da_acc_e_dcc_com_sequências_exatas.proposição}
-Seja 
-\begin{equation*}
-\begin{CD}
-0@>{}>>M'@>{\alpha}>>M@>{\beta}>>M''@>{}>>0
-\end{CD}
-\end{equation*}
+	\label{loc:6.3_:_relação_da_acc_e_dcc_com_sequências_exatas.proposição}
+	Seja
+	\begin{equation*}
+		\begin{CD}
+			0@>{}>>M'@>{\alpha}>>M@>{\beta}>>M''@>{}>>0
+		\end{CD}
+	\end{equation*}
 
-uma sequência exata de $A$-módulos. Então:
+	uma sequência exata de $A$-módulos. Então:
+	\begin{enumerate}
+		\item $M$ Noetheriano se, e somente se, $M'$ e $M''$ são Noetherianos;
+		\item $M$ Artiniano se, e somente se, $M'$ e $M''$ são Artinianos.
+	\end{enumerate}
+	\begin{proof}
 
-1) $M$ Noetheriano se, e somente se, $M'$ e $M''$ são Noetherianos;
-2) $M$ Artiniano se, e somente se, $M'$ e $M''$ são Artinianos.
-\begin{proof}
-
-Mostremos apenas a primeira afirmação. A segunda pode ser mostrada de forma análoga. Suponha $M$ Noetheriano. Sejam $(M'_{i})_{i\geq1}$ e $(M''_{i})_{i\geq1}$ cadeias ascendentes de submódulos de $M'$ e $M''$ respectivamente.
-$(\alpha(M'_{i}))_{i\geq1}$ é uma cadeia ascendente de submódulos de $M$ e, portanto, é estacionária, implicando que existe um $n_{0}$, tal que para todo $i\geq0$, $\alpha(M_{n_{0}+i})=\alpha(M_{n_{0}})$. Como $\alpha$ é injetora, temos que $X=\alpha ^{-1}(\alpha(X))$, para todo $X \subseteq M$. Portanto, $M_{n_{0}+i}=M_{n_{0}}$, para todo $i\geq0$, ou seja, $M'$ é Noetheriano.
-Para mostrar que $M''$ é Noetheriano, basta notar que $(\beta ^{-1}(M''_{i}))_{i\geq1}$ é uma cadeia ascendente de submódulos de $M$ e que $\beta$ é sobrejetiva.
-Reciprocamente, seja $(L_{i})_{i\geq1}$ uma cadeia ascendente de submódulos de $M$. $(\alpha ^{-1}(L_{i}))_{i\geq_{1}}$ e $(\beta(L_{i}))_{i\geq_{1}}$ são cadeias ascendentes de $M'$ e $M''$ respectivamente e, portanto, são estacionárias.
-Sejam $n_{0}'$ e $n_{0}''$ os índices aos quais a partir deles, as cadeias são estacionárias.
-Tome $n_{0}=\max\{n_{0}', n_{0}''\}$. A partir de $n_{0}$, ambas as cadeias são estacionárias. Mostremos que $(L_{i})_{i\geq 1}$ é estacionária. Note que dado $i \in \mathbb{N}$, temos que $L_{n_{0}}\subseteq L_{n_{0}+i}$ pela construção. Seja então $x \in L_{n_{0}+i}$. Temos que $\beta(x)\in \beta(L_{n_{0}+i})=\beta(L_{n_{0}})$, ou seja, existe $\bar{x}\in L_{n_{0}}$, tal que $\beta(\bar{x})=\beta (x)$. Note que $x-\bar{x}\in L_{n_{0}+i}$ e $\beta(x-\bar{x})=\beta(x)-\beta(\bar{x})=0$, implicando que $x-\bar{x}\in Ker(\beta)=\mathrm{Im}(\alpha)$, isto é, existe um único $t\in M'$, tal que $\alpha(t)=x-\bar{x} \in L_{n_{0}+i}$. Segue que $t \in \alpha ^{-1}(L_{n_{0}+i})=\alpha ^{-1}(L_{n_{0}})$, implicando que $x-\bar{x}=\alpha(t) \in L_{n_{0}}$ e, portanto, $x=(x-\bar{x})+\bar{x}\in L_{n_{0}}$, concluindo a demonstração.
-\end{proof}
+		Mostremos apenas a primeira afirmação. A segunda pode ser mostrada de forma análoga. Suponha $M$ Noetheriano. Sejam $(M'_{i})_{i\geq1}$ e $(M''_{i})_{i\geq1}$ cadeias ascendentes de submódulos de $M'$ e $M''$ respectivamente.
+		$(\alpha(M'_{i}))_{i\geq1}$ é uma cadeia ascendente de submódulos de $M$ e, portanto, é estacionária, implicando que existe um $n_{0}$, tal que para todo $i\geq0$, $\alpha(M_{n_{0}+i})=\alpha(M_{n_{0}})$. Como $\alpha$ é injetora, temos que $X=\alpha ^{-1}(\alpha(X))$, para todo $X \subseteq M$. Portanto, $M_{n_{0}+i}=M_{n_{0}}$, para todo $i\geq0$, ou seja, $M'$ é Noetheriano.
+		Para mostrar que $M''$ é Noetheriano, basta notar que $(\beta ^{-1}(M''_{i}))_{i\geq1}$ é uma cadeia ascendente de submódulos de $M$ e que $\beta$ é sobrejetiva.
+		Reciprocamente, seja $(L_{i})_{i\geq1}$ uma cadeia ascendente de submódulos de $M$. $(\alpha ^{-1}(L_{i}))_{i\geq_{1}}$ e $(\beta(L_{i}))_{i\geq_{1}}$ são cadeias ascendentes de $M'$ e $M''$ respectivamente e, portanto, são estacionárias.
+		Sejam $n_{0}'$ e $n_{0}''$ os índices aos quais a partir deles, as cadeias são estacionárias.
+		Tome $n_{0}=\max\{n_{0}', n_{0}''\}$. A partir de $n_{0}$, ambas as cadeias são estacionárias. Mostremos que $(L_{i})_{i\geq 1}$ é estacionária. Note que dado $i \in \mathbb{N}$, temos que $L_{n_{0}}\subseteq L_{n_{0}+i}$ pela construção. Seja então $x \in L_{n_{0}+i}$. Temos que $\beta(x)\in \beta(L_{n_{0}+i})=\beta(L_{n_{0}})$, ou seja, existe $\bar{x}\in L_{n_{0}}$, tal que $\beta(\bar{x})=\beta (x)$. Note que $x-\bar{x}\in L_{n_{0}+i}$ e $\beta(x-\bar{x})=\beta(x)-\beta(\bar{x})=0$, implicando que $x-\bar{x}\in Ker(\beta)=\mathrm{Im}(\alpha)$, isto é, existe um único $t\in M'$, tal que $\alpha(t)=x-\bar{x} \in L_{n_{0}+i}$. Segue que $t \in \alpha ^{-1}(L_{n_{0}+i})=\alpha ^{-1}(L_{n_{0}})$, implicando que $x-\bar{x}=\alpha(t) \in L_{n_{0}}$ e, portanto, $x=(x-\bar{x})+\bar{x}\in L_{n_{0}}$, concluindo a demonstração.
+	\end{proof}
 \end{proposition}
 \begin{corollary}
-\label{loc:6.3_:_relação_da_acc_e_dcc_com_sequências_exatas.corolário_6.4}
-Se $M_{i} (1\leq i\leq n)$ são módulos Noetherianos (respectivamente Artinianos), então $\bigoplus_{i=1}^{n}M_{i}$ é Noetheriano (respectivamente Artiniano).
-\begin{proof}
+	\label{loc:6.3_:_relação_da_acc_e_dcc_com_sequências_exatas.corolário_6.4}
+	Se $M_{i} (1\leq i\leq n)$ são módulos Noetherianos (respectivamente Artinianos), então $\bigoplus_{i=1}^{n}M_{i}$ é Noetheriano (respectivamente Artiniano).
+	\begin{proof}
 
-A demonstração é feita por indução em $n$. No caso de $n=1$, temos que $\bigoplus_{i=1}^{1}M_{i}=M_{1}$, o qual é Notheriano (respectivamente Artiniano).
-Suponha que $\bigoplus_{i=1}^{n}M_{i}$ seja Noetheriano (respectivamente Artiniano). Mostremos que $\bigoplus_{i=1}^{n+1}M_{i}$ também o é.
-Construa a sequência 
-\begin{equation*}
-\begin{CD}
-0@>{}>> M_{n+1}@>{\alpha}>>\bigoplus_{i=1}^{n+1}M_{i} @>{\beta}>>\bigoplus_{i=1}^{n}M_{i}@>{}>>0
-\end{CD}
-\end{equation*}
-pondo $\alpha(m)=(0, 0, \dots, 0, m)$ e $\beta(m_{1}, \dots,m_{n}, m_{n+1})=(m_{1}, \dots, m_{n})$.
-Note que $\alpha$ é injetora e $\beta$ é sobrejetora.
-Se mostrarmos que $\mathrm{Im}(\alpha)=Ker(\beta)$, teremos que a sequência é exata e, consequentemente, que $\bigoplus_{i=1}^{n+1}M_{i}$ é Noetheriano (respectivamente Artiniano).
-Seja $(0, 0, \dots, m) \in \mathrm{Im}(\alpha)$. Temos que $\beta(0, 0, \dots, 0, m)=(0, 0, \dots, 0)= 0$, e portanto, $(0, 0, \dots, m) \in Ker(\beta)$. Reciprocamente, tome $(m_{1}, \dots, m_{n+1})$ tal que sua imagem por $\beta$ seja $0 = (0, 0, \dots, 0)$. Obrigatoriamente, cada $m_{i}(1\leq i\leq n)$ deverá ser igual a zero e, portanto, $\alpha(m_{n+1})=(m_{1}, \dots, m_{n+1})$.
-\end{proof}
+		A demonstração é feita por indução em $n$. No caso de $n=1$, temos que $\bigoplus_{i=1}^{1}M_{i}=M_{1}$, o qual é Notheriano (respectivamente Artiniano).
+		Suponha que $\bigoplus_{i=1}^{n}M_{i}$ seja Noetheriano (respectivamente Artiniano). Mostremos que $\bigoplus_{i=1}^{n+1}M_{i}$ também o é.
+		Construa a sequência
+		\begin{equation*}
+			\begin{CD}
+				0@>{}>> M_{n+1}@>{\alpha}>>\bigoplus_{i=1}^{n+1}M_{i} @>{\beta}>>\bigoplus_{i=1}^{n}M_{i}@>{}>>0
+			\end{CD}
+		\end{equation*}
+		pondo $\alpha(m)=(0, 0, \dots, 0, m)$ e $\beta(m_{1}, \dots,m_{n}, m_{n+1})=(m_{1}, \dots, m_{n})$.
+		Note que $\alpha$ é injetora e $\beta$ é sobrejetora.
+		Se mostrarmos que $\mathrm{Im}(\alpha)=Ker(\beta)$, teremos que a sequência é exata e, consequentemente, que $\bigoplus_{i=1}^{n+1}M_{i}$ é Noetheriano (respectivamente Artiniano).
+		Seja $(0, 0, \dots, m) \in \mathrm{Im}(\alpha)$. Temos que $\beta(0, 0, \dots, 0, m)=(0, 0, \dots, 0)= 0$, e portanto, $(0, 0, \dots, m) \in Ker(\beta)$. Reciprocamente, tome $(m_{1}, \dots, m_{n+1})$ tal que sua imagem por $\beta$ seja $0 = (0, 0, \dots, 0)$. Obrigatoriamente, cada $m_{i}(1\leq i\leq n)$ deverá ser igual a zero e, portanto, $\alpha(m_{n+1})=(m_{1}, \dots, m_{n+1})$.
+	\end{proof}
 \end{corollary}
 Outros resultados interessante são os seguintes:
 \begin{proposition}
-\label{loc:6.5_:_anéis_noetherianos_e_artinianos_e_módulos}
-Seja $A$ um anel Noetheriano (respectivamente Artiniano). Se $M$ é um $A$-módulo finitamente gerado, então $M$ é Noetheriano (respectivamente Artiniano).
-\begin{proof}
+	\label{loc:6.5_:_anéis_noetherianos_e_artinianos_e_módulos}
+	Seja $A$ um anel Noetheriano (respectivamente Artiniano). Se $M$ é um $A$-módulo finitamente gerado, então $M$ é Noetheriano (respectivamente Artiniano).
+	\begin{proof}
 
-Como $A$ é Noetheriano (respectivamente Artiniano), então $A^{n}=\bigoplus_{i=1}^{n}A$ é Noetheriano (respectivamente Artiniano).
-Como $M$ é finitamente gerado, por \Cref{loc:2.3_:_equivalência_de_finitamente_gerado.} $M$ é isomorfo a $\frac{A^{n}}{Q}$ para algum $Q$ ideal de $A^{n}$.
-Note que 
-\begin{equation*}
-\begin{CD}
-0 @>{}>>Q@>{I}>>A^{n}@>{\phi}>>\frac{A^{n}}{Q}@>{}>>0
-\end{CD}
-\end{equation*}
-com $I$ sendo a inclusão de $Q$ em $A^{n}$ e $\phi$ a projeção de $A^{n}$, é uma sequência exata.
-Como $A^{n}$ é Noetheriano (respectivamente Artiniano), segue que $\frac{A^{n}}{Q}$ e $Q$ são Noetherianos (respectivamente Artinianos). Como $M\cong\frac{A^{n}}{Q}$, segue que $M$ é Noetheriano (respectivamente Artiniano).
-\end{proof}
+		Como $A$ é Noetheriano (respectivamente Artiniano), então $A^{n}=\bigoplus_{i=1}^{n}A$ é Noetheriano (respectivamente Artiniano).
+		Como $M$ é finitamente gerado, pelo \Cref{loc:2.3_:_equivalência_de_finitamente_gerado.}, $M$ é isomorfo a $\frac{A^{n}}{Q}$ para algum $Q$ ideal de $A^{n}$.
+		Note que
+		\begin{equation*}
+			\begin{CD}
+				0 @>{}>>Q@>{I}>>A^{n}@>{\phi}>>\frac{A^{n}}{Q}@>{}>>0
+			\end{CD}
+		\end{equation*}
+		com $I$ sendo a inclusão de $Q$ em $A^{n}$ e $\phi$ a projeção de $A^{n}$, é uma sequência exata.
+		Como $A^{n}$ é Noetheriano (respectivamente Artiniano), segue que $\frac{A^{n}}{Q}$ e $Q$ são Noetherianos (respectivamente Artinianos). Como $M\cong\frac{A^{n}}{Q}$, segue que $M$ é Noetheriano (respectivamente Artiniano).
+	\end{proof}
 \end{proposition}
 \begin{proposition}
-\label{loc:6.6_:_anéis_quocientes_de_noetherianos_ou_artinianos}
-Seja $A$ um anel Noetheriano (respectivamente Artiniano) e $\mathfrak{a}\subseteq A$ um ideal de $A$.
-$A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano) como um $A/\mathfrak{a}$-módulo.
+	\label{loc:6.6_:_anéis_quocientes_de_noetherianos_ou_artinianos}
+	Seja $A$ um anel Noetheriano (respectivamente Artiniano) e $\mathfrak{a}\subseteq A$ um ideal de $A$.
+	$A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano) como um $A/\mathfrak{a}$-módulo.
 
-Conforme feito em \Cref{loc:6.5_:_anéis_noetherianos_e_artinianos_e_módulos}, temos que $A/\mathfrak{a}$ é Noetheriano (respectivamente Artniano) como um $A$-módulo.
-Note que todo ideal de $A/\mathfrak{a}$ como $A$-módulo é igual se considerarmos $A/\mathfrak{a}$-módulo, devido à natureza das operações definidas em $A/\mathfrak{a}$. Logo, $A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano).
+	Conforme feito no \Cref{loc:6.5_:_anéis_noetherianos_e_artinianos_e_módulos}, temos que $A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano) como um $A$-módulo.
+	Note que todo ideal de $A/\mathfrak{a}$ como $A$-módulo é igual se considerarmos $A/\mathfrak{a}$-módulo, devido à natureza das operações definidas em $A/\mathfrak{a}$. Logo, $A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano).
 \end{proposition}
 Motivados pela noção de dimensão da Álgebra Linear, podemos definir uma noção de comprimento de módulos. Primeiramente, definimos cadeias e seus comprimentos, depois analisamos um tipo específico de cadeia, as séries de composição, as quais cumprem um papel de cadeia maximal.
 \begin{definition}
-\label{loc:def_3_:_cadeia_de_submódulos.definição_cadeia}
-Uma cadeia de submódulos de um módulo M é uma sequência $(M_{i})_{i\leq n}$, com $M_{i}\leq M$, tal que $M=M_{0}\supset M_{1}\supset\dots \supset M_{n}=0$, em que $\supset$ denota inclusão estrita.
+	\label{loc:def_3_:_cadeia_de_submódulos.definição_cadeia}
+	Uma cadeia de submódulos de um módulo M é uma sequência $(M_{i})_{i\leq n}$, com $M_{i}\leq M$, tal que $M=M_{0}\supset M_{1}\supset\dots \supset M_{n}=0$, em que $\supset$ denota inclusão estrita.
 
-Nesse caso, dizemos que o comprimento da sequência é $n$.
+	Nesse caso, dizemos que o comprimento da sequência é $n$.
 \end{definition}
 \begin{definition}
-\label{loc:def_3_:_cadeia_de_submódulos.definição_série_de_composição}
-Uma série de composição de $M$ é uma cadeia maximal. Isto é, uma cadeia em que nenhum outro submódulo de $M$ pode ser inserido.
+	\label{loc:def_3_:_cadeia_de_submódulos.definição_série_de_composição}
+	Uma série de composição de $M$ é uma cadeia maximal. Isto é, uma cadeia em que nenhum outro submódulo de $M$ pode ser inserido.
 \end{definition}
 \begin{proposition}
-\label{loc:def_3_:_cadeia_de_submódulos.definição_equivalente}
-Uma série de composição é uma cadeia a qual todo $M_{i-1}/M_{i}$ é simples (não possui submódulos diferentes de 0 e si próprio).
-\begin{proof}
+	\label{loc:def_3_:_cadeia_de_submódulos.definição_equivalente}
+	Uma série de composição é uma cadeia a qual todo $M_{i-1}/M_{i}$ é simples (não possui submódulos diferentes de 0 e si próprio).
+	\begin{proof}
 
-Pela contrapositiva, suponha que exista um $i$, tal que $M_{i-1}/M_i$ não seja simples e faça $M_{\alpha}$ um submódulo próprio de $M_{i-1}/M_i$.
-Seja $\phi:M_{i-1}\to M_{i-1}/M_i$ a projeção. Note que $\phi ^{-1}(M_{\alpha})\subseteq M_{i-1}$  é um submódulo. Se tivéssemos $\phi ^{-1}(M_{\alpha})=M_{i-1}$, então, aplicando $\phi$, teríamos $M_{\alpha}=\phi(M_{i-1})=M_{i-1}/M_{i}$, pois $\phi$ é sobrejetora, chegando assim em um absurdo. Logo, $\phi ^{-1}(M_{\alpha}) \subset M_{i-1}$.
-Tomemos então $x \in M_{i}$. Assim, $x+M_{i}=\bar{0}\in M_{i-1}/M_{i}$. Como $\bar{0}\in M_{\alpha}$, então $x \in \phi ^{-1}(M_{\alpha})$ implicando que $M_{i}\subseteq \phi ^{-1}(M_{\alpha})$. Se fosse $M_{i}=\phi ^{-1}(M_{\alpha})$, teríamos que $\phi(M_{i})=M_{\alpha}$ implicando que $M_{\alpha}=\{ \bar{0} \}$, o que é absurdo. Portanto, $M_{i-1}\supset \phi ^{-1}(M_{\alpha})\supset M_{i}$.
-Mostremos a reciproca também pela contrapositiva. Suponha que $(M_{i})_{i\leq n}$ seja uma cadeia em um módulo $M$, mas não seja uma Série de Composição. Existe $i$ tal que $M_{i-1}\supset M_{i}$ e um $M_{\alpha}$ submódulo de $M$ tal que $M_{i-1} \supset M_{\alpha} \supset M_{i}$.
-Definindo a projeção $\phi:M_{i-1}\to M_{i-1}/M_{i}$, temos que $\phi(M_{\alpha})$ é um submódulo próprio de $M_{i-1}/M_{i}$.
-\end{proof}
+		Pela contrapositiva, suponha que exista um $i$, tal que $M_{i-1}/M_i$ não seja simples e faça $M_{\alpha}$ um submódulo próprio de $M_{i-1}/M_i$.
+		Seja $\phi:M_{i-1}\to M_{i-1}/M_i$ a projeção. Note que $\phi ^{-1}(M_{\alpha})\subseteq M_{i-1}$  é um submódulo. Se tivéssemos $\phi ^{-1}(M_{\alpha})=M_{i-1}$, então, aplicando $\phi$, teríamos $M_{\alpha}=\phi(M_{i-1})=M_{i-1}/M_{i}$, pois $\phi$ é sobrejetora, chegando assim em um absurdo. Logo, $\phi ^{-1}(M_{\alpha}) \subset M_{i-1}$.
+		Tomemos então $x \in M_{i}$. Assim, $x+M_{i}=\bar{0}\in M_{i-1}/M_{i}$. Como $\bar{0}\in M_{\alpha}$, então $x \in \phi ^{-1}(M_{\alpha})$ implicando que $M_{i}\subseteq \phi ^{-1}(M_{\alpha})$. Se fosse $M_{i}=\phi ^{-1}(M_{\alpha})$, teríamos que $\phi(M_{i})=M_{\alpha}$ implicando que $M_{\alpha}=\{ \bar{0} \}$, o que é absurdo. Portanto, $M_{i-1}\supset \phi ^{-1}(M_{\alpha})\supset M_{i}$.
+		Mostremos a reciproca também pela contrapositiva. Suponha que $(M_{i})_{i\leq n}$ seja uma cadeia em um módulo $M$, mas não seja uma série de composição. Existe $i$ tal que $M_{i-1}\supset M_{i}$ e um $M_{\alpha}$ submódulo de $M$ tal que $M_{i-1} \supset M_{\alpha} \supset M_{i}$.
+		Definindo a projeção $\phi:M_{i-1}\to M_{i-1}/M_{i}$, temos que $\phi(M_{\alpha})$ é um submódulo próprio de $M_{i-1}/M_{i}$.
+	\end{proof}
 \end{proposition}
 É natural se perguntar se o tamanho da série de composição é único. O próximo resultado responde essa pergunta e garante que o tamanho das séries de composição é uma propriedade do módulo.
 \begin{proposition}
-\label{loc:6.7_:_unicidade_do_tamanho_das_séries_de_composição}
-Seja $M$ um $A$-módulo e suponha que exista uma série de composição de $M$ com comprimento igual a $n$.
-Então, toda série de composição de $M$ tem comprimento igual a $n$ e toda cadeia pode ser estendida para se tornar uma série de composição.
-\begin{proof}
+	\label{loc:6.7_:_unicidade_do_tamanho_das_séries_de_composição}
+	Seja $M$ um $A$-módulo e suponha que exista uma série de composição de $M$ com comprimento igual a $n$.
+	Então, toda série de composição de $M$ tem comprimento igual a $n$ e toda cadeia pode ser estendida para se tornar uma série de composição.
+	\begin{proof}
 
-Seja $l(M)$ o menor comprimento de todas as séries de composição de $M$. (Caso $M$ não possua nenhuma, temos $l(M)=+\infty$).
-Dividiremos a demonstração em 3 partes:
-\begin{enumerate}
-\item $N < M \implies l(N) < l(M)$.
-	Suponha que $N \subset M$ seja um submódulo de $M$. Seja $(M_{i})_{i\leq n}$ uma série de composição de $M$ com comprimento igual a $n$. Tal série existe pela definição de $l(M)$ e pela hipótese.
-	Considere submódulos $N_{i}=N \cap M_{i}$. Note que $N_{i}$ é submódulo de $N$ para todo $i$.
-	Também, para todo $i$, temos que $N_{i-1}/N_{i}$ é isomorfo a algum submódulo de $M_{i-1}/M_{i}$, o qual é um módulo simples, ou seja, $N_{i-1}/N_{i} = 0$ ou $N_{i-1}/N_{i} \cong M_{i-1}/M_{i}$. No segundo caso, $N_{i-1}/N_{i}$ é simples e portanto $N_{i-1}\supset N_{i}$ de modo que não existe submódulo algum entre $N_{i-1}$ e $N_{i}$. No primeiro caso temos $N_{i}=N_{i-1}$.  Removendo tais módulos ``duplicados" da sequência, temos que $l(N) \leq$ comprimento de $(N_{i}) \leq l(M)$.
-	Suponha, por absurdo, que $l(N)=l(M)$. Então não existem módulos duplicados que foram removidos e, portanto, para todo $i$, temos que $N_{i-1}/N_{i} \cong M_{i-1}/M_{i}$.
-	Disso, segue que $M_{n-1}/0 \cong N_{n-1}/0$ implicando que $M_{n-1} \cong N_{n-1}$, os quais são simples e, portanto $M_{n-1}=N_{n-1}$. Pode-se concluir, através de um argumento indutivo, que $M=N$, o que é um absurdo. Logo, $l(N)<l(M)$.
-\item Toda cadeia de $M$ tem comprimento $\leq l(M)$.
-	Seja $M=M_{0}\supset M_{1}\supset\dots \supset M_{k}=0$ uma cadeia de comprimento $k$.
-	Pelo item $1)$, temos que $l(M)>l(M_{1})>\dots>l(M_{k})=0$
-	Isso implica que $l(M_{k-1})\geq1$. Prosseguindo indutivamente, temos que $l(M_{k-i})\geq i$ e portanto $l(M) = l(M_{0})\geq k$.
-\item Toda série de composição de $M$ tem comprimento igual a $l(M)$ e toda cadeia pode se tornar uma série de composição.
-	Seja $(M_{i})$ uma série de composição de $M$ de comprimento $k$. $l(M)\leq k$ pela definição.
-	Também, como $(M_{i})$ é uma cadeia, pelo item $2)$, $k\leq l(M)$, ou seja $k=l(M)$
-	Seja agora $(M_{i})$ uma cadeia arbitrária. Se for uma série de composição, seu comprimento é igual a $l(M)$. Se não for, podemos acrescentar módulos até que atinja o comprimento $l(M)$, se tornando assim uma série de composição.
-\end{enumerate}
-\end{proof}
+		Seja $l(M)$ o menor comprimento de todas as séries de composição de $M$. Caso $M$ não possua nenhuma, temos $l(M)=+\infty$.
+		Dividiremos a demonstração em 3 partes:
+		\begin{enumerate}
+			\item $N < M \implies l(N) < l(M)$.
+			      Suponha que $N \subset M$ seja um submódulo de $M$. Seja $(M_{i})_{i\leq n}$ uma série de composição de $M$ com comprimento igual a $n$. Tal série existe pela definição de $l(M)$ e pela hipótese.
+			      Considere submódulos $N_{i}=N \cap M_{i}$. Note que $N_{i}$ é submódulo de $N$ para todo $i$.
+			      Também, para todo $i$, temos que $N_{i-1}/N_{i}$ é isomorfo a algum submódulo de $M_{i-1}/M_{i}$, o qual é um módulo simples, ou seja, $N_{i-1}/N_{i} = 0$ ou $N_{i-1}/N_{i} \cong M_{i-1}/M_{i}$. No segundo caso, $N_{i-1}/N_{i}$ é simples e portanto $N_{i-1}\supset N_{i}$ de modo que não existe submódulo algum entre $N_{i-1}$ e $N_{i}$. No primeiro caso temos $N_{i}=N_{i-1}$.  Removendo tais módulos ``duplicados" da sequência, temos que $l(N) \leq$ comprimento de $(N_{i}) \leq l(M)$.
+			      Suponha, por absurdo, que $l(N)=l(M)$. Então não existem módulos duplicados que foram removidos e, portanto, para todo $i$, temos que $N_{i-1}/N_{i} \cong M_{i-1}/M_{i}$.
+			      Disso, segue que $M_{n-1}/0 \cong N_{n-1}/0$ implicando que $M_{n-1} \cong N_{n-1}$, os quais são simples e, portanto $M_{n-1}=N_{n-1}$. Pode-se concluir, através de um argumento indutivo, que $M=N$, o que é um absurdo. Logo, $l(N)<l(M)$.
+			\item Toda cadeia de $M$ tem comprimento $\leq l(M)$.
+			      Seja $M=M_{0}\supset M_{1}\supset\dots \supset M_{k}=0$ uma cadeia de comprimento $k$.
+			      Pelo item $1)$, temos que $l(M)>l(M_{1})>\dots>l(M_{k})=0$
+			      Isso implica que $l(M_{k-1})\geq1$. Prosseguindo indutivamente, temos que $l(M_{k-i})\geq i$ e portanto $l(M) = l(M_{0})\geq k$.
+			\item Toda série de composição de $M$ tem comprimento igual a $l(M)$ e toda cadeia pode se tornar uma série de composição.
+			      Seja $(M_{i})$ uma série de composição de $M$ de comprimento $k$. Temos $l(M)\leq k$ pela definição.
+			      Também, como $(M_{i})$ é uma cadeia, pelo item $2)$, $k\leq l(M)$, ou seja $k=l(M)$.
+			      Seja agora $(M_{i})$ uma cadeia arbitrária. Se for uma série de composição, seu comprimento é igual a $l(M)$. Se não for, podemos acrescentar módulos até que atinja o comprimento $l(M)$, se tornando assim uma série de composição.
+		\end{enumerate}
+	\end{proof}
 \end{proposition}
 Isso permite definir uma noção de comprimento $l(M)$ de um módulo $M$. Surge então a pergunta: Quais módulos possuem séries de composição? Essa pergunta é respondida pelo resultado seguinte.
 \begin{theorem}
-\label{loc:6.8_:_série_de_composição_e_condições_de_cadeia.proposição}
-$M$ possui uma série de composição se, e somente se, $M$ satisfaz ambas as condições de cadeia (isto é, $M$ é Noetheriano e Artiniano).
-\begin{proof}
+	\label{loc:6.8_:_série_de_composição_e_condições_de_cadeia.proposição}
+	$M$ possui uma série de composição se, e somente se, $M$ satisfaz ambas as condições de cadeia (isto é, $M$ é Noetheriano e Artiniano).
+	\begin{proof}
 
-O comprimento de todas as cadeias é $\leq l(M)$. Se $M$ não fosse Noetheriano, seria possível construir uma cadeia $M_0 \subset M_{1}\subset\dots$ com um índice arbitrariamente grande. Tomando então $n_{0}> l(M)$ teríamos uma cadeia $M \supset M_{n_{0}} \supset M_{n_{0}-1}\supset\dots \supset M_{0} \supset 0$, o que é um absurdo.
-O fato de que $M$ é Artiniano é mostrado de forma análoga.
+		O comprimento de todas as cadeias é $\leq l(M)$. Se $M$ não fosse Noetheriano, seria possível construir uma cadeia $M_0 \subset M_{1}\subset\dots$ com um índice arbitrariamente grande. Tomando então $n_{0}> l(M)$ teríamos uma cadeia $M \supset M_{n_{0}} \supset M_{n_{0}-1}\supset\dots \supset M_{0} \supset 0$, o que é um absurdo.
+		O fato de que $M$ é Artiniano é mostrado de forma análoga.
 
-Reciprocamente, fazendo $M=M_{0}$ e $\Sigma_{0}$ o conjunto de todos os submódulos de $M_{0}$, temos que $\Sigma_{0}-\{ M_{0} \}$ não é vazio e, como $M$ é Noetheriano, possuí um elemento maximal $M_{1}$. Se $M_{1}$ for igual a zero, construímos nossa série de composição. Do contrário, fazemos $\Sigma_{1}$ o conjunto de todos os submódulos de $M_{1}$ e $M_{2}=max\Sigma_{1}-\{ M_{1} \}$, o qual existe pois $M_{1} \subset M_{0}$ é Noetheriano.
-Prosseguimos indutivamente, construindo uma sequência de submódulos $M_{0}\supset M_{1}\supset\dots \supset M_{k}$, a qual é necessariamente finita, pois $M$ é Artiniano e a qual não podem ser acrescentados nenhum outro módulo, ou seja, é uma série de composição.
-\end{proof}
+		Reciprocamente, fazendo $M=M_{0}$ e $\Sigma_{0}$ o conjunto de todos os submódulos de $M_{0}$, temos que $\Sigma_{0}-\{ M_{0} \}$ não é vazio e, como $M$ é Noetheriano, possui um elemento maximal $M_{1}$. Se $M_{1}$ for igual a zero, construímos nossa série de composição. Do contrário, fazemos $\Sigma_{1}$ o conjunto de todos os submódulos de $M_{1}$ e $M_{2}=max\Sigma_{1}-\{ M_{1} \}$, o qual existe pois $M_{1} \subset M_{0}$ é Noetheriano.
+		Prosseguimos indutivamente, construindo uma sequência de submódulos $M_{0}\supset M_{1}\supset\dots \supset M_{k}$, a qual é necessariamente finita, pois $M$ é Artiniano e a qual não podem ser acrescentados nenhum outro módulo, ou seja, é uma série de composição.
+	\end{proof}
 \end{theorem}
 \begin{definition}
-\label{loc:6.8_:_série_de_composição_e_condições_de_cadeia.definição_comprimento_finito}
-Baseando-se em \Cref{loc:6.8_:_série_de_composição_e_condições_de_cadeia.proposição} se $M$ satisfaz a.c.c e d.c.c então $M$ é dito de comprimento finito.
+	\label{loc:6.8_:_série_de_composição_e_condições_de_cadeia.definição_comprimento_finito}
+	Baseando-se no \Cref{loc:6.8_:_série_de_composição_e_condições_de_cadeia.proposição}, se $M$ satisfaz a.c.c e d.c.c então $M$ é dito de comprimento finito.
 \end{definition}
 O próximo resultado explora o conceito de comprimento e apresenta uma generalização elegante do Teorema Fundamental da Álgebra Linear utilizando sequências exatas.
 \begin{theorem}
-\label{loc:6.9_:_o_comprimento_é_uma_função_aditiva}
-O comprimento $l(M)$ é uma função aditiva na classe de todos os $A$-módulos de comprimento finito.
+	\label{loc:6.9_:_o_comprimento_é_uma_função_aditiva}
+	O comprimento $l(M)$ é uma função aditiva na classe de todos os $A$-módulos de comprimento finito.
 
-Em outras palavras, se 
-\begin{equation*}
-\begin{CD}
-0@>{}>>M'@>{\alpha}>>M@>{\beta}>>M''@>{}>>0
-\end{CD}
-\end{equation*}
+	Em outras palavras, se
+	\begin{equation*}
+		\begin{CD}
+			0@>{}>>M'@>{\alpha}>>M@>{\beta}>>M''@>{}>>0
+		\end{CD}
+	\end{equation*}
+	é uma sequência exata de módulos de comprimento finito, então $l(M)=l(M')+l(M'')$.
+	\begin{proof}
 
-é uma sequência exata de módulos de comprimento finito, então $l(M)=l(M')+l(M'')$.
-\begin{proof}
-
-Sejam $M' = M_{0}'\supset M_{1}'\supset\dots \supset M_{p}' = 0$ e $M'' = M_{0}''\supset M_{1}''\supset\dots \supset M_{q}'' = 0$ séries de composições de $M'$ e $M''$ respectivamente. 
-Como $\alpha$ é injetora, $\alpha(M_{0}')\supset\dots \supset\alpha(M_{p}')$ formam uma quasi-cadeia de $M$.
-Também, $\beta ^{-1}(M_{0}'') \supset \dots \supset \beta ^{-1}(M_{q}'')$.
-Como a sequência é exata, temos que $\alpha(M_{0}')=\alpha(M')=Ker(\beta)=\beta ^{-1}(0)=\beta ^{-1}(M_{q}'')$.
-Dessa forma, temos que $M=\beta ^{-1}(M_{0}'')\supset\dots \supset \beta ^{-1}(M_{q}'') = \alpha(M_{0}')\supset\dots \supset \alpha(M_{p}')=\alpha(0)=0$ é uma cadeia de $M$. 
-Se tal cadeia não fosse uma série de composição, teríamos um absurdo utilizando a injetividade de $\alpha$ ou a sobrejetividade de $\beta$. Portanto, $l(M)=l(M')+l(M'')$.
-\end{proof}
+		Sejam $M' = M_{0}'\supset M_{1}'\supset\dots \supset M_{p}' = 0$ e $M'' = M_{0}''\supset M_{1}''\supset\dots \supset M_{q}'' = 0$ séries de composições de $M'$ e $M''$ respectivamente.
+		Como $\alpha$ é injetora, $\alpha(M_{0}')\supset\dots \supset\alpha(M_{p}')$ formam uma quasi-cadeia de $M$.
+		Também, $\beta ^{-1}(M_{0}'') \supset \dots \supset \beta ^{-1}(M_{q}'')$.
+		Como a sequência é exata, temos que $\alpha(M_{0}')=\alpha(M')=Ker(\beta)=\beta ^{-1}(0)=\beta ^{-1}(M_{q}'')$.
+		Dessa forma, temos que $M=\beta ^{-1}(M_{0}'')\supset\dots \supset \beta ^{-1}(M_{q}'') = \alpha(M_{0}')\supset\dots \supset \alpha(M_{p}')=\alpha(0)=0$ é uma cadeia de $M$.
+		Se tal cadeia não fosse uma série de composição, teríamos um absurdo utilizando a injetividade de $\alpha$ ou a sobrejetividade de $\beta$. Portanto, $l(M)=l(M')+l(M'')$.
+	\end{proof}
 \end{theorem}
 Note que todo $K$-espaço' vetorial é um $K$-módulo Noetheriano e Artiniano. Sejam então $V$ e $W$ $K$-espaços vetoriais de dimensão finita e $T:V\to W$ uma transformação linear.
 A sequência
 
 \begin{equation*}
-\begin{CD}
-0@>{}>>Ker(T)@>{i}>>V@>{T}>>\mathrm{Im}(T)@>{}>>0
-\end{CD}
+	\begin{CD}
+		0@>{}>>Ker(T)@>{i}>>V@>{T}>>\mathrm{Im}(T)@>{}>>0
+	\end{CD}
 \end{equation*}
 é exata. Com efeito, a função inclusão $i$ é injetora e $T$ é sobrejetora sobre sua imagem. Segue do \Cref{loc:6.9_:_o_comprimento_é_uma_função_aditiva} que
 
 \begin{equation*}
-l(V)=l(Ker(T))+l(\mathrm{Im}(T)).
+	l(V)=l(Ker(T))+l(\mathrm{Im}(T)).
 \end{equation*}
 
 É fácil ver que se $U$ é um espaço vetorial de dimensão finita, então $l(U)=dim(U)$. Logo, como todos os conjuntos acima são espaços vetoriais, temos o teorema do núcleo e da imagem:
 \begin{equation*}
-dim(V)=dim(ker(T))+dim(\mathrm{Im}(T)).
+	dim(V)=dim(ker(T))+dim(\mathrm{Im}(T)).
 \end{equation*}
 
 
 \section*{Conclusões}
 
-\recuo Após apresentarmos a definição formal de módulo, módulo Noetheriano e módulo Artiniano e diversas propriedades sobre tais módulos, ficou evidente que os mesmos cumprem o papel de uma generalização dos espaços vetoriais. Também classificamos os módulos Noetherianos como aqueles em que todos os submódulos são finitamente gerados. As propriedades exibidas servem como uma introdução a teoria de módulos, além de proporcionarem uma maior compreensão das propriedades dos espaços vetoriais, tornando mais clara a escência por trás delas, como no caso do teorema do núcleo e da imagem, por exemplo.
-
-
-\section*{Referências}
+\recuo Após apresentarmos a definição formal de módulo, módulo Noetheriano e módulo Artiniano e diversas propriedades sobre tais módulos, ficou evidente que os mesmos cumprem o papel de uma generalização dos espaços vetoriais. Também classificamos os módulos Noetherianos como aqueles em que todos os submódulos são finitamente gerados. As propriedades exibidas servem como uma introdução a teoria de módulos, além de proporcionarem uma maior compreensão das propriedades dos espaços vetoriais, tornando mais clara a essência por trás delas, como no caso do teorema do núcleo e da imagem, por exemplo.
 
 \printbibliography
 
