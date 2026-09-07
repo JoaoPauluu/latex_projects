@@ -4,20 +4,29 @@
 
 \section*{Introdução}
 
-\recuo É fato que, no anel dos inteiros $\mathbb{Z}$, todo elemento $n$ possui uma única expressão, a menos da ordem, em um produto de números primos. Tal resultado é comumente mostrado em um curso introdutório de Teoria de Números ou de Álgebra. \textcite{noether}, em seu artigo ``Teoria de Ideais em Anéis'', busca condições para generalizar tal fatoração prima em anéis que possuem algumas propriedades semelhantes às de $\mathbb{Z}$. Noether demonstrou que, sob algumas condições, todo ideal de um anel comutativo pode ser decomposto como uma interseção finita de ideais primários, e é única, no sentido que os radicais dos ideais de tal decomposição são os mesmos, independente da decomposição. Os anéis que satisfazem tal condição são conhecidos atualmente como Anéis Noetherianos, em homenagem à matemática.
+\recuo É fato que, no anel dos inteiros $\mathbb{Z}$, todo elemento $n$ possui uma única expressão, a menos da ordem, em um produto de números primos. Tal resultado é comumente mostrado em um curso introdutório de Teoria de Números ou de Álgebra. \textcite{kummer1847}, ao lidar com a fatoração única em anéis de inteiros ciclotômicos, introduziu o conceito de número ideal.
+%Posteriormente, Richard Dedekind formalizou o conceito de ideal como um conjunto.
+
+Posteriormente, Richard Dedekind formalizou o conceito de ideal como um conjunto. É interessante observar que o próprio termo ``módulo'' já aparece nos escritos de Dedekind sobre teoria dos números, em particular nos Suplementos X e XI da obra \emph{Vorlesungen über Zahlentheorie}(Lições sobre Teoria dos Números) de Dirichlet, organizada e ampliada por Dedekind. Ali, um \emph{Modul} designava um subconjunto de um anel de inteiros algébricos fechado sob soma e diferença, isto é, essencialmente um subgrupo aditivo \parencite{dedekind1871}. Assim, o conceito de módulo que estudamos neste trabalho tem raízes etimológicas e conceituais entrelaçadas com a própria noção de ideal.
+
+Um precursor notável, ainda que anterior à axiomatização dos conceitos, foi o Teorema da Base de Hilbert, segundo o qual todo ideal do anel de polinômios $k[x_1,\dots,x_n]$ é finitamente gerado \parencite{hilbert1890}. Esse resultado é, em essência, um caso particular da condição de cadeia ascendente que é discutida nese trabalho: todo ideal em que toda cadeia ascendente se estabiliza é finitamente gerado.
+
+\textcite{noether}, na tradução da obra ``Teoria de Ideais em Anéis'' feita por Emmy Noether, busca condições para generalizar a fatoração prima em anéis que possuem algumas propriedades semelhantes às de $\mathbb{Z}$. Noether demonstrou que, sob algumas condições, todo ideal de um anel comutativo pode ser decomposto como uma interseção finita de ideais primários, e é única, no sentido que os radicais dos ideais de tal decomposição são os mesmos, independente da decomposição. Os anéis que satisfazem tal condição são conhecidos atualmente como Anéis Noetherianos, em homenagem à matemática.
 A propriedade Noetheriana afirma que toda cadeia ascendente de ideais $\mathfrak{p}_{1} \subseteq \mathfrak{p}_{2} \subseteq\dots$ é estacionária, isto é, existe $n$, tal que $\mathfrak{p}_{n+i}=\mathfrak{p}_{i}$, para todo $i \in \mathbb{Z}_{+}$.
 
-O objetivo dessa pesquisa é estudar as condições de cadeia, isto é, a propriedade Noetheriana, e a Artiniana, a qual é análoga à ascendente, porém considerando cadeias descendentes. Consideraremos tais propriedades em objetos mais gerais que anéis: módulos.
+De forma semelhante, anéis que satisfazem a condição de cadeia descendente são denominados de anéis Artinianos, em homenagem à Emil Artin, o qual posteriormente, descobriu que os anéis que satisfazem a condição de cadeia descendente generaliza os anéis finitos.
+
+O objetivo dessa pesquisa é estudar as condições de cadeia, isto é, a propriedade Noetheriana, e a Artiniana, a qual é análoga à ascendente, porém considerando cadeias descendentes. Consideramos tais propriedades em objetos mais gerais que anéis: módulos.
 Os módulos são como espaços vetoriais, isto é, um grupo abeliano, munido de uma ação de um conjunto. No caso da Álgebra Linear, tal conjunto é um corpo, já no caso dos módulos, o conjunto que age sobre o grupo é um anel comutativo e com unidade multiplicativa. É facil ver que, deduzindo propriedades sobre módulos, tais propriedades também valem para um anel, pois, de forma análoga aos espaços vetoriais, todo anel é um módulo sobre si mesmo.
-O objetivo dessa pesquisa é estudar as propriedades dos módulos Noetherianos e Artinianos e comparar tais módulos com os espaços vetoriais finitamente gerados. Ela justifica-se pela relevância matemática e histórico-matemática do tema, e pela sua capacidade de generalização de conceitos estudados em Álgebra Linear.
+A pequisa justifica-se pela relevância matemática e histórico-matemática do tema, e pela sua capacidade de generalização de conceitos estudados em Álgebra Linear.
 
-\section*{Materiais e método}
+\section*{Materiais e Métodos}
 
-\recuo A pesquisa é de cunho qualitativo-dedutivo, e procura exibir, seguindo o costume matemático, definições apropriadas, demonstrações lógicas e exemplos, que ajudam a ilustrar os conceitos estudados. Baseando-se na obra "Álgebra Comutativa" de \textcite{macdonald}, explicitaremos as definições em ordem lógica e intuitiva, e evidenciaremos os sentidos nos quais os módulos generalizam os espaços vetoriais e quais propriedades surgem ou desaparecem ao remover a não divisibilidade por zero e os elementos inversos dos elementos escalares.
+\recuo A pesquisa é de cunho qualitativo-dedutivo, e procura exibir, seguindo o costume matemático, definições apropriadas, demonstrações lógicas e exemplos, que ajudam a ilustrar os conceitos estudados. Baseando-se na obra ``Álgebra Comutativa'' de \textcite{macdonald}, explicitamos as definições em ordem lógica e intuitiva, e evidenciamos os sentidos nos quais os módulos generalizam os espaços vetoriais e quais propriedades surgem ou desaparecem ao remover a não divisibilidade por zero e os elementos inversos dos elementos escalares.
 
 \section*{Resultados e Discussão}
 
-\recuo Começaremos por apresentar a definição e alguns exemplos de módulos. Depois, introduziremos as condições de cadeia e mostraremos uma classificação dos módulos Noetherianos, seguida por diversas propriedades do mesmo.
+\recuo Começamos por apresentar a definição e alguns exemplos de módulos. Depois, introduzios as condições de cadeia e mostraremos uma classificação dos módulos Noetherianos, seguida por diversas propriedades do mesmo.
 
 
 \subsection*{Módulos}
@@ -43,24 +52,21 @@ Alguns exemplos de módulos:
 	\begin{enumerate}
 		\item Um ideal $\mathfrak{a}\subseteq A$ é um $A$-módulo. Basta definir $\mu(a,x) = ax$ (produto do anel). Em particular, o anel $A$ é um $A$-módulo. A recíproca também é verdade, isto é, todo submódulo de $A$ é um ideal de $A$. Isso quer dizer que o conjunto de submódulos de um anel $A$ (como um A-módulo) é o conjunto de ideais de $A$.
 		\item Se $A=k$ é um corpo, então os $A$-módulos são precisamente os $k$-espaços vetoriais. Isso evidencia que módulo é uma generalização de espaço vetorial.
-		\item Todo grupo é um $\mathbb{Z}$-módulo. Se $n>0$ basta definir $\mu(n,x) = x + x + \dots + x$ $= \sum_{i\leq n}x$. Se $n<0, \mu(n,x) = -\mu(-n,x)$ e $\mu(0,x)=0$.
+		\item Todo grupo é um $\mathbb{Z}$-módulo. Se $n>0$ basta definir $\mu(n,x) = x + x + \dots + x$ $= \sum_{i=1}^{n}x_i$. Se $n<0, \mu(n,x) = -\mu(-n,x)$ e $\mu(0,x)=0$.
 	\end{enumerate}
 \end{examples}
 O primeiro exemplo afirma que, assim como todo corpo pode ser pensado como um espaço vetorial considerando suas operações usuais, o mesmo ocorre com anéis. Isso será explorado a fundo posteriormente.
 
 O segundo exemplo acima ilustra o fato de módulos serem generalizações de espaços vetoriais. Posteriormente, veremos que os espaços vetoriais são módulos que satisfazem algumas propriedades específicas.
 
-Como é usual na matemática, quando definimos alguma estrutura, queremos alguma forma de identificar quais estruturas possuem propriedades semelhantes. A ferramenta da Álgebra Comutativa para esse fim são os homomorfismos e isomorfismos de módulos.
+Como é usual na matemática, quando definimos alguma estrutura, queremos alguma forma de identificar quais estruturas possuem propriedades semelhantes. As ferramentas da Álgebra Comutativa para esse fim são os homomorfismos e isomorfismos de módulos.
 \begin{definition}
 	\label{loc:def_1_:_módulos_e_homomorfismos.homomorfismo_de_a:módulos}
 	Se $M, N$ são $A$-módulos, então $f:M \to N$ é dito um homomorfismo de $A$-módulos se:
-	$f(x+y) = f(x) + f(y), \forall x,y \in M$ ($f$ é um homomorfismo de grupos entre $M$ e $N$).
-	$f(ax) = af(x), \forall a \in A, x \in M$.
+	$f(x+y) = f(x) + f(y), \forall x,y \in M$ ($f$ é um homomorfismo de grupos entre $M$ e $N$) e $f(ax) = af(x), \forall a \in A, x \in M$.
 
-	Note que a composição de dois homomorfismos de $A$-módulos é também um homomorfismo de $A$-módulos.
+	Note que a composição de dois homomorfismos de $A$-módulos é também um homomorfismo de $A$-módulos.	Se um homomorfismo foi bijetor, é então chamado de isomorfismo.
 \end{definition}
-Um isomorfismo de $A$-módulos é um homomorfismo bijetor.
-
 Naturalmente, definimos submódulos e os módulos quocientes.
 \begin{definition}
 	\label{loc:def_3_:_submódulos.definição}
@@ -79,10 +85,9 @@ Naturalmente, definimos submódulos e os módulos quocientes.
 \begin{observation}
 	\label{loc:def_3_:_submódulos.quociente_como_um_a:módulo}
 	Definindo $a \bar{x} = ax + M' = \overline{ax}$ , com $a \in A, x \in M$ e $x+M' \in M/M'$, temos uma ação linear de $A$ sobre $M/M'$.
-
 	Definindo $\phi:M \to M/M'$ como $\phi(x) = x+M'$ , temos um homomorfismo de $A$-módulos.
 \end{observation}
-Na Álgebra Linear, existem subconjuntos de espaços vetoriais denominados geradores, e são tais que qualquer elemento do espaço pode ser escrito como combinação linear dos elementos desse conjunto. Uma definição análoga também existe para módulos:
+Na Álgebra Linear, existem subconjuntos de espaços vetoriais denominados geradores, e são tais que qualquer elemento do espaço pode ser escrito como combinação linear dos elementos desse conjunto. Mais ainda, tais geradores podem ser reduzidos a bases, as quais possuêm um comprimento único, dependendo apenas do espaço vetorial em questão. Nos módulos, devido a não garantia de existência de inversos para os escalares, tal conceito de base não é bem definido. Não obstante, existe uma noção análoga a de gerador:
 \begin{definition}
 	\label{loc:def_6_:_módulos_finitamente_gerados_e_livres.definição_:_finitamente_gerado}
 	Seja $m \in M$, definimos $(m) = Am = \{ am : a \in A \}$.
@@ -99,10 +104,10 @@ Diferentemente dos espaços vetoriais, um $A$-módulo finitamente gerado pode po
 	Seja $(M_{i})_{i \in I}$ uma família de submódulos de um $A$-módulo $M$.
 
 	\begin{itemize}
-		\item Definimos $\sum M_{i} = \left\{  \sum x_{i}: x_{i} \in M_{i}, \forall i \text{ e } x_{i}\not= 0 \text{ apenas para finitos i's}  \right\}$. O conjunto $\sum M_{i}$ é o menor submódulo de $M$ que contém todos os $M_{i}$ (é o conjunto gerado por tais).
+		\item Definimos $\sum_{i \in I} M_{i} = \left\{  \sum x_{i}: x_{i} \in M_{i}, \forall i \text{ e } x_{i}\not= 0 \text{ apenas para finitos i's}  \right\}$. O conjunto $\sum_{i \in I} M_{i}$ é o menor submódulo de $M$ que contém todos os $M_{i}$ (é o conjunto gerado por tais).
 		\item Seja $\mathfrak{a}$ um ideal do anel $A$. Definimos $\mathfrak{a}M =  \left\{  \sum_{i=0}^n a_{i}x_{i}:a_{i} \in \mathfrak{a}, x_{i}\in M  \right\}$. Note que $\mathfrak{a}M \leq M$.
 		\item Definimos o produto de módulos como $\prod_{i \in I} M_{i}$, o qual é o conjunto de todas as funções $f:I \to\cup M_{i}$, tal que $f(i) = x_{i} \in M_{i}$ para todo $i$. No caso de $I$ ser enumerável, escrevemos $\prod_{i \in I} M_{i} = \{(x_1, x_2, \ldots, x_i, \ldots) : x_i \in M_i, \forall i \in I\}$.
-		\item A soma direta $\oplus_{i \in I}M_{i} \subseteq \prod M_{i}$  é o conjunto de todas as funções $f:I \to \cup M_{i},$ tal que $f(i)= x_{i} \in M_{i}, \forall i$ e $f(i) \neq 0$ apenas para um número finito de índices $i$.
+		\item A soma direta $\oplus_{i \in I}M_{i} \subseteq \prod_{i \in I} M_{i}$  é o conjunto de todas as funções $f:I \to \cup M_{i},$ tal que $f(i)= x_{i} \in M_{i}, \forall i$ e $f(i) \neq 0$ apenas para um número finito de índices $i$.
 	\end{itemize}
 \end{definition}
 \begin{definition}
@@ -119,11 +124,10 @@ Diferentemente dos espaços vetoriais, um $A$-módulo finitamente gerado pode po
 	\label{loc:def_5_:_operações_em_submódulos.a/a:módulos}
 	Se $\mathfrak{a}$ é um ideal de $A$ contido em $Ann(M)$, podemos considerar $M$ como um $A/\mathfrak{a}$-módulo.
 	Com efeito, se $\bar{x} \in A/\mathfrak{a}$ representado por $x \in A$, definimos $\bar{x}m=xm$. Se $\bar{x}=\bar{y}$, temos que $x\equiv y \pmod{\mathfrak{a}}$ implicando que $x-y \in \mathfrak{a} \subseteq Ann(M)$, logo $(x-y)M = 0$ e, em particular, $(x-y)m =0$ implicando que $xm = ym$. Portanto, esta ação está bem definida.
-
 	Se $\mathfrak{a} = Ann(M)$, então $M$ é fiel se considerado como um $A/\mathfrak{a}$-módulo.
 	Com efeito, se $\bar{x} \in A/\mathfrak{a}$ é tal que $\bar{x}m=0$, para todo $m \in M$, temos que $xm = 0$, implicando que $x \in Ann(M)= \mathfrak{a}$, ou seja, $\bar{x}=\bar{0}$.
 \end{observation}
-Uma propriedade essencial dos módulos finitamente gerados é a seguinte:
+Na Álgebra linear, todo espaço vetorial finitamente gerado é isomorfomo a uma potência do corpo a qual age nesse espaço. Isso nem sempre acontece com módulos, porém, podemos garantir que um módulo finitamente gerado é isomorfo a um quociente dessa potência, conforme feito no próximo resultado.
 \begin{proposition}
 	\label{loc:2.3_:_equivalência_de_finitamente_gerado.}
 	$M$ é finitamente gerado se, e somente se, $M$ é isomorfo a um quociente de $A^{n}$ para algum $n>0$.
@@ -141,7 +145,7 @@ Uma propriedade essencial dos módulos finitamente gerados é a seguinte:
 \subsection*{Condições de Cadeia}
 
 \label{loc:condições_de_cadeia}
-\recuo Nesta seção, introduziremos o conceito central da pesquisa: cadeias ascendentes e descendentes. Primeiramente, retomemos uma definição da teoria de conjuntos, a qual será conveniente nas definições seguintes.
+\recuo Nesta seção, introduzimos o conceito central da pesquisa: cadeias ascendentes e descendentes. Primeiramente, retomemos uma definição e um resultado da teoria de conjuntos, os quais serão convenientes nas discussões adiante.
 \begin{definition}
 	\label{loc:def_1_:_conjunto_parcialmente_ordenado}
 	Um conjunto $\Sigma$ parcialmente ordenado é um conjunto munido por uma relação $\leq$, a qual é transitiva ($x \leq y$ e $y\leq z$ implica que $x\leq z$), antissimétrica ($x\leq y$ e $y\leq x$ implica que $x=y$) e reflexiva ($x \leq x$),
@@ -175,7 +179,7 @@ Em seguida, podemos definir a noção de módulos e anéis Noetherianos e Artini
 É imediato verificar que se um módulo $M$ é Noetheriano ou Artiniano, então todo submódulo de $M$ também o é.
 \begin{examples}
 	\label{loc:def_2_:_noetheriano_e_artiniano.exemplos}
-	$ $\newline
+	$ $
 	\begin{enumerate}
 		\item Um $K-$espaço vetorial de dimensão finita $n$ é um $K-$módulo Noetheriano e Artiniano.
 		      Com efeito, seus submódulos são os seus subespaços vetoriais, implicando que toda sequência, ascendente ou descendente, de módulos, é formado por no máximo $n+1$ elementos.
@@ -225,7 +229,7 @@ Com essas definições, já podemos exibir uma classificação dos módulos Noet
 \end{theorem}
 Convém comentar que existem módulos finitamente gerados que não são Noetherianos. Um exemplo é o módulo $A[x_{1}, \dots]$ de polinômios em infinitas variáveis, o qual já mostramos possuir um submódulo que não é finitamente gerado e portanto, pelo \Cref{loc:6.2_:_equivalência_de_noetherianos}, não é Noetheriano.
 
-Para analisarmos outras propriedades desses módulos, precisaremos da noção de sequência exata.
+Para entender a estrutura de um módulo complicado, comumente buscamos reduzi-lo em submódulos e módulos quocientes menores. A ferramenta algébrica para estudar essas relações estruturais e a preservação de propriedades (como ser Noetheriano ou Artiniano) é a sequência exata:
 \begin{definition}
 	\label{loc:def_8_:_sequências_exatas.definição}
 	Uma sequência é uma família $\{ M_{i} \}$ de $A$-módulos e homomorfismos $f_{i}:M_{i-1}\to M_{i}$. Escrevemos
@@ -269,7 +273,7 @@ Para analisarmos outras propriedades desses módulos, precisaremos da noção de
 	\end{equation*}
 	é exata  se, e somente se, $f$ é injetora, $g$ é sobrejetora e $g$ induz um isomorfismo de $Coker(f)=M/f(M')$ em $M''$.
 	\begin{proof}
-
+		$ $
 		\begin{enumerate}
 			\item A sequência é exata se, e somente se, é exata em $M'$, ou seja,  $Ker(f)=\mathrm{Im}(0)=0$, em outras palavras, $f$ é injetora.
 			\item De forma análoga, a sequência é exata se, e somente se, for exata em $M''$, ou seja, $\mathrm{Im}(g)=Ker(0)=M''$, em outras palavras, $g$ é sobrejetora.
@@ -295,7 +299,7 @@ Para analisarmos outras propriedades desses módulos, precisaremos da noção de
 	\end{equation*}
 	com $i$ sendo a inclusão ($N_{i}\subseteq M_{i}$) e $\bar{f}_{i+1}$ induzida por $f_{i+1}$.
 \end{definition}
-As sequências exatas curtas preservam a propriedade de um módulo ser ou não Noetheriano e Artiniano no seguinte sentido:
+O próximo resultado evidência a importância das sequências exatas no estudo dos módulo ao afirmar que as sequências exatas curtas preservam a propriedade de um módulo ser ou não Noetheriano e Artiniano.
 \begin{proposition}
 	\label{loc:6.3_:_relação_da_acc_e_dcc_com_sequências_exatas.proposição}
 	Seja
@@ -339,7 +343,7 @@ As sequências exatas curtas preservam a propriedade de um módulo ser ou não N
 		Seja $(0, 0, \dots, m) \in \mathrm{Im}(\alpha)$. Temos que $\beta(0, 0, \dots, 0, m)=(0, 0, \dots, 0)= 0$, e portanto, $(0, 0, \dots, m) \in Ker(\beta)$. Reciprocamente, tome $(m_{1}, \dots, m_{n+1})$ tal que sua imagem por $\beta$ seja $0 = (0, 0, \dots, 0)$. Obrigatoriamente, cada $m_{i}(1\leq i\leq n)$ deverá ser igual a zero e, portanto, $\alpha(m_{n+1})=(m_{1}, \dots, m_{n+1})$.
 	\end{proof}
 \end{corollary}
-Outros resultados interessante são os seguintes:
+O próximo resultado afirma que podemos carregar certas propriedades de um anel para os módulos sobre os quais tal anel atua, no sentido que, se um anel é Noetheriano ou Artiniano, então podemos verificar se algum $A$-módulo é Noetheriano ou Artiniano apenas verificando se este é finitamente gerado.
 \begin{proposition}
 	\label{loc:6.5_:_anéis_noetherianos_e_artinianos_e_módulos}
 	Seja $A$ um anel Noetheriano (respectivamente Artiniano). Se $M$ é um $A$-módulo finitamente gerado, então $M$ é Noetheriano (respectivamente Artiniano).
@@ -361,9 +365,10 @@ Outros resultados interessante são os seguintes:
 	\label{loc:6.6_:_anéis_quocientes_de_noetherianos_ou_artinianos}
 	Seja $A$ um anel Noetheriano (respectivamente Artiniano) e $\mathfrak{a}\subseteq A$ um ideal de $A$.
 	$A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano) como um $A/\mathfrak{a}$-módulo.
-
-	Conforme feito no \Cref{loc:6.5_:_anéis_noetherianos_e_artinianos_e_módulos}, temos que $A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano) como um $A$-módulo.
-	Note que todo ideal de $A/\mathfrak{a}$ como $A$-módulo é igual se considerarmos $A/\mathfrak{a}$-módulo, devido à natureza das operações definidas em $A/\mathfrak{a}$. Logo, $A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano).
+	\begin{proof}
+		Conforme feito na \Cref{loc:6.5_:_anéis_noetherianos_e_artinianos_e_módulos}, temos que $A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano) como um $A$-módulo.
+		Note que todo ideal de $A/\mathfrak{a}$ como $A$-módulo é igual se considerarmos $A/\mathfrak{a}$-módulo, devido à natureza das operações definidas em $A/\mathfrak{a}$. Logo, $A/\mathfrak{a}$ é Noetheriano (respectivamente Artiniano).
+	\end{proof}
 \end{proposition}
 Motivados pela noção de dimensão da Álgebra Linear, podemos definir uma noção de comprimento de módulos. Primeiramente, definimos cadeias e seus comprimentos, depois analisamos um tipo específico de cadeia, as séries de composição, as quais cumprem um papel de cadeia maximal.
 \begin{definition}
@@ -454,7 +459,7 @@ O próximo resultado explora o conceito de comprimento e apresenta uma generaliz
 		Se tal cadeia não fosse uma série de composição, teríamos um absurdo utilizando a injetividade de $\alpha$ ou a sobrejetividade de $\beta$. Portanto, $l(M)=l(M')+l(M'')$.
 	\end{proof}
 \end{theorem}
-Note que todo $K$-espaço' vetorial é um $K$-módulo Noetheriano e Artiniano. Sejam então $V$ e $W$ $K$-espaços vetoriais de dimensão finita e $T:V\to W$ uma transformação linear.
+Note que todo $K$-espaço vetorial é um $K$-módulo Noetheriano e Artiniano. Sejam então $V$ e $W$ $K$-espaços vetoriais de dimensão finita e $T:V\to W$ uma transformação linear.
 A sequência
 
 \begin{equation*}
