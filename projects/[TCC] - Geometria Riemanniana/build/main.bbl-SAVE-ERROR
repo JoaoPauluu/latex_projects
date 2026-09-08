@@ -16,5 +16,39 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{poincare1905}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=ec9aac8108836d6b8e69d7ce94ebc275}{%
+           family={Poincaré},
+           familyi={P\bibinitperiod},
+           given={Henri},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {The Walter Scott Publishing Co., Ltd}%
+      }
+      \strng{namehash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{fullhash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{fullhashraw}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{bibnamehash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{authorbibnamehash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{authornamehash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{authorfullhash}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \strng{authorfullhashraw}{ec9aac8108836d6b8e69d7ce94ebc275}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Science and hypothesis}
+      \field{year}{1905}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

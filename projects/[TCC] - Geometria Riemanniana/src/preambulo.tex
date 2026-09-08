@@ -9,6 +9,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[brazilian]{babel}
 \usepackage{lmodern}
+%\usepackage[alf]{abntex2cite}
 
 % ---------- Matemática ----------
 \usepackage{amsmath}
@@ -24,6 +25,7 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{shapes.symbols}
 \usetikzlibrary{shadows}
+\usepackage{pgfplots}
 \usepackage{float}
 \usepackage{subcaption}
 
@@ -41,7 +43,7 @@
 % ---------- Referências cruzadas e citações ----------
 \usepackage[
   backend=biber,
-  style=abnt-numeric,
+  style=abnt,
   sorting=none
 ]{biblatex}
 \addbibresource{referencias.bib}
@@ -70,19 +72,22 @@
 % cronológica de aparição no texto.
 % =====================================================
 \theoremstyle{plain}
+
 \newtheorem{theorem}{Teorema}[chapter]
-\newtheorem{proposition}[theorem]{Proposição}
-\newtheorem{lemma}[theorem]{Lema}
-\newtheorem{corollary}[theorem]{Corolário}
+\newtheorem{proposition}{Proposição}[chapter]
+\newtheorem{lemma}{Lema}[chapter]
+\newtheorem{corollary}{Corolário}[chapter]
 
 \theoremstyle{definition}
-\newtheorem{example}[theorem]{Exemplo}
-\newtheorem{examples}[theorem]{Exemplos}
-\newtheorem{definition}[theorem]{Definição}
-\newtheorem{axiom}[chapter]{Axioma}
+
+\newtheorem{example}{Exemplo}[chapter]
+\newtheorem{examples}[example]{Exemplos}
+\newtheorem{definition}{Definição}[chapter]
+\newtheorem{axiom}{Axioma}[chapter]
 
 \theoremstyle{remark}
-\newtheorem{observation}[theorem]{Observação}
+
+\newtheorem{observation}{Observação}[chapter]
 
 % Fim de demonstração customizado (símbolo QED)
 \renewcommand{\qedsymbol}{$\blacksquare$}
@@ -114,3 +119,23 @@
 
 \crefname{observation}{observação}{observações}
 \Crefname{observation}{Observação}{Observações}
+
+
+
+%% Ambiente de citação padrão abnt
+
+\newenvironment{citacao}{%
+  \begin{list}{}{%
+      \small % Fonte menor (geralmente tamanho 10)
+      \setlength{\leftmargin}{4cm} % Recuo de 4 cm da margem esquerda
+      \setlength{\rightmargin}{0cm}
+      \setlength{\itemindent}{0cm}
+      \setlength{\labelwidth}{0cm}
+      \setlength{\labelsep}{0cm}
+      \setlength{\parsep}{0cm}
+      \setstretch{1.0} % Espaçamento simples (requer pacote setspace se usado)
+    }%
+    \item[]%
+          }{%
+  \end{list}%
+}

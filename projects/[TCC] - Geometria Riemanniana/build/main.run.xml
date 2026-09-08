@@ -51,13 +51,13 @@
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
+      <file>blx-unicode.def</file>
       <file>blx-compat.def</file>
       <file>biblatex.def</file>
       <file>standard.bbx</file>
       <file>abnt.bbx</file>
-      <file>abnt-numeric.bbx</file>
-      <file>numeric.cbx</file>
-      <file>abnt-numeric.cbx</file>
+      <file>authoryear-comp.cbx</file>
+      <file>abnt.cbx</file>
       <file>biblatex.cfg</file>
       <file>brazilian.lbx</file>
       <file>brazil.lbx</file>
