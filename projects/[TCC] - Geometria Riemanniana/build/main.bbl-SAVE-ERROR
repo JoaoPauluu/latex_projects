@@ -21,11 +21,12 @@
   \datalist[entry]{none/global//global/global/global}
     \entry{poincare1905}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=ec9aac8108836d6b8e69d7ce94ebc275}{%
+        {{un=0,uniquepart=base,hash=ec9aac8108836d6b8e69d7ce94ebc275}{%
            family={Poincaré},
            familyi={P\bibinitperiod},
            given={Henri},
-           giveni={H\bibinitperiod}}}%
+           giveni={H\bibinitperiod},
+           givenun=0}}%
       }
       \list{location}{1}{%
         {London}%
@@ -43,6 +44,8 @@
       \strng{authorfullhashraw}{ec9aac8108836d6b8e69d7ce94ebc275}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Science and hypothesis}
