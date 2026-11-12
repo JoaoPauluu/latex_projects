@@ -30,6 +30,19 @@
 \usepackage{pgfplots}
 \usepackage{float}
 \usepackage{subcaption}
+\usepackage{asymptote}
+\usepackage{caption}
+
+% ---------- Figuras .asy + caption ----------
+% \asyimage[options]{file.asy}{Caption}[label]
+\NewDocumentCommand{\asyimage}{O{width=0.8\linewidth} m m o}{%
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[#1]{#2}
+    \caption{#3}
+    \IfValueT{#4}{\label{#4}}
+  \end{figure}
+}
 
 % ---------- Layout de página ----------
 \usepackage[a4paper, top=3cm, bottom=2cm, left=3cm, right=2cm, headheight=14.5pt]{geometry}
@@ -46,12 +59,12 @@
 \usepackage[
   backend=biber,
   style=abnt,
-  sorting=none
+  sorting=nyt
 ]{biblatex}
 \addbibresource{referencias.bib}
 
 \usepackage{hyperref}
-\usepackage[capitalise]{cleveref}
+\usepackage[brazilian, capitalise]{cleveref}
 \hypersetup{
   colorlinks=true,
   linkcolor=black,
@@ -86,10 +99,10 @@
 \newtheorem{examples}[example]{Exemplos}
 \newtheorem{definition}{Definição}[chapter]
 \newtheorem{axiom}{Axioma}[chapter]
+\newtheorem{observation}{Observação}[chapter]
 
 \theoremstyle{remark}
 
-\newtheorem{observation}{Observação}[chapter]
 
 % Fim de demonstração customizado (símbolo QED)
 \renewcommand{\qedsymbol}{$\blacksquare$}
@@ -126,18 +139,14 @@
 
 %% Ambiente de citação padrão abnt
 
+
 \newenvironment{citacao}{%
-  \begin{list}{}{%
-      \small % Fonte menor (geralmente tamanho 10)
-      \setlength{\leftmargin}{4cm} % Recuo de 4 cm da margem esquerda
-      \setlength{\rightmargin}{0cm}
-      \setlength{\itemindent}{0cm}
-      \setlength{\labelwidth}{0cm}
-      \setlength{\labelsep}{0cm}
-      \setlength{\parsep}{0cm}
-      \setstretch{1.0} % Espaçamento simples (requer pacote setspace se usado)
-    }%
-    \item[]%
-          }{%
-  \end{list}%
+  \par\smallskip
+  \begingroup
+  \leftskip=4cm
+  \small\singlespacing
+  \noindent\ignorespaces
+}{%
+  \par\endgroup
+  \smallskip
 }
