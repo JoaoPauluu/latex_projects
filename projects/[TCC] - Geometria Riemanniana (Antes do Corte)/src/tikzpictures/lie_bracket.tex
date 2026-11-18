@@ -1,0 +1,23 @@
+\begin{tikzpicture}[scale=2, transform shape]
+    \node[draw, shape=tape, minimum width=84pt, minimum height=71pt, tape bend top=out and in, inner sep=3.93pt, fill=black!36, drop shadow] (node1) at (0.72,2.6) {};
+    \node[xscale=0.5, yscale=0.5] at (-0.23,3.22) {$(d\varphi_t)_p(Y_p)$};
+    \node[xscale=0.5, yscale=0.5] at (1.02,2.12) {$Y_{p}$};
+    \draw[arrows=-Latex] (0.89,2.6) -- (0.8,2.11);
+
+
+    \draw[fill=black] (0.88,2.6) circle (0.01cm);
+    \draw[fill=black] (0.26,2.9) circle (0.01cm);
+    \node[xscale=0.5, yscale=0.5] at (0.93,2.72) {$p$};
+    \node[xscale=0.5, yscale=0.4] at (2.4,1.36) {$M$};
+
+    \draw[rotate=-7] (0.64,2.76) ellipse [x radius=1.03cm, y radius=0.73cm];
+    \node[minimum width=8pt, xscale=0.5, yscale=0.5] at (1.93,3.06) {$U$};
+
+
+    \draw (0.26,2.91) .. controls (0.27,2.67) and (0.45,2.52) .. (0.62,2.48) .. controls (0.73,2.46) and (0.83,2.49) .. (0.88,2.6);
+    \node[xscale=0.5, yscale=0.5] at (0.39,3.04) {$\varphi_{t}\left(p\right)$};
+    \node[xscale=0.5, yscale=0.5] at (-0.25,2.52) {$Y_{\varphi_t(p)}$};
+    \draw[arrows=-Latex] (0.26,2.91) -- (-0.29,2.66);
+
+    \draw[arrows=-Latex] (0.26,2.9) -- (-0.26,3.11);
+\end{tikzpicture}

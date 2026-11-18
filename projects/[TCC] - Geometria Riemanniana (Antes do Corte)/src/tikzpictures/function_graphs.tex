@@ -1,0 +1,111 @@
+\begin{tikzpicture}
+
+    % ============================================================
+    % First curve: c(t) = (cos t, sin 2t)
+    % ============================================================
+    \begin{axis}[
+            name=first,
+            axis lines=center,
+            axis equal,
+            xlabel={$x$},
+            ylabel={$y$},
+            xmin=-1.3, xmax=1.3,
+            ymin=-1.5, ymax=1.5,
+            xtick={-1,0,1},
+            ytick={-1,0,1},
+            samples=300,
+            width=7cm,
+            height=7cm,
+            grid=both,
+            title={$c(t)=(\cos t,\sin 2t)$},
+        ]
+
+        % Curve
+        \addplot[
+            very thick,
+            domain=-pi:pi,
+        ] ({cos(deg(x))},{sin(2*deg(x))});
+
+        % Derivative vectors
+        \foreach \t in {
+        -2.7,-2.2,-1.7,-1.2,-0.7,-0.2,
+        0.3,0.8,1.3,1.8,2.3,2.8
+        } {
+        \pgfmathsetmacro{\cx}{cos(deg(\t))}
+        \pgfmathsetmacro{\cy}{sin(2*deg(\t))}
+        \pgfmathsetmacro{\dx}{-sin(deg(\t))}
+        \pgfmathsetmacro{\dy}{2*cos(2*deg(\t))}
+
+        % Normalize derivative
+        \pgfmathsetmacro{\norm}{sqrt(\dx*\dx+\dy*\dy)}
+        \pgfmathsetmacro{\tx}{\dx/\norm}
+        \pgfmathsetmacro{\ty}{\dy/\norm}
+
+        % Endpoint of tangent vector
+        \pgfmathsetmacro{\vex}{\cx+0.18*\tx}
+        \pgfmathsetmacro{\vey}{\cy+0.18*\ty}
+
+        % EXPLANATION: \edef expands the variables immediately into their numerical values
+        % before handing the \draw command over to pgfplots to queue.
+        \edef\temp{\noexpand\draw[-{Stealth}, thick] (axis cs:\cx,\cy) -- (axis cs:\vex,\vey);}
+        \temp
+        }
+
+    \end{axis}
+
+    % ============================================================
+    % Second curve: c(t) = (t^2, t^3)
+    % ============================================================
+    \begin{axis}[
+            at={(first.east)},
+            anchor=west,
+            xshift=2cm,
+            axis lines=center,
+            axis equal,
+            xlabel={$x$},
+            ylabel={$y$},
+            xmin=-0.3, xmax=1.3,
+            ymin=-1.3, ymax=1.3,
+            xtick={0,1},
+            ytick={-1,0,1},
+            samples=300,
+            width=7cm,
+            height=7cm,
+            grid=both,
+            title={$c(t)=(t^2,t^3)$},
+        ]
+
+        % Curve
+        \addplot[
+            very thick,
+            domain=-1:1,
+        ] ({x^2},{x^3});
+
+        % Derivative vectors
+        \foreach \t in {
+        -0.9,-0.7,-0.5,-0.3,-0.1,
+        0.1,0.3,0.5,0.7,0.9
+        } {
+        \pgfmathsetmacro{\cx}{\t*\t}
+        \pgfmathsetmacro{\cy}{\t*\t*\t}
+
+        \pgfmathsetmacro{\dx}{2*\t}
+        \pgfmathsetmacro{\dy}{3*\t*\t}
+
+        % Normalize derivative
+        \pgfmathsetmacro{\norm}{sqrt(\dx*\dx+\dy*\dy)}
+        \pgfmathsetmacro{\tx}{\dx/\norm}
+        \pgfmathsetmacro{\ty}{\dy/\norm}
+
+        % Endpoint of tangent vector
+        \pgfmathsetmacro{\vex}{\cx+0.18*\tx}
+        \pgfmathsetmacro{\vey}{\cy+0.18*\ty}
+
+        % Use the \edef trick here as well
+        \edef\temp{\noexpand\draw[-{Stealth}, thick] (axis cs:\cx,\cy) -- (axis cs:\vex,\vey);}
+        \temp
+        }
+
+    \end{axis}
+
+\end{tikzpicture}
