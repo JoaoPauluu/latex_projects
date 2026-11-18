@@ -2,383 +2,391 @@
 
 \chapter{Preliminares}
 \label{cap:preliminares}
-Neste capítulo apresentamos os conceitos e resultados necessários ao desenvolvimento da teoria de variedades diferenciáveis. Inicialmente, introduzimos a noção de variedade diferenciável e suas estruturas locais, estabelecendo a linguagem adequada para tratar espaços que, embora possam possuir uma geometria global complexa, são localmente semelhantes a espaços euclidianos.
 
-Em seguida, abordamos a diferenciabilidade de aplicações entre variedades, bem como os conceitos de espaço tangente e campo de vetores. Esses elementos fornecem as ferramentas necessárias para estudar o comportamento local das variedades e das aplicações definidas sobre elas. Por fim, apresentamos métodos para a construção de variedades diferenciáveis, destacando as condições que garantem a compatibilidade das estruturas diferenciáveis.
+Durante esse texto, assumiremos um conhecimento prévio de Topologia Diferencial, específicamente no que é desenvolvido no Capítulo 0 de \textcite{doCarmo1992}.
 
-Os conceitos desenvolvidos neste capítulo constituem a base para os resultados posteriores, permitindo formular e demonstrar as principais propriedades geométricas e analíticas que serão utilizadas ao longo do trabalho.
-\section{Variedades diferenciáveis e Diferenciabilidade}
-\label{sec:variedades-diferenciaveis}
-Uma generalização das superfícies contidas em $\mathbb{R}^{3}$ é o conceito de variedade diferenciável. De forma análoga a superfícies, uma variedade diferenciável é um conjunto que se comporta localmente como o espaço euclidiano $\mathbb{R}^{n}$. A definição formal desse conceito é a seguinte:
-\begin{definition}
-	\label{def:variedade-diferenciavel}
-	Uma variedade diferenciável de dimensão $n$ é um conjunto $M$ e uma família $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$, onde os $U_{\alpha}$ são abertos do $\mathbb{R}^{n}$ e $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ são bijeções, satisfazendo:
-	\begin{enumerate}
-		\item $\displaystyle \bigcup_{\alpha} \mathbf{x}_{\alpha}(U_{\alpha})=M$
-		\item Se $\alpha$ e $\beta$ são índices tais que $\mathbf{x}_{\alpha}(U_{\alpha})\cap \mathbf{x}_{\beta}(U_{\beta}) = W \neq \emptyset$ e $\mathbf{x}^{-1}_{\alpha}(W)$ e $\mathbf{x}^{-1}_{\beta}(W)$ são abertos do $\mathbb{R}^{n}$, então $\mathbf{x}_{\beta}^{-1} \circ\mathbf{x}_{\alpha}|_{\mathbf{x_{\alpha}^{-1}(W)}}$ é uma aplicação diferenciável.
-		\item A família $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ é maximal relativamente às condições 1. e 2.
-	\end{enumerate}
+Neste capítulo apresentamos alguns conceitos e resultados necessários ao desenvolvimento da teoria de geodésicas, específicamente os conceitos de Campos de Vetores. Os conceitos desenvolvidos neste capítulo constituem a base para os resultados posteriores, permitindo formular e demonstrar as principais propriedades geométricas e analíticas que serão utilizadas ao longo do trabalho.
 
-	Uma família $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \}$ satisfazendo 1. e 2. é chamada de estrutura diferenciável de $M$. Note aqui que tal família é compatível com a família maximal de $M$, isto é, $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \} \subset\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$.
+Cabe, antes de iniciarmos o estudo dos campos de vetores, enunciar um lema que será utilizado de forma implítica e explícita ao longo do texto.
 
-	\asyimage{asyimages/diagram1_parametrizations}{Diagrama das parametrizações.}
 
-\end{definition}
-O item 3. da \Cref{def:variedade-diferenciavel} permite restringir uma parametrização $\mathbf{x}:U\to M$ a um aberto $\bar{U}\subset U$. De fato,  $\bar{\mathbf{x}}=\mathbf{x}|_{\overline{U}}$ pertence à coleção de parametrizações. Em contrapartida, para construir uma variedade diferenciável, podemos exibir uma família $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ que satisfaça as propriedades 1. e 2. apenas. Isso é evidenciado pela seguinte proposição:
-\begin{proposition}
-	\label{prop:estrutura-diferencial-maximal}
-	Dado um conjunto $M$ e uma estrutura diferenciável $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L}$ de $M$, então $M$ é uma variedade diferenciável munida de uma estrutura diferenciável maximal $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L'}$ tal que $L \subset L'$.
-	\begin{proof}
 
-		Basta considerar $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L'}$ o conjunto de todas as parametrizações de $M$ que satisfazem $2$. com relação as parametrizações em $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L}$.
-	\end{proof}
-\end{proposition}
-Existe uma forma natural de induzir uma topologia em uma variedade diferenciável de tal maneira que as parametrizações sejam contínuas.
-\begin{definition}
-	\label{def:topologia-induzida}
-	Sejam $M$ uma variedade diferenciável e $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L}$ sua estrutura diferenciável maximal. Definimos uma topologia em $M$, dizendo que $A \subset M$ é aberto se, e só se, $\mathbf{x_{\alpha}^{-1}}(A)$ é aberto (em $\mathbb{R}^{n}$), para todo $\alpha \in L$.
-\end{definition}
-Pode-se verificar que a definição acima satisfaz os três axiomas de topologia: $\emptyset$ e $M$ são abertos, uniões arbitrárias de conjuntos abertos são abertas e interseções finitas de conjuntos abertos também são abertas.
+\iffalse
+	\section{Variedades diferenciáveis e Diferenciabilidade}
+	\label{sec:variedades-diferenciaveis}
+	Uma generalização das superfícies contidas em $\mathbb{R}^{3}$ é o conceito de variedade diferenciável. De forma análoga a superfícies, uma variedade diferenciável é um conjunto que se comporta localmente como o espaço euclidiano $\mathbb{R}^{n}$. A definição formal desse conceito é a seguinte:
+	\begin{definition}
+		\label{def:variedade-diferenciavel}
+		Uma variedade diferenciável de dimensão $n$ é um conjunto $M$ e uma família $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$, onde os $U_{\alpha}$ são abertos do $\mathbb{R}^{n}$ e $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ são bijeções, satisfazendo:
+		\begin{enumerate}
+			\item $\displaystyle \bigcup_{\alpha} \mathbf{x}_{\alpha}(U_{\alpha})=M$
+			\item Se $\alpha$ e $\beta$ são índices tais que $\mathbf{x}_{\alpha}(U_{\alpha})\cap \mathbf{x}_{\beta}(U_{\beta}) = W \neq \emptyset$ e $\mathbf{x}^{-1}_{\alpha}(W)$ e $\mathbf{x}^{-1}_{\beta}(W)$ são abertos do $\mathbb{R}^{n}$, então $\mathbf{x}_{\beta}^{-1} \circ\mathbf{x}_{\alpha}|_{\mathbf{x_{\alpha}^{-1}(W)}}$ é uma aplicação diferenciável.
+			\item A família $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ é maximal relativamente às condições 1. e 2.
+		\end{enumerate}
 
-O próximo resultado mostra que, para verificar se um conjunto é aberto em $M$, é suficiente considerar uma única estrutura diferenciável de $M$.
+		Uma família $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \}$ satisfazendo 1. e 2. é chamada de estrutura diferenciável de $M$. Note aqui que tal família é compatível com a família maximal de $M$, isto é, $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \} \subset\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$.
 
-De forma análoga a anterior, para checarmos se um conjunto é aberto na variedade $M$, basta faze-lo para uma estrutura diferenciável, conforme evidenciado pela próxima proposição.
-\begin{proposition}
-	\label{prop:aberto-estrutura-diferencial}
-	Seja $M$ uma variedade diferenciável e $\{ (U_{\alpha},\mathbf{x}_{\alpha}) \}$ sua estrutura diferenciável maximal. Então, $V \subset M$ é aberto se, e somente se, existe uma estrutura diferenciável $\{ (U_{\beta}, \mathbf{y}_{\beta}) \}$ tal que $\mathbf{y}_{\beta}^{-1}(V \cap \mathbf{y}_{\beta}(U_{\beta}))$ é aberto em $\mathbb{R}^{n}$, para todo $\beta$.
-	\begin{proof}
+		\asyimage{asyimages/diagram1_parametrizations}{Diagrama das parametrizações.}
 
-		Seja $M$ uma variedade diferenciável e $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ a estrutura diferenciável maximal de $M$.
+	\end{definition}
+	O item 3. da \Cref{def:variedade-diferenciavel} permite restringir uma parametrização $\mathbf{x}:U\to M$ a um aberto $\bar{U}\subset U$. De fato,  $\bar{\mathbf{x}}=\mathbf{x}|_{\overline{U}}$ pertence à coleção de parametrizações. Em contrapartida, para construir uma variedade diferenciável, podemos exibir uma família $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ que satisfaça as propriedades 1. e 2. apenas. Isso é evidenciado pela seguinte proposição:
+	\begin{proposition}
+		\label{prop:estrutura-diferencial-maximal}
+		Dado um conjunto $M$ e uma estrutura diferenciável $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L}$ de $M$, então $M$ é uma variedade diferenciável munida de uma estrutura diferenciável maximal $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L'}$ tal que $L \subset L'$.
+		\begin{proof}
 
-		\emph{Afirmação 1}:  Para qualquer $\alpha$, temos que $\mathbf{x}_{\alpha}^{-1}:\mathbf{x}_{\alpha}(U_{\alpha})\to U_{\alpha}$ é contínua, isto é, $\mathbf{x}_{\alpha}$ preserva os conjuntos abertos de $U_{\alpha}$.
+			Basta considerar $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L'}$ o conjunto de todas as parametrizações de $M$ que satisfazem $2$. com relação as parametrizações em $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L}$.
+		\end{proof}
+	\end{proposition}
+	Existe uma forma natural de induzir uma topologia em uma variedade diferenciável de tal maneira que as parametrizações sejam contínuas.
+	\begin{definition}
+		\label{def:topologia-induzida}
+		Sejam $M$ uma variedade diferenciável e $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L}$ sua estrutura diferenciável maximal. Definimos uma topologia em $M$, dizendo que $A \subset M$ é aberto se, e só se, $\mathbf{x_{\alpha}^{-1}}(A)$ é aberto (em $\mathbb{R}^{n}$), para todo $\alpha \in L$.
+	\end{definition}
+	Pode-se verificar que a definição acima satisfaz os três axiomas de topologia: $\emptyset$ e $M$ são abertos, uniões arbitrárias de conjuntos abertos são abertas e interseções finitas de conjuntos abertos também são abertas.
 
-		De fato, seja $A \subset U_{\alpha}$ aberto em $U_{\alpha}$ (note que $A$ também é aberto em $\mathbb{R}^{n}$, pois $U_{\alpha}$ é aberto). Mostremos que $\mathbf{x}_{\alpha}(A)$ é aberto em $M$. Tomemos uma parametrização $\mathbf{x}_{\alpha'}:U_{\alpha'}\to M$. Temos que
+	O próximo resultado mostra que, para verificar se um conjunto é aberto em $M$, é suficiente considerar uma única estrutura diferenciável de $M$.
+
+	De forma análoga a anterior, para checarmos se um conjunto é aberto na variedade $M$, basta faze-lo para uma estrutura diferenciável, conforme evidenciado pela próxima proposição.
+	\begin{proposition}
+		\label{prop:aberto-estrutura-diferencial}
+		Seja $M$ uma variedade diferenciável e $\{ (U_{\alpha},\mathbf{x}_{\alpha}) \}$ sua estrutura diferenciável maximal. Então, $V \subset M$ é aberto se, e somente se, existe uma estrutura diferenciável $\{ (U_{\beta}, \mathbf{y}_{\beta}) \}$ tal que $\mathbf{y}_{\beta}^{-1}(V \cap \mathbf{y}_{\beta}(U_{\beta}))$ é aberto em $\mathbb{R}^{n}$, para todo $\beta$.
+		\begin{proof}
+
+			Seja $M$ uma variedade diferenciável e $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ a estrutura diferenciável maximal de $M$.
+
+			\emph{Afirmação 1}:  Para qualquer $\alpha$, temos que $\mathbf{x}_{\alpha}^{-1}:\mathbf{x}_{\alpha}(U_{\alpha})\to U_{\alpha}$ é contínua, isto é, $\mathbf{x}_{\alpha}$ preserva os conjuntos abertos de $U_{\alpha}$.
+
+			De fato, seja $A \subset U_{\alpha}$ aberto em $U_{\alpha}$ (note que $A$ também é aberto em $\mathbb{R}^{n}$, pois $U_{\alpha}$ é aberto). Mostremos que $\mathbf{x}_{\alpha}(A)$ é aberto em $M$. Tomemos uma parametrização $\mathbf{x}_{\alpha'}:U_{\alpha'}\to M$. Temos que
+			\begin{equation*}
+				\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A)\cap \mathbf{x}_{\alpha'}(U_{\alpha'}))=\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A)) \cap U_{\alpha'}.
+			\end{equation*}
+			Se $\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A))=\emptyset$, temos o desejado. Do contrário, a aplicação $\mathbf{x}_{\alpha}^{-1} \circ \mathbf{x}_{\alpha'}$ é diferenciável e, em particular, contínua. Logo, $\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A))$ é aberto e, como $U_{\alpha'}$ é aberto e a interseção de abertos é aberta, $\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A)\cap \mathbf{x}_{\alpha'}(U_{\alpha'}))$ também o é.
+
+			\emph{Afirmação 2}: Para qualquer $\alpha$, temos que $\mathbf{x}_{\alpha}:U_{\alpha}\to \mathbf{x}_{\alpha}(U_{\alpha})$ é um homeomorfismo, considerando $\mathbf{x}_{\alpha}(U_{\alpha})$ como subespaço topológico de $M$.
+
+			Pela afirmação 1, basta mostrar que se $A \subset \mathbf{x}_{\alpha}(U_{\alpha})$ é aberto, então $\mathbf{x}_{\alpha}^{-1}(A)$ é um aberto do $\mathbb{R}^{n}$. Como $\mathbf{x}_{\alpha}(U_{\alpha})$ é aberto, $A$ é aberto em $M$. Logo, por definição, $\mathbf{x}_{\alpha}^{-1}(A \cap \mathbf{x}_{\alpha}(U_{\alpha}))=\mathbf{x}_{\alpha}^{-1}(A)$ é aberto.
+
+			\emph{Demonstração do resultado}:
+
+			Se $V$ é aberto, o resultado é segue trivialmente da definição de abertos na variedade.
+
+			Reciprocamente, pela afirmação 2, como cada $\mathbf{y_{\beta}}$ pertence à estrutura diferenciável maximal, então cada $\mathbf{y}_{\beta}$ é um homeomorfismo sobre sua imagem. Temos que $\mathbf{y}_{\beta}(U_{\beta})\cap V=\mathbf{y}_{\beta}(\mathbf{y}_{\beta}^{-1}(U_{\beta})\cap V)$ é aberto em $\mathbf{y}_{\beta}(U_{\beta})$ e, consequentemente, em $M$.
+			Logo,
+			\begin{equation*}
+				V=\bigcup_{\beta}\mathbf{y}_{\beta}(U_{\beta})\cap V
+			\end{equation*}
+			é aberto em $M$, pois é união de abertos.
+		\end{proof}
+	\end{proposition}
+	\begin{examples}
+		\label{ex:variedades-diferenciaveis}
+		$ $
+		\begin{enumerate}
+			\item $\mathbb{R}^{n}$ é uma variedade de dimensão $n$. Com efeito, basta considerar $I:\mathbb{R}^{n}\to \mathbb{R}^{n}$ a identidade e notar que $\{ (\mathbb{R}^{n}, I) \}$ é uma estrutura diferenciável.
+			\item  O espaço projetivo $P^{n}(\mathbb{R})$, definido como o conjunto de todas as retas de $\mathbb{R}^{n+1}$ que passam pela origem é uma variedade diferenciável de dimensão $n$. Primeiramente, note que, definindo em $\mathbb{R}^{n+1}$ a relação de equivalência $(x_{1}, \dots, x_{n+1}) \sim (\lambda x_{1}, \dots, \lambda x_{n+1}), \forall \lambda \in \mathbb{R}$, podemos representar $P^{n}(\mathbb{R})$ como o conjunto quociente $\frac{\mathbb{R}^{n+1}-\{ 0 \}}{\sim}$. Agora, vamos definir uma estrutura diferenciável sobre $P^{n}(\mathbb{R})$. Indicando as classes de equivalência de $P^{n}(\mathbb{R})$ como $[x_{1}, \dots, x_{n+1}]$, notamos que se $x_{i}\neq{0}$, então $[x_{1}, \dots, x_{n+1}]=\left[ \frac{x_{1}}{x_{i}}, \dots, \frac{x_{n+1}}{x_{i}} \right]$. Definimos $V_{i}=\{ [x_{1}, \dots, x_{n+1}]; x_{i}\neq 0 \}$ e, $\mathbf{x}_{i}:V_{i}\to P^{n}(\mathbb{R})$, pondo
+		\end{enumerate}
 		\begin{equation*}
-			\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A)\cap \mathbf{x}_{\alpha'}(U_{\alpha'}))=\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A)) \cap U_{\alpha'}.
+			\mathbf{x}_{i}(y_{1}, \dots, y_{n})=[y_{1}, \dots, y_{i-1}, 1, y_{i}, \dots, y_{n}].
 		\end{equation*}
-		Se $\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A))=\emptyset$, temos o desejado. Do contrário, a aplicação $\mathbf{x}_{\alpha}^{-1} \circ \mathbf{x}_{\alpha'}$ é diferenciável e, em particular, contínua. Logo, $\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A))$ é aberto e, como $U_{\alpha'}$ é aberto e a interseção de abertos é aberta, $\mathbf{x}_{\alpha'}^{-1}(\mathbf{x}_{\alpha}(A)\cap \mathbf{x}_{\alpha'}(U_{\alpha'}))$ também o é.
-
-		\emph{Afirmação 2}: Para qualquer $\alpha$, temos que $\mathbf{x}_{\alpha}:U_{\alpha}\to \mathbf{x}_{\alpha}(U_{\alpha})$ é um homeomorfismo, considerando $\mathbf{x}_{\alpha}(U_{\alpha})$ como subespaço topológico de $M$.
-
-		Pela afirmação 1, basta mostrar que se $A \subset \mathbf{x}_{\alpha}(U_{\alpha})$ é aberto, então $\mathbf{x}_{\alpha}^{-1}(A)$ é um aberto do $\mathbb{R}^{n}$. Como $\mathbf{x}_{\alpha}(U_{\alpha})$ é aberto, $A$ é aberto em $M$. Logo, por definição, $\mathbf{x}_{\alpha}^{-1}(A \cap \mathbf{x}_{\alpha}(U_{\alpha}))=\mathbf{x}_{\alpha}^{-1}(A)$ é aberto.
-
-		\emph{Demonstração do resultado}:
-
-		Se $V$ é aberto, o resultado é segue trivialmente da definição de abertos na variedade.
-
-		Reciprocamente, pela afirmação 2, como cada $\mathbf{y_{\beta}}$ pertence à estrutura diferenciável maximal, então cada $\mathbf{y}_{\beta}$ é um homeomorfismo sobre sua imagem. Temos que $\mathbf{y}_{\beta}(U_{\beta})\cap V=\mathbf{y}_{\beta}(\mathbf{y}_{\beta}^{-1}(U_{\beta})\cap V)$ é aberto em $\mathbf{y}_{\beta}(U_{\beta})$ e, consequentemente, em $M$.
-		Logo,
-		\begin{equation*}
-			V=\bigcup_{\beta}\mathbf{y}_{\beta}(U_{\beta})\cap V
-		\end{equation*}
-		é aberto em $M$, pois é união de abertos.
-	\end{proof}
-\end{proposition}
-\begin{examples}
-	\label{ex:variedades-diferenciaveis}
-	$ $
-	\begin{enumerate}
-		\item $\mathbb{R}^{n}$ é uma variedade de dimensão $n$. Com efeito, basta considerar $I:\mathbb{R}^{n}\to \mathbb{R}^{n}$ a identidade e notar que $\{ (\mathbb{R}^{n}, I) \}$ é uma estrutura diferenciável.
-		\item  O espaço projetivo $P^{n}(\mathbb{R})$, definido como o conjunto de todas as retas de $\mathbb{R}^{n+1}$ que passam pela origem é uma variedade diferenciável de dimensão $n$. Primeiramente, note que, definindo em $\mathbb{R}^{n+1}$ a relação de equivalência $(x_{1}, \dots, x_{n+1}) \sim (\lambda x_{1}, \dots, \lambda x_{n+1}), \forall \lambda \in \mathbb{R}$, podemos representar $P^{n}(\mathbb{R})$ como o conjunto quociente $\frac{\mathbb{R}^{n+1}-\{ 0 \}}{\sim}$. Agora, vamos definir uma estrutura diferenciável sobre $P^{n}(\mathbb{R})$. Indicando as classes de equivalência de $P^{n}(\mathbb{R})$ como $[x_{1}, \dots, x_{n+1}]$, notamos que se $x_{i}\neq{0}$, então $[x_{1}, \dots, x_{n+1}]=\left[ \frac{x_{1}}{x_{i}}, \dots, \frac{x_{n+1}}{x_{i}} \right]$. Definimos $V_{i}=\{ [x_{1}, \dots, x_{n+1}]; x_{i}\neq 0 \}$ e, $\mathbf{x}_{i}:V_{i}\to P^{n}(\mathbb{R})$, pondo
-	\end{enumerate}
-	\begin{equation*}
-		\mathbf{x}_{i}(y_{1}, \dots, y_{n})=[y_{1}, \dots, y_{i-1}, 1, y_{i}, \dots, y_{n}].
-	\end{equation*}
-	É fácil ver que cada $\mathbf{x}_{i}$ é uma bijeção sobre sua imagem. Mais ainda, $\displaystyle \bigcup_{i}\mathbf{x}_{i}(V_{i})=P^{n}(\mathbb{R})$. Vamos mostrar que a troca de coordenadas é diferenciável. Dados índices $i \neq j$, temos que
-	\begin{align*}
-		\mathbf{x}_{i}^{-1}(V_{i}\cap V_{j}) & =\mathbb{R}^{n}\cap \mathbf{x}_{i}^{-1}(V_{j})                                           \\
-		                                     & = \mathbf{x}_{i}^{-1}(V_{j})                                                             \\
-		                                     & = \{ (y_{1}, \dots, y_{n}); [y_{1}, \dots, y_{i-1}, 1, y_{i}, \dots, y_{n}] \in V_{j} \} \\
-		                                     & = \{ (y_{1}, \dots, y_{n});y_{j} \neq 0 \}
-	\end{align*}
-	o qual é aberto.
-	Supondo agora, sem perca de generalidade, que $i>j$, temos que
-	\begin{align*}
-		 & \mathbf{x}_{j}^{-1}\circ \mathbf{x}_{i}(y_{1}, \dots, y_{n})=\mathbf{x}_{j}^{-1}([y_{1}, \dots, y_{i-1}, 1, y_{i}, \dots, y_{n}])                                                                                             \\
-		 & =\mathbf{x}_{j}^{-1}\left( \left[ \frac{y_{1}}{y_{j}}, \dots, \frac{y_{j-1}}{y_{j}}, 1, \frac{y_{j+1}}{y_{j}}, \dots, \frac{y_{i-1}}{y_{j}}, \frac{1}{y_{j}}, \frac{y_{i}}{y_{j}}, \dots, \frac{y_{n}}{y_{j}} \right] \right) \\
-		 & = (\frac{y_{1}}{y_{j}}, \dots, \frac{y_{j-1}}{y_{j}}, 1, \frac{y_{j+1}}{y_{j}}, \dots, \frac{y_{i-1}}{y_{j}}, \frac{1}{y_{j}}, \frac{y_{i}}{y_{j}}, \dots, \frac{y_{n}}{y_{j}} )
-	\end{align*}
-
-	é diferenciável, pois $y_{j}\neq0$.
-\end{examples}
-O espaço projetivo recebe esse nome por sua interpretação geométrica, na qual retas paralelas são consideradas como tendo um ponto em comum. Retomaremos essa interpretação posteriormente, ao apresentarmos uma outra construção dessa variedade e o conceito de geodésicas em variedades.
-
-A próxima etapa é definir diferenciabilidade entre variedades.
-\begin{definition}
-	\label{def:diferenciabilidade}
-	Sejam $M_{1}^{n}$ e $M_{2}^{m}$ variedades diferenciáveis. Uma aplicação $\varphi:M_{1} \to M_{2}$ é dita diferenciável em $p \in M_{1}$ se dada $\mathbf{y}:V\to M_{2}$ parametrização de $\varphi(p)$ existe $\mathbf{x}:U\to M_{1}$ parametrização de $p$ tal que $\varphi(\mathbf{x}(U)) \subset \mathbf{y}(V)$ e $\tilde{\varphi}=\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}:U \to \mathbb{R}^{n}$ é diferenciável.
-
-	Dizemos que $\varphi:M_{1}\to M_{2}$ é diferenciável se for diferenciável em todo $p \in M_{1}$.
-\end{definition}
-Note que, devido ao segundo axioma de estrutura diferenciável, a diferenciabilidade de $\tilde{\varphi}$ não depende da escolha de $\mathbf{x}$ e $\mathbf{y}$. Com efeito, sendo $\tilde{\varphi}=\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}$ diferenciável e $\mathbf{x}', \mathbf{y'}$ parametrizações de $p$ e $\varphi(p)$, respectivamente, com $\varphi(\mathbf{x'}(U')) \subset \mathbf{y'(V')}$, temos que $\mathbf{y'}^{-1} \circ \varphi \circ \mathbf{x'} = \mathbf{y'}^{-1} \circ (\mathbf{y} \circ\mathbf{y}^{-1})\circ\varphi \circ (\mathbf{x} \circ \mathbf{x}^{-1}) \circ \mathbf{x'} = \mathbf{y'}^{-1} \circ \mathbf{y} \circ (\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}) \circ \mathbf{x}^{-1} \circ \mathbf{x'}$, o qual é diferenciável.
-
-De modo análogo à Proposição \ref{prop:aberto-estrutura-diferencial}, para verificar se uma função é ou não diferenciável, basta verificar a definição para uma estrutura diferenciável específica:
-\begin{proposition}
-	\label{prop:diferenciabilidade-estrutura-diferencial}
-	Sejam $M$ e $N$ variedades diferenciáveis. Uma aplicação $\varphi:M\to N$ é diferenciável em $p \in M$ se, e somente se, existe uma estrutura diferenciável $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \}$ de $N$ tal que, dada uma parametrização $\mathbf{y}_{\alpha}$ de $\varphi(p)$, existe uma parametrização $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ de $p$, onde $\varphi \circ \mathbf{x}_{\alpha}(U_{\alpha})$ está contido em $\mathbf{y}_{\alpha}(V_{\alpha})$ e $\mathbf{y}_{\alpha}^{-1} \circ\varphi \circ \mathbf{x}_{\alpha}$ é diferenciável em $\mathbf{x}_{\alpha}^{-1}(p)$.
-	\begin{proof}
-
-		\emph{Afirmação}: Se existem $\mathbf{x}$ e $\mathbf{y}$ parametrizações de $p$ e $\varphi(p)$ respectivamente, tais que $\mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$ é contínua em $\mathbf{x}^{-1}(p)$, então, $\varphi$ é contínua em $p$.
-
-		Basta notar que, como $\mathbf{x}$ e $\mathbf{y}$ são homeomorfismos sobre suas imagens, $\varphi \circ \mathbf{x}=\mathbf{y}\circ \mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$ é contínua em $\mathbf{x}^{-1}(p)$ e, de forma análoga, $\varphi=\varphi \circ \mathbf{x} \circ \mathbf{x}^{-1}$ é contínua em $p$.
-
-		Agora, claramente se $\varphi$ for diferenciável em $p$, o resultado segue da \Cref{def:diferenciabilidade}. Reciprocamente, fixando $p \in M$, seja $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \}= \mathcal{E}$ uma estrutura diferenciável que satisfaz a hipótese. Seja $\mathbf{y}:V\to N$ uma parametrização  de $\varphi(p)$ (não necessariamente na estrutura diferenciável).
-
-		Seja $\mathbf{y}_{\alpha}$ uma parametrização em $\mathcal{E}$ de $\varphi(p)$. Pela hipótese, existe uma parametrização $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ de $p$ tal que $\varphi(\mathbf{x}_{\alpha}(U_{\alpha}))\subset \mathbf{y}_{\alpha}(V_{\alpha})$ e $\mathbf{y}_{\alpha}^{-1} \circ \varphi \circ \mathbf{x}_{\alpha}$ é diferenciável em $\mathbf{x}_{\alpha}^{-1}(p)$.
-		O conjunto $W=\mathbf{y}_{\alpha}(V_{\alpha})\cap \mathbf{y}(V)$ é não vazio, pois $\varphi(p)\in W$. Como $N$ é variedade diferenciável, $\mathbf{y}^{-1} \circ \mathbf{y}_{\alpha}|_{\mathbf{y}_{\alpha}^{-1}(W)}$ é diferenciável.
-		Assim, $U=\mathbf{x}_{\alpha}^{-1} \circ \varphi ^{-1}(W)$ é aberto pela afirmação.
-		Também, $U \subset U_{\alpha}$, consequentemente, definindo uma parametrização $\mathbf{x}:U\to M$, pondo $\mathbf{x}(q)=\mathbf{x}_{\alpha}(q)$, temos que
-		\begin{equation*}
-			\varphi(\mathbf{x}(U))\subset W\subset \mathbf{y}(V)
-		\end{equation*}
-		e, em uma vizinhança de $\mathbf{x}^{-1}(p)$,
-		\begin{equation*}
-			\mathbf{y}^{-1} \circ \mathbf{y}_{\alpha} \circ  \mathbf{y}_{\alpha}^{-1} \circ  \varphi \circ  \mathbf{x} =\mathbf{y}^{-1} \circ  \varphi \circ  \mathbf{x}.
-		\end{equation*}
-		Portanto, $\mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$ é diferenciável em $\mathbf{x}^{-1}(p)$.
-	\end{proof}
-\end{proposition}
-%\textbf{PLACEHOLDER:IMAGEM}
-
-Nesse texto, dizemos que aplicações são diferenciáveis se forem diferenciáveis como aplicações entre duas variedades, considerando $\mathbb{R}^{n}$ como a variedade parametrizada pela função identidade.
-
-Com a noção de diferenciabilidade, surge naturalmente a seguinte questão: o que entendemos por diferencial de uma função diferenciável $f:M\to N$ entre variedades?
-
-Assim como em aplicações $\mathbb{R}^n \to \mathbb{R}^m$ o ideal seria que, dados um ponto $p\in M$ e uma direção $v$, a diferencial de $f$ em $p$, na direção $v$, descrevesse como $f$ varia quando nos deslocamos infinitesimalmente a partir de $p$ nessa direção. Em $\mathbb{R}^n$, essa ideia é expressa considerando $f(p+\varepsilon v)$ e comparando-o com $f(p)$, à medida que $\varepsilon$ se aproxima de zero.
-
-Entretanto, em uma variedade $M$, em geral não há uma estrutura de espaço vetorial que permita somar um ponto $p$ a um múltiplo do vetor $v$. Assim, a expressão $p+\varepsilon v$ não está, em geral, bem definida. Para contornar essa dificuldade, podemos descrever uma direção em $p$ por meio de uma \textbf{curva} $\alpha$ em $M$, que passa por $p$ e possui vetor velocidade $v$ nesse ponto. Dessa forma, estudamos o comportamento de $f$ ao longo da curva $f\circ\alpha$, obtendo uma definição de diferencial que generaliza naturalmente a derivada direcional do cálculo em $\mathbb{R}^n$.
-
-Devemos então tornar precisa a ideia de direção.
-Inspirados pela Geometria Diferencial, podemos pensar em definir planos tangentes, os quais serão os conjuntos das ``direções'' em um ponto. Iniciamos tomando uma curva diferenciável $\alpha(t)$ definida na variedade, que passa por $p$ quando $t=0$. Se estivéssemos falando de uma superfície contida em $\mathbb{R}^{3}$, poderíamos pensar em $\alpha$ como uma curva em $\mathbb{R}^{3}$ e considerar seu vetor velocidade $\alpha'(t)$, quando $t=0$. Entretanto, variedades diferenciais não possuem um espaço ambiente. Resolvemos isso por definir o vetor velocidade de $\alpha$ como um funcional, da seguinte maneira:
-\begin{definition}
-	\label{def:espaco-tangente}
-	$ $
-	\begin{enumerate}[label=(\roman*)]
-		\item Seja $M$ uma variedade diferenciável e $p \in M$. Uma função diferenciável $\alpha:(-\epsilon, \epsilon) \subset \mathbb{R} \to M$, com $\epsilon>0$, é chamada \emph{curva diferenciável}.
-		\item Sejam $\alpha:(-\epsilon, \epsilon)\to M$ curva diferenciável, com $\alpha(0)=p$ e $\mathcal{D}=\{ f:M\to \mathbb{R}; f \text{ diferenciável} \}$. O \emph{vetor tangente} à curva $\alpha$ em $t=0$ é o funcional $\alpha'(0):\mathcal{D}\to \mathbb{R}$ tal que $\alpha'(0)f=\frac{d(f\circ\alpha)}{dt}|_{t=0}$.
-		\item Seja $p \in M$. Definimos o plano tangente
-	\end{enumerate}
-	\begin{equation*}
-		T_{p}M=\{ \alpha'(0); \alpha:(-\epsilon, \epsilon)\to M \text{ é curva diferenciável, com } \alpha(0)=p \}.
-	\end{equation*}
-\end{definition}
-Vamos mostrar que um plano tangente é um espaço vetorial.
-\begin{proposition}
-	\label{prop:vetor-tangente-coordenadas}
-	Seja $M$ uma variedade diferenciável e $p \in M$. O espaço tangente $T_{p}M$ é um espaço vetorial.
-	\begin{proof}
-
-		Seja $\mathbf{x}:U\to M$ parametrização de $\mathbf{x}(q)=p \in M$. Como $f:M\to \mathbb{R}$ é uma função diferenciável, podemos escrever $f \circ \mathbf{x}(x_{1}, \dots, x_{n})=\tilde{f}(x_{1}, \dots, x_{n})$. Também, $\tilde{\alpha}(t)=\mathbf{x}^{-1}\circ\alpha(t)=(x_{1}(t), \dots, x_{n}(t))$.
-		Dessa forma, $f \circ \alpha(t) = f \circ \mathbf{x} \circ \mathbf{x}^{-1} \circ \alpha(t) = \tilde{f} \circ \tilde{\alpha}(t) = \tilde{f}(x_{1}(t), \dots, x_{n}(t))$.
-		Logo,
-		\begin{equation*}
-			\alpha'(0)f=\frac{d(f\circ\alpha)}{dt}|_{t=0} = \frac{d}{dt}(\tilde{f}(x_{1}(t), \dots, x_{n}(t)))|_{t=0}.
-		\end{equation*}
-		Como a função a derivada na direita é de um aberto de $\mathbb{R}$ em $\mathbb{R}^{n}$, podemos usar a regra da cadeia, obtendo
-		\begin{equation*}
-			\alpha'(0)f=\sum_{i=1}^{n}x_{i}'(0)\frac{\partial \tilde{{f}}}{\partial x_{i}}(\alpha(0)) = \left(\sum_{i=1}^{n}x_{i}'(0)\left( \frac{\partial}{\partial x_{i}} \right)_{0}\right)\tilde{f},
-		\end{equation*}
-		implicando que
-		\begin{equation*}
-			\alpha'(0)=\sum_{i=1}^{n}x_{i}'(0)\left( \frac{\partial}{\partial x_{i}} \right)_{0}.
-		\end{equation*}
-		Como todo vetor tangente é uma combinação linear dos funcionais $\left( \frac{\partial}{\partial x_{i}} \right)_{0}$, os quais são dados pelas curvas $\alpha _i(t)=\mathbf{x}(q+te_{i})$, onde $q=\mathbf{x}^{-1}(p)$ e $e_{i}$ é o $i$-ésimo vetor da base canônica de $\mathbb{R}^{n}$, temos o desejado.
-	\end{proof}
-\end{proposition}
-Note que se $f \in \mathcal{D}$, como na \Cref{def:espaco-tangente},
-\begin{equation*}
-	\left( \frac{\partial}{\partial x_{i}} \right)_{0}f=\frac{\partial \tilde{f}}{\partial x_{i}}(0)
-\end{equation*}
-onde $\tilde{f}$ é a expressão em coordenadas de $f$, o que justifica a notação empregada. De agora em diante, escreveremos $\frac{\partial}{\partial x_{i}}$ para indicar tal vetor.
-
-Podemos agora falar da diferencial de uma função.
-\begin{proposition}
-	\label{prop:derivada-transformacao-linear}
-	Sejam $M_{1}^{n}$, $M_{2}^{n}$ variedades diferenciáveis e $\varphi:M_{1}\to M_{2}$ uma aplicação diferenciável em $p \in M_{1}$. Definimos a diferencial de $\varphi$ em $p$ como $d\varphi_{p}:T_{p}M_{1}\to T_{\varphi (p)}M_{2}$, para todo $v \in T_{p}M_{1}$, com $v=\alpha'(0)$ para alguma curva diferenciável $\alpha$, com $\alpha(0)=p$, fazendo $d\varphi_{p}(v)= (\varphi \circ \alpha)'(0)$.
-	\begin{proof}
-
-		Mostremos que $d\varphi_{p}$ está bem definida e é linear.
-		Seja $v \in T_{p}M_{1}$ e $\alpha$ uma curva diferenciável em $M_{1}$ tal que $\alpha(0)=p$. Seja $\beta = \varphi \circ \alpha$. Note que $\beta$ é uma curva diferenciável em $M_{2}$ tal que $\beta(0)=\varphi(p)$.
-		Sejam $\mathbf{x}:U\to M_{1}$ parametrização de $p$ e $\mathbf{y}:V\to M_{2}$ parametrização de $\varphi(p)$. Temos que
-		\begin{equation*}
-			\tilde{\varphi}(x_{1}, \dots, x_{n}):=\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}(x_{1}, \dots, x_{n})=(y_{1}(x_{1}, \dots, x_{n}), \dots, y_{m}(x_{1}, \dots, x_{n})).
-		\end{equation*}
-		Também, $\tilde{\alpha}(t):=\mathbf{x}^{-1}\circ\alpha(t)=(x_{1}(t), \dots, x_{n}(t))$. Representando então $\beta$ em coordenadas, temos
+		É fácil ver que cada $\mathbf{x}_{i}$ é uma bijeção sobre sua imagem. Mais ainda, $\displaystyle \bigcup_{i}\mathbf{x}_{i}(V_{i})=P^{n}(\mathbb{R})$. Vamos mostrar que a troca de coordenadas é diferenciável. Dados índices $i \neq j$, temos que
 		\begin{align*}
-			\tilde{\beta}(t) & :=\mathbf{y}^{-1}\circ \beta(t)=\mathbf{y}^{-1} \circ  \varphi \circ \alpha(t)                                         \\
-			                 & =\mathbf{y}^{-1} \circ  \varphi \circ  \mathbf{x} \circ \mathbf{x}^{-1} \circ \alpha(t)                                \\
-			                 & =\tilde{\varphi} \circ  \tilde{\alpha}(t)=(y_{1}(x_{1}(t), \dots, x_{n}(t)), \dots, y_{m}(x_{1}(t), \dots, x_{n}(t))).
+			\mathbf{x}_{i}^{-1}(V_{i}\cap V_{j}) & =\mathbb{R}^{n}\cap \mathbf{x}_{i}^{-1}(V_{j})                                           \\
+			                                     & = \mathbf{x}_{i}^{-1}(V_{j})                                                             \\
+			                                     & = \{ (y_{1}, \dots, y_{n}); [y_{1}, \dots, y_{i-1}, 1, y_{i}, \dots, y_{n}] \in V_{j} \} \\
+			                                     & = \{ (y_{1}, \dots, y_{n});y_{j} \neq 0 \}
 		\end{align*}
-		Logo,
+		o qual é aberto.
+		Supondo agora, sem perca de generalidade, que $i>j$, temos que
+		\begin{align*}
+			 & \mathbf{x}_{j}^{-1}\circ \mathbf{x}_{i}(y_{1}, \dots, y_{n})=\mathbf{x}_{j}^{-1}([y_{1}, \dots, y_{i-1}, 1, y_{i}, \dots, y_{n}])                                                                                             \\
+			 & =\mathbf{x}_{j}^{-1}\left( \left[ \frac{y_{1}}{y_{j}}, \dots, \frac{y_{j-1}}{y_{j}}, 1, \frac{y_{j+1}}{y_{j}}, \dots, \frac{y_{i-1}}{y_{j}}, \frac{1}{y_{j}}, \frac{y_{i}}{y_{j}}, \dots, \frac{y_{n}}{y_{j}} \right] \right) \\
+			 & = (\frac{y_{1}}{y_{j}}, \dots, \frac{y_{j-1}}{y_{j}}, 1, \frac{y_{j+1}}{y_{j}}, \dots, \frac{y_{i-1}}{y_{j}}, \frac{1}{y_{j}}, \frac{y_{i}}{y_{j}}, \dots, \frac{y_{n}}{y_{j}} )
+		\end{align*}
+
+		é diferenciável, pois $y_{j}\neq0$.
+	\end{examples}
+	O espaço projetivo recebe esse nome por sua interpretação geométrica, na qual retas paralelas são consideradas como tendo um ponto em comum. Retomaremos essa interpretação posteriormente, ao apresentarmos uma outra construção dessa variedade e o conceito de geodésicas em variedades.
+
+	A próxima etapa é definir diferenciabilidade entre variedades.
+	\begin{definition}
+		\label{def:diferenciabilidade}
+		Sejam $M_{1}^{n}$ e $M_{2}^{m}$ variedades diferenciáveis. Uma aplicação $\varphi:M_{1} \to M_{2}$ é dita diferenciável em $p \in M_{1}$ se dada $\mathbf{y}:V\to M_{2}$ parametrização de $\varphi(p)$ existe $\mathbf{x}:U\to M_{1}$ parametrização de $p$ tal que $\varphi(\mathbf{x}(U)) \subset \mathbf{y}(V)$ e $\tilde{\varphi}=\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}:U \to \mathbb{R}^{n}$ é diferenciável.
+
+		Dizemos que $\varphi:M_{1}\to M_{2}$ é diferenciável se for diferenciável em todo $p \in M_{1}$.
+	\end{definition}
+	Note que, devido ao segundo axioma de estrutura diferenciável, a diferenciabilidade de $\tilde{\varphi}$ não depende da escolha de $\mathbf{x}$ e $\mathbf{y}$. Com efeito, sendo $\tilde{\varphi}=\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}$ diferenciável e $\mathbf{x}', \mathbf{y'}$ parametrizações de $p$ e $\varphi(p)$, respectivamente, com $\varphi(\mathbf{x'}(U')) \subset \mathbf{y'(V')}$, temos que $\mathbf{y'}^{-1} \circ \varphi \circ \mathbf{x'} = \mathbf{y'}^{-1} \circ (\mathbf{y} \circ\mathbf{y}^{-1})\circ\varphi \circ (\mathbf{x} \circ \mathbf{x}^{-1}) \circ \mathbf{x'} = \mathbf{y'}^{-1} \circ \mathbf{y} \circ (\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}) \circ \mathbf{x}^{-1} \circ \mathbf{x'}$, o qual é diferenciável.
+
+	De modo análogo à Proposição \ref{prop:aberto-estrutura-diferencial}, para verificar se uma função é ou não diferenciável, basta verificar a definição para uma estrutura diferenciável específica:
+	\begin{proposition}
+		\label{prop:diferenciabilidade-estrutura-diferencial}
+		Sejam $M$ e $N$ variedades diferenciáveis. Uma aplicação $\varphi:M\to N$ é diferenciável em $p \in M$ se, e somente se, existe uma estrutura diferenciável $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \}$ de $N$ tal que, dada uma parametrização $\mathbf{y}_{\alpha}$ de $\varphi(p)$, existe uma parametrização $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ de $p$, onde $\varphi \circ \mathbf{x}_{\alpha}(U_{\alpha})$ está contido em $\mathbf{y}_{\alpha}(V_{\alpha})$ e $\mathbf{y}_{\alpha}^{-1} \circ\varphi \circ \mathbf{x}_{\alpha}$ é diferenciável em $\mathbf{x}_{\alpha}^{-1}(p)$.
+		\begin{proof}
+
+			\emph{Afirmação}: Se existem $\mathbf{x}$ e $\mathbf{y}$ parametrizações de $p$ e $\varphi(p)$ respectivamente, tais que $\mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$ é contínua em $\mathbf{x}^{-1}(p)$, então, $\varphi$ é contínua em $p$.
+
+			Basta notar que, como $\mathbf{x}$ e $\mathbf{y}$ são homeomorfismos sobre suas imagens, $\varphi \circ \mathbf{x}=\mathbf{y}\circ \mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$ é contínua em $\mathbf{x}^{-1}(p)$ e, de forma análoga, $\varphi=\varphi \circ \mathbf{x} \circ \mathbf{x}^{-1}$ é contínua em $p$.
+
+			Agora, claramente se $\varphi$ for diferenciável em $p$, o resultado segue da \Cref{def:diferenciabilidade}. Reciprocamente, fixando $p \in M$, seja $\{ (V_{\alpha}, \mathbf{y}_{\alpha}) \}= \mathcal{E}$ uma estrutura diferenciável que satisfaz a hipótese. Seja $\mathbf{y}:V\to N$ uma parametrização  de $\varphi(p)$ (não necessariamente na estrutura diferenciável).
+
+			Seja $\mathbf{y}_{\alpha}$ uma parametrização em $\mathcal{E}$ de $\varphi(p)$. Pela hipótese, existe uma parametrização $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ de $p$ tal que $\varphi(\mathbf{x}_{\alpha}(U_{\alpha}))\subset \mathbf{y}_{\alpha}(V_{\alpha})$ e $\mathbf{y}_{\alpha}^{-1} \circ \varphi \circ \mathbf{x}_{\alpha}$ é diferenciável em $\mathbf{x}_{\alpha}^{-1}(p)$.
+			O conjunto $W=\mathbf{y}_{\alpha}(V_{\alpha})\cap \mathbf{y}(V)$ é não vazio, pois $\varphi(p)\in W$. Como $N$ é variedade diferenciável, $\mathbf{y}^{-1} \circ \mathbf{y}_{\alpha}|_{\mathbf{y}_{\alpha}^{-1}(W)}$ é diferenciável.
+			Assim, $U=\mathbf{x}_{\alpha}^{-1} \circ \varphi ^{-1}(W)$ é aberto pela afirmação.
+			Também, $U \subset U_{\alpha}$, consequentemente, definindo uma parametrização $\mathbf{x}:U\to M$, pondo $\mathbf{x}(q)=\mathbf{x}_{\alpha}(q)$, temos que
+			\begin{equation*}
+				\varphi(\mathbf{x}(U))\subset W\subset \mathbf{y}(V)
+			\end{equation*}
+			e, em uma vizinhança de $\mathbf{x}^{-1}(p)$,
+			\begin{equation*}
+				\mathbf{y}^{-1} \circ \mathbf{y}_{\alpha} \circ  \mathbf{y}_{\alpha}^{-1} \circ  \varphi \circ  \mathbf{x} =\mathbf{y}^{-1} \circ  \varphi \circ  \mathbf{x}.
+			\end{equation*}
+			Portanto, $\mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$ é diferenciável em $\mathbf{x}^{-1}(p)$.
+		\end{proof}
+	\end{proposition}
+	%\textbf{PLACEHOLDER:IMAGEM}
+
+	Nesse texto, dizemos que aplicações são diferenciáveis se forem diferenciáveis como aplicações entre duas variedades, considerando $\mathbb{R}^{n}$ como a variedade parametrizada pela função identidade.
+
+	Com a noção de diferenciabilidade, surge naturalmente a seguinte questão: o que entendemos por diferencial de uma função diferenciável $f:M\to N$ entre variedades?
+
+	Assim como em aplicações $\mathbb{R}^n \to \mathbb{R}^m$ o ideal seria que, dados um ponto $p\in M$ e uma direção $v$, a diferencial de $f$ em $p$, na direção $v$, descrevesse como $f$ varia quando nos deslocamos infinitesimalmente a partir de $p$ nessa direção. Em $\mathbb{R}^n$, essa ideia é expressa considerando $f(p+\varepsilon v)$ e comparando-o com $f(p)$, à medida que $\varepsilon$ se aproxima de zero.
+
+	Entretanto, em uma variedade $M$, em geral não há uma estrutura de espaço vetorial que permita somar um ponto $p$ a um múltiplo do vetor $v$. Assim, a expressão $p+\varepsilon v$ não está, em geral, bem definida. Para contornar essa dificuldade, podemos descrever uma direção em $p$ por meio de uma \textbf{curva} $\alpha$ em $M$, que passa por $p$ e possui vetor velocidade $v$ nesse ponto. Dessa forma, estudamos o comportamento de $f$ ao longo da curva $f\circ\alpha$, obtendo uma definição de diferencial que generaliza naturalmente a derivada direcional do cálculo em $\mathbb{R}^n$.
+
+	Devemos então tornar precisa a ideia de direção.
+	Inspirados pela Geometria Diferencial, podemos pensar em definir planos tangentes, os quais serão os conjuntos das ``direções'' em um ponto. Iniciamos tomando uma curva diferenciável $\alpha(t)$ definida na variedade, que passa por $p$ quando $t=0$. Se estivéssemos falando de uma superfície contida em $\mathbb{R}^{3}$, poderíamos pensar em $\alpha$ como uma curva em $\mathbb{R}^{3}$ e considerar seu vetor velocidade $\alpha'(t)$, quando $t=0$. Entretanto, variedades diferenciais não possuem um espaço ambiente. Resolvemos isso por definir o vetor velocidade de $\alpha$ como um funcional, da seguinte maneira:
+	\begin{definition}
+		\label{def:espaco-tangente}
+		$ $
+		\begin{enumerate}[label=(\roman*)]
+			\item Seja $M$ uma variedade diferenciável e $p \in M$. Uma função diferenciável $\alpha:(-\epsilon, \epsilon) \subset \mathbb{R} \to M$, com $\epsilon>0$, é chamada \emph{curva diferenciável}.
+			\item Sejam $\alpha:(-\epsilon, \epsilon)\to M$ curva diferenciável, com $\alpha(0)=p$ e $\mathcal{D}=\{ f:M\to \mathbb{R}; f \text{ diferenciável} \}$. O \emph{vetor tangente} à curva $\alpha$ em $t=0$ é o funcional $\alpha'(0):\mathcal{D}\to \mathbb{R}$ tal que $\alpha'(0)f=\frac{d(f\circ\alpha)}{dt}|_{t=0}$.
+			\item Seja $p \in M$. Definimos o plano tangente
+		\end{enumerate}
 		\begin{equation*}
-			\beta'(0)= \sum_{k=1}^{m}\frac{d}{dt}y_{k}(x_{1}(t), \dots, x_{n}(t))|_{t=0} \left( \frac{\partial}{\partial y_{k}} \right)_{0} = \sum _{k=1}^{m}\sum _{i=1}^{n}\frac{\partial y_{k}}{\partial x_{i}}(\tilde{\alpha}(0)) \cdot x_{i}'(0) \cdot \left( \frac{\partial}{\partial y_{k}} \right)_{0}
+			T_{p}M=\{ \alpha'(0); \alpha:(-\epsilon, \epsilon)\to M \text{ é curva diferenciável, com } \alpha(0)=p \}.
 		\end{equation*}
-		Reescrevendo, temos
-		\begin{equation*}
-			\beta'(0)=\sum _{k=1}^{m}\left( \frac{\partial}{\partial y_{k}} \right)_{0} \sum_{i=1}^{n}v_{i} \cdot \frac{\partial y_{k}}{\partial x_{i}}(\tilde{\alpha}(0))
-		\end{equation*}
-		onde $v = \sum_{i=1}^{n}v_{i}\left( \frac{\partial}{\partial x_{i}} \right)_{0}$.
-		Sendo $A$ a matriz $m \times n$, dada por $a_{k,i}=\frac{\partial y_{k}}{\partial x_{i}}(\tilde{\alpha}(0))$, temos que $\beta'(0)=A(\alpha'(0))$, ou seja, $A = [d\varphi_{v}]$, o que mostra que $d\varphi_{v}$ é linear e em particular, está bem definida.
-	\end{proof}
-\end{proposition}
-\begin{example}
-	\label{ex:identidade-diferenciavel}
-	A função identidade de uma variedade é diferenciável e tem derivada igual à identidade.
-	\begin{proof}
+	\end{definition}
+	Vamos mostrar que um plano tangente é um espaço vetorial.
+	\begin{proposition}
+		\label{prop:vetor-tangente-coordenadas}
+		Seja $M$ uma variedade diferenciável e $p \in M$. O espaço tangente $T_{p}M$ é um espaço vetorial.
+		\begin{proof}
 
-		Sejam $I:M\to M$ a função identidade e $p \in M$. Basta tomar quaisquer duas parametrizações de $p$ para ver que $I$ é diferenciável, pois a troca de coordenadas será diferenciável. Também, sendo $v \in T_{p}M$ e $\alpha$ uma curva diferenciável, com $\alpha(0)=0$, temos que $dI_{p}(v)=(I \circ\alpha)'(0)=\alpha'(0)=v$. Logo, $dI_{p}$ é a função identidade de $T_{p}M$
-	\end{proof}
-\end{example}
-Com a noção de diferenciabilidade, definimos o morfismo das variedades diferenciáveis:
-\begin{definition}
-	\label{def:difeomorfismo}
-	Sejam $M_{1}$ e $M_{2}$ variedades diferenciáveis. Uma função diferenciável $\varphi:M_{1} \to M_{2}$ é chamada de difeomorfismo se for bijeção e $\varphi ^{-1}:M_{2}\to M_{1}$ for diferenciável.
-	Se para todo $p \in M_{1}$, existe um $U$ vizinhança de $p$ em $M_{1}$ e $V$ vizinhança de $\varphi(p)$ em $M_{2}$ tal que $\varphi|_{U}:U\to V$ é um difeomorfismo, $\varphi$ é chamada de difeomorfismo local.
-\end{definition}
-Enfim, tornamos preciso o fato de que as variedades diferenciáveis se comportarem localmente como o $\mathbb{R}^{n}$:
-\begin{proposition}
-	\label{prop:parametrizacao-difeomorfismo}
-	Toda parametrização é um difeomorfismo sobre sua imagem.
-	\begin{proof}
-
-		Seja $p \in M^{n}$ e $\mathbf{x}:U\to M$ uma parametrização de $p$. Note que, como $\mathbb{R}^{n}$ é parametrizado pela função identidade, temos que $\mathbf{x}$ é diferenciável se, e somente se, existe uma parametrização $\mathbf{y}:V\to M$ de $p$ tal que $\mathbf{x}(I(U)) \subset \mathbf{y}(V)$ e $\mathbf{y}^{-1} \circ \mathbf{x} \circ I$ é diferenciável. Isso é trivialmente satisfeito pelos axiomas de variedade diferenciável.
-		De forma análoga é possível mostrar que $\mathbf{x}^{-1}$ é diferenciável e portanto, $\mathbf{x}$ é um difeomorfismo.
-	\end{proof}
-\end{proposition}
-\begin{examples}
-	\label{ex:difeomorfismos}
-	$ $
-	\begin{enumerate}
-		\item Qualquer aplicação $f:\mathbb{R} \to \mathbb{R}^{2}$ não pode ser um difeomorfismo. De fato, todo difeomorfismo é, em particular, um homeomorfismo. Portanto, se existisse tal difeomorfismo, $\mathbb{R}$ e $\mathbb{R}^{2}$ seriam homeomorfos, o que é um absurdo.
-		\item A função $f:\mathbb{R}\to \mathbb{R}$, definida por $f(x)=|x|$ não é um difeomorfismo, pois não é diferenciável quando $x=0$. Já a função $g:\mathbb{R}\to \mathbb{R}$, definida por $g(x)=x^{3}$ é um homeomorfismo, mas não é um difeomorfismo, pois sua inversa não é derivável em $x=0.$
-		\item Se $M$ é uma variedade qualquer, a aplicação identidade $I:M\to M$ é um difeomorfismo.
-	\end{enumerate}
-\end{examples}
-Podemos classificar os difeomorfismos da seguinte maneira:
-\begin{proposition}
-	\label{prop:difeomorfismo-local-bijetor}
-	Uma aplicação $\varphi:M_{1}\to M_{2}$ é um difeomorfismo se, e somente se, for um difeomorfismo local bijetor.
-	\begin{proof}
-
-		Seja $\varphi:M_{1}\to M_{2}$ um difeomorfismo local bijetor. Mostremos que $\varphi ^{-1}$ é diferenciável. Seja, $p \in M_{2}$. Como $\varphi$ é bijeção, existe $q \in M_{1}$ tal que $\varphi(q)=p$. Como $\varphi$ é difeomorfismo local, existe uma vizinhança $U$ de $q$ em $M_{1}$ e uma vizinhança $V$ de $p$ em $M_{2}$ tal que $\varphi|_{U}:U\to V$ é um difeomorfismo. Temos que $(\varphi|_{U})^{-1}$ é diferenciável, pela definição de difeomorfismo. Também, $(\varphi|_{U})^{-1}=(\varphi ^{-1})|_{V}$, implicando que $\varphi ^{-1}$ é diferenciável em $p$. Como $p$ é arbitrário, $\varphi ^{-1}$ é diferenciável e $\varphi$ é um difeomorfismo.
-
-		Para a recíproca, basta notar que $M_{1}$ e $M_{2}$ são abertos em $M_{1}$ e $M_{2}$ respectivamente.
-	\end{proof}
-\end{proposition}
-Antes de apresentarmos as próximas definições, convém apresentar alguns resultados que serão úteis na interpretação dessas.
-\begin{lemma}
-	\label{lem:difeomorfismo-dimensao-1}
-	Sejam $M_{1}, M_{2}$ e $M_{3}$ variedades diferenciáveis, $\varphi:M_{1}\to M_{2}$ e $\psi:M_{2}\to M_{3}$ aplicações diferenciáveis. Então $\psi \circ \varphi:M_{1}\to M_{3}$ é diferenciável e
+			Seja $\mathbf{x}:U\to M$ parametrização de $\mathbf{x}(q)=p \in M$. Como $f:M\to \mathbb{R}$ é uma função diferenciável, podemos escrever $f \circ \mathbf{x}(x_{1}, \dots, x_{n})=\tilde{f}(x_{1}, \dots, x_{n})$. Também, $\tilde{\alpha}(t)=\mathbf{x}^{-1}\circ\alpha(t)=(x_{1}(t), \dots, x_{n}(t))$.
+			Dessa forma, $f \circ \alpha(t) = f \circ \mathbf{x} \circ \mathbf{x}^{-1} \circ \alpha(t) = \tilde{f} \circ \tilde{\alpha}(t) = \tilde{f}(x_{1}(t), \dots, x_{n}(t))$.
+			Logo,
+			\begin{equation*}
+				\alpha'(0)f=\frac{d(f\circ\alpha)}{dt}|_{t=0} = \frac{d}{dt}(\tilde{f}(x_{1}(t), \dots, x_{n}(t)))|_{t=0}.
+			\end{equation*}
+			Como a função a derivada na direita é de um aberto de $\mathbb{R}$ em $\mathbb{R}^{n}$, podemos usar a regra da cadeia, obtendo
+			\begin{equation*}
+				\alpha'(0)f=\sum_{i=1}^{n}x_{i}'(0)\frac{\partial \tilde{{f}}}{\partial x_{i}}(\alpha(0)) = \left(\sum_{i=1}^{n}x_{i}'(0)\left( \frac{\partial}{\partial x_{i}} \right)_{0}\right)\tilde{f},
+			\end{equation*}
+			implicando que
+			\begin{equation*}
+				\alpha'(0)=\sum_{i=1}^{n}x_{i}'(0)\left( \frac{\partial}{\partial x_{i}} \right)_{0}.
+			\end{equation*}
+			Como todo vetor tangente é uma combinação linear dos funcionais $\left( \frac{\partial}{\partial x_{i}} \right)_{0}$, os quais são dados pelas curvas $\alpha _i(t)=\mathbf{x}(q+te_{i})$, onde $q=\mathbf{x}^{-1}(p)$ e $e_{i}$ é o $i$-ésimo vetor da base canônica de $\mathbb{R}^{n}$, temos o desejado.
+		\end{proof}
+	\end{proposition}
+	Note que se $f \in \mathcal{D}$, como na \Cref{def:espaco-tangente},
 	\begin{equation*}
-		d(\psi \circ \varphi)_{p}=d\psi_{\varphi(p)} \circ d\varphi_{p}.
+		\left( \frac{\partial}{\partial x_{i}} \right)_{0}f=\frac{\partial \tilde{f}}{\partial x_{i}}(0)
 	\end{equation*}
-	\begin{proof}
+	onde $\tilde{f}$ é a expressão em coordenadas de $f$, o que justifica a notação empregada. De agora em diante, escreveremos $\frac{\partial}{\partial x_{i}}$ para indicar tal vetor.
 
-		Seja $p \in M_{1}$. Da diferenciabilidade de $\psi$, para toda parametrização $\mathbf{z}:W\to M_{3}$ de $\psi(\varphi(p))$ existe uma parametrização $\mathbf{y}:V\to M_{2}$ de $\phi(p)$ tal que $\psi(\mathbf{y}(V)) \subset \mathbf{z}(W)$ e $\mathbf{z}^{-1} \circ \psi \circ \mathbf{y}$ é diferenciável. Da diferenciabilidade de $\varphi$, e da independência de escolha de parametrizações, existe uma parametrização $\mathbf{x}:U\to M_{1}$ de $p$ tal que $\varphi(\mathbf{x}(U)) \subset \mathbf{y}(V)$ e $\mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$ é diferenciável. Temos que $\psi(\varphi(\mathbf{x}(U))) \subset \psi(\mathbf{y}(V))\subset z(W)$ e que $\mathbf{z ^{-1}} \circ \psi \circ \varphi \circ \mathbf{x}=(\mathbf{z}^{-1} \circ \psi \circ \mathbf{y}) \circ (\mathbf{y}^{-1} \circ \varphi \circ \mathbf{x})$, e portanto, é diferenciável.
+	Podemos agora falar da diferencial de uma função.
+	\begin{proposition}
+		\label{prop:derivada-transformacao-linear}
+		Sejam $M_{1}^{n}$, $M_{2}^{n}$ variedades diferenciáveis e $\varphi:M_{1}\to M_{2}$ uma aplicação diferenciável em $p \in M_{1}$. Definimos a diferencial de $\varphi$ em $p$ como $d\varphi_{p}:T_{p}M_{1}\to T_{\varphi (p)}M_{2}$, para todo $v \in T_{p}M_{1}$, com $v=\alpha'(0)$ para alguma curva diferenciável $\alpha$, com $\alpha(0)=p$, fazendo $d\varphi_{p}(v)= (\varphi \circ \alpha)'(0)$.
+		\begin{proof}
 
-		Seja $\alpha:(-\epsilon, \epsilon)\to M_{1}$ uma curva diferenciável, com $\alpha(0)=p$. Seja $\beta=\varphi \circ \alpha$ curva diferenciável em $M_{2}$ e $\gamma = \psi \circ \beta$ curva diferenciável em $M_{3}$.
-		Temos que
+			Mostremos que $d\varphi_{p}$ está bem definida e é linear.
+			Seja $v \in T_{p}M_{1}$ e $\alpha$ uma curva diferenciável em $M_{1}$ tal que $\alpha(0)=p$. Seja $\beta = \varphi \circ \alpha$. Note que $\beta$ é uma curva diferenciável em $M_{2}$ tal que $\beta(0)=\varphi(p)$.
+			Sejam $\mathbf{x}:U\to M_{1}$ parametrização de $p$ e $\mathbf{y}:V\to M_{2}$ parametrização de $\varphi(p)$. Temos que
+			\begin{equation*}
+				\tilde{\varphi}(x_{1}, \dots, x_{n}):=\mathbf{y}^{-1}\circ\varphi \circ \mathbf{x}(x_{1}, \dots, x_{n})=(y_{1}(x_{1}, \dots, x_{n}), \dots, y_{m}(x_{1}, \dots, x_{n})).
+			\end{equation*}
+			Também, $\tilde{\alpha}(t):=\mathbf{x}^{-1}\circ\alpha(t)=(x_{1}(t), \dots, x_{n}(t))$. Representando então $\beta$ em coordenadas, temos
+			\begin{align*}
+				\tilde{\beta}(t) & :=\mathbf{y}^{-1}\circ \beta(t)=\mathbf{y}^{-1} \circ  \varphi \circ \alpha(t)                                         \\
+				                 & =\mathbf{y}^{-1} \circ  \varphi \circ  \mathbf{x} \circ \mathbf{x}^{-1} \circ \alpha(t)                                \\
+				                 & =\tilde{\varphi} \circ  \tilde{\alpha}(t)=(y_{1}(x_{1}(t), \dots, x_{n}(t)), \dots, y_{m}(x_{1}(t), \dots, x_{n}(t))).
+			\end{align*}
+			Logo,
+			\begin{equation*}
+				\beta'(0)= \sum_{k=1}^{m}\frac{d}{dt}y_{k}(x_{1}(t), \dots, x_{n}(t))|_{t=0} \left( \frac{\partial}{\partial y_{k}} \right)_{0} = \sum _{k=1}^{m}\sum _{i=1}^{n}\frac{\partial y_{k}}{\partial x_{i}}(\tilde{\alpha}(0)) \cdot x_{i}'(0) \cdot \left( \frac{\partial}{\partial y_{k}} \right)_{0}
+			\end{equation*}
+			Reescrevendo, temos
+			\begin{equation*}
+				\beta'(0)=\sum _{k=1}^{m}\left( \frac{\partial}{\partial y_{k}} \right)_{0} \sum_{i=1}^{n}v_{i} \cdot \frac{\partial y_{k}}{\partial x_{i}}(\tilde{\alpha}(0))
+			\end{equation*}
+			onde $v = \sum_{i=1}^{n}v_{i}\left( \frac{\partial}{\partial x_{i}} \right)_{0}$.
+			Sendo $A$ a matriz $m \times n$, dada por $a_{k,i}=\frac{\partial y_{k}}{\partial x_{i}}(\tilde{\alpha}(0))$, temos que $\beta'(0)=A(\alpha'(0))$, ou seja, $A = [d\varphi_{v}]$, o que mostra que $d\varphi_{v}$ é linear e em particular, está bem definida.
+		\end{proof}
+	\end{proposition}
+	\begin{example}
+		\label{ex:identidade-diferenciavel}
+		A função identidade de uma variedade é diferenciável e tem derivada igual à identidade.
+		\begin{proof}
+
+			Sejam $I:M\to M$ a função identidade e $p \in M$. Basta tomar quaisquer duas parametrizações de $p$ para ver que $I$ é diferenciável, pois a troca de coordenadas será diferenciável. Também, sendo $v \in T_{p}M$ e $\alpha$ uma curva diferenciável, com $\alpha(0)=0$, temos que $dI_{p}(v)=(I \circ\alpha)'(0)=\alpha'(0)=v$. Logo, $dI_{p}$ é a função identidade de $T_{p}M$
+		\end{proof}
+	\end{example}
+	Com a noção de diferenciabilidade, definimos o morfismo das variedades diferenciáveis:
+	\begin{definition}
+		\label{def:difeomorfismo}
+		Sejam $M_{1}$ e $M_{2}$ variedades diferenciáveis. Uma função diferenciável $\varphi:M_{1} \to M_{2}$ é chamada de difeomorfismo se for bijeção e $\varphi ^{-1}:M_{2}\to M_{1}$ for diferenciável.
+		Se para todo $p \in M_{1}$, existe um $U$ vizinhança de $p$ em $M_{1}$ e $V$ vizinhança de $\varphi(p)$ em $M_{2}$ tal que $\varphi|_{U}:U\to V$ é um difeomorfismo, $\varphi$ é chamada de difeomorfismo local.
+	\end{definition}
+	Enfim, tornamos preciso o fato de que as variedades diferenciáveis se comportarem localmente como o $\mathbb{R}^{n}$:
+	\begin{proposition}
+		\label{prop:parametrizacao-difeomorfismo}
+		Toda parametrização é um difeomorfismo sobre sua imagem.
+		\begin{proof}
+
+			Seja $p \in M^{n}$ e $\mathbf{x}:U\to M$ uma parametrização de $p$. Note que, como $\mathbb{R}^{n}$ é parametrizado pela função identidade, temos que $\mathbf{x}$ é diferenciável se, e somente se, existe uma parametrização $\mathbf{y}:V\to M$ de $p$ tal que $\mathbf{x}(I(U)) \subset \mathbf{y}(V)$ e $\mathbf{y}^{-1} \circ \mathbf{x} \circ I$ é diferenciável. Isso é trivialmente satisfeito pelos axiomas de variedade diferenciável.
+			De forma análoga é possível mostrar que $\mathbf{x}^{-1}$ é diferenciável e portanto, $\mathbf{x}$ é um difeomorfismo.
+		\end{proof}
+	\end{proposition}
+	\begin{examples}
+		\label{ex:difeomorfismos}
+		$ $
+		\begin{enumerate}
+			\item Qualquer aplicação $f:\mathbb{R} \to \mathbb{R}^{2}$ não pode ser um difeomorfismo. De fato, todo difeomorfismo é, em particular, um homeomorfismo. Portanto, se existisse tal difeomorfismo, $\mathbb{R}$ e $\mathbb{R}^{2}$ seriam homeomorfos, o que é um absurdo.
+			\item A função $f:\mathbb{R}\to \mathbb{R}$, definida por $f(x)=|x|$ não é um difeomorfismo, pois não é diferenciável quando $x=0$. Já a função $g:\mathbb{R}\to \mathbb{R}$, definida por $g(x)=x^{3}$ é um homeomorfismo, mas não é um difeomorfismo, pois sua inversa não é derivável em $x=0.$
+			\item Se $M$ é uma variedade qualquer, a aplicação identidade $I:M\to M$ é um difeomorfismo.
+		\end{enumerate}
+	\end{examples}
+	Podemos classificar os difeomorfismos da seguinte maneira:
+	\begin{proposition}
+		\label{prop:difeomorfismo-local-bijetor}
+		Uma aplicação $\varphi:M_{1}\to M_{2}$ é um difeomorfismo se, e somente se, for um difeomorfismo local bijetor.
+		\begin{proof}
+
+			Seja $\varphi:M_{1}\to M_{2}$ um difeomorfismo local bijetor. Mostremos que $\varphi ^{-1}$ é diferenciável. Seja, $p \in M_{2}$. Como $\varphi$ é bijeção, existe $q \in M_{1}$ tal que $\varphi(q)=p$. Como $\varphi$ é difeomorfismo local, existe uma vizinhança $U$ de $q$ em $M_{1}$ e uma vizinhança $V$ de $p$ em $M_{2}$ tal que $\varphi|_{U}:U\to V$ é um difeomorfismo. Temos que $(\varphi|_{U})^{-1}$ é diferenciável, pela definição de difeomorfismo. Também, $(\varphi|_{U})^{-1}=(\varphi ^{-1})|_{V}$, implicando que $\varphi ^{-1}$ é diferenciável em $p$. Como $p$ é arbitrário, $\varphi ^{-1}$ é diferenciável e $\varphi$ é um difeomorfismo.
+
+			Para a recíproca, basta notar que $M_{1}$ e $M_{2}$ são abertos em $M_{1}$ e $M_{2}$ respectivamente.
+		\end{proof}
+	\end{proposition}
+	Antes de apresentarmos as próximas definições, convém apresentar alguns resultados que serão úteis na interpretação dessas.
+	\begin{lemma}
+		\label{lem:difeomorfismo-dimensao-1}
+		Sejam $M_{1}, M_{2}$ e $M_{3}$ variedades diferenciáveis, $\varphi:M_{1}\to M_{2}$ e $\psi:M_{2}\to M_{3}$ aplicações diferenciáveis. Então $\psi \circ \varphi:M_{1}\to M_{3}$ é diferenciável e
 		\begin{equation*}
-			d(\psi \circ\varphi)_{p}(\alpha'(0))= (\psi \circ \varphi \circ \alpha)'(0)=\gamma'(0)=(\psi \circ  \beta)'(0)=d\psi_{\varphi(p)}(\beta'(0))=d\psi_{\varphi(p)}(d\psi_{p}(\alpha'(0))),
+			d(\psi \circ \varphi)_{p}=d\psi_{\varphi(p)} \circ d\varphi_{p}.
 		\end{equation*}
-		mostrando o desejado.
-	\end{proof}
-\end{lemma}
-\begin{proposition}
-	\label{prop:difeomorfismo-dimensao}
-	Se $\varphi:M_{1}\to M_{2}$ é difeomorfismo, então $d\varphi_{p}:T_{p}M_{1}\to T_{\varphi(p)}M_{2}$ é isomorfismo. Em particular, $M_{1}$ e $M_{2}$ têm a mesma dimensão.
-	\begin{proof}
+		\begin{proof}
 
-		Como $I_{M_{1}} =\varphi ^{-1} \circ \varphi$, temos que $I_{T_{p}M_{1}}=d(\varphi ^{-1} \circ \varphi)_{p}= d(\varphi ^{-1})_{\varphi(p)} \circ d(\varphi)_{p}$.
-		Analogamente, $I_{T_{\varphi(p)}M_{2}}=d(\varphi \circ \varphi ^{-1})_{p}= d(\varphi)_{p} \circ d(\varphi ^{-1})_{\varphi(p)}$.
-		Logo, $d\varphi_{p}$ é invertível e tem inversa igual a $d(\varphi ^{-1})_{\varphi(p)}$. Em particular, $d\varphi_{p}$ é um isomorfismo de espaços vetoriais.
-		Para mostrar que as dimensões de $M_{1}$ e $M_{2}$ são iguais, basta observar que a dimensão do espaço tangente em um ponto de uma variedade é igual à dimensão da variedade, devido ao conjunto $\left\{  \left( \frac{\partial}{\partial x_{1}} \right)_{0}, \dots, \left( \frac{\partial}{\partial x_{n}} \right)_{0}  \right\}$ ser base de um espaço tangente. Logo, como a dimensão dos espaços tangentes é a mesma, a dimensão das variedades também é.
-	\end{proof}
-\end{proposition}
-Localmente, a recíproca desse resultado é dada pelo próximo teorema:
-\begin{theorem}[Teorema da Função Inversa]
-	\label{teo:funcao-inversa}
-	Sejam $\varphi:M_{1}^{n}\to M_{2}^{n}$ uma aplicação diferenciável e $p \in M_{1}$ tais que $d\varphi_{p}:T_{p}M_{1}\to T_{\varphi(p)}M_{2}$ é um isomorfismo. Então $\varphi$ é um difeomorfismo local em $p$.
-	\begin{proof}
+			Seja $p \in M_{1}$. Da diferenciabilidade de $\psi$, para toda parametrização $\mathbf{z}:W\to M_{3}$ de $\psi(\varphi(p))$ existe uma parametrização $\mathbf{y}:V\to M_{2}$ de $\phi(p)$ tal que $\psi(\mathbf{y}(V)) \subset \mathbf{z}(W)$ e $\mathbf{z}^{-1} \circ \psi \circ \mathbf{y}$ é diferenciável. Da diferenciabilidade de $\varphi$, e da independência de escolha de parametrizações, existe uma parametrização $\mathbf{x}:U\to M_{1}$ de $p$ tal que $\varphi(\mathbf{x}(U)) \subset \mathbf{y}(V)$ e $\mathbf{y}^{-1} \circ \varphi \circ \mathbf{x}$ é diferenciável. Temos que $\psi(\varphi(\mathbf{x}(U))) \subset \psi(\mathbf{y}(V))\subset z(W)$ e que $\mathbf{z ^{-1}} \circ \psi \circ \varphi \circ \mathbf{x}=(\mathbf{z}^{-1} \circ \psi \circ \mathbf{y}) \circ (\mathbf{y}^{-1} \circ \varphi \circ \mathbf{x})$, e portanto, é diferenciável.
 
-		Sejam $\mathbf{x}:U\to M_{1}$ e $\mathbf{y}:V\to M_{2}$ parametrizações de $p$ e $\varphi(p)$ respectivamente, tais que $\varphi(\mathbf{x}(U)) \subset \mathbf{y}(V)$.
-		Pela definição de diferenciabilidade, $\tilde{\varphi} =\mathbf{y}^{-1} \circ \varphi \circ \mathbf{ x}:U \to V$ é diferenciável. Note que $\tilde{\varphi}(x_{1}, \dots, x_{n})=(y_{1}(x_{1}, \dots, x_{n}), \dots, y_{n}(x_{1}, \dots, x_{n}))$. Logo, a matriz com entradas reais que representa $d\tilde{\varphi}_{\mathbf{x}^{-1}(p)}$ é igual à matriz que representa $d\varphi_{p}$, e portanto, é injetora. Como $d\varphi_{p}$ é isomorfismo, $d \tilde{\varphi}_{\mathbf{x}^{-1}(p)}$ também o é. Dessa forma, aplicando o Teorema da Função Inversa em $\mathbb{R}^{n}$, temos que existem abertos $U' \subset U$ e $V' \subset V$, tais que $\tilde{\varphi}:U' \to V'$ é um difeomorfismo, implicando que $\varphi|_{\mathbf{x}(U')} = \mathbf{y \circ \tilde{\varphi} \circ x ^{-1}|_{\mathbf{x}(U')}}:\mathbf{x}(U')\to \mathbf{y}(V')$ é um difeomorfismo.
-	\end{proof}
-\end{theorem}
-Além do difeomorfismo, existem outras maneiras de carregar propriedades diferenciáveis de uma variedade para outras
-\begin{definition}
-	\label{def:imersao-mergulho}
-	$ $
-	\begin{enumerate}[label=(\roman*)]
-		\item Sejam $M^m$ e $N^{n}$ variedades diferenciáveis. Uma aplicação diferenciável $\varphi:M\to N$ é dita uma \emph{imersão} se $d\varphi_{p}$ é injetiva para todo $p \in M$.
-		\item Se $\varphi:M\to N$  é uma imersão, então $\varphi$ é dita um \emph{mergulho} quando for um homeomorfismo sobre $\varphi(M)\subset N$, onde $\varphi(M)$ tem a topologia induzida por $N$.
-		\item Se $M \subset N$ e a função inclusão $i:M\to N$ for um mergulho, $M$ é dita uma \emph{subvariedade} de $N$.
-	\end{enumerate}
-\end{definition}
-O mergulho apresenta uma forma de identificar uma variedade $M$ ``dentro'' de outra variedade $N$.
-\begin{proposition}
-	\label{prop:imersao-mergulho}
-	Todo mergulho é um difeomorfismo sobre sua imagem.
-	\begin{proof}
+			Seja $\alpha:(-\epsilon, \epsilon)\to M_{1}$ uma curva diferenciável, com $\alpha(0)=p$. Seja $\beta=\varphi \circ \alpha$ curva diferenciável em $M_{2}$ e $\gamma = \psi \circ \beta$ curva diferenciável em $M_{3}$.
+			Temos que
+			\begin{equation*}
+				d(\psi \circ\varphi)_{p}(\alpha'(0))= (\psi \circ \varphi \circ \alpha)'(0)=\gamma'(0)=(\psi \circ  \beta)'(0)=d\psi_{\varphi(p)}(\beta'(0))=d\psi_{\varphi(p)}(d\psi_{p}(\alpha'(0))),
+			\end{equation*}
+			mostrando o desejado.
+		\end{proof}
+	\end{lemma}
+	\begin{proposition}
+		\label{prop:difeomorfismo-dimensao}
+		Se $\varphi:M_{1}\to M_{2}$ é difeomorfismo, então $d\varphi_{p}:T_{p}M_{1}\to T_{\varphi(p)}M_{2}$ é isomorfismo. Em particular, $M_{1}$ e $M_{2}$ têm a mesma dimensão.
+		\begin{proof}
 
-		Sejam $M^{m}$ e $N^{n}$ variedades diferenciáveis e $\varphi:M\to N$ um mergulho.
-		Como $\varphi$ é uma imersão, $d\varphi_{p}$ é injetiva, para todo $p \in M$.
-		Basta mostrar que $d\varphi_{p}$ é sobrejetiva, pois, pelo \Cref{teo:funcao-inversa}, teremos que $\varphi$ é um difeomorfismo local e, portanto, um difeomorfismo sobre sua imagem, pois $\varphi$ é uma bijeção sobre sua imagem.
-		Para isso, mostremos que $dim(\varphi(M)) = m$ e o resultado segue do teorema do núcleo e da imagem.
-		Seja $\{ (U_{\alpha}), \mathbf{x}_{\alpha} \}$ a estrutura diferenciável maximal de $M$. Para cada $\alpha$, defina
-		\begin{equation*}
-			\mathbf{y}_{\alpha}:U_{\alpha} \ni x \longrightarrow \varphi(\mathbf{x}_{\alpha}(x)) \in \varphi(M).
-		\end{equation*}
-		É fácil ver que $\{ (U_{\alpha},\mathbf{y_{\alpha}}) \}$ é uma estrutura diferenciável de $\varphi(M)$.
-	\end{proof}
-\end{proposition}
-Já a imersão cumpre o papel de um mergulho local:
-\begin{proposition}
-	\label{prop:imersao-localmente-mergulho}
-	Seja $\varphi:M_{1}^{n}\to M_{2}^{m}$, com $n\leq m$ uma imersão. Para todo $p \in M_{1}$, existe uma vizinhança $V$ de $p$ em $M_{1}$ tal que $\varphi|_{V}$ é um mergulho.
-	\begin{proof}
+			Como $I_{M_{1}} =\varphi ^{-1} \circ \varphi$, temos que $I_{T_{p}M_{1}}=d(\varphi ^{-1} \circ \varphi)_{p}= d(\varphi ^{-1})_{\varphi(p)} \circ d(\varphi)_{p}$.
+			Analogamente, $I_{T_{\varphi(p)}M_{2}}=d(\varphi \circ \varphi ^{-1})_{p}= d(\varphi)_{p} \circ d(\varphi ^{-1})_{\varphi(p)}$.
+			Logo, $d\varphi_{p}$ é invertível e tem inversa igual a $d(\varphi ^{-1})_{\varphi(p)}$. Em particular, $d\varphi_{p}$ é um isomorfismo de espaços vetoriais.
+			Para mostrar que as dimensões de $M_{1}$ e $M_{2}$ são iguais, basta observar que a dimensão do espaço tangente em um ponto de uma variedade é igual à dimensão da variedade, devido ao conjunto $\left\{  \left( \frac{\partial}{\partial x_{1}} \right)_{0}, \dots, \left( \frac{\partial}{\partial x_{n}} \right)_{0}  \right\}$ ser base de um espaço tangente. Logo, como a dimensão dos espaços tangentes é a mesma, a dimensão das variedades também é.
+		\end{proof}
+	\end{proposition}
+	Localmente, a recíproca desse resultado é dada pelo próximo teorema:
+	\begin{theorem}[Teorema da Função Inversa]
+		\label{teo:funcao-inversa}
+		Sejam $\varphi:M_{1}^{n}\to M_{2}^{n}$ uma aplicação diferenciável e $p \in M_{1}$ tais que $d\varphi_{p}:T_{p}M_{1}\to T_{\varphi(p)}M_{2}$ é um isomorfismo. Então $\varphi$ é um difeomorfismo local em $p$.
+		\begin{proof}
 
-		Sejam $\mathbf{x}_{1}:U_{1}\to M_{1}$, $\mathbf{x}_{2}:U_{2}\to M_{2}$ parametrizações de $p$ e $\varphi(p)$ respectivamente, $(x_{1}, \dots, x_{n}) \in \mathbb{R}^{n}$ e $(y_{1}, \dots, y_{m}) \in \mathbb{R}^{m}$. Defina
-		\begin{equation*}
-			\tilde{\varphi}(x_{1}, \dots, x_{n})=\mathbf{x}_{2}^{-1} \circ \varphi \circ \mathbf{x}_{1}(x_{1}, \dots, x_{n})=(y_{1}(x_{1}, \dots, x_{n}), \dots, y_{m}(x_{1}, \dots, x_{n}))
-		\end{equation*}
-		e seja $q \in U_{1}$ tal que $\mathbf{x_{1}}(q)=p$.
-		Como $\varphi$ é imersão, $d\varphi_{p}$ é injetora, logo existe uma reduzida quadrada da matriz $\left( \frac{\partial y_{i}}{\partial x_{j}} \right)$ que possui determinante diferente de zero. Sem perda de generalidade, suponhamos que $\frac{\partial(y_{1}, \dots, y_{n})}{\partial(x_{1}, \dots,x_{n})}$ seja tal matriz. (Caso seja outra reduzida, podemos definir outra parametrização, apenas trocando as coordenadas.)
-		Sejam $k=m-n$ e  $\Phi:U_{1} \times \mathbb{R}^{k}\to \mathbb{R}^{m}$, definida por
-		\begin{equation*}
-			\Phi(x_{1}, \dots, x_{n}, t_{1}, \dots, t_{k})= (y_{1}, \dots, y_{n}, y_{n+1}+t_{1}, \dots, y_{n+k}+t_{k})
-		\end{equation*}
+			Sejam $\mathbf{x}:U\to M_{1}$ e $\mathbf{y}:V\to M_{2}$ parametrizações de $p$ e $\varphi(p)$ respectivamente, tais que $\varphi(\mathbf{x}(U)) \subset \mathbf{y}(V)$.
+			Pela definição de diferenciabilidade, $\tilde{\varphi} =\mathbf{y}^{-1} \circ \varphi \circ \mathbf{ x}:U \to V$ é diferenciável. Note que $\tilde{\varphi}(x_{1}, \dots, x_{n})=(y_{1}(x_{1}, \dots, x_{n}), \dots, y_{n}(x_{1}, \dots, x_{n}))$. Logo, a matriz com entradas reais que representa $d\tilde{\varphi}_{\mathbf{x}^{-1}(p)}$ é igual à matriz que representa $d\varphi_{p}$, e portanto, é injetora. Como $d\varphi_{p}$ é isomorfismo, $d \tilde{\varphi}_{\mathbf{x}^{-1}(p)}$ também o é. Dessa forma, aplicando o Teorema da Função Inversa em $\mathbb{R}^{n}$, temos que existem abertos $U' \subset U$ e $V' \subset V$, tais que $\tilde{\varphi}:U' \to V'$ é um difeomorfismo, implicando que $\varphi|_{\mathbf{x}(U')} = \mathbf{y \circ \tilde{\varphi} \circ x ^{-1}|_{\mathbf{x}(U')}}:\mathbf{x}(U')\to \mathbf{y}(V')$ é um difeomorfismo.
+		\end{proof}
+	\end{theorem}
+	Além do difeomorfismo, existem outras maneiras de carregar propriedades diferenciáveis de uma variedade para outras
+	\begin{definition}
+		\label{def:imersao-mergulho}
+		$ $
+		\begin{enumerate}[label=(\roman*)]
+			\item Sejam $M^m$ e $N^{n}$ variedades diferenciáveis. Uma aplicação diferenciável $\varphi:M\to N$ é dita uma \emph{imersão} se $d\varphi_{p}$ é injetiva para todo $p \in M$.
+			\item Se $\varphi:M\to N$  é uma imersão, então $\varphi$ é dita um \emph{mergulho} quando for um homeomorfismo sobre $\varphi(M)\subset N$, onde $\varphi(M)$ tem a topologia induzida por $N$.
+			\item Se $M \subset N$ e a função inclusão $i:M\to N$ for um mergulho, $M$ é dita uma \emph{subvariedade} de $N$.
+		\end{enumerate}
+	\end{definition}
+	O mergulho apresenta uma forma de identificar uma variedade $M$ ``dentro'' de outra variedade $N$.
+	\begin{proposition}
+		\label{prop:imersao-mergulho}
+		Todo mergulho é um difeomorfismo sobre sua imagem.
+		\begin{proof}
 
-		Note que $\det d\Phi_{q}=\frac{\partial(y_{1}, \dots, y_{n})}{\partial(x_{1}, \dots,x_{n})} \neq0$.
-		Pelo Teorema da Função Inversa (em $\mathbb{R}^{n}$), existem abertos $W_{1} \subset U_{1}\times \mathbb{R}^{k}$ e $W_{2} \subset \mathbb{R}^{m}$, tais que $(q, 0) \in W_{1}$ e $\Phi(q, 0) \in W_{2}$ e $\Phi|_{W_{1}}:W_{1}\to W_{2}$ é um difeomorfismo.
-		Seja $\tilde{V}=W_{1} \cap U_{1} = \{ x \in W_{1}; x=(x_{1}, \dots, x_{n}, 0, \dots, 0) \}$.
+			Sejam $M^{m}$ e $N^{n}$ variedades diferenciáveis e $\varphi:M\to N$ um mergulho.
+			Como $\varphi$ é uma imersão, $d\varphi_{p}$ é injetiva, para todo $p \in M$.
+			Basta mostrar que $d\varphi_{p}$ é sobrejetiva, pois, pelo \Cref{teo:funcao-inversa}, teremos que $\varphi$ é um difeomorfismo local e, portanto, um difeomorfismo sobre sua imagem, pois $\varphi$ é uma bijeção sobre sua imagem.
+			Para isso, mostremos que $dim(\varphi(M)) = m$ e o resultado segue do teorema do núcleo e da imagem.
+			Seja $\{ (U_{\alpha}), \mathbf{x}_{\alpha} \}$ a estrutura diferenciável maximal de $M$. Para cada $\alpha$, defina
+			\begin{equation*}
+				\mathbf{y}_{\alpha}:U_{\alpha} \ni x \longrightarrow \varphi(\mathbf{x}_{\alpha}(x)) \in \varphi(M).
+			\end{equation*}
+			É fácil ver que $\{ (U_{\alpha},\mathbf{y_{\alpha}}) \}$ é uma estrutura diferenciável de $\varphi(M)$.
+		\end{proof}
+	\end{proposition}
+	Já a imersão cumpre o papel de um mergulho local:
+	\begin{proposition}
+		\label{prop:imersao-localmente-mergulho}
+		Seja $\varphi:M_{1}^{n}\to M_{2}^{m}$, com $n\leq m$ uma imersão. Para todo $p \in M_{1}$, existe uma vizinhança $V$ de $p$ em $M_{1}$ tal que $\varphi|_{V}$ é um mergulho.
+		\begin{proof}
 
-		Note que se $(t_{1}, \dots, t_{k})=0$, então $\Phi(x_{1}, \dots, x_{n}, t_{1}, \dots, t_{k})=\tilde{\varphi}(x_{1}, \dots, x_{n})$. Logo, $\Phi|_{\tilde{V}}=\tilde{\varphi}|_{\pi(\tilde{V})}=\mathbf{x}_{2}\circ \varphi \circ \mathbf{x}_{1}|_{\pi(\tilde{V})}$, onde $\pi(x_{1}, \dots, x_{n}, t_{1}, \dots, t_{n})=(x_{1}, \dots, x_{n})$.
-		Isso implica que $\tilde{\varphi}|_{\pi(\tilde{V})}$  é um difeomorfismo e, portanto, $\varphi|_{\mathbf{x}_{1}(\pi(\tilde{V}))}$ também o é.
-	\end{proof}
-\end{proposition}
-\begin{examples}
-	\label{ex:imersoes-mergulhos}
-	$ $
-	\begin{enumerate}
-		\item Toda aplicação $c:I\to M$ diferenciável, em que $I$ é um intervalo aberto e $M$ uma variedade diferenciável, cuja derivada não é nula é uma imersão. De fato, como $dc_{t}:T_{t}I\to T_{c(t)}M$ não é nula para todo $t$, deverá ser injetora, por ser uma transformação linear.
-		\item Se $M$ é uma variedade diferenciável e $U\subseteq M$ é um aberto, então a função inclusão $i:U\to M$ é um mergulho, isto é, $U$ é subvariedade de $M$, quando $U$ é considerado variedade com a estrutura diferenciável $\{ (U_{\alpha}, \overline{\mathbf{x}_{\alpha}}) \}$ induzida pela estrutura $\{ (V_{\alpha}, \mathbf{x}_{\alpha}) \}$ de $M$, onde $U_{\alpha}=\mathbf{x}_{\alpha}^{-1}(V_{\alpha}\cap U)$ e $\overline{\mathbf{x}_{\alpha}}=\mathbf{x}_{\alpha}|_{U_\alpha}$.
-	\end{enumerate}
-\end{examples}
-Antes de finalizarmos essa sessão, construiremos, de forma natural, uma estrutura diferenciável em um espaço vetorial arbitrário. Isso se mostrará útil posteriormente, quando precisarmos tratar o espaço tangente como uma variedade diferenciável.
-\begin{lemma}
-	\label{lem:estrutura-diferencial-espaco-vetorial}
-	Seja $V$ um espaço vetorial de dimensão finita, digamos $dimV=n$. Então $V$ possuí uma estrutura diferenciável natural, induzida por qualquer isomorfismo entre $\mathbb{R}^{n}$ e $V$.
-	\begin{proof}
+			Sejam $\mathbf{x}_{1}:U_{1}\to M_{1}$, $\mathbf{x}_{2}:U_{2}\to M_{2}$ parametrizações de $p$ e $\varphi(p)$ respectivamente, $(x_{1}, \dots, x_{n}) \in \mathbb{R}^{n}$ e $(y_{1}, \dots, y_{m}) \in \mathbb{R}^{m}$. Defina
+			\begin{equation*}
+				\tilde{\varphi}(x_{1}, \dots, x_{n})=\mathbf{x}_{2}^{-1} \circ \varphi \circ \mathbf{x}_{1}(x_{1}, \dots, x_{n})=(y_{1}(x_{1}, \dots, x_{n}), \dots, y_{m}(x_{1}, \dots, x_{n}))
+			\end{equation*}
+			e seja $q \in U_{1}$ tal que $\mathbf{x_{1}}(q)=p$.
+			Como $\varphi$ é imersão, $d\varphi_{p}$ é injetora, logo existe uma reduzida quadrada da matriz $\left( \frac{\partial y_{i}}{\partial x_{j}} \right)$ que possui determinante diferente de zero. Sem perda de generalidade, suponhamos que $\frac{\partial(y_{1}, \dots, y_{n})}{\partial(x_{1}, \dots,x_{n})}$ seja tal matriz. (Caso seja outra reduzida, podemos definir outra parametrização, apenas trocando as coordenadas.)
+			Sejam $k=m-n$ e  $\Phi:U_{1} \times \mathbb{R}^{k}\to \mathbb{R}^{m}$, definida por
+			\begin{equation*}
+				\Phi(x_{1}, \dots, x_{n}, t_{1}, \dots, t_{k})= (y_{1}, \dots, y_{n}, y_{n+1}+t_{1}, \dots, y_{n+k}+t_{k})
+			\end{equation*}
 
-		Com efeito, como $dim\mathbb{R}^{n}=dimV$, os espaços são isomorfos, ou seja, existe um isomorfismo $T:\mathbb{R}^{n}\to V$. O conjunto $\{ (\mathbb{R}^{n},T) \}$ é uma estrutura diferenciável de $V$.
-		Seja $T':\mathbb{R}^{n}\to V$ outro isomorfismo. A estrutura diferenciável maximal induzida por $T'$ é a mesma que $T$. De fato, $T^{-1} \circ T':\mathbb{R}^{n}\to \mathbb{R}^{n}$ é uma composta de isomorfismos e, portanto, é também um isomorfismo. Como todo isomorfismo é transformação linear é, também, diferenciável, o que conclui a demonstração.
-	\end{proof}
-\end{lemma}
-Também existe uma forma natural de identificar o espaço tangente desse espaço vetorial como o próprio espaço vetorial. A demonstração a seguir é de cunho puramente técnico, mas que decidimos incluir para garantir a completude do texto. Caso o leitor deseje, basta assumir que a identificação realizada a seguir é, de fato, um isomorfismo.
+			Note que $\det d\Phi_{q}=\frac{\partial(y_{1}, \dots, y_{n})}{\partial(x_{1}, \dots,x_{n})} \neq0$.
+			Pelo Teorema da Função Inversa (em $\mathbb{R}^{n}$), existem abertos $W_{1} \subset U_{1}\times \mathbb{R}^{k}$ e $W_{2} \subset \mathbb{R}^{m}$, tais que $(q, 0) \in W_{1}$ e $\Phi(q, 0) \in W_{2}$ e $\Phi|_{W_{1}}:W_{1}\to W_{2}$ é um difeomorfismo.
+			Seja $\tilde{V}=W_{1} \cap U_{1} = \{ x \in W_{1}; x=(x_{1}, \dots, x_{n}, 0, \dots, 0) \}$.
+
+			Note que se $(t_{1}, \dots, t_{k})=0$, então $\Phi(x_{1}, \dots, x_{n}, t_{1}, \dots, t_{k})=\tilde{\varphi}(x_{1}, \dots, x_{n})$. Logo, $\Phi|_{\tilde{V}}=\tilde{\varphi}|_{\pi(\tilde{V})}=\mathbf{x}_{2}\circ \varphi \circ \mathbf{x}_{1}|_{\pi(\tilde{V})}$, onde $\pi(x_{1}, \dots, x_{n}, t_{1}, \dots, t_{n})=(x_{1}, \dots, x_{n})$.
+			Isso implica que $\tilde{\varphi}|_{\pi(\tilde{V})}$  é um difeomorfismo e, portanto, $\varphi|_{\mathbf{x}_{1}(\pi(\tilde{V}))}$ também o é.
+		\end{proof}
+	\end{proposition}
+	\begin{examples}
+		\label{ex:imersoes-mergulhos}
+		$ $
+		\begin{enumerate}
+			\item Toda aplicação $c:I\to M$ diferenciável, em que $I$ é um intervalo aberto e $M$ uma variedade diferenciável, cuja derivada não é nula é uma imersão. De fato, como $dc_{t}:T_{t}I\to T_{c(t)}M$ não é nula para todo $t$, deverá ser injetora, por ser uma transformação linear.
+			\item Se $M$ é uma variedade diferenciável e $U\subseteq M$ é um aberto, então a função inclusão $i:U\to M$ é um mergulho, isto é, $U$ é subvariedade de $M$, quando $U$ é considerado variedade com a estrutura diferenciável $\{ (U_{\alpha}, \overline{\mathbf{x}_{\alpha}}) \}$ induzida pela estrutura $\{ (V_{\alpha}, \mathbf{x}_{\alpha}) \}$ de $M$, onde $U_{\alpha}=\mathbf{x}_{\alpha}^{-1}(V_{\alpha}\cap U)$ e $\overline{\mathbf{x}_{\alpha}}=\mathbf{x}_{\alpha}|_{U_\alpha}$.
+		\end{enumerate}
+	\end{examples}
+	Antes de finalizarmos essa sessão, construiremos, de forma natural, uma estrutura diferenciável em um espaço vetorial arbitrário. Isso se mostrará útil posteriormente, quando precisarmos tratar o espaço tangente como uma variedade diferenciável.
+	\begin{lemma}
+		\label{lem:estrutura-diferencial-espaco-vetorial}
+		Seja $V$ um espaço vetorial de dimensão finita, digamos $dimV=n$. Então $V$ possuí uma estrutura diferenciável natural, induzida por qualquer isomorfismo entre $\mathbb{R}^{n}$ e $V$.
+		\begin{proof}
+
+			Com efeito, como $dim\mathbb{R}^{n}=dimV$, os espaços são isomorfos, ou seja, existe um isomorfismo $T:\mathbb{R}^{n}\to V$. O conjunto $\{ (\mathbb{R}^{n},T) \}$ é uma estrutura diferenciável de $V$.
+			Seja $T':\mathbb{R}^{n}\to V$ outro isomorfismo. A estrutura diferenciável maximal induzida por $T'$ é a mesma que $T$. De fato, $T^{-1} \circ T':\mathbb{R}^{n}\to \mathbb{R}^{n}$ é uma composta de isomorfismos e, portanto, é também um isomorfismo. Como todo isomorfismo é transformação linear é, também, diferenciável, o que conclui a demonstração.
+		\end{proof}
+	\end{lemma}
+	Também existe uma forma natural de identificar o espaço tangente desse espaço vetorial como o próprio espaço vetorial. A demonstração a seguir é de cunho puramente técnico, mas que decidimos incluir para garantir a completude do texto. Caso o leitor deseje, basta assumir que a identificação realizada a seguir é, de fato, um isomorfismo.
+
+\fi
+
 \begin{lemma}
 	\label{lem:espaco-tangente-espaco-vetorial}
-	Seja $p \in V$ e $T_{p}V$ o espaço tangente de a $V$ em $p$. Identificaremos $T_{p}V \approx V$ da seguinte maneira:
+	Seja $p \in V$ e $T_{p}V$ o espaço tangente a $V$ em $p$. Identificaremos $T_{p}V \approx V$ da seguinte maneira:
 	defina $\Phi=\Phi_{p}:V\to T_{p}V$ pondo $\Phi(v)=\alpha_{v}'(0)$, onde $\alpha_{v}:\mathbb{R}\to V$ é definida por $\alpha_{v}(t)=p+tv$. Mais geralmente, se $\alpha$ é qualquer curva que passa por $p$ quando $t=0$ e tem vetor derivada, no sentido do cálculo, igual a $v$, então $\alpha'(0)=\Phi(v)$.
 	\begin{proof}
 
@@ -388,13 +396,14 @@ Também existe uma forma natural de identificar o espaço tangente desse espaço
 		Segue que $\beta(t)=T^{-1} \circ\alpha_{v+w}(t)=T^{-1}(p + t(v+w))=T^{-1}(p)+t(T^{-1}(v)+T^{-1}(w))$. Logo, a derivada de $\beta$ em $\mathbb{R}^{n}$ é o vetor $T^{-1}(v)+T^{-1}(w)$.
 		Escrevendo $\beta_{v}(t)=T^{-1}\circ\alpha_{v}(t)$ e $\beta_{w}(t)=T^{-1} \circ \alpha_{w}(t)$, temos que
 		\begin{equation*}
-			\beta'(t)=\beta_{v}'(t)+\beta_{w}'(t),
+			\beta'(t)=\beta_{v}'(t)+\beta_{w}'(t).
 		\end{equation*}
-		implicando que $\beta(t)=\beta_{v}(t)+\beta_{w}(t)$, pois $\beta(0)=\beta_{v}(0)=\beta_{w}(0)=T^{-1}(p)$.
-		Disso, segue que
-		\begin{align*}
-			\alpha_{v+w}(t)=T \circ \beta(t)=T(\beta_{v}(t))+T(\beta_{w}(t))=\alpha_{v}(t)+\alpha_{w}(t).
-		\end{align*}
+
+		%implicando que $\beta(t)=\beta_{v}(t)+\beta_{w}(t)$, pois $\beta(0)=\beta_{v}(0)=\beta_{w}(0)=T^{-1}(p)$.
+		%Disso, segue que
+		%\begin{align*}
+		%	\alpha_{v+w}(t)=T \circ \beta(t)=T(\beta_{v}(t))+T(\beta_{w}(t))=\alpha_{v}(t)+\alpha_{w}(t).
+		%\end{align*}
 		Tomemos agora uma função $f:V\to \mathbb{R}$ diferenciável. Temos que $\tilde{f}=f \circ T$ é diferenciável. Assim, podemos escrever $f=\tilde{f}\circ T ^{-1}$.
 		Temos, então
 		\begin{align*}
@@ -427,262 +436,265 @@ Também existe uma forma natural de identificar o espaço tangente desse espaço
 		Para mostrar a segunda afirmação, tome $\alpha_{v}(t)=p+tv$. Queremos mostrar que $\alpha'(0)=\alpha'_{v}(0)$. Ora, basta notar que, qualquer que seja $f:V\to \mathbb{R}$ diferenciável, $\alpha'(0)f=\alpha'_{v}(0)f$.
 	\end{proof}
 \end{lemma}
-Note, em particular, que $\mathbb{R}^{n}$ é uma variedade diferenciável em que identificamos o espaço tangente $T_{p}\mathbb{R}^{n}$ a um ponto $p \in \mathbb{R}^{n}$ com o próprio $\mathbb{R}^{n}$
-\section{Construção de Variedades}
-\label{sec:construcao-variedades}
-Agora, apresentaremos algumas formas de construir outras variedades diferenciáveis a partir de variedades já existentes.
-\begin{definition}
-	\label{def:variedade-produto}
-	Sejam $M$ e $N$ duas variedades diferenciáveis, cujas estruturas diferenciáveis maximais são $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ e $\{ (V_{\beta},\mathbf{y}_{\beta}) \}$ respectivamente. Construa uma est.diff natural em $M\times N$.
-	\begin{proof}
+Note, em particular, que $\mathbb{R}^{n}$ é uma variedade diferenciável em que identificamos o espaço tangente $T_{p}\mathbb{R}^{n}$ a um ponto $p \in \mathbb{R}^{n}$ com o próprio $\mathbb{R}^{n}$.
 
-		Para cada $(p_1, p_2) \in M\times N$, defina $\mathbf{z}_{p_1,p_2}:U_{p_1} \times V_{p_2}\to M\times N$ pondo $\mathbf{z}_{p_1,p_2}(q_{1}, q_{2})=(\mathbf{x}_{p_{1}}(q_{1}), \mathbf{y}_{p_{2}}(q_{2}))$, em que $\mathbf{x}_{p_{1}}$ e $\mathbf{y}_{p_{2}}$ são parametrizações de $p_{1}$ e $p_{2}$ respectivamente.
+\iffalse
+	\section{Construção de Variedades}
+	\label{sec:construcao-variedades}
+	Agora, apresentaremos algumas formas de construir outras variedades diferenciáveis a partir de variedades já existentes.
+	\begin{definition}
+		\label{def:variedade-produto}
+		Sejam $M$ e $N$ duas variedades diferenciáveis, cujas estruturas diferenciáveis maximais são $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ e $\{ (V_{\beta},\mathbf{y}_{\beta}) \}$ respectivamente. Construa uma est.diff natural em $M\times N$.
+		\begin{proof}
 
-		Mostremos que a família $\mathcal{A} = \{ (U_{\alpha} \times V_{\beta}, \mathbf{z}_{\alpha, \beta}) \}$ define uma estrutura diferenciável para $M \times N$, onde $U_{\alpha} \subset \mathbb{R}^m$ e $V_{\beta} \subset \mathbb{R}^n$ são abertos.
+			Para cada $(p_1, p_2) \in M\times N$, defina $\mathbf{z}_{p_1,p_2}:U_{p_1} \times V_{p_2}\to M\times N$ pondo $\mathbf{z}_{p_1,p_2}(q_{1}, q_{2})=(\mathbf{x}_{p_{1}}(q_{1}), \mathbf{y}_{p_{2}}(q_{2}))$, em que $\mathbf{x}_{p_{1}}$ e $\mathbf{y}_{p_{2}}$ são parametrizações de $p_{1}$ e $p_{2}$ respectivamente.
 
-		Para cada $(p_1, p_2) \in M \times N$, existem parametrizações $(U_{p_1}, \mathbf{x}_{p_1})$ em $p_1$ e $(V_{p_2}, \mathbf{y}_{p_2})$ em $p_2$ tais que $p_1 \in \mathbf{x}_{p_1}(U_{p_1})$ e $p_2 \in \mathbf{y}_{p_2}(V_{p_2})$. Logo:
+			Mostremos que a família $\mathcal{A} = \{ (U_{\alpha} \times V_{\beta}, \mathbf{z}_{\alpha, \beta}) \}$ define uma estrutura diferenciável para $M \times N$, onde $U_{\alpha} \subset \mathbb{R}^m$ e $V_{\beta} \subset \mathbb{R}^n$ são abertos.
+
+			Para cada $(p_1, p_2) \in M \times N$, existem parametrizações $(U_{p_1}, \mathbf{x}_{p_1})$ em $p_1$ e $(V_{p_2}, \mathbf{y}_{p_2})$ em $p_2$ tais que $p_1 \in \mathbf{x}_{p_1}(U_{p_1})$ e $p_2 \in \mathbf{y}_{p_2}(V_{p_2})$. Logo:
+			\begin{equation*}
+				(p_1, p_2) \in \mathbf{x}_{p_1}(U_{p_1}) \times \mathbf{y}_{p_2}(V_{p_2}) = \mathbf{z}_{p_1, p_2}(U_{p_1} \times V_{p_2}).
+			\end{equation*}
+			Portanto, a união das imagens das parametrizações $\mathbf{z}_{\alpha, \beta}$ cobre todo o produto $M \times N$.
+
+			Pela demonstração do  \Cref{prop:aberto-estrutura-diferencial}, cada aplicação $\mathbf{x}_{\alpha}: U_{\alpha} \to \mathbf{x}_{\alpha}(U_{\alpha})$ e $\mathbf{y}_{\beta}: V_{\beta} \to \mathbf{y}_{\beta}(V_{\beta})$ é um homeomorfismo com respeito à topologia induzida em $M$ e $N$.
+			Consequentemente, a aplicação produto $\mathbf{z}_{\alpha, \beta} = \mathbf{x}_{\alpha} \times \mathbf{y}_{\beta}: U_{\alpha} \times V_{\beta} \to \mathbf{x}_{\alpha}(U_{\alpha}) \times \mathbf{y}_{\beta}(V_{\beta})$ é bijetora, contínua e possui inversa contínua dada por:
+			\begin{equation*}
+				\mathbf{z}_{\alpha, \beta}^{-1}(r_1, r_2) = \left(\mathbf{x}_{\alpha}^{-1}(r_1), \mathbf{y}_{\beta}^{-1}(r_2)\right)
+			\end{equation*}
+			Assim, $\mathbf{z}_{\alpha, \beta}$ é um homeomorfismo sobre a sua imagem munida com a topologia produto de $M \times N$.
+
+			Para mostrar que a troca de coordenadas é diferenciável, sejam $\mathbf{z}_1 = \mathbf{x}_1 \times \mathbf{y}_1$ e $\mathbf{z}_2 = \mathbf{x}_2 \times \mathbf{y}_2$ duas parametrizações tais que $W = \mathbf{z}_1(U_1 \times V_1) \cap \mathbf{z}_2(U_2 \times V_2) \neq \emptyset$.
+
+			O conjunto $W$ pode ser escrito como
+			\begin{equation*}
+				W = \left(\mathbf{x}_1(U_1) \cap \mathbf{x}_2(U_2)\right) \times \left(\mathbf{y}_1(V_1) \cap \mathbf{y}_2(V_2)\right).
+			\end{equation*}
+			Segue que
+			\begin{align*}
+				(\mathbf{z}_2^{-1} \circ \mathbf{z}_1)(q_1, q_2) & = \mathbf{z}_2^{-1}(\mathbf{x}_1(q_1), \mathbf{y}_1(q_2))                                                   \\
+				                                                 & = \left( (\mathbf{x}_2^{-1} \circ \mathbf{x}_1)(q_1), (\mathbf{y}_2^{-1} \circ \mathbf{y}_1)(q_2) \right) .
+			\end{align*}
+			Como $M$ e $N$ são variedades diferenciáveis, as aplicações $\mathbf{x}_2^{-1} \circ \mathbf{x}_1 : \mathbf{x}_1^{-1}(\mathbf{x}_1(U_1) \cap \mathbf{x}_2(U_2)) \to \mathbb{R}^m$ e $\mathbf{y}_2^{-1} \circ \mathbf{y}_1 : \mathbf{y}_1^{-1}(\mathbf{y}_1(V_1) \cap \mathbf{y}_2(V_2)) \to \mathbb{R}^n$ são diferenciáveis.
+			Como cada componente de $\mathbf{z}_2^{-1} \circ \mathbf{z}_1$ é diferenciável, a mudança de coordenadas $\mathbf{z}_2^{-1} \circ \mathbf{z}_1$ também o é.
+		\end{proof}
+	\end{definition}
+	\begin{lemma}
+		\label{lem:derivadas-produto-1}
+		Sejam $M, N$ e $Q$ variedades diferenciáveis e $f:M\to Q$ e $g:N\to Q$ funções diferenciáveis. A função $F:M\times N\to Q\times Q$, definida por $F(m,n)=(f(m),g(n))$, é diferenciável e
 		\begin{equation*}
-			(p_1, p_2) \in \mathbf{x}_{p_1}(U_{p_1}) \times \mathbf{y}_{p_2}(V_{p_2}) = \mathbf{z}_{p_1, p_2}(U_{p_1} \times V_{p_2}).
+			dF_{(m,n)}=(df_{m},dg_{n}).
 		\end{equation*}
-		Portanto, a união das imagens das parametrizações $\mathbf{z}_{\alpha, \beta}$ cobre todo o produto $M \times N$.
+		\begin{proof}
 
-		Pela demonstração do  \Cref{prop:aberto-estrutura-diferencial}, cada aplicação $\mathbf{x}_{\alpha}: U_{\alpha} \to \mathbf{x}_{\alpha}(U_{\alpha})$ e $\mathbf{y}_{\beta}: V_{\beta} \to \mathbf{y}_{\beta}(V_{\beta})$ é um homeomorfismo com respeito à topologia induzida em $M$ e $N$.
-		Consequentemente, a aplicação produto $\mathbf{z}_{\alpha, \beta} = \mathbf{x}_{\alpha} \times \mathbf{y}_{\beta}: U_{\alpha} \times V_{\beta} \to \mathbf{x}_{\alpha}(U_{\alpha}) \times \mathbf{y}_{\beta}(V_{\beta})$ é bijetora, contínua e possui inversa contínua dada por:
+			Sejam $(m,n)\in M\times N$, $r=\dim M$, $s=\dim N$ e $q=\dim Q$. Sejam $\mathbf{x}:U\to M$ e $\mathbf{y}:V\to N$ parametrizações de $m\in M$ e $n\in N$ respectivamente, e sejam $\mathbf{w}:W\to Q$ e $\mathbf{t}:T\to Q$ parametrizações de $Q$ em $f(m)$ e $g(n)$ respectivamente. Como $f$ e $g$ são contínuas, podemos diminuir $U$ e $V$ de modo que $f(\mathbf{x}(U))\subset \mathbf{w}(W)$ e $g(\mathbf{y}(V))\subset \mathbf{t}(T)$.
+
+			Para mostrar que $F$ é diferenciável em uma vizinhança de $(m,n)$, por \Cref{def:variedade-produto} e \Cref{prop:diferenciabilidade-estrutura-diferencial}, basta mostrar que, fazendo $\mathbf{z}:U\times V\to M\times N$ uma parametrização de $(m,n)$ e $\mathbf{h}:W\times T\to Q\times Q$ uma parametrização de $F(m,n)=(f(m),g(n))$, dadas por $\mathbf{z}=\mathbf{x}\times\mathbf{y}$ e $\mathbf{h}=\mathbf{w}\times\mathbf{t}$, temos que $\mathbf{h}^{-1} \circ F \circ \mathbf{z}$ é diferenciável.
+
+			Note que, sendo $x \in U$ e $y \in V$,
+			\begin{equation*}
+				\mathbf{h}^{-1} \circ F \circ \mathbf{z}(x,y)=\mathbf{h}^{-1} \circ F(\mathbf{x}(x),\mathbf{y}(y)) = \mathbf{h}^{-1}(f(\mathbf{x}(x)),g(\mathbf{y}(y))) = (\mathbf{w}^{-1}\circ f \circ \mathbf{x}(x), \mathbf{t}^{-1} \circ g \circ \mathbf{y}(y))
+			\end{equation*}
+			e portanto, é diferenciável.
+
+			Também, sendo $x=(x_{1},\dots,x_{r}) \in U$ e $y=(y_{1}, \dots, y_{s})\in V$, temos que
+			\begin{equation*}
+				\mathbf{h}^{-1} \circ F\circ \mathbf{z}=(\mathbf{w}^{-1}\circ f\circ \mathbf{x}, \mathbf{t}^{-1} \circ g\circ \mathbf{y})=(f_{1}, \dots, f_{q}, g_{1}, \dots, g_{q})=(F_{1}, \dots, F_{2q}),
+			\end{equation*}
+			em que $f_{i}$ depende apenas de $x$ e $g_{j}$ depende apenas de $y$.
+
+			Logo, pela \Cref{prop:derivada-transformacao-linear}, a matriz de $dF_{(m,n)}$ nas parametrizações $\mathbf{z}$ e $\mathbf{h}$ é dada por
+			\begin{align*}
+				dF_{(m,n)} & = \begin{bmatrix}
+					               \frac{\partial F_1}{\partial x_1}     & \cdots & \frac{\partial F_1}{\partial x_r}     & \frac{\partial F_1}{\partial y_1}     & \cdots & \frac{\partial F_1}{\partial y_s}     \\
+					               \vdots                                & \ddots & \vdots                                & \vdots                                & \ddots & \vdots                                \\
+					               \frac{\partial F_q}{\partial x_1}     & \cdots & \frac{\partial F_q}{\partial x_r}     & \frac{\partial F_q}{\partial y_1}     & \cdots & \frac{\partial F_q}{\partial y_s}     \\
+					               \frac{\partial F_{q+1}}{\partial x_1} & \cdots & \frac{\partial F_{q+1}}{\partial x_r} & \frac{\partial F_{q+1}}{\partial y_1} & \cdots & \frac{\partial F_{q+1}}{\partial y_s} \\
+					               \vdots                                & \ddots & \vdots                                & \vdots                                & \ddots & \vdots                                \\
+					               \frac{\partial F_{2q}}{\partial x_1}  & \cdots & \frac{\partial F_{2q}}{\partial x_r}  & \frac{\partial F_{2q}}{\partial y_1}  & \cdots & \frac{\partial F_{2q}}{\partial y_s}
+				               \end{bmatrix} \\
+				           & = \begin{bmatrix}
+					               \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_r} & \frac{\partial f_1}{\partial y_1} & \cdots & \frac{\partial f_1}{\partial y_s} \\
+					               \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
+					               \frac{\partial f_q}{\partial x_1} & \cdots & \frac{\partial f_q}{\partial x_r} & \frac{\partial f_q}{\partial y_1} & \cdots & \frac{\partial f_q}{\partial y_s} \\
+					               \frac{\partial g_1}{\partial x_1} & \cdots & \frac{\partial g_1}{\partial x_r} & \frac{\partial g_1}{\partial y_1} & \cdots & \frac{\partial g_1}{\partial y_s} \\
+					               \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
+					               \frac{\partial g_q}{\partial x_1} & \cdots & \frac{\partial g_q}{\partial x_r} & \frac{\partial g_q}{\partial y_1} & \cdots & \frac{\partial g_q}{\partial y_s}
+				               \end{bmatrix}                                                                                                                     \\
+				           & = \begin{bmatrix}
+					               \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_r} & 0                                 & \cdots & 0                                 \\
+					               \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
+					               \frac{\partial f_q}{\partial x_1} & \cdots & \frac{\partial f_q}{\partial x_r} & 0                                 & \cdots & 0                                 \\
+					               0                                 & \cdots & 0                                 & \frac{\partial g_1}{\partial y_1} & \cdots & \frac{\partial g_1}{\partial y_s} \\
+					               \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
+					               0                                 & \cdots & 0                                 & \frac{\partial g_q}{\partial y_1} & \cdots & \frac{\partial g_q}{\partial y_s}
+				               \end{bmatrix}                                                                                                                     \\
+				           & = \begin{bmatrix} df_m & 0 \\ 0 & dg_n \end{bmatrix},
+			\end{align*}
+			o que mostra o desejado.
+		\end{proof}
+	\end{lemma}
+	\begin{lemma}
+		\label{lem:derivadas-produto-2}
+		Sejam $M, N$ e $Q$ variedades diferenciáveis e $f:M\times N\to Q$ uma função diferenciável. Para todo $m \in M$, a função $g:N\to Q$, definida por $g(n)=f(m,n)$, é diferenciável e
 		\begin{equation*}
-			\mathbf{z}_{\alpha, \beta}^{-1}(r_1, r_2) = \left(\mathbf{x}_{\alpha}^{-1}(r_1), \mathbf{y}_{\beta}^{-1}(r_2)\right)
+			dg_{n}(w)=df_{(m,n)}(0,w), \quad \text{para todo } w\in T_nN.
 		\end{equation*}
-		Assim, $\mathbf{z}_{\alpha, \beta}$ é um homeomorfismo sobre a sua imagem munida com a topologia produto de $M \times N$.
+		\begin{proof}
 
-		Para mostrar que a troca de coordenadas é diferenciável, sejam $\mathbf{z}_1 = \mathbf{x}_1 \times \mathbf{y}_1$ e $\mathbf{z}_2 = \mathbf{x}_2 \times \mathbf{y}_2$ duas parametrizações tais que $W = \mathbf{z}_1(U_1 \times V_1) \cap \mathbf{z}_2(U_2 \times V_2) \neq \emptyset$.
+			Sejam $m\in M$, $n\in N$, $r=\dim M$, $s=\dim N$ e $q=\dim Q$. Sejam $\mathbf{x}:U\to M$ e $\mathbf{y}:V\to N$ parametrizações de $m\in M$ e $n\in N$ respectivamente, e seja $\mathbf{w}:W\to Q$ uma parametrização de $Q$ em $f(m,n)=g(n)$. Seja $x_0=\mathbf{x}^{-1}(m)\in U$. Como $f$ é contínua, podemos diminuir $U$ e $V$ de modo que $f(\mathbf{x}(U)\times\mathbf{y}(V))\subset \mathbf{w}(W)$.
 
-		O conjunto $W$ pode ser escrito como
+			Para mostrar que $g$ é diferenciável em uma vizinhança de $n$, por \Cref{def:variedade-produto} e \Cref{prop:diferenciabilidade-estrutura-diferencial}, basta mostrar que, fazendo $\mathbf{z}:U\times V\to M\times N$ uma parametrização de $(m,n)$, dada por $\mathbf{z}=\mathbf{x}\times\mathbf{y}$, temos que $\mathbf{w}^{-1} \circ g \circ \mathbf{y}$ é diferenciável.
+
+			Note que, sendo $y \in V$,
+			\begin{equation*}
+				\mathbf{w}^{-1} \circ g \circ \mathbf{y}(y)=\mathbf{w}^{-1}(f(m,\mathbf{y}(y)))=\mathbf{w}^{-1}(f(\mathbf{x}(x_0),\mathbf{y}(y)))=\mathbf{w}^{-1} \circ f \circ \mathbf{z}(x_0,y).
+			\end{equation*}
+			Como $f$ é diferenciável, $\mathbf{w}^{-1} \circ f \circ \mathbf{z}$ é diferenciável, e como $y\mapsto(x_0,y)$ é diferenciável, a composição $\mathbf{w}^{-1} \circ g \circ \mathbf{y}$ é diferenciável e, portanto, $g$ é diferenciável.
+
+			Também, sendo $x=(x_{1},\dots,x_{r}) \in U$ e $y=(y_{1}, \dots, y_{s})\in V$, temos que
+			\begin{equation*}
+				\mathbf{w}^{-1} \circ f\circ \mathbf{z}=(f_{1}, \dots, f_{q}),
+			\end{equation*}
+			e
+			\begin{equation*}
+				\mathbf{w}^{-1} \circ g\circ \mathbf{y}(y)=(f_{1}(x_0,y), \dots, f_{q}(x_0,y))=(g_{1}, \dots, g_{q}).
+			\end{equation*}
+
+			Logo, pela \Cref{prop:derivada-transformacao-linear}, a matriz de $df_{(m,n)}$ nas parametrizações $\mathbf{z}$ e $\mathbf{w}$ é dada por
+			\begin{equation*}
+				df_{(m,n)} = \begin{bmatrix}
+					\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_r} & \frac{\partial f_1}{\partial y_1} & \cdots & \frac{\partial f_1}{\partial y_s} \\
+					\vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
+					\frac{\partial f_q}{\partial x_1} & \cdots & \frac{\partial f_q}{\partial x_r} & \frac{\partial f_q}{\partial y_1} & \cdots & \frac{\partial f_q}{\partial y_s}
+				\end{bmatrix}
+				= \begin{bmatrix} A & B \end{bmatrix},
+			\end{equation*}
+			em que $A=\left(\frac{\partial f_i}{\partial x_k}\right)$ é uma matriz $q\times r$ e $B=\left(\frac{\partial f_i}{\partial y_j}\right)$ é uma matriz $q\times s$, ambas calculadas em $(x_0,y_0)=\mathbf{z}^{-1}(m,n)$.
+
+			Por outro lado, como $x_0$ é fixo, $\frac{\partial g_i}{\partial y_j}(y)=\frac{\partial f_i}{\partial y_j}(x_0,y)$, e então, novamente pela \Cref{prop:derivada-transformacao-linear}, a matriz de $dg_n$ nas parametrizações $\mathbf{y}$ e $\mathbf{w}$ é dada por
+			\begin{equation*}
+				dg_{n} = \begin{bmatrix}
+					\frac{\partial g_1}{\partial y_1} & \cdots & \frac{\partial g_1}{\partial y_s} \\
+					\vdots                            & \ddots & \vdots                            \\
+					\frac{\partial g_q}{\partial y_1} & \cdots & \frac{\partial g_q}{\partial y_s}
+				\end{bmatrix}
+				= \begin{bmatrix}
+					\frac{\partial f_1}{\partial y_1} & \cdots & \frac{\partial f_1}{\partial y_s} \\
+					\vdots                            & \ddots & \vdots                            \\
+					\frac{\partial f_q}{\partial y_1} & \cdots & \frac{\partial f_q}{\partial y_s}
+				\end{bmatrix}
+				= B.
+			\end{equation*}
+
+			Portanto, para $w\in T_nN$, com a identificação $T_{(m,n)}(M\times N)\cong T_mM\times T_nN$, temos que
+			\begin{equation*}
+				df_{(m,n)}(0,w)=\begin{bmatrix} A & B \end{bmatrix}\begin{bmatrix} 0 \\ w \end{bmatrix}=Bw=dg_{n}(w),
+			\end{equation*}
+			o que mostra o desejado.
+		\end{proof}
+	\end{lemma}
+	Também, toda variedade diferenciável $M$ de dimensão $n$ da origem a uma variedade diferenciável $TM$ de dimensão $2n$, chamada de fibrado tangente de $M$.
+	\begin{definition}
+		\label{def:fibrado-tangente}
+		Seja $M^{n}$ uma variedade diferenciável. Definimos o fibrado tangente de $M$ como o conjunto
 		\begin{equation*}
-			W = \left(\mathbf{x}_1(U_1) \cap \mathbf{x}_2(U_2)\right) \times \left(\mathbf{y}_1(V_1) \cap \mathbf{y}_2(V_2)\right).
+			TM=\{ (p, v); p \in M, v \in T_{p}M \}
 		\end{equation*}
-		Segue que
-		\begin{align*}
-			(\mathbf{z}_2^{-1} \circ \mathbf{z}_1)(q_1, q_2) & = \mathbf{z}_2^{-1}(\mathbf{x}_1(q_1), \mathbf{y}_1(q_2))                                                   \\
-			                                                 & = \left( (\mathbf{x}_2^{-1} \circ \mathbf{x}_1)(q_1), (\mathbf{y}_2^{-1} \circ \mathbf{y}_1)(q_2) \right) .
-		\end{align*}
-		Como $M$ e $N$ são variedades diferenciáveis, as aplicações $\mathbf{x}_2^{-1} \circ \mathbf{x}_1 : \mathbf{x}_1^{-1}(\mathbf{x}_1(U_1) \cap \mathbf{x}_2(U_2)) \to \mathbb{R}^m$ e $\mathbf{y}_2^{-1} \circ \mathbf{y}_1 : \mathbf{y}_1^{-1}(\mathbf{y}_1(V_1) \cap \mathbf{y}_2(V_2)) \to \mathbb{R}^n$ são diferenciáveis.
-		Como cada componente de $\mathbf{z}_2^{-1} \circ \mathbf{z}_1$ é diferenciável, a mudança de coordenadas $\mathbf{z}_2^{-1} \circ \mathbf{z}_1$ também o é.
-	\end{proof}
-\end{definition}
-\begin{lemma}
-	\label{lem:derivadas-produto-1}
-	Sejam $M, N$ e $Q$ variedades diferenciáveis e $f:M\to Q$ e $g:N\to Q$ funções diferenciáveis. A função $F:M\times N\to Q\times Q$, definida por $F(m,n)=(f(m),g(n))$, é diferenciável e
-	\begin{equation*}
-		dF_{(m,n)}=(df_{m},dg_{n}).
-	\end{equation*}
-	\begin{proof}
-
-		Sejam $(m,n)\in M\times N$, $r=\dim M$, $s=\dim N$ e $q=\dim Q$. Sejam $\mathbf{x}:U\to M$ e $\mathbf{y}:V\to N$ parametrizações de $m\in M$ e $n\in N$ respectivamente, e sejam $\mathbf{w}:W\to Q$ e $\mathbf{t}:T\to Q$ parametrizações de $Q$ em $f(m)$ e $g(n)$ respectivamente. Como $f$ e $g$ são contínuas, podemos diminuir $U$ e $V$ de modo que $f(\mathbf{x}(U))\subset \mathbf{w}(W)$ e $g(\mathbf{y}(V))\subset \mathbf{t}(T)$.
-
-		Para mostrar que $F$ é diferenciável em uma vizinhança de $(m,n)$, por \Cref{def:variedade-produto} e \Cref{prop:diferenciabilidade-estrutura-diferencial}, basta mostrar que, fazendo $\mathbf{z}:U\times V\to M\times N$ uma parametrização de $(m,n)$ e $\mathbf{h}:W\times T\to Q\times Q$ uma parametrização de $F(m,n)=(f(m),g(n))$, dadas por $\mathbf{z}=\mathbf{x}\times\mathbf{y}$ e $\mathbf{h}=\mathbf{w}\times\mathbf{t}$, temos que $\mathbf{h}^{-1} \circ F \circ \mathbf{z}$ é diferenciável.
-
-		Note que, sendo $x \in U$ e $y \in V$,
+		munido com a estrutura diferenciável construída tomando a estrutura diferenciável maximal de $M$ $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L}$ e, definindo, para cada $\alpha$,
 		\begin{equation*}
-			\mathbf{h}^{-1} \circ F \circ \mathbf{z}(x,y)=\mathbf{h}^{-1} \circ F(\mathbf{x}(x),\mathbf{y}(y)) = \mathbf{h}^{-1}(f(\mathbf{x}(x)),g(\mathbf{y}(y))) = (\mathbf{w}^{-1}\circ f \circ \mathbf{x}(x), \mathbf{t}^{-1} \circ g \circ \mathbf{y}(y))
+			\mathbf{y}_{\alpha}:U_{\alpha}\times \mathbb{R}^{n} \ni (q, v) \to \left( \mathbf{x}(q), \sum v_{i}\left( \frac{\partial}{\partial x_{i}} \right)_{0} \right) \in TM.
 		\end{equation*}
-		e portanto, é diferenciável.
-
-		Também, sendo $x=(x_{1},\dots,x_{r}) \in U$ e $y=(y_{1}, \dots, y_{s})\in V$, temos que
-		\begin{equation*}
-			\mathbf{h}^{-1} \circ F\circ \mathbf{z}=(\mathbf{w}^{-1}\circ f\circ \mathbf{x}, \mathbf{t}^{-1} \circ g\circ \mathbf{y})=(f_{1}, \dots, f_{q}, g_{1}, \dots, g_{q})=(F_{1}, \dots, F_{2q}),
-		\end{equation*}
-		em que $f_{i}$ depende apenas de $x$ e $g_{j}$ depende apenas de $y$.
-
-		Logo, pela \Cref{prop:derivada-transformacao-linear}, a matriz de $dF_{(m,n)}$ nas parametrizações $\mathbf{z}$ e $\mathbf{h}$ é dada por
-		\begin{align*}
-			dF_{(m,n)} & = \begin{bmatrix}
-				               \frac{\partial F_1}{\partial x_1}     & \cdots & \frac{\partial F_1}{\partial x_r}     & \frac{\partial F_1}{\partial y_1}     & \cdots & \frac{\partial F_1}{\partial y_s}     \\
-				               \vdots                                & \ddots & \vdots                                & \vdots                                & \ddots & \vdots                                \\
-				               \frac{\partial F_q}{\partial x_1}     & \cdots & \frac{\partial F_q}{\partial x_r}     & \frac{\partial F_q}{\partial y_1}     & \cdots & \frac{\partial F_q}{\partial y_s}     \\
-				               \frac{\partial F_{q+1}}{\partial x_1} & \cdots & \frac{\partial F_{q+1}}{\partial x_r} & \frac{\partial F_{q+1}}{\partial y_1} & \cdots & \frac{\partial F_{q+1}}{\partial y_s} \\
-				               \vdots                                & \ddots & \vdots                                & \vdots                                & \ddots & \vdots                                \\
-				               \frac{\partial F_{2q}}{\partial x_1}  & \cdots & \frac{\partial F_{2q}}{\partial x_r}  & \frac{\partial F_{2q}}{\partial y_1}  & \cdots & \frac{\partial F_{2q}}{\partial y_s}
-			               \end{bmatrix} \\
-			           & = \begin{bmatrix}
-				               \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_r} & \frac{\partial f_1}{\partial y_1} & \cdots & \frac{\partial f_1}{\partial y_s} \\
-				               \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
-				               \frac{\partial f_q}{\partial x_1} & \cdots & \frac{\partial f_q}{\partial x_r} & \frac{\partial f_q}{\partial y_1} & \cdots & \frac{\partial f_q}{\partial y_s} \\
-				               \frac{\partial g_1}{\partial x_1} & \cdots & \frac{\partial g_1}{\partial x_r} & \frac{\partial g_1}{\partial y_1} & \cdots & \frac{\partial g_1}{\partial y_s} \\
-				               \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
-				               \frac{\partial g_q}{\partial x_1} & \cdots & \frac{\partial g_q}{\partial x_r} & \frac{\partial g_q}{\partial y_1} & \cdots & \frac{\partial g_q}{\partial y_s}
-			               \end{bmatrix}                                                                                                                     \\
-			           & = \begin{bmatrix}
-				               \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_r} & 0                                 & \cdots & 0                                 \\
-				               \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
-				               \frac{\partial f_q}{\partial x_1} & \cdots & \frac{\partial f_q}{\partial x_r} & 0                                 & \cdots & 0                                 \\
-				               0                                 & \cdots & 0                                 & \frac{\partial g_1}{\partial y_1} & \cdots & \frac{\partial g_1}{\partial y_s} \\
-				               \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
-				               0                                 & \cdots & 0                                 & \frac{\partial g_q}{\partial y_1} & \cdots & \frac{\partial g_q}{\partial y_s}
-			               \end{bmatrix}                                                                                                                     \\
-			           & = \begin{bmatrix} df_m & 0 \\ 0 & dg_n \end{bmatrix},
-		\end{align*}
-		o que mostra o desejado.
-	\end{proof}
-\end{lemma}
-\begin{lemma}
-	\label{lem:derivadas-produto-2}
-	Sejam $M, N$ e $Q$ variedades diferenciáveis e $f:M\times N\to Q$ uma função diferenciável. Para todo $m \in M$, a função $g:N\to Q$, definida por $g(n)=f(m,n)$, é diferenciável e
-	\begin{equation*}
-		dg_{n}(w)=df_{(m,n)}(0,w), \quad \text{para todo } w\in T_nN.
-	\end{equation*}
-	\begin{proof}
-
-		Sejam $m\in M$, $n\in N$, $r=\dim M$, $s=\dim N$ e $q=\dim Q$. Sejam $\mathbf{x}:U\to M$ e $\mathbf{y}:V\to N$ parametrizações de $m\in M$ e $n\in N$ respectivamente, e seja $\mathbf{w}:W\to Q$ uma parametrização de $Q$ em $f(m,n)=g(n)$. Seja $x_0=\mathbf{x}^{-1}(m)\in U$. Como $f$ é contínua, podemos diminuir $U$ e $V$ de modo que $f(\mathbf{x}(U)\times\mathbf{y}(V))\subset \mathbf{w}(W)$.
-
-		Para mostrar que $g$ é diferenciável em uma vizinhança de $n$, por \Cref{def:variedade-produto} e \Cref{prop:diferenciabilidade-estrutura-diferencial}, basta mostrar que, fazendo $\mathbf{z}:U\times V\to M\times N$ uma parametrização de $(m,n)$, dada por $\mathbf{z}=\mathbf{x}\times\mathbf{y}$, temos que $\mathbf{w}^{-1} \circ g \circ \mathbf{y}$ é diferenciável.
-
-		Note que, sendo $y \in V$,
-		\begin{equation*}
-			\mathbf{w}^{-1} \circ g \circ \mathbf{y}(y)=\mathbf{w}^{-1}(f(m,\mathbf{y}(y)))=\mathbf{w}^{-1}(f(\mathbf{x}(x_0),\mathbf{y}(y)))=\mathbf{w}^{-1} \circ f \circ \mathbf{z}(x_0,y).
-		\end{equation*}
-		Como $f$ é diferenciável, $\mathbf{w}^{-1} \circ f \circ \mathbf{z}$ é diferenciável, e como $y\mapsto(x_0,y)$ é diferenciável, a composição $\mathbf{w}^{-1} \circ g \circ \mathbf{y}$ é diferenciável e, portanto, $g$ é diferenciável.
-
-		Também, sendo $x=(x_{1},\dots,x_{r}) \in U$ e $y=(y_{1}, \dots, y_{s})\in V$, temos que
-		\begin{equation*}
-			\mathbf{w}^{-1} \circ f\circ \mathbf{z}=(f_{1}, \dots, f_{q}),
-		\end{equation*}
-		e
-		\begin{equation*}
-			\mathbf{w}^{-1} \circ g\circ \mathbf{y}(y)=(f_{1}(x_0,y), \dots, f_{q}(x_0,y))=(g_{1}, \dots, g_{q}).
-		\end{equation*}
-
-		Logo, pela \Cref{prop:derivada-transformacao-linear}, a matriz de $df_{(m,n)}$ nas parametrizações $\mathbf{z}$ e $\mathbf{w}$ é dada por
-		\begin{equation*}
-			df_{(m,n)} = \begin{bmatrix}
-				\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_r} & \frac{\partial f_1}{\partial y_1} & \cdots & \frac{\partial f_1}{\partial y_s} \\
-				\vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
-				\frac{\partial f_q}{\partial x_1} & \cdots & \frac{\partial f_q}{\partial x_r} & \frac{\partial f_q}{\partial y_1} & \cdots & \frac{\partial f_q}{\partial y_s}
-			\end{bmatrix}
-			= \begin{bmatrix} A & B \end{bmatrix},
-		\end{equation*}
-		em que $A=\left(\frac{\partial f_i}{\partial x_k}\right)$ é uma matriz $q\times r$ e $B=\left(\frac{\partial f_i}{\partial y_j}\right)$ é uma matriz $q\times s$, ambas calculadas em $(x_0,y_0)=\mathbf{z}^{-1}(m,n)$.
-
-		Por outro lado, como $x_0$ é fixo, $\frac{\partial g_i}{\partial y_j}(y)=\frac{\partial f_i}{\partial y_j}(x_0,y)$, e então, novamente pela \Cref{prop:derivada-transformacao-linear}, a matriz de $dg_n$ nas parametrizações $\mathbf{y}$ e $\mathbf{w}$ é dada por
-		\begin{equation*}
-			dg_{n} = \begin{bmatrix}
-				\frac{\partial g_1}{\partial y_1} & \cdots & \frac{\partial g_1}{\partial y_s} \\
-				\vdots                            & \ddots & \vdots                            \\
-				\frac{\partial g_q}{\partial y_1} & \cdots & \frac{\partial g_q}{\partial y_s}
-			\end{bmatrix}
-			= \begin{bmatrix}
-				\frac{\partial f_1}{\partial y_1} & \cdots & \frac{\partial f_1}{\partial y_s} \\
-				\vdots                            & \ddots & \vdots                            \\
-				\frac{\partial f_q}{\partial y_1} & \cdots & \frac{\partial f_q}{\partial y_s}
-			\end{bmatrix}
-			= B.
-		\end{equation*}
-
-		Portanto, para $w\in T_nN$, com a identificação $T_{(m,n)}(M\times N)\cong T_mM\times T_nN$, temos que
-		\begin{equation*}
-			df_{(m,n)}(0,w)=\begin{bmatrix} A & B \end{bmatrix}\begin{bmatrix} 0 \\ w \end{bmatrix}=Bw=dg_{n}(w),
-		\end{equation*}
-		o que mostra o desejado.
-	\end{proof}
-\end{lemma}
-Também, toda variedade diferenciável $M$ de dimensão $n$ da origem a uma variedade diferenciável $TM$ de dimensão $2n$, chamada de fibrado tangente de $M$.
-\begin{definition}
-	\label{def:fibrado-tangente}
-	Seja $M^{n}$ uma variedade diferenciável. Definimos o fibrado tangente de $M$ como o conjunto
-	\begin{equation*}
-		TM=\{ (p, v); p \in M, v \in T_{p}M \}
-	\end{equation*}
-	munido com a estrutura diferenciável construída tomando a estrutura diferenciável maximal de $M$ $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}_{\alpha \in L}$ e, definindo, para cada $\alpha$,
-	\begin{equation*}
-		\mathbf{y}_{\alpha}:U_{\alpha}\times \mathbb{R}^{n} \ni (q, v) \to \left( \mathbf{x}(q), \sum v_{i}\left( \frac{\partial}{\partial x_{i}} \right)_{0} \right) \in TM.
-	\end{equation*}
-\end{definition}
-Mostremos que $\{ (U_{\alpha}\times \mathbb{R}^{n}), \mathbf{y}_{\alpha} \}_{\alpha \in L}$ é, de fato, uma estrutura diferenciável de $TM$.
-\begin{enumerate}[label=(\roman*)]
-	\item $\cup \mathbf{y}_{\alpha}(U_{\alpha}\times \mathbb{R}^{n}) \subset TM$ trivialmente. Reciprocamente, seja $(p, v) \in TM$. Existe algum $\alpha$ tal que $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ é parametrização de $p$, com $p=\mathbf{x}(q)$. Como $v \in T_{p}M$, então $v=\sum u_{i}\left( \frac{\partial}{\partial x_{i}} \right)_{0}$. Fazendo $u=(u_{1}, \dots, u_{n}) \in \mathbb{R}^{n}$, temos que $\mathbf{y_{\alpha}}(q, u)= (p, v)$.
-	\item Seja $(p, v) \in \mathbf{y}_{\alpha}(U_{\alpha}\times \mathbb{R}^{n}) \cap \mathbf{y}_{\beta}(U_{\beta}\times \mathbb{R}^{n})=W$. Então,
-\end{enumerate}
-\begin{equation*}
-	(p, v)=(\mathbf{x}_{\alpha}(q_{\alpha}), d\mathbf{x}_{\alpha}(v_{\alpha}))=(\mathbf{x}_{\beta}(q_{\beta}), d\mathbf{x}_{\beta}(v_{\beta}))
-\end{equation*}
-com $q_{\alpha} \in U_{\alpha}$ e $q_{\beta} \in U_{\beta}$. Temos então que
-\begin{equation*}
-	\mathbf{y}_{\beta}^{-1} \circ \mathbf{y}_{\alpha}(q_{\alpha}, v_{\alpha})=\mathbf{y}_{\beta}^{-1}(\mathbf{x_{\alpha}}(q_{\alpha}), d\mathbf{x}_{\alpha}(v_{\alpha})) = (\mathbf{x}_{\beta}^{-1} \circ  \mathbf{x}_{\alpha}(q_{\alpha}), d(\mathbf{x_{\beta}^{-1}} \circ  \mathbf{x_{\alpha}})_{q_{\alpha}}(v_{\alpha})),
-\end{equation*}
-o que mostra que a mudança de coordenadas é diferenciável.
-
-Como é comum em estruturas matemáticas, definiremos agora o conceito de variedade quociente. Neste, estabeleceremos uma relação de equivalência em uma variedade e construiremos uma estrutura diferenciável no conjunto quociente por tal relação, de forma que a projeção tenha propriedades topológicas interessantes.
-
-A relação de equivalência será feita considerando uma ação de grupo na variedade:
-\begin{definition}
-	\label{def:acao-de-grupo}
-	Dizemos que um grupo $G$ age em uma variedade diferenciável $M$ se existe $\varphi:G\times M\to M$ tal que:
+	\end{definition}
+	Mostremos que $\{ (U_{\alpha}\times \mathbb{R}^{n}), \mathbf{y}_{\alpha} \}_{\alpha \in L}$ é, de fato, uma estrutura diferenciável de $TM$.
 	\begin{enumerate}[label=(\roman*)]
-		\item Para todo $g \in G$, a função $\varphi_{g}:M\to M$, definida por $\varphi_{g}(x)=\varphi(g, x)$ é um difeomorfismo;
-		\item Se $g_{1}, g_{2} \in G$, então $\varphi_{g_{1}g_{2}}=\varphi_{g_{1}}\circ\varphi_{g_{2}}$, isto é $\varphi(g_{1}, \varphi(g_{2}, p))=\varphi (g_{1}g_{2}, p)$ para todo $p \in M$.
+		\item $\cup \mathbf{y}_{\alpha}(U_{\alpha}\times \mathbb{R}^{n}) \subset TM$ trivialmente. Reciprocamente, seja $(p, v) \in TM$. Existe algum $\alpha$ tal que $\mathbf{x}_{\alpha}:U_{\alpha}\to M$ é parametrização de $p$, com $p=\mathbf{x}(q)$. Como $v \in T_{p}M$, então $v=\sum u_{i}\left( \frac{\partial}{\partial x_{i}} \right)_{0}$. Fazendo $u=(u_{1}, \dots, u_{n}) \in \mathbb{R}^{n}$, temos que $\mathbf{y_{\alpha}}(q, u)= (p, v)$.
+		\item Seja $(p, v) \in \mathbf{y}_{\alpha}(U_{\alpha}\times \mathbb{R}^{n}) \cap \mathbf{y}_{\beta}(U_{\beta}\times \mathbb{R}^{n})=W$. Então,
 	\end{enumerate}
+	\begin{equation*}
+		(p, v)=(\mathbf{x}_{\alpha}(q_{\alpha}), d\mathbf{x}_{\alpha}(v_{\alpha}))=(\mathbf{x}_{\beta}(q_{\beta}), d\mathbf{x}_{\beta}(v_{\beta}))
+	\end{equation*}
+	com $q_{\alpha} \in U_{\alpha}$ e $q_{\beta} \in U_{\beta}$. Temos então que
+	\begin{equation*}
+		\mathbf{y}_{\beta}^{-1} \circ \mathbf{y}_{\alpha}(q_{\alpha}, v_{\alpha})=\mathbf{y}_{\beta}^{-1}(\mathbf{x_{\alpha}}(q_{\alpha}), d\mathbf{x}_{\alpha}(v_{\alpha})) = (\mathbf{x}_{\beta}^{-1} \circ  \mathbf{x}_{\alpha}(q_{\alpha}), d(\mathbf{x_{\beta}^{-1}} \circ  \mathbf{x_{\alpha}})_{q_{\alpha}}(v_{\alpha})),
+	\end{equation*}
+	o que mostra que a mudança de coordenadas é diferenciável.
 
-	Normalmente, denotamos $\varphi(g,p)=gp$.
-\end{definition}
-Exigiremos que tal ação de grupo tenha uma propriedade interessante, para que posteriormente, a projeção seja um difeomorfismo local.
-\begin{definition}
-	\label{def:acao-propriamente-descontinua}
-	Uma ação é dita propriamente descontínua se todo $p \in M$ possuí uma vizinhança $U \subset M$ tal que $U \cap g(U)=\emptyset$, para todo $g \in G$, com $g\neq e$.
-\end{definition}
-Definimos então a variedade quociente, como o esperado.
-\begin{definition}
-	\label{def:variedade-quociente}
-	Dados $p_{1}, p_{2} \in M$, definimos a relação $p_{1} \sim  p_{2}$ se existe $g \in G$ tal que $p_{1}=gp_{2}$. É possível verificar que tal relação é de equivalência. Denotamos o conjunto $M/\sim$ das classes de equivalência por $M/G$ e $\pi:M \ni p\to Gp=\bar{p} \in M/G$ a projeção.
-\end{definition}
-\begin{proposition}
-	\label{prop:estrutura-variedade-quociente}
-	Sejam $M$ uma variedade diferencial, $G$ um grupo e $\varphi:G\times M\to M$ uma ação de grupo propriamente descontínua. Então $M/G$ possui estrutura diferenciável, de tal modo que a projeção de $M$ em $M/G$ é um difeomorfismo local.
-	\begin{proof}
+	Como é comum em estruturas matemáticas, definiremos agora o conceito de variedade quociente. Neste, estabeleceremos uma relação de equivalência em uma variedade e construiremos uma estrutura diferenciável no conjunto quociente por tal relação, de forma que a projeção tenha propriedades topológicas interessantes.
 
-		Para todo $p \in M$, escolha $\mathbf{x}:V\to M$ parametrização de $p$ tal que $\mathbf{x}(V)\subset U$, em que $U\subset M$ é uma vizinhança de $p$ tal que $U\cap g(U)=\emptyset$, para todo $g \neq e$.
+	A relação de equivalência será feita considerando uma ação de grupo na variedade:
+	\begin{definition}
+		\label{def:acao-de-grupo}
+		Dizemos que um grupo $G$ age em uma variedade diferenciável $M$ se existe $\varphi:G\times M\to M$ tal que:
+		\begin{enumerate}[label=(\roman*)]
+			\item Para todo $g \in G$, a função $\varphi_{g}:M\to M$, definida por $\varphi_{g}(x)=\varphi(g, x)$ é um difeomorfismo;
+			\item Se $g_{1}, g_{2} \in G$, então $\varphi_{g_{1}g_{2}}=\varphi_{g_{1}}\circ\varphi_{g_{2}}$, isto é $\varphi(g_{1}, \varphi(g_{2}, p))=\varphi (g_{1}g_{2}, p)$ para todo $p \in M$.
+		\end{enumerate}
 
-		\emph{Afirmação:}$\pi|_{U}$ é injetiva.
+		Normalmente, denotamos $\varphi(g,p)=gp$.
+	\end{definition}
+	Exigiremos que tal ação de grupo tenha uma propriedade interessante, para que posteriormente, a projeção seja um difeomorfismo local.
+	\begin{definition}
+		\label{def:acao-propriamente-descontinua}
+		Uma ação é dita propriamente descontínua se todo $p \in M$ possuí uma vizinhança $U \subset M$ tal que $U \cap g(U)=\emptyset$, para todo $g \in G$, com $g\neq e$.
+	\end{definition}
+	Definimos então a variedade quociente, como o esperado.
+	\begin{definition}
+		\label{def:variedade-quociente}
+		Dados $p_{1}, p_{2} \in M$, definimos a relação $p_{1} \sim  p_{2}$ se existe $g \in G$ tal que $p_{1}=gp_{2}$. É possível verificar que tal relação é de equivalência. Denotamos o conjunto $M/\sim$ das classes de equivalência por $M/G$ e $\pi:M \ni p\to Gp=\bar{p} \in M/G$ a projeção.
+	\end{definition}
+	\begin{proposition}
+		\label{prop:estrutura-variedade-quociente}
+		Sejam $M$ uma variedade diferencial, $G$ um grupo e $\varphi:G\times M\to M$ uma ação de grupo propriamente descontínua. Então $M/G$ possui estrutura diferenciável, de tal modo que a projeção de $M$ em $M/G$ é um difeomorfismo local.
+		\begin{proof}
 
-		Com efeito, se $p_{1}, p_{2} \in U$ e $\pi(p_{1})=\pi(p_{2})$, então existe $g \in G$ tal que $p_{1}=gp_{2}$. Como $gp_{2}=p_{1} \in U$, temos que $g=e$ e $p_{1}=p_{2}$.
-		Disso, segue que a aplicação $\mathbf{y}=\pi \circ \mathbf{x}:V\to M/G$ é injetiva, pois $\mathbf{x}(V)\subset U$.
+			Para todo $p \in M$, escolha $\mathbf{x}:V\to M$ parametrização de $p$ tal que $\mathbf{x}(V)\subset U$, em que $U\subset M$ é uma vizinhança de $p$ tal que $U\cap g(U)=\emptyset$, para todo $g \neq e$.
 
-		Dessa forma, note que a família $\{ (V, \mathbf{y}) \}$ cobre $M/G$. Mostremos que tal família é uma estrutura diferenciável. Sejam $\mathbf{y}_{i}=\pi \circ \mathbf{x}_{i}:V_{i}\to M/G$, para $i=1, 2$, com $\mathbf{y}_{1}(V_{1})\cap \mathbf{y}_{2}(V_{2})\neq \emptyset$.
-		Defina $\pi_{i}=\pi|_{\mathbf{x}_{i}(V_{i})}$ para $i=1, 2$.
-		Tome $q \in \mathbf{y}_{1}(V_{1})\cap \mathbf{y}_{2}(V_{2})$ e faça
-		\begin{equation*}
-			r =\mathbf{x}_{2}^{-1} \circ \pi ^{-1}(q)=\mathbf{y}_{2}^{-1}(q).
-		\end{equation*}
-		Seja $W \subset V_{2}$ vizinhança de $r$ tal que $\pi_{2} \circ \mathbf{x}_{2}(W)\subset \mathbf{y}_{1}(V_{1})\cap \mathbf{y}_{2}(V_{2})$. Então,
-		\begin{equation*}
-			\mathbf{y}_{1}^{-1} \circ \mathbf{y}_{2}|_{W}=\mathbf{x}_{1}^{-1} \circ \pi_{1} ^{-1} \circ\pi_{2} \circ \mathbf{x}_{2}.
-		\end{equation*}
-		Basta, então, mostrar que $\pi_{1}^{-1} \circ \pi_{2}$ é diferenciável em $p_{2} = \pi_{2}^{-1}(q)$, pois como $q$ é arbitrário, $\mathbf{y}_{1}^{-1} \circ \mathbf{y}_{2}$ será diferenciável em $\mathbf{y}_{2}^{-1}(\mathbf{y}_{1}(V_{1})\cap \mathbf{y}_{2}(V_{2}))$.
+			\emph{Afirmação:}$\pi|_{U}$ é injetiva.
 
-		Para isso, faça $p_{1}=\pi_{1}^{-1} \circ\pi_{2}(p_{2})$. Isso implica que existe $g \in G$ tal que $p_{1}=gp_{2}$. Note que $\pi_{1}^{-1}\circ\pi_{2}|_{\mathbf{x}_{2}(W)}=\varphi_{g}|_{\mathbf{x}_{2}(W)}$. Com efeito, sendo $p' \in \mathbf{x}_{2}(W)$, como $\mathbf{x}_1(V_1) \subset M$ é um aberto e $\varphi_g: M \to M$ é um difeomorfismo (em particular, uma aplicação contínua), o conjunto $\varphi_g^{-1}(\mathbf{x}_1(V_1))$ é uma vizinhança aberta de $p_2$ em $M$.
+			Com efeito, se $p_{1}, p_{2} \in U$ e $\pi(p_{1})=\pi(p_{2})$, então existe $g \in G$ tal que $p_{1}=gp_{2}$. Como $gp_{2}=p_{1} \in U$, temos que $g=e$ e $p_{1}=p_{2}$.
+			Disso, segue que a aplicação $\mathbf{y}=\pi \circ \mathbf{x}:V\to M/G$ é injetiva, pois $\mathbf{x}(V)\subset U$.
 
-		Reduzindo $W$, se necessário, de modo que $\mathbf{x}_2(W) \subset \varphi_g^{-1}(\mathbf{x}_1(V_1))$, temos que $g p' = \varphi_g(p') \in \mathbf{x}_1(V_1)$ para todo $p' \in \mathbf{x}_2(W)$.
-		Note que:
-		\begin{equation*}
-			\pi(g p') = \pi(p') = \pi_2(p').
-		\end{equation*}
-		Como $g p' \in \mathbf{x}_1(V_1)$ e $\pi_1 = \pi\vert{}_{\mathbf{x}_1(V_1)}$ é injetiva, aplicando $\pi_1^{-1}$ em ambos os lados, obtemos:
-		\begin{equation*}
-			\pi_1^{-1}(\pi_2(p')) = g p' = \varphi_g(p')
-		\end{equation*}
-		Portanto, $\pi_1^{-1} \circ \pi_2\vert{}_{\mathbf{x}_2(W)} = \varphi_g\vert{}_{\mathbf{x}_2(W)}$.
+			Dessa forma, note que a família $\{ (V, \mathbf{y}) \}$ cobre $M/G$. Mostremos que tal família é uma estrutura diferenciável. Sejam $\mathbf{y}_{i}=\pi \circ \mathbf{x}_{i}:V_{i}\to M/G$, para $i=1, 2$, com $\mathbf{y}_{1}(V_{1})\cap \mathbf{y}_{2}(V_{2})\neq \emptyset$.
+			Defina $\pi_{i}=\pi|_{\mathbf{x}_{i}(V_{i})}$ para $i=1, 2$.
+			Tome $q \in \mathbf{y}_{1}(V_{1})\cap \mathbf{y}_{2}(V_{2})$ e faça
+			\begin{equation*}
+				r =\mathbf{x}_{2}^{-1} \circ \pi ^{-1}(q)=\mathbf{y}_{2}^{-1}(q).
+			\end{equation*}
+			Seja $W \subset V_{2}$ vizinhança de $r$ tal que $\pi_{2} \circ \mathbf{x}_{2}(W)\subset \mathbf{y}_{1}(V_{1})\cap \mathbf{y}_{2}(V_{2})$. Então,
+			\begin{equation*}
+				\mathbf{y}_{1}^{-1} \circ \mathbf{y}_{2}|_{W}=\mathbf{x}_{1}^{-1} \circ \pi_{1} ^{-1} \circ\pi_{2} \circ \mathbf{x}_{2}.
+			\end{equation*}
+			Basta, então, mostrar que $\pi_{1}^{-1} \circ \pi_{2}$ é diferenciável em $p_{2} = \pi_{2}^{-1}(q)$, pois como $q$ é arbitrário, $\mathbf{y}_{1}^{-1} \circ \mathbf{y}_{2}$ será diferenciável em $\mathbf{y}_{2}^{-1}(\mathbf{y}_{1}(V_{1})\cap \mathbf{y}_{2}(V_{2}))$.
 
-		O fato de que $\pi$ é um difeomorfismo local segue da forma em que a estrutura diferenciável acima foi construída.
-	\end{proof}
-\end{proposition}
-Como de costume, exibiremos alguns exemplos clássicos de variedades, as quais podem ser construídas como quocientes de outras variedades mais simples.
-\begin{examples}
-	\label{ex:variedades-quocientes}
-	$ $
-	\begin{enumerate}
-		\item Seja $M=\mathbb{R}^{n}$, $G=\mathbb{Z}^{n}$ munido da adição de vetores e $\varphi:\mathbb{Z}^{n}\times M\to M$ definido por $\varphi(z, p)=z+p$. $\varphi$ é uma ação de grupo descontínua. Com efeito, dado $p=(p_{1}, \dots, p_{n}) \in M$, faça $\overline{x_{i}}=|\lfloor x_{i} \rfloor-x_{i}|$ a parte fracionária de $x_{i}$,  $r=\frac{1}{2}min\{ \overline{x_{1}}, \dots, \overline{x_{n}}\}$ e $U=B(p, r)$ a bola aberta de centro $p$ e raio $r$. Dado $z =(z_{1}, \dots, z_{n})\in \mathbb{Z}^{k}$, com $z\neq0$, temos que $|z+p-p|=|z|\geq min\{ |z_{1}|, \dots, |z_{n}| \}\geq1$. Como $r<1$, temos que $z+p\not\in U$. O conjunto $T^{n}=M/G$ é denominado o $n-$toro.
-		\item Seja $C=\{(x, y, z) \in \mathbb{R}^{3}; x^{2}+y^{2}=1, \text{e }|z|=1 \}$ um cilindro de raio $1$ e altura $2$ contido em $\mathbb{R}^{3}$. $C$ é uma superfície regular, logo é uma variedade diferenciavel. Seja $G=\{ 1, -1 \}$ e $\varphi:G\times C\to C$ definido por $\varphi(g, p)=gp$. É facil ver que $\varphi$ é uma ação de grupo descontínua. O conjunto $M/G$ é denominado a faixa de mobius.
-		\item De forma análoga a anterior, sendo $T$ o toro de revolução e $G=\{ 1, -1 \}$, a variedade $T/G$ é denominada a garrafa de Klein.
-		\item Podemos também pensar no espaço projetivo como uma variedade quociente. Seja $S^{n}\subset \mathbb{R}^{n+1}$ a esfera $n$ dimensional. Definindo o grupo $G=\{ 1, -1 \}$ e a ação produto, temos que $S^{n}/G$ é difeomorfo a $P^{n}(\mathbb{R})$ \cite{doCarmo1992}.
-	\end{enumerate}
-\end{examples}
+			Para isso, faça $p_{1}=\pi_{1}^{-1} \circ\pi_{2}(p_{2})$. Isso implica que existe $g \in G$ tal que $p_{1}=gp_{2}$. Note que $\pi_{1}^{-1}\circ\pi_{2}|_{\mathbf{x}_{2}(W)}=\varphi_{g}|_{\mathbf{x}_{2}(W)}$. Com efeito, sendo $p' \in \mathbf{x}_{2}(W)$, como $\mathbf{x}_1(V_1) \subset M$ é um aberto e $\varphi_g: M \to M$ é um difeomorfismo (em particular, uma aplicação contínua), o conjunto $\varphi_g^{-1}(\mathbf{x}_1(V_1))$ é uma vizinhança aberta de $p_2$ em $M$.
+
+			Reduzindo $W$, se necessário, de modo que $\mathbf{x}_2(W) \subset \varphi_g^{-1}(\mathbf{x}_1(V_1))$, temos que $g p' = \varphi_g(p') \in \mathbf{x}_1(V_1)$ para todo $p' \in \mathbf{x}_2(W)$.
+			Note que:
+			\begin{equation*}
+				\pi(g p') = \pi(p') = \pi_2(p').
+			\end{equation*}
+			Como $g p' \in \mathbf{x}_1(V_1)$ e $\pi_1 = \pi\vert{}_{\mathbf{x}_1(V_1)}$ é injetiva, aplicando $\pi_1^{-1}$ em ambos os lados, obtemos:
+			\begin{equation*}
+				\pi_1^{-1}(\pi_2(p')) = g p' = \varphi_g(p')
+			\end{equation*}
+			Portanto, $\pi_1^{-1} \circ \pi_2\vert{}_{\mathbf{x}_2(W)} = \varphi_g\vert{}_{\mathbf{x}_2(W)}$.
+
+			O fato de que $\pi$ é um difeomorfismo local segue da forma em que a estrutura diferenciável acima foi construída.
+		\end{proof}
+	\end{proposition}
+	Como de costume, exibiremos alguns exemplos clássicos de variedades, as quais podem ser construídas como quocientes de outras variedades mais simples.
+	\begin{examples}
+		\label{ex:variedades-quocientes}
+		$ $
+		\begin{enumerate}
+			\item Seja $M=\mathbb{R}^{n}$, $G=\mathbb{Z}^{n}$ munido da adição de vetores e $\varphi:\mathbb{Z}^{n}\times M\to M$ definido por $\varphi(z, p)=z+p$. $\varphi$ é uma ação de grupo descontínua. Com efeito, dado $p=(p_{1}, \dots, p_{n}) \in M$, faça $\overline{x_{i}}=|\lfloor x_{i} \rfloor-x_{i}|$ a parte fracionária de $x_{i}$,  $r=\frac{1}{2}min\{ \overline{x_{1}}, \dots, \overline{x_{n}}\}$ e $U=B(p, r)$ a bola aberta de centro $p$ e raio $r$. Dado $z =(z_{1}, \dots, z_{n})\in \mathbb{Z}^{k}$, com $z\neq0$, temos que $|z+p-p|=|z|\geq min\{ |z_{1}|, \dots, |z_{n}| \}\geq1$. Como $r<1$, temos que $z+p\not\in U$. O conjunto $T^{n}=M/G$ é denominado o $n-$toro.
+			\item Seja $C=\{(x, y, z) \in \mathbb{R}^{3}; x^{2}+y^{2}=1, \text{e }|z|=1 \}$ um cilindro de raio $1$ e altura $2$ contido em $\mathbb{R}^{3}$. $C$ é uma superfície regular, logo é uma variedade diferenciavel. Seja $G=\{ 1, -1 \}$ e $\varphi:G\times C\to C$ definido por $\varphi(g, p)=gp$. É facil ver que $\varphi$ é uma ação de grupo descontínua. O conjunto $M/G$ é denominado a faixa de mobius.
+			\item De forma análoga a anterior, sendo $T$ o toro de revolução e $G=\{ 1, -1 \}$, a variedade $T/G$ é denominada a garrafa de Klein.
+			\item Podemos também pensar no espaço projetivo como uma variedade quociente. Seja $S^{n}\subset \mathbb{R}^{n+1}$ a esfera $n$ dimensional. Definindo o grupo $G=\{ 1, -1 \}$ e a ação produto, temos que $S^{n}/G$ é difeomorfo a $P^{n}(\mathbb{R})$ \cite{doCarmo1992}.
+		\end{enumerate}
+	\end{examples}
+\fi
 
 \iffalse
 
@@ -777,17 +789,17 @@ Como de costume, exibiremos alguns exemplos clássicos de variedades, as quais p
 
 \section{Campos de Vetores}
 \label{sec:campos-de-vetores}
-Nessa sessão, generalizaremos os campos de vetores definidos em conjuntos do $\mathbb{R}^{n}$ para variedades diferenciáveis. Tal conceito é importante para definirmos e analisarmos as geodésicas.
+Nesta sessão, generalizaremos os campos de vetores definidos em conjuntos do $\mathbb{R}^{n}$ para variedades diferenciáveis. Tal conceito é importante para definirmos e analisarmos as geodésicas.
 \begin{definition}
 	\label{def:campo-de-vetores}
-	Um campo de vetores $W$ em uma variedade diferenciável $M$ é uma correspondência que associa cada ponto $p \in M$, um vetor $W(p) \in T_{p}M$.
+	Um campo de vetores $W$ em uma variedade diferenciável $M$ é uma correspondência que associa a cada ponto $p \in M$, um vetor $W(p) \in T_{p}M$.
 
 	Podemos considerar $W$ como uma aplicação $W:M\to TM$ tal que $W(p)=(p, v)\in TM$. Dessa forma, dizemos que $W$ é diferenciável se for diferenciável como uma aplicação de $M$ em $TM$
 \end{definition}
 Essa definição fica mais natural com a próxima proposição:
 \begin{proposition}
 	\label{prop:campo-diferenciabilidade}
-	Seja $\mathbf{x}_{}:U\to M$ uma parametrização de $M$. Dado $p \in \mathbf{x}(U)$, podemos escrever $W(p)=\sum_{i=1}^{n}a_{i}(p)\frac{\partial}{\partial x_{i}}(p)$, onde $\frac{\partial}{\partial x_{i}}(p)=d\mathbf{x}_{p}(e_{i})$. Em particular, temos que $W$ é diferenciável se, e somente se, cada $a_{i}:U\to \mathbb{R}$ é diferenciável.
+	Seja $\mathbf{x}_{}:U\to M$ uma parametrização de $M$. Dado $p \in \mathbf{x}(U)$, podemos escrever $W(p)=\sum_{i=1}^{n}a_{i}(p)\frac{\partial}{\partial x_{i}}(p)$, onde $\frac{\partial}{\partial x_{i}}(p)=d\mathbf{x}_{p}(e_{i})$. Em particular, temos que $W$ é diferenciável se, e somente se, cada $a_{i}:\mathbf{x}(U)\to \mathbb{R}$ é diferenciável.
 	\begin{proof}
 
 		Supondo $W$ diferenciável, temos que é diferenciável como uma função de $M$ em $TM$, isto é, sendo $\mathbf{x}$ uma parametrização de $M$, existe uma parametrização $\mathbf{y}$ de $TM$ tal que $\mathbf{y}(q, v)=\left( \mathbf{\mathbf{y}'}(q), \sum v_{i}\frac{\partial}{\partial y'_{i}}(q) \right)$ e $\mathbf{y}^{-1}\circ W \circ \mathbf{x}:U\subset \mathbb{R}^{n}\to V\subset \mathbb{R}^{2n}$ é diferenciável.
@@ -805,7 +817,7 @@ Essa definição fica mais natural com a próxima proposição:
 		Para a recíproca, basta notar que cada $\frac{\partial}{\partial x_{i}}(p)=d\mathbf{x}_{\mathbf{x}^{-1}(p)}(e_{i})$ é diferenciável e prosseguir de forma análoga.
 	\end{proof}
 \end{proposition}
-Também pode ser conveniente considerar um campo de vetores como uma transformada de funções da seguinte maneira:
+Também pode ser conveniente considerar um campo de vetores como um operador sobre funções da seguinte maneira:
 \begin{observation}
 	\label{obs:campo-como-transformada}
 	Seja $\mathcal{D}$ o conjunto das funções reais diferenciáveis definidas em $M$ e $\mathcal{F}$ o conjunto das funções reais definidas em $M$ (não necessariamente diferenciáveis).
@@ -820,7 +832,7 @@ Para evitar ambiguidades, denotamos, para todo $p \in M$, $W(p)=W_{p}$. Dessa fo
 
 Dada uma função diferenciável $f:M\to \mathbb{R}$, podemos considerar $Wf$ como a derivada de $f$ na direção de $W$. Com efeito, fixando $p \in M$, se $\alpha:(-\epsilon, \epsilon)\to M$ é uma curva diferenciável, com $\alpha(0)=p$ e $\alpha'(0)=W(p)$, escrevendo $\tilde{\alpha}=\mathbf{x}^{-1} \circ\alpha$ e $\tilde{f}=f \circ \mathbf{x}$,
 \begin{equation*}
-	\left.\frac{d}{dt}f \circ \alpha(t)\right|_{t=0}= \left.\frac{d}{dt}\tilde{f} \circ  \tilde{\alpha}(t)\right|_{t=0}=\sum_{i=1}^{n}\tilde{\alpha}'_{i}(0)\frac{\partial \tilde{f}}{\partial x_{i}}(\tilde{\alpha}_{i}(0)).
+	\left.\frac{d}{dt}f \circ \alpha(t)\right|_{t=0}= \left.\frac{d}{dt}\tilde{f} \circ  \tilde{\alpha}(t)\right|_{t=0}=\sum_{i=1}^{n}\tilde{\alpha}'_{i}(0)\frac{\partial \tilde{f}}{\partial x_{i}}(\tilde{\alpha}(0)).
 \end{equation*}
 Note que $\tilde{\alpha}_{i}'(0)=a_{i}(p)$. A afirmação segue identificando $\frac{\partial f}{\partial x_{i}}(p)$ com $\frac{\partial \tilde{f}}{\partial x_{i}}(\mathbf{x}^{-1}(p))$.
 
@@ -830,47 +842,8 @@ Se $W$ for diferenciável, conforme mostrado acima, $Wf \in D$. Logo, podemos co
 função $VWf = V (Wf)$, onde $V$ é outro campo vetorial em $M$. Isso nos permite avaliar a
 composta de campos vetoriais, definindo $(VW)f = V (Wf)$. Entretanto, perceba que a
 composta de campos vetoriais não é um campo vetorial, pois sua expressão em
-coordenadas envolve derivadas de segunda ordem. Isso é exemplificado na próxima
-proposição, a qual simultaneamente, introduz um outro campo vetorial a partir de dois já
-existentes.
-\begin{lemma}
-	\label{lem:campo-colchete}
-	Sejam $X$ e $Y$ campos vetoriais diferenciáveis em uma variedade diferenciável $M$. Existe um único campo vetorial $Z$ tal que, para todo $f \in \mathcal{D}$, temos que $Zf=(XY-YX)f$.
-	\begin{proof}
+coordenadas envolve derivadas de segunda ordem.
 
-		Inicialmente, mostremos a unicidade.
-		Seja $Z$ um campo que satisfaz a hipótese, $\mathbf{x}:U\to M$ uma parametrização de $p \in M$,  $X=\sum a_{i}\frac{\partial}{\partial x_{_{i}}}$ e $Y=\sum b_{j}\frac{\partial}{\partial x_{j}}$.
-		Para todo $f \in \mathcal{D}$, temos
-		\begin{align*}
-			XYf & = X\left( \sum_{j}b_{j}\frac{\partial f}{\partial x_{j}} \right)                                                                                                       \\
-			    & = \sum_{i}a_{i}\left( \frac{\partial \sum_{j}b_{j}\frac{\partial f}{\partial x_{j}}}{\partial x_{i}} \right)                                                           \\
-			    & = \sum_{i}a_{i}\sum_{j}\frac{\partial b_{j}\frac{\partial f}{\partial x_{j}}}{\partial x_{i}}                                                                          \\
-			    & = \sum_{i}a_{i}\sum_{j}\left( b_{j}\frac{\partial^{2}f}{\partial x_{i} \partial x_{j}} +\frac{\partial b_{j}}{\partial x_{i}}\frac{\partial f}{\partial x_{j}} \right) \\
-			    & = \sum_{i, j}a_{i}b_{j}\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}} + \sum_{i,j}a_{i}\frac{\partial b_{j}}{\partial x_{i}} \frac{\partial f}{\partial x_{j}}.
-		\end{align*}
-
-		De forma análoga, temos que
-		\begin{equation*}
-			YXf = \sum_{i, j}a_{i}b_{j}\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}} + \sum_{i,j}b_{j}\frac{\partial a_{i}}{\partial x_{j}} \frac{\partial f}{\partial x_{i}}.
-		\end{equation*}
-		Assim,
-		\begin{equation}
-			\label{eq:campo-colchete-1}
-			Zf = XYf-YXf =\sum_{i,j}\left( a_{i}\frac{\partial b_{j}}{\partial x_{i}}-b_{i}\frac{\partial a_{j}}{\partial x_{i}} \right)\frac{\partial f}{\partial x_{_{i}}}
-		\end{equation}
-		trocando índices do somatório de baixo.
-
-		Agora, para mostrar a existência, defina $Z_{\alpha}$ em cada vizinhança parametrizada $\mathbf{x}_{\alpha}(U_{\alpha})$ de $M$ utilizando a expressão \eqref{eq:campo-colchete-1}. Pela unicidade, se $\alpha, \beta$ são índices tais que se $\mathbf{x}_{\alpha}(U_{\alpha})\cap \mathbf{x}_{\beta}(U_{\beta})\neq \emptyset$, então $Z_{\alpha}=Z_{\beta}$ em $\mathbf{x}_{\alpha}(U_{\alpha})\cap \mathbf{x}_{\beta}(U_{\beta})$. Podemos então definir $Z$ em toda a variedade $M$, pondo $Zf=Z_{\alpha}f$.
-	\end{proof}
-\end{lemma}
-\begin{definition}
-	\label{def:colchete}
-	Sejam $X,Y$ campos vetoriais diferenciáveis. Definimos o campo vetorial colchete $[X,Y]:=XY-YX$.
-\end{definition}
-Intuitivamente, o campo colchetes mede a ``não comutatividade'' dos campos $X$ e $Y$. %O colchetes é uma operação bem interessante em uma Álgebra de Lie, a qual será apresentada posteriormente.
-Para o desenvolvimento da teoria das geodésicas, os colchetes serão de grande importância quando analisarmos as conexões, nos auxiliando na classificação de algumas delas.
-
-A demonstração acima faz uso de uma estratégia bem interessante, onde primeiro assumimos a existência e demonstramos a unicidade, depois definimos localmente os colchetes, utilizando-se da unicidade para garantir uma boa definição global. Essa estratégia se repetirá diversas vezes durante esse texto, e portanto, vale a pena enunciá-la:
 \begin{lemma}
 	\label{lem:definicao-local-global}
 	Sejam $M$ um espaço topológico, $\{ V_{\alpha}\}$ uma cobertura com abertos de $M$, $N$  um conjunto arbitrário fixo, e $\{ f_{\alpha} \}$ uma família de funções $f_{\alpha}:V_{\alpha}\to N$ tais que se $V_{\alpha} \cap V_{\beta}\neq0$ então $f_{\alpha}|_{V_{\beta}}=f_{\beta}|_{V_{\alpha}}$. Então, está bem definida a função
@@ -884,51 +857,14 @@ A demonstração acima faz uso de uma estratégia bem interessante, onde primeir
 		Supondo agora que os $f_{\alpha}$ são diferenciáveis, tome $\mathbf{x}_{\alpha}:U_{\alpha}\to V_{\alpha}$, com $p \in V_{\alpha}$. Temos que $F|_{V_{\alpha}}=f_{\alpha}$ e, portanto, é diferenciável em $p$.
 	\end{proof}
 \end{lemma}
-\begin{proposition}
-	\label{prop:propriedades-colchete}
-	Sejam $X, Y, Z$ campos vetoriais diferenciáveis em $M$, $a, b \in \mathbb{R}$ e $f, g:M\to \mathbb{R}$ diferenciáveis. Então:
-	\begin{enumerate}[label=(\roman*)]
-		\item $[X,Y]=-[Y,X]$;
-		\item $[aX+bY, z]=a[X,Z]+b[Y,Z]$;
-		\item $[[X,Y],Z]+[[Y,Z],X]+[[Z, X], Y]=0$;
-		\item $[fX, gY]=fg[X,Y]+fX(g)Y-gY(f)X$;
-	\end{enumerate}
-	\begin{proof}
 
-		\begin{enumerate}[label=(\roman*)]
-			\item $[X,Y] = XY-YX=-(YX - XY)=-[Y, X]$.
-			\item \begin{align*}
-				      \left[aX+bY,Z\right] & = (aX+bY)Z-Z(aX+bY)    \\
-				                           & =aXZ+bYZ-Z(aX)-Z(bY)   \\
-				                           & =aXZ + bYZ - aZX - bZY \\
-				                           & =a(XZ-ZX)+b(YZ-ZY)     \\
-				                           & =a[X, Z] + b[Y, Z];
-			      \end{align*}
-
-			\item Consultar \cite{doCarmo1992} para a demonstração.
-			\item \begin{align*}
-				      [fX, gY] & = f X(gY) - g Y(fX)                                                                                                                                                                                                       \\
-				               & = f \sum a_i \frac{\partial gY}{\partial x_i} - g \sum b_j \frac{\partial fX}{\partial x_j}                                                                                                                               \\
-				               & = f \sum a_i \left( g \frac{\partial Y}{\partial x_i} + \frac{\partial g}{\partial x_i} Y \right) - g \sum b_j \left( f \frac{\partial X}{\partial x_j} + \frac{\partial f}{\partial x_j} X \right)                       \\
-				               & = \sum a_i f g \frac{\partial Y}{\partial x_i} + a_i f \frac{\partial g}{\partial x_i} Y - b_j f g \frac{\partial X}{\partial x_j} - b_j g \frac{\partial f}{\partial x_j} X                                              \\
-				               & = \sum a_i f g \frac{\partial Y}{\partial x_i} + \sum \left[ a_i f \frac{\partial g}{\partial x_i} \right] Y - \sum b_j f g \frac{\partial X}{\partial x_j} - \sum \left[ b_j g \frac{\partial f}{\partial x_j} \right] X \\
-				               & = f g \sum a_i \frac{\partial Y}{\partial x_i} + f \sum \left[ a_i \frac{\partial g}{\partial x_i} \right] Y - f g \sum b_j \frac{\partial X}{\partial x_j} - g \sum \left[ b_j \frac{\partial f}{\partial x_j} \right] X \\
-				               & = fgXY + fX(g)Y - fgYX - gY(f)X                                                                                                                                                                                           \\
-				               & = fg[XY - YX] + fX(g)Y - gY(f)X                                                                                                                                                                                           \\
-				               & = fg[X, Y] + fX(g)Y - gY(f)X.
-			      \end{align*}
-		\end{enumerate}
-	\end{proof}
-\end{proposition}
-Antes de apresentarmos outra interpretação do colchetes, convém apresentar uma
-generalização do teorema de equações diferenciais do $\mathbb{R}^{n}$ para variedades e alguns lemas:
 \begin{theorem}
 	\label{teo:equacoes-diferenciais}
-	Seja $X$ um campo diferenciável de vetores em uma variedade diferenciável $M$ e seja $p \in M$. Existe uma vizinhança $U\subset M$ de p, um intervalo $(-\delta,\delta)$, com $\delta>0$ e $\varphi:(-\delta, \delta)\times U\to M$, tais que a curva $t \to \varphi(t, q)$ definida para todo $t \in (-\delta, \delta)$ é a única curva que satisfaz $\frac{\partial \varphi}{\partial t}(t, q)=X(\varphi(t, q))$ e $\varphi(0, q)=q$.
+	Seja $X$ um campo diferenciável de vetores em uma variedade diferenciável $M$ e seja $p \in M$. Existe uma vizinhança $U\subset M$ de p, um intervalo $(-\delta,\delta)$, com $\delta>0$ e $\varphi:(-\delta, \delta)\times U\to M$, tais que a curva $t \to \varphi(t, q)$ definida para todo $t \in (-\delta, \delta)$ e cada $q \in U$ é a única curva que satisfaz $\frac{\partial \varphi}{\partial t}(t, q)=X(\varphi(t, q))$ e $\varphi(0, q)=q$.
 
 	Uma curva $\alpha:(-\delta, \delta)\to M$ que satisfaz as condições $\alpha'(t)=X(\alpha(t))$ e $\alpha(0)=q$ é chamada de trajetória do campo $X$ que passa por $q$ para $t=0$.
 
-	Dizemos que $\varphi_{t}:M\to M$, definida por $\varphi_{t}(q)=\varphi(t, q)$ é o fluxo local de $X$.
+	Dizemos que $\varphi_{t}:U\to M$, definida por $\varphi_{t}(q)=\varphi(t, q)$ é o fluxo local de $X$.
 \end{theorem}
 \begin{proof}
 	Consultar \textcite{leeSmooth2013} para a demonstração.
@@ -940,7 +876,7 @@ generalização do teorema de equações diferenciais do $\mathbb{R}^{n}$ para v
 	\label{lem:estrela}
 	Sejam $M$ uma variedade diferenciável, $\varphi:M\to M$ uma aplicação diferenciável, $v \in T_{p}M$ e $f:M\to \mathbb{R}$ diferenciável. Então,
 	\begin{equation*}
-		(d\varphi_{p}(v) f)=v(f \circ \varphi(p)).
+		(d\varphi_{p}(v) f)=v(f \circ \varphi).
 	\end{equation*}
 	\begin{proof}
 
@@ -955,95 +891,8 @@ generalização do teorema de equações diferenciais do $\mathbb{R}^{n}$ para v
 		\end{align*}
 	\end{proof}
 \end{lemma}
-\begin{lemma}
-	\label{lem:fatoracao-em-t}
-	Seja $h:(-\delta, \delta)\times U\to \mathbb{R}$ uma aplicação diferenciável, com $h(0, q)=0$, para todo $q \in U$. Existe $g:(-\delta, \delta)\times U\to \mathbb{R}$, com $h(t, q)=tg(t, q)$. Em particular, $g(0, q)=\frac{\partial h(t, q)}{\partial t}|_{t=0}$
-	\begin{proof}
-
-		Escrevendo $h(s,q)$, defina
-		\begin{equation*}
-			g(t,q)=\int_{0}^{1}\frac{\partial h}{\partial s}(ts,q)ds.
-		\end{equation*}
-		Note que
-		\begin{equation*}
-			tg(t, q)=\int_{0}^{1}\frac{\partial h}{\partial s}(ts,q)tds
-		\end{equation*}
-		e que
-		\begin{equation*}
-			h(t, q)=\int_{0}^{t}\frac{\partial h}{\partial s}(s, q)ds.
-		\end{equation*}
-		Fazendo $s=tu$, temos que $ds=tdu$. Aplicando uma substituição por $u$, segue que
-		\begin{equation*}
-			h(t,q)=\int_{0}^{1}\frac{\partial h}{\partial s}(tu, q)tdu = tg(t,q).
-		\end{equation*}
-	\end{proof}
-\end{lemma}
-
-\begin{proposition}
-	\label{prop:colchete-fluxo-local}
-	Sejam $X$ e $Y$ campos diferenciáveis de vetores em uma variedade diferenciável $M$. Seja $p \in M$ e $\varphi_{t}$ o fluxo local de $X$ em uma vizinhança $U$ de $p$.
-	Então,
-	\begin{equation*}
-		[X,Y]_{p}=\lim_{ t \to 0 } \frac{1}{t}(Y_{\varphi_{t}(p)}-d\varphi_{t_{p}}Y_{p})
-	\end{equation*}
-	\begin{proof}
-
-		Seja $f$ uma função real diferenciável em uma vizinhança de $p$.
-		Defina $h(t,q):=f(\varphi _{t}(q))-f(q)$. Note que $h(0,q)=0$ e, pelo lema \Cref{lem:fatoracao-em-t}, existe $g$ tal que $tg(t,q)=f(\varphi_{t}(q))-f(q)$.
-		Segue que
-		\begin{equation}
-			f \circ \varphi_{t}(q)=tg(t,q)+f(q).
-			\label{eq:colchete-fluxo-local-1}
-		\end{equation}
-
-		Também pelo lema, temos que
-		\begin{align}
-			g(0,q)=\left.\frac{\partial h(t,q)}{\partial t}\right|_{t=0} & =\left.\frac{\partial f \circ\varphi_{t}(q)-f(q)}{\partial t}\right|_{t=0} \notag \\
-			                                                             & = \left.\frac{\partial f \circ \varphi(t,q)}{\partial t}\right|_{t=0} \notag      \\
-			                                                             & \overset{\text{def}}{=} \frac{\partial \varphi}{\partial t}(0, q)f \notag         \\
-			                                                             & =X(\varphi(0, q))f \notag                                                         \\
-			                                                             & = X(q)f =X_{q}f=Xf(q) \label{eq:colchete-fluxo-local-2}
-		\end{align}
-		Do \Cref{lem:estrela}, segue que
-		\begin{align}
-			(d\varphi_{t_{p}}Y_{p})f & = Y_{p}(f \circ  \varphi_{t}) \notag                                       \\
-			                         & \overset{\eqref{eq:colchete-fluxo-local-1}}{=}Y_{p}(tg(t, \cdot)+f) \notag \\
-			                         & =Y_{p}f + Y_{p}(tg(t, \cdot)) \notag                                       \\
-			                         & = (Yf)(p)+(tYg(t, \cdot))(p). \label{eq:colchete-fluxo-local-3}
-		\end{align}
-
-		Também, convém notar que, sendo $g$ uma função diferenciável em uma vizinhança de $p$, temos que
-		\begin{align}
-			X_{p}g=X_{\varphi_{0}(p)}g & = X(\varphi_{0}(p))g \notag                                                          \\
-			                           & =\frac{\partial \varphi}{\partial t}(0, p)g \notag                                   \\
-			                           & = \left.\frac{\partial (g \circ  \varphi(t, p))}{\partial t}\right|_{t=0} \notag     \\
-			                           & =\lim_{ h \to 0 } \frac{g(\varphi(h, p))-g(p)}{h}. \label{eq:colchete-fluxo-local-4}
-		\end{align}
-
-		Segue que
-		\begin{align*}
-			\lim_{ t \to 0 } \frac{1}{t}(Y_{\varphi_{t}(p)}-d\varphi_{t_{p}}Y_{p})f & = \lim_{ t \to 0 } \frac{1}{t}((Y_{\varphi_{t}(p)})f-(d\varphi_{t_{p}}Y_{p})f)                                                     \\
-			                                                                        & \overset{\eqref{eq:colchete-fluxo-local-3}}{=} \lim_{ t \to 0 } \frac{1}{t}\{(Y_{\varphi_{t}(p)})f-[(Yf)(p)+(tYg(t, \cdot))(p) ]\} \\
-			                                                                        & =\lim_{ t \to 0 } \frac{Y_{\varphi_{t}(p)}f - (Yf)(p)}{t} - (Yg(t, \cdot))(p)                                                      \\
-			                                                                        & =\lim_{ t \to 0 } \frac{Yf({\varphi_{t}(p)}) - (Yf)(p)}{t} - (Yg(t, \cdot))(p)                                                     \\
-			                                                                        & \overset{\eqref{eq:colchete-fluxo-local-4}}{=}X_{p}Yf - \lim_{ t \to 0 } (Yg(t, \cdot))(p)                                         \\
-			                                                                        & =X_{p}Yf - (Yg(0, \cdot))(p)                                                                                                       \\
-			                                                                        & \overset{\eqref{eq:colchete-fluxo-local-2}}{=}X_{p}Yf - (YXf(\cdot))(p)                                                            \\
-			                                                                        & =X_{p}Yf - YXf(p)                                                                                                                  \\
-			                                                                        & = XYf(p) - YXf(p)                                                                                                                  \\
-			                                                                        & = (XYf - YXf)(p)                                                                                                                   \\
-			                                                                        & = (XY-YX)_{p}f                                                                                                                     \\
-			                                                                        & =[X,Y]_{p}f,
-		\end{align*}
-
-		o que conclui a demonstração.
-	\end{proof}
-\end{proposition}
 
 
-Observe que $Y_{\varphi_t(p)}$ representa o valor do campo $Y$ no ponto alcançado pela trajetória de $X$ que parte de $p$ após um tempo $t$, enquanto $(d\varphi_t)_p(Y_p)$ representa a variação infinitesimal do ponto final dessa trajetória quando perturbamos o ponto inicial na direção de $Y_p$.
-
-\asyimage{asyimages/diagram3_lie_bracket_limit}{Colchete de Lie como limite do fluxo local.}
 
 Finalizaremos este capítulo apresentando alguns resultados topológicos acerca das variedades diferenciáveis. Eles serão úteis posteriormente para mostrar que toda variedade diferenciável possui uma métrica riemanniana.
 
@@ -1065,21 +914,21 @@ Retomemos, primeiramente, algumas definições topológicas:
 	\label{def:particao-da-unidade}
 	Seja $\{ f_{\alpha} \}$ uma família de funções reais definidas em $M$. $\{ f_{\alpha} \}$ é dita partição diferenciável da unidade se:
 	\begin{enumerate}[label=(\roman*)]
-		\item Para todo $\alpha$, $f_{\alpha}\geq0$ e $supp(f_{\alpha})\subset V_{\alpha}$, onde $V_{\alpha}=X_{\alpha}(U_{\alpha})$ é uma vizinhança parametrizada;
+		\item Para todo $\alpha$, $f_{\alpha}\geq0$ e $supp(f_{\alpha})\subset V_{\alpha}$, onde $V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$ é uma vizinhança parametrizada;
 		\item A família $\{ V_{\alpha} \}$ é localmente finita;
 		\item $\sum_{\alpha}f_{\alpha}(p)=1$, para todo $p \in M$.
 	\end{enumerate}
 
-	A afirmação 3. tem sentido pois, dado $p \in M$, existe uma vizinhança $U$ de $p$ tal que $U\cap V_{\alpha}\neq \emptyset$ para uma quantidade finita de $\alpha$, isto é, existe um conjunto $A=\{ \alpha_{1}, \dots, \alpha _{k} \}$ tal que $U\cap V_{\alpha}=\emptyset$ se, e somente se, $\alpha \in A$. Logo, se $\alpha \not\in A$, temos que $U\cap V_{\alpha}=\emptyset$, implicando que $p \not\in V_{\alpha}$, isto é, $p \not\in supp(f_{\alpha})$ e, portanto, $f_{\alpha}(p)=0$. Dessa forma, $\sum_{\alpha}f_{\alpha}(p)=\sum_{i=1}^{k}f_{\alpha_{i}}(p)$.
+	O item (iii) tem sentido pois, dado $p \in M$, existe uma vizinhança $U$ de $p$ tal que $U\cap V_{\alpha}\neq \emptyset$ para uma quantidade finita de $\alpha$, isto é, existe um conjunto $A=\{ \alpha_{1}, \dots, \alpha _{k} \}$ tal que $U\cap V_{\alpha}\neq \emptyset$ se, e somente se, $\alpha \in A$. Logo, se $\alpha \not\in A$, temos que $U\cap V_{\alpha}=\emptyset$, implicando que $p \not\in V_{\alpha}$, isto é, $p \not\in supp(f_{\alpha})$ e, portanto, $f_{\alpha}(p)=0$. Dessa forma, $\sum_{\alpha}f_{\alpha}(p)=\sum_{i=1}^{k}f_{\alpha_{i}}(p)$.
 \end{definition}
 \begin{theorem}
 	\label{teo:particao-da-unidade}
-	Uma variedade diferenciável $M$ possui partição diferenciável da unidade se, e somente se, toda compontente conexa de $M$ é Hausodorff e tem base enumerável.
+	Uma variedade diferenciável $M$ possui partição diferenciável da unidade se, e somente se, toda componente conexa de $M$ é Hausdorff e tem base enumerável.
 	\begin{proof}
 		Consultar \textcite{leeSmooth2013} para a demonstração.
 	\end{proof}
 \end{theorem}
-Além desses, convém mencionar a existência das funções \textit{bump}, as quais são úteis quando temos algo definido localmente e precisamos estender a definição continuamente.
+Além desses, convém mencionar a existência das funções \textit{bump}, as quais são úteis quando temos algo definido localmente e precisamos estender a definição diferenciávelmente.
 \begin{lemma}
 	\label{lem:funcoes-bump}
 	Considerando o espaço euclidiano $\mathbb{R}^{n}$, dados $p \in \mathbb{R}^{n}$ e uma bola aberta $B(p, r) \subset \mathbb{R}^{n}$, existe uma vizinhança $U$ de $p$ tal que $\overline{U} \subset B(p, r)$ e uma função diferenciável $f:\mathbb{R}^{n}\to \mathbb{R}$, tais que $0\leq f(q)\leq1$ para todo $q \in \mathbb{R}^{n}$ e

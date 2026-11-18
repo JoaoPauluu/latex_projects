@@ -2,23 +2,23 @@
 
 \chapter{Métricas e Conexões}
 \label{cap:metricas-conexoes}
-O objetivo desse capítulo é explorar a noção de métrica riemmaniana, a qual generaliza a primeira forma fundamental estudada em Geometria Diferencial. Aqui, deixamos de estudar topologia diferencial e passamos, de fato, a estudar Geometria Riemanniana, quando analisamos variedades riemannianas, as quais são variedades diferenciáveis munidas de uma métrica.
+O objetivo deste capítulo é explorar a noção de métrica riemanniana, a qual generaliza a primeira forma fundamental estudada em geometria diferencial. Aqui, deixamos de estudar topologia diferencial e passamos, de fato, a estudar geometria Riemanniana, quando analisamos variedades riemannianas, as quais são variedades diferenciáveis munidas de uma métrica.
 
-Uma métrica riemanniana em uma variedade diferenciável é uma regra para definir um produto interno definido positivo em cada espaço tangente, que varia diferenciavelmente. A grosso modo, uma métrica riemaniana permite calcular distâncias e ângulos em uma variedade diferenciável, assim como uma métrica em um espaço euclidiano.
+Uma métrica riemanniana em uma variedade diferenciável é uma regra para definir um produto interno definido positivo em cada espaço tangente, que varia diferenciavelmente. Resumidamente, uma métrica riemanniana permite calcular distâncias e ângulos em uma variedade diferenciável, assim como uma métrica em um espaço euclidiano.
 
-Mostramos que toda variedade diferenciável, sob certas condições, pode ser munida de uma métrica riemanniana, tornando-se uma variedade riemanniana. Esse resultado é interessante pois estende a aplicabilidade desse capítulo e dos posteriores a uma grande classe de variedades diferenciáveis. Posteriormente, com o teorema de Hopf-Rinow, vemos que tais ferramentas da Geometria Riemanniana nos ajudam a deduzir certas propriedades das próprias variedades diferenciavéis.
+Mostramos que toda variedade diferenciável, sob certas condições, pode ser munida de uma métrica riemanniana. Esse resultado estende a aplicabilidade desse capítulo e dos posteriores a uma grande classe de variedades diferenciáveis. Posteriormente, com o teorema de Hopf-Rinow, vemos que tais ferramentas da Geometria Riemanniana nos ajudam a deduzir certas propriedades das próprias variedades diferenciáveis.
 
-Também introduzimos o conceito de conexão, o qual serve como uma forma de identificar vetores em diferentes espaços tangentes, permitindo extender o conceito de diferenciabilidade ao longo de campos vetoriais. Mostramos o teorema de Levi-Civita, que afirma que toda variedade riemanniana possui uma única conexão compatível com a topologia e com a métrica da variedade.
+Também introduzimos o conceito de conexão, o qual serve como uma forma de identificar vetores em diferentes espaços tangentes, permitindo estender o conceito de diferenciabilidade ao longo de campos vetoriais. Mostramos o teorema de Levi-Civita, que afirma que toda variedade riemanniana possui uma única conexão compatível com a topologia e com a métrica da variedade.
 \section{Métricas Riemannianas}
 \label{sec:metricas-riemannianas}
-Iniciamos por formalizar a noção de métrica
+Iniciamos formalizando a noção de métrica.
 \begin{definition}
 	\label{def:metrica-riemanniana}
 	Seja $M$ uma variedade diferenciável. Uma métrica Riemanniana é uma correspondência que associa a cada $p \in M$ um produto interno $\left<\cdot, \cdot\right>_{p}$, isto é, uma aplicação bilinear $\left<\cdot,\cdot\right>_{p}:T_{p}M\times T_{p}M\to \mathbb{R}$ que satisfaz:
 	\begin{enumerate}[label=(\roman*)]
 		\item Simétrica: $\left<u, v\right>_{p}= \left<v,u\right>_{p}$;
 		\item Definida positiva: $\left<v, v\right>_{p} \geq 0$ e $\left<v,v\right>_{p}=0$ se, e somente se, $v=0$,
-		\item Varia diferenciavelmente com respeito a $p$. Isso quer dizer que, dada uma parametrização $\mathbf{x}:U\to M$ em que $\mathbf{x}(x_{1}, \dots, x_{n})=q$ e $\frac{\partial}{\partial x_{i}}(q)=d\mathbf{x}_{q}(0, .., 0, 1, 0, \dots, 0)$, então
+		\item Varia diferenciavelmente com respeito a $p$, ou seja, dada uma parametrização $\mathbf{x}:U\to M$ em que $\mathbf{x}(x_{1}, \dots, x_{n})=q$ e $\frac{\partial}{\partial x_{i}}(q)=d\mathbf{x}_{q}(0, .., 0, 1, 0, \dots, 0)$, então
 		      \begin{equation*}
 			      g_{ij}(x_{1}, \dots, x_{n})=\left<\frac{\partial}{\partial x_{i}}(q),\frac{\partial}{\partial x_{j}}(q)\right>_{q}
 		      \end{equation*}
@@ -35,11 +35,11 @@ A transformação que preserva propriedades derivadas da métrica é denominada 
 		\item Se uma aplicação $f:M\to N$ é um difeomorfismo tal que
 		      \begin{equation}
 			      \label{eq:definicao-isometria}
-			      \left< u, v \right>_{p}=\left< df_{q}(u), df(q)(v) \right>_{p}, \text{para todos } u,v \in T_{p}M.
+			      \left< u, v \right>_{p}=\left< df_{p}(u), df_{p}(v) \right>_{f(p)}, \text{para todos } u,v \in T_{p}M.
 		      \end{equation}
-		      então $f$ é chamado de \emph{isometria};
+		      então $f$ é chamada de \emph{isometria};
 		\item $f:M\to N$ é uma \emph{isometria local} se para todo $p \in M$ existe uma vizinhança $U$ de $p$ em $M$ tal que \eqref{eq:definicao-isometria} é satisfeito para todo $q \in U$ e todos $u,v \in T_{q}M$;
-		\item $M$ é \emph{localmente isométrica} a $N$ se para todo $p \in M$ existe uma vizinhança $U$ de $p$ em $M$ e uma isometria $g:U\to f(U) \subset N$, isto é, existe um difeomorfismo $g:U\to f(U)$ que satisfaz (1).
+		\item $M$ é \emph{localmente isométrica} a $N$ se para todo $p \in M$ existe uma vizinhança $U$ de $p$ em $M$ e uma isometria $g:U\to f(U) \subset N$, isto é, existe um difeomorfismo $g:U\to g(U)$ que satisfaz \eqref{eq:definicao-isometria}.
 	\end{enumerate}
 \end{definition}
 
@@ -62,20 +62,20 @@ A transformação que preserva propriedades derivadas da métrica é denominada 
 		      \begin{itemize}
 			      \item A bilinearidade segue do fato de $df_{p}$ ser linear;
 			      \item A simetria segue da métrica de $N$;
-			      \item Para mostrar que é positiva definida, tome $v \in T_{p}M$. Temos então que $\left< v, v \right>_{p}=\left< df_{p}(v), df_{p}(v) \right>_{f(p)}\geq0$. No caso de ser igual a $0$, temos que $df_{p}(v)=0$ e, como $df_{p}$ é injetiva, $v=0$.
+			      \item Para mostrar que é definida positiva, tome $v \in T_{p}M$. Temos então que $\left< v, v \right>_{p}=\left< df_{p}(v), df_{p}(v) \right>_{f(p)}\geq0$. No caso de ser igual a $0$, temos que $df_{p}(v)=0$ e, como $df_{p}$ é injetiva, $v=0$.
 		      \end{itemize}
 
 		      Note que precisamos da injetividade de $df_{p}$ apenas para mostrar o fato de que a métrica é positiva definida.
 
 		\item Para construir uma métrica na esfera $S^{n}$, considere o mergulho dado pela função inclusão $i:S^{n}\to \mathbb{R}^{n+1}$ o qual é, em particular, uma imersão. Logo, munimos $\mathbb{R}^{n+1}$ da métrica canônica e $S^{n}$ da métrica induzida por tal.
 		\item Considere o semiplano superior aberto $\mathbb{R}^{2}_{+}=\{ (x,y) \in \mathbb{R}^{2}; y >0 \}$ munido da estrutura diferenciável $\{ (\mathbb{R}^{2}_{+},Id) \}$ com a métrica $\left<u,v\right>_{(x,y)}= \frac{1}{y^2}\left<u,v\right>_{\mathbb{R}^{2}}$, onde $\left<u,v\right>_{\mathbb{R}^{2}}$ denota a métrica euclidiana em $\mathbb{R}^{2}$. Essa variedade riemanniana é chamada de modelo de semiplano de Poincaré e ela serve como modelo da geometria hiperbólica de Lobachevsky.
-		\item Analogamente ao semiplano de Poincaré, temos o disco de Poincaré, o qual é construído tomando $D=\{ (x,y)\in \mathbb{R}^{2}|x^{2}+y^{2}< 1 \}$, munindo-o com a estrutura diferenciável identidade e com a métrica $\left<u,v\right>_{(x,y)}=\frac{4\left<u,v\right>_{\mathbb{R}^{2}}}{(1-(x^{2}+y^{2}))^{2}}$, temos outro modelo da geometria hiperbólica. A idealização dessa variedade é encontrada no livro Ciência e Hipótese de \textcite{poincare1905}, onde a métrica riemanniana é substituída pela dilatação térmica. Poincaré explica intuitivamente da seguinte maneira:
+		\item Analogamente ao semiplano de Poincaré, temos o disco de Poincaré, o qual é construído tomando $D=\{ (x,y)\in \mathbb{R}^{2}|x^{2}+y^{2}< 1 \}$, munindo-o com a estrutura diferenciável identidade e com a métrica $\left<u,v\right>_{(x,y)}=\frac{4\left<u,v\right>_{\mathbb{R}^{2}}}{(1-(x^{2}+y^{2}))^{2}}$, temos outro modelo da geometria hiperbólica. A idealização dessa variedade é encontrada no livro \textit{Ciência e Hipótese} \cite{poincare1905}, onde a métrica riemanniana é substituída pela dilatação térmica. Poincaré explica intuitivamente da seguinte maneira:
 		      \begin{citacao}
 			      Observemos, em primeiro lugar, que embora do ponto de vista da nossa geometria comum este mundo seja finito, para os seus habitantes ele parece infinito. À medida que se aproximam da superfície da esfera, eles tornam-se mais frios e, ao mesmo tempo, cada vez menores. Os passos que dão são, portanto, também cada vez menores, de modo que nunca poderão alcançar a fronteira da esfera \footnote{Tradução realizada pelos autores.} (p.65).
 		      \end{citacao}
 	\end{enumerate}
 \end{examples}
-O segundo exemplo acima será utilizado posteriormente, quando estudarmos o mapa exponencial.
+
 \begin{example}
 	\label{ex:metrica-produto}
 	Sejam $M_{1}$ e $M_{2}$ variedades riemannianas. Definimos uma métrica na variedade produto $M_{1}\times M_{2}$ pondo
@@ -97,12 +97,12 @@ Agora, generalizamos a noção de curva diferenciável para a de curva parametri
 		\item Se $a,b \in I$ e $a <b$, dizemos que $c|_{[a,b]}$ é um \emph{segmento da curva} $c$. Também nos referiremos a $c([a,b])\subset M$ como segmento.
 	\end{enumerate}
 \end{definition}
-De agora em diante, utilizaremos o termo curva diferenciável tanto para se referir a aplicações $c:(-\epsilon, \epsilon)\to M$ diferenciáveis quanto à curvas parametrizadas.
+De agora em diante, utilizaremos o termo curva diferenciável tanto para se referir a aplicações $c:(-\epsilon, \epsilon)\to M$ diferenciáveis quanto a curvas parametrizadas.
 
-Dada uma curva diferenciável, buscamos analisar sua velocidade e, posteriormente, sua aceleração. Na Geometria Diferencial, isso é feito considerando a curva como uma curva em $\mathbb{R}^{3}$ e tomando sua derivada usual. Na Geometria Riemanniana, como não dispomos de um espaço ambiente euclidiano, definimos a velocidade observando os espaços tangentes. Primeiramente, de forma mais geral, definimos campos de vetores ao longo de curvas
+Dada uma curva diferenciável, buscamos analisar sua velocidade e, posteriormente, sua aceleração. Na Geometria Diferencial, isso é feito considerando a curva em $\mathbb{R}^{3}$ e tomando sua derivada usual. Na Geometria Riemanniana, como não dispomos de um espaço ambiente euclidiano, definimos a velocidade observando os espaços tangentes. Primeiramente, de forma mais geral, definimos campos de vetores ao longo de curvas
 \begin{definition}
 	\label{def:campo-ao-longo-de-curva}
-	Se $c:I\to M$ é uma curva parametrizada, uma aplicação $V$, que associa cada $t \in I$ a um vetor $V(t) \in T_{c(t)}M$, é um campo de vetores ao longo da curva $c$.
+	Se $c:I\to M$ é uma curva parametrizada, uma aplicação $V$ que associa cada $t \in I$ a um vetor $V(t) \in T_{c(t)}M$ é um campo de vetores ao longo da curva $c$.
 
 	Dizemos que $V$ é diferenciável se para todo $f \in \mathcal{D}$ a função $V(t)f$ é diferenciável no intervalo $I$.
 \end{definition}
@@ -110,15 +110,15 @@ Perceba que, tomando $X$ um campo vetorial diferenciável em $M$, podemos defini
 \begin{equation*}
 	c:(-\pi,\pi) \ni t \to (\cos t,\sin2t)\in \mathbb{R}^{2}
 \end{equation*}
-e o campo $c'(t)=(\sin t, 2\cos2t)$ ao longo de $c$.
+e o campo $c'(t)=(-\sin t, 2\cos2t)$ ao longo de $c$.
 Temos que $c\left( -\frac{\pi}{2} \right)=c\left( \frac{\pi}{2} \right)$, mas $c'\left(-\frac{\pi}{2} \right)\neq c'\left( \frac{\pi}{2} \right)$. Logo, não existe campo diferenciável $X$ tal que $c'=X\circ c$.
 
-Observe que o campo ao longo da curva não é induzido pois assume diferentes valores no mesmo ponto (em tempos diferentes). Se supormos que a curva seja simples, podemos considerar o exemplo
+Observe que o campo ao longo da curva não é induzido pois assume diferentes valores no mesmo ponto (em tempos diferentes). Supondo que a curva seja simples, podemos considerar o exemplo
 \begin{equation*}
 	c:(-1, 1) \ni t \to (t^{2},t^{3}) \in \mathbb{R}^{2}
 \end{equation*}
 onde $c'(t)=(2t, 3t^{2})$.
-Aqui, a impossibilidade de encontrar um campo diferenciável que induz $c'$ se da pelo fato $c$ formar um ``bico'' em torno da origem, o que só acontece pois $c'(0)=0$. Com efeito, se $X$ é um campo diferenciável tal que $c'(t)=X(c(t))$, escrevendo $X(x,y)=(P(x,y),Q(x,y))$, temos que $P(c(t))=2t$. Logo, derivando em ambos os lados,
+Aqui, a impossibilidade de encontrar um campo diferenciável que induz $c'$ se dá pelo fato $c$ formar um ``bico'' em torno da origem, o que só acontece pois $c'(0)=0$. Com efeito, se $X$ é um campo diferenciável tal que $c'(t)=X(c(t))$, escrevendo $X(x,y)=(P(x,y),Q(x,y))$, temos que $P(c(t))=2t$. Logo, derivando em ambos os lados,
 \begin{equation*}
 	\frac{\partial P}{\partial x}(c(t))\frac{\partial t^{2}}{\partial t}(t) + \frac{\partial P}{\partial y}(c(t))\frac{\partial t^{3}}{\partial t}(t)=2,
 \end{equation*}
@@ -130,7 +130,7 @@ o que é um absurdo quando $t=0$.
 	\caption{Gráfico das curvas.}
 \end{figure}
 
-Ajustamos então nossa pergunta: Se $c$ é uma curva simples e regular, isto é, injetora, com derivada não nula, e $V$ um campo ao longo de $c$, existe um campo $X$ tal que $V=X \circ c$? A resposta agora é positiva, se assumirmos que $c$ está definida em um intervalo compacto (incentivamos o leitor a encontrar um contra-exemplo quando uma curva é simples e regular, porém definida em um intervalo não fechado). Precisamos primeiro estender a noção de vetor derivada para curvas em variedades diferenciáveis
+Ajustamos então nossa pergunta: Se $c$ é uma curva simples e regular, isto é, injetora, com derivada não nula, e $V$ um campo ao longo de $c$, existe um campo $X$ tal que $V=X \circ c$? A resposta agora é positiva, se assumirmos que $c$ está definida em um intervalo compacto (incentivamos o leitor a encontrar um contraexemplo quando uma curva é simples e regular, porém definida em um intervalo não fechado e, em particular, não compacto). Precisamos primeiro estender a noção de vetor derivada para curvas em variedades diferenciáveis.
 \begin{definition}
 	\label{def:campo-velocidade}
 	O campo velocidade de uma curva parametrizada é o campo
@@ -142,12 +142,12 @@ Ajustamos então nossa pergunta: Se $c$ é uma curva simples e regular, isto é,
 Agora, podemos enunciar o resultado
 \begin{theorem}
 	\label{teo:extensao-campo-ao-longo-de-curva}
-	Seja $c:[a,b]\to M$ uma curva parametrizada regular simples, isto é, com $\frac{dc}{dt}(t)\neq0$, para todo $t \in I$ e $c$  injetora. Se $V$ é um campo vetorial diferenciável ao longo de $c$, existe um campo vetorial $Y$ em $M$ tal que $V=Y \circ c$.
+	Seja $c:[a,b]\to M$ uma curva parametrizada regular simples, isto é, com $\frac{dc}{dt}(t)\neq0$, para todo $t \in [a,b]$ e $c$  injetora. Se $V$ é um campo vetorial diferenciável ao longo de $c$, existe um campo vetorial $Y$ em $M$ tal que $V=Y \circ c$.
 	\begin{proof}
 		Consultar \textcite{leeRiemannian} para a demonstração. %Teorema 3.4.
 	\end{proof}
 \end{theorem}
-Com a noção de métrica e de curva, podemos definir comprimentos na variedade
+Com a noção de métrica e de curva, podemos definir comprimentos na variedade.
 \begin{definition}
 	\label{def:comprimento-de-curva}
 	Se $c:I\to M$ é uma curva parametrizada e $c|_{[a,b]}$ um segmento, definimos o comprimento do segmento como
@@ -163,7 +163,7 @@ O próximo resultado mostra que toda variedade diferenciável Hausdorff, de base
 	Seja $M$ uma variedade diferenciável (Hausdorff e de base enumerável). Então $M$ é uma variedade riemanniana, isto é, existe uma métrica riemanniana em $M$.
 	\begin{proof}
 
-		Pelo \Cref{teo:particao-da-unidade}, $M$ possui partição da unidade, isto é, existe uma coleção $\{ f_{\alpha} \}$, com $f_{\alpha}:M\to \mathbb{R}$ tal que, $f_{\alpha}\geq0$ e $suppf_{\alpha}\subset V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$, para todo $\alpha$. Mais ainda, a coleção $\{ V_{\alpha} \}$ é localmente finita e $\sum_{\alpha}f_{\alpha}(p)=1$, para todo $p \in M$.
+		Pelo \Cref{teo:particao-da-unidade}, $M$ possui partição da unidade, isto é, existe uma coleção $\{ f_{\alpha} \}$, com $f_{\alpha}:M\to \mathbb{R}$ tal que $f_{\alpha}\geq0$ e $suppf_{\alpha}\subset V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$, para todo $\alpha$. Mais ainda, a coleção $\{ V_{\alpha} \}$ é localmente finita e $\sum_{\alpha}f_{\alpha}(p)=1$, para todo $p \in M$.
 
 		Definimos $\left<\cdot,\cdot\right>^{\alpha}$ em cada $V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$, pondo, para $p \in V_{\alpha}$,
 		\begin{equation*}
@@ -174,7 +174,7 @@ O próximo resultado mostra que toda variedade diferenciável Hausdorff, de base
 		Mostremos que isso define uma métrica riemanniana em cada $V_{\alpha}$.
 		A simetria e o fato de ser positiva definida seguem do produto interno euclidiano. Para mostrar a diferenciabilidade, tomemos uma parametrização $\mathbf{y}$ em uma vizinhança de $p$. Escrevendo $\frac{\partial}{\partial y_{i}}(q)=d\mathbf{y}_{q}(0, \dots, 0, 1, 0, \dots, 0)$, temos que
 		\begin{equation*}
-			\left<\frac{\partial}{\partial y_{i}}(q),\frac{\partial}{\partial y_{j}}(q)\right>_{\mathbf{y}(q)}^{\alpha}=\left<d\mathbf{x}_{\alpha}^{-1} \circ d\mathbf{y}_{q}\left(\frac{\partial}{\partial y_{i}}(q)\right),d\mathbf{x}_{\alpha}^{-1} \circ d\mathbf{y}_{q}\left(\frac{\partial}{\partial y_{j}}(q)\right)\right>,
+			\left<\frac{\partial}{\partial y_{i}}(q),\frac{\partial}{\partial y_{j}}(q)\right>_{\mathbf{y}(q)}^{\alpha}=\left<d\mathbf{x}_{\alpha}^{-1} \circ d\mathbf{y}_{q}\left(e_i\right),d\mathbf{x}_{\alpha}^{-1} \circ d\mathbf{y}_{q}\left(e_j\right)\right>,
 		\end{equation*}
 		o qual varia diferenciavelmente em $q$, pelos axiomas de variedade diferenciável.
 
@@ -187,22 +187,22 @@ O próximo resultado mostra que toda variedade diferenciável Hausdorff, de base
 \end{theorem}
 \section{Conexões Afins}
 \label{sec:conexoes-afins}
-Nessa sessão analisaremos outra ideia da topologia diferencial: conexões afins.
+Nesta sessão analisaremos conexões afins.
 Já vimos campos vetoriais e curvas em variedades, junto com funções diferenciáveis e suas derivadas. Também podemos considerar como uma função varia ao longo de um campo vetorial. Existe, entretanto, uma técnica do cálculo diferencial que ainda não está clara nas variedades: como podemos somar e subtrair vetores em diferentes espaços tangentes? Ou melhor, como derivar um campo vetorial em relação a outro campo vetorial?
 
 Para fixar as ideias, considere uma variedade $M$, pontos $p,q \in M$ e seus espaços tangentes $T_{p}M$ e $T_{q}M$. Buscamos uma maneira de identificar vetores de $T_{p}M$ com vetores de $T_{q}M$.
-Um palpite para fazer isso é, se $p, q$ pertencem à mesma vizinhança parametrizada, escrever um vetor $v \in T_{p}M$ como $v=\sum v_{i}X_{i}(p)$ e o identificar com o vetor $u=\sum v_{i}X_{i}(q) \in T_{q}M$. Essa identificação é um isomorfismo de espaços vetoriais, porém depende da parametrização. Outra forma, mais interessante, é levar em consideração a trajetória que o vetor percorre na variedade. Mais precisamente, dados $p,q \in M$, considere uma transformação $\Gamma(\alpha, v) = u$, que recebe um caminho diferenciável $\alpha$ ligando $p$ a $q$ e um vetor $v \in T_{p}M$ e devolve um vetor $u \in T_{q}M$. Exigimos também que
+Um palpite para fazer isso é, se $p, q$ pertencem à mesma vizinhança parametrizada, escrever um vetor $v \in T_{p}M$ como $v=\sum v_{i}X_{i}(p)$ e o identificar com o vetor $u=\sum v_{i}X_{i}(q) \in T_{q}M$. Essa identificação é um isomorfismo de espaços vetoriais, porém depende da parametrização. Outra forma é levar em consideração a trajetória que o vetor percorre na variedade. Mais precisamente, dados $p,q \in M$, considere uma transformação $\Gamma(\alpha, v) = u$, que recebe um caminho diferenciável $\alpha$ ligando $p$ a $q$ e um vetor $v \in T_{p}M$ e devolve um vetor $u \in T_{q}M$. Utilizando $\wedge$ para denotar a composição de caminhos, exigimos também que
 \begin{enumerate}[label=(\roman*)]
-	\item $\Gamma(\alpha \circ \beta, v) = \Gamma(\beta, \Gamma(\alpha, v));$
-	\item $\Gamma(\alpha, \cdot):T_{p}M\to T_{q}M$ seja isometria de espaços vetoriais;
+	\item $\Gamma(\alpha \wedge \beta, v) = \Gamma(\beta, \Gamma(\alpha, v));$
+	\item $\Gamma(\alpha, \cdot):T_{p}M\to T_{q}M$ seja um isomorfismo de espaços vetoriais;
 	\item $\Gamma(\alpha|_{[t_{0},t]},v)$ varie diferenciavelmente em $t$.
 \end{enumerate}
 
-$\Gamma$ é chamado de transporte paralelo de $v$ ao longo de $\alpha$.
+Nessas condições, $\Gamma$ é chamado de transporte paralelo de $v$ ao longo de $\alpha$.
 
 Esta abordagem, de grande valor histórico, apesar de intuitiva, introduz algumas dificuldades quando realizamos cálculos. Por exemplo, não é simples definir e demonstrar propriedades acerca de derivadas de campos vetoriais ao longo de outros campos.
 
-Dito isso, seguiremos a tradição moderna e introduziremos a noção de conexão, a qual é equivalente à noção de transporte paralelo, de uma forma que será explicitada.
+Sendo assim, seguiremos a tradição moderna e introduziremos a noção de conexão, a qual é equivalente à noção de transporte paralelo, de uma forma que será explicitada.
 \begin{definition}
 	\label{def:conjunto-campos-de-vetores}
 	Seja $M$ uma variedade diferenciável. Definimos $\chi(M)$ como o conjunto de todos os campos de vetores em $M$ de classe $C^{\infty}$.
@@ -229,18 +229,15 @@ Intuitivamente, uma conexão é uma noção da derivada de um campo vetorial ao 
 	\begin{equation*}
 		\nabla_{X}Y=\sum_{j}\left( \sum_{i}\alpha_{i}\frac{\partial\beta_{j}}{\partial x_{i}} \right)e_{j}
 	\end{equation*}
-	é uma conexão afim. Mais ainda, sendo $p \in \mathbb{R}^{n}$ e $c:(-\epsilon,\epsilon):\mathbb{R}^{n}$ dada por $c(t)=X(p)t+p$, temos que
+	é uma conexão afim. Mais ainda, sendo $p \in \mathbb{R}^{n}$ e $c:(-\epsilon,\epsilon) \to \mathbb{R}^{n}$ dada por $c(t)=X(p)t+p$, temos que
 	\begin{equation*}
 		(\nabla _{X}Y)_{p}=(Y \circ c)'(0)=\lim_{ t \to 0 } \frac{Y(c(t))-Y(p)}{t}.
 	\end{equation*}
 	De fato,
 	\begin{align*}
-		(Y \circ c)'(0) & = \left. \frac{d}{dt} Y(c_1(t), \dots, c_n(t)) \right|_{t=0}                            \\
-		                & = \left. \sum_i \frac{\partial Y}{\partial x_i}(c(t)) \frac{dc_i}{dt}(t) \right|_{t=0}  \\
-		                & = \sum_i \frac{\partial Y}{\partial x_i}(p) \frac{dc_i}{dt}(0)                          \\
-		                & = \sum_i \left( \sum_j \frac{\partial \beta_j}{\partial x_i}(p) e_j \right) \alpha_i(p) \\
-		                & = \sum_j \left( \sum_i \alpha_i(p) \frac{\partial \beta_j}{\partial x_i}(p) \right) e_j \\
-		                & = (\nabla_{X}Y)_{p}.
+		(Y \circ c)'(0) & = \left. \frac{d}{dt} Y(c_1(t), \dots, c_n(t)) \right|_{t=0}                                                                                                                                           \\
+		                & = \left. \sum_i \frac{\partial Y}{\partial x_i}(c(t)) \frac{dc_i}{dt}(t) \right|_{t=0}  = \sum_i \frac{\partial Y}{\partial x_i}(p) \frac{dc_i}{dt}(0)                                                 \\
+		                & = \sum_i \left( \sum_j \frac{\partial \beta_j}{\partial x_i}(p) e_j \right) \alpha_i(p)  = \sum_j \left( \sum_i \alpha_i(p) \frac{\partial \beta_j}{\partial x_i}(p) \right) e_j  = (\nabla_{X}Y)_{p}.
 	\end{align*}
 	Em outras palavras, essa conxão afim, definida em $\mathbb{R}^{n}$, coincide com a derivada usual.
 \end{example}
@@ -286,9 +283,8 @@ Como é de se esperar, imitando a sua análoga para os espaços euclidianos, a c
 
 		Escrevendo então $Z=\sum z_{i}X_{i}$, temos que
 		\begin{align*}
-			(\nabla_{X}Z)_{p} & = \left.\sum_{k}\left[\left( \sum_{i,j}x_{i}z_{j}\Gamma_{i,j}^{k} \right)+X(z_{k})\right]X_{k}\right|_{p} \\
-			                  & =\left.\sum_{k}\left[\left( \sum_{i,j}y_{i}z_{j}\Gamma_{i,j}^{k} \right)+Y(z_{k})\right]X_{k}\right|_{p}  \\
-			                  & = (\nabla_{Y}Z)_{p}.
+			(\nabla_{X}Z)_{p} & = \left.\sum_{k}\left[\left( \sum_{i,j}x_{i}z_{j}\Gamma_{i,j}^{k} \right)+X(z_{k})\right]X_{k}\right|_{p}                     \\
+			                  & =\left.\sum_{k}\left[\left( \sum_{i,j}y_{i}z_{j}\Gamma_{i,j}^{k} \right)+Y(z_{k})\right]X_{k}\right|_{p} = (\nabla_{Y}Z)_{p}.
 		\end{align*}
 	\end{proof}
 \end{lemma}
@@ -353,7 +349,7 @@ Portanto, obtemos a seguinte proposição:
 Esse resultado estende a noção de conexão para campos definidos ao longo de curvas diferenciáveis. Isso permite, por exemplo, calcular acelerações de curvas computando a derivada covariante do campo velocidade de uma curva $c$.
 O item (iii) da \Cref{prop:derivada-covariante} afirma que calcular a covariante de um campo induzido é equivalente a calcular a conexão afim desse campo ao longo da curva $c(t)$. A derivada covariante também é semelhante a derivada covariante da Geometria Diferencial, exceto pelo fato de que na Geometria Riemanniana, precisamos da noção de conexão, a qual é implicitamente presente nas superfícies diferenciáveis devido à existência do espaço ambiente.
 
-Agora, introduzimos a noção de transporte paralelo
+Agora, introduzimos a noção de transporte paralelo.
 \begin{definition}
 	\label{def:paralelismo}
 	Seja $M$ uma variedade diferenciável com uma conexão afim $\nabla$. Um campo vetorial $V$ ao longo de uma curva $c$ é dito paralelo se $\frac{DV}{dt}=0$.
@@ -383,11 +379,11 @@ Agora, introduzimos a noção de transporte paralelo
 			\label{eq:covariant}
 			0=\frac{dv^{k}}{dt}+\sum_{i,j}v^{j}\frac{dx_{i}}{dt}\Gamma_{i,j}^{k}
 		\end{equation}
-		Dessa forma, $V$ é paralelo se, e somente se satisfaz a equação \Cref{eq:covariant}, para todo $k=1, .., n$.
+		Dessa forma, $V$ é paralelo se, e somente se satisfaz a equação \Cref{eq:covariant}, para todo $k=1, \ldots, n$.
 
 		Note que, para todo $k$,
 		\begin{equation*}
-			\frac{dv^{k}}{dt}=\begin{bmatrix}
+			\frac{dv^{k}}{dt}=-\begin{bmatrix}
 				\sum_{i}\Gamma_{i,1}^{k}\frac{dx_{i}}{dt} & \cdots & \sum_{i}\Gamma_{i,n}^{k}\frac{dx_{i}}{dt}
 			\end{bmatrix}\begin{bmatrix}
 				v_{1} \\ \vdots \\ v_{n}
@@ -397,7 +393,7 @@ Agora, introduzimos a noção de transporte paralelo
 		\begin{equation*}
 			\begin{bmatrix}
 				\frac{dv^{1}}{dt} \\ \vdots \\ \frac{dv^{n}}{dt}
-			\end{bmatrix} = \begin{bmatrix}
+			\end{bmatrix} = -\begin{bmatrix}
 				\sum_{i}\Gamma_{i,1}^{1}\frac{dx_{i}}{dt} & \cdots & \sum_{i}\Gamma_{i,n}^{1}\frac{dx_{i}}{dt} \\
 				\vdots                                    & \ddots & \vdots                                    \\
 				\sum_{i}\Gamma_{i,1}^{n}\frac{dx_{i}}{dt} & \cdots & \sum_{i}\Gamma_{i,n}^{n}\frac{dx_{i}}{dt}
@@ -424,7 +420,7 @@ O transporte paralelo, conforme já comentado, identifica diferentes espaços ta
 com $\alpha$ curva diferenciável tal que $\alpha(0)=p$ e $\alpha'(t)=X(\alpha(t))$, é, de fato, uma conexão afim e seu transporte paralelo é dado por $\Gamma$. O leitor interessado pode consultar \textcite{doCarmo1992} e \textcite{leeRiemannian}.
 Note a semelhança desta fórmula com a derivada de campos vetoriais usual do $\mathbb{R}^{n}$.
 
-Dada uma variedade diferenciável com partição de unidade, existem diversas conexões afins nesta. De fato, seja $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ uma estrutura diferenciável de uma variedade $M$. De forma que os $V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$ formem uma família localmente finita. Em cada $V_{\alpha}$ podemos definir uma conexão $\nabla^{\alpha}$ tomando uma matriz $M^{\alpha}_{k}=[\Gamma_{i,j}^{\alpha,k}]$ e pondo $\nabla^{\alpha}_{X_{i}}X_{j}=\sum\Gamma_{i,j}^{\alpha,k}X_{k}$. Definimos uma conexão afim global pondo $(\nabla_{X}Y)_{p}=\sum_{\alpha}f_{\alpha}(p)(\nabla_{X}^{\alpha}Y)_{p}$, conforme feito na demonstração do \Cref{teo:existencia-metrica}. Devido a isso, o comportamento do transporte paralelo é imprevisível. Entretanto, o transporte paralelo assume uma forma muito mais intuitiva na conexão de Levi-Civita, a qual será introduzida adiante.
+Dada uma variedade diferenciável com partição de unidade, existem diversas conexões afins nesta. De fato, seja $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ uma estrutura diferenciável de uma variedade $M$, de forma que os $V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$ formem uma família localmente finita. Em cada $V_{\alpha}$ podemos definir uma conexão $\nabla^{\alpha}$ tomando uma matriz $M^{\alpha}_{k}=[\Gamma_{i,j}^{\alpha,k}]$ e pondo $\nabla^{\alpha}_{X_{i}}X_{j}=\sum\Gamma_{i,j}^{\alpha,k}X_{k}$. Definimos uma conexão afim global pondo $(\nabla_{X}Y)_{p}=\sum_{\alpha}f_{\alpha}(p)(\nabla_{X}^{\alpha}Y)_{p}$, conforme feito na demonstração do \Cref{teo:existencia-metrica}. Devido a isso, o comportamento do transporte paralelo é imprevisível. Entretanto, o transporte paralelo assume uma forma muito mais intuitiva na conexão de Levi-Civita, a qual será introduzida adiante.
 
 Agora, relacionaremos o conceito de métrica com o de conexão afim.
 \begin{definition}
@@ -449,7 +445,7 @@ Essa noção generaliza a regra de Leibnz para produtos internos na geometria di
 		\begin{equation*}
 			\frac{d}{dt}\left<P,P'\right>=0+0 = 0.
 		\end{equation*}
-		Como tal função está definida em um intervalo, o qual é conexo, temos que $\left<P,P'\right>$ tem derivada $0$ em um conexo. Logo, é constante \cite{munkres2000topology}.
+		Como tal função está definida em um intervalo, o qual é conexo, temos que $\left<P,P'\right>$ tem derivada $0$ em um conexo e, portanto, é constante \cite{munkres2000topology}.
 		Reciprocamente, seja $\{ P_{1}(t_{0}), \dots, P_{n}(t_{0}) \}$ uma base ortonormal de $T_{c(t_{0})}M$ em relação ao produto interno $\left<,\right>_{c(t_{0})}$.
 		Utilizando a \Cref{prop:transporte-paralelo}, estendemos cada $P_{i}(t_{0})$ a um campo $P_{i}(t)$ paralelo ao longo de $c$.
 		Da hipótese, segue que $\left<P_{i}(t),P_{j}(t)\right>=\left<P_{i}(t_{0}),P_{j}(t_{0})\right>=\delta_{i,j}$, onde $\delta_{i,j}=1$ se $i=j$ e $0$ do contrário. Isso implica que $\{ P_{1}(t), \dots, P_{n}(t) \}$ é uma base ortonormal de $T_{c(t)}M$, para todo $t \in I$.
@@ -467,8 +463,7 @@ Essa noção generaliza a regra de Leibnz para produtos internos na geometria di
 		\begin{align*}
 			\left<\frac{DV}{dt},W\right> + \left<V,\frac{DW}{dt}\right> & = \sum_{i}\frac{dv_{i}}{dt}\left<P_{i},W\right> + \sum_{i}\frac{dw_{i}}{dt}\left<V,P_{i}\right> \\
 			                                                            & = \sum_{i} \frac{dv_{i}}{dt}w_{i} + \frac{dw_{i}}{dt}v_{i}                                      \\
-			                                                            & = \frac{d}{dt}\left( \sum_{i}v_{i}w_{i} \right)                                                 \\
-			                                                            & = \frac{d}{dt}\left<V,W\right>  ,
+			                                                            & = \frac{d}{dt}\left( \sum_{i}v_{i}w_{i} \right)  = \frac{d}{dt}\left<V,W\right>  ,
 		\end{align*}
 		em que a última igualdade vale devido à expressão de $V$ e $W$ na base ortonormal.
 	\end{proof}
@@ -518,7 +513,14 @@ Outra equivalência da compatibilidade é dada pelo corolário a seguir.
 \end{corollary}
 Intuitivamente, o \Cref{cor:leibniz-direcional} afirma que a regra de Leibniz  é válida quando derivamos o produto interno de dois campos vetoriais ao longo de outro campo vetorial.
 
-É evidente que buscamos sempre uma conexão afim compatível com a métrica. Outra propriedade interessante de uma conexão afim é a simetria
+É evidente que buscamos sempre uma conexão afim compatível com a métrica. Outra propriedade interessante de uma conexão afim é a simetria.
+
+\begin{definition}
+	\label{def:colchete}
+	Sejam $X,Y$ campos vetoriais diferenciáveis. Definimos o campo vetorial colchete $[X,Y]:=XY-YX$.
+\end{definition}
+A demonstração da existência desse campo vetorial pode ser encontrada em \cite{doCarmo1992}. Intuitivamente, o campo colchete mede a ``não comutatividade'' dos campos $X$ e $Y$.
+
 \begin{definition}
 	\label{def:conexao-simetrica}
 	Uma conexão afim $\nabla$ em uma variedade diferenciável $M$ é dita simétrica quando
@@ -595,11 +597,11 @@ Agora, apresentaremos um dos resultados centrais desse capítulo: o Teorema de L
 			X\left<Y,Z\right> +Y\left<Z,X\right> -Z\left<X,Y\right> & = \left<\nabla_{X}Y,Z\right> +\left<Y,\nabla_{X}Z\right> + \left<\nabla_{Y}Z,X\right> + \left<Z,\nabla_{Y}X\right>       \\
 			                                                        & \quad - \left<\nabla_{Z}X,Y\right> - \left<X,\nabla_{Z}Y\right>                                                          \\
 			                                                        & = \left<\nabla_{X}Y,Z\right> +\left<Y,\nabla_{X}Z\right> + \left<\nabla_{Y}Z,X\right> + \left<Z,\nabla_{Y}X\right>       \\
-			                                                        & \quad - \left<\nabla_{Z}X,Y\right> - \left<X,\nabla_{Z}Y\right>+ \left<\nabla_{X}Y,Z\right> - \left<\nabla_{X}Y,Z\right> \\
+			                                                        & \quad - \left<\nabla_{Z}X,Y\right> - \left<X,\nabla_{Z}Y\right>+ \left<\nabla_{Y}X,Z\right> - \left<\nabla_{Y}X,Z\right> \\
 			                                                        & =\left<\nabla_{X}Z,Y\right>-\left<\nabla_{Z}X,Y\right> +\left<\nabla_{Y}Z,X\right> -\left<\nabla_{Z}Y,X\right>           \\
-			                                                        & \quad \left<\nabla_{X}Y,Z\right> - \left<\nabla_{Y}X,Z\right> +2\left<Z,\nabla_{Y}X\right>                               \\
-			                                                        & = \left<\nabla_{X}Z-\nabla_{Z}X,Y\right> + \left<\nabla_{Y}Z-\nabla_{Z}Y,X\right>+\left<\nabla_{X}Y-\nabla_{Y}X,Z\right> \\
-			                                                        & \quad +2 \left<Z,\nabla_{Y}X\right>                                                                                      \\
+			                                                        & \quad + \left<\nabla_{X}Y,Z\right> - \left<\nabla_{Y}X,Z\right> +2\left<Z,\nabla_{Y}X\right>                             \\
+			                                                        & = \left<\nabla_{X}Z-\nabla_{Z}X,Y\right> + \left<\nabla_{Y}Z-\nabla_{Z}Y,X\right>                                        \\
+			                                                        & \quad + \left<\nabla_{X}Y-\nabla_{Y}X,Z\right>  +2 \left<Z,\nabla_{Y}X\right>                                            \\
 			                                                        & = \left<[X,Z],Y\right> + \left<[Y,Z],X\right> +\left<[X,Y],Z\right> +2 \left<Z,\nabla_{Y}X\right>.
 		\end{align*}
 		Resolvendo para $\left<Z,\nabla_{Y}X\right>$, segue que
@@ -612,7 +614,7 @@ Agora, apresentaremos um dos resultados centrais desse capítulo: o Teorema de L
 		\begin{equation*}
 			\nabla_{Y}X = \sum \left<P_{i},\nabla_{Y}X\right> P_{i},
 		\end{equation*}
-		onde $\{ P_{i} \}$ é uma base ortonormal de $T_{p}M$. Por \eqref{eq:levicivita-4}, temos que a expressão de $\nabla_{X}Y$ depende apenas de $X, Y$ e da base ortonormal escolhida, implicando na unicidade.
+		onde $\{ P_{i} \}$ é uma base ortonormal de $T_{p}M$. Por \eqref{eq:levicivita-4}, temos que a expressão de $\nabla_{Y}X$ depende apenas de $X, Y$ e da base ortonormal escolhida, implicando na unicidade.
 
 		Agora, para mostrar a existência, seja $\mathbf{x}:U\to V$ um sistema de coordenadas de $V \subseteq M$. Definimos, para cada par $X_{i}=\frac{\partial}{\partial x_{i}}$ e $X_{j}=\frac{\partial}{\partial x_{j}}$,
 		\begin{equation*}
@@ -646,15 +648,15 @@ Isso implica que
 \end{equation*}
 com
 \begin{equation*}
-	M = \begin{bmatrix}
+	G = \begin{bmatrix}
 		g_{1,1} & \cdots & g_{1,n} \\
 		\vdots  &        & \vdots  \\
 		g_{n,1} & \cdots & g_{n,n}
 	\end{bmatrix}.
 \end{equation*}
-Como $M$ é uma matriz de Gram, ela é invertível. Digamos que
+Como $G$ é uma matriz de Gram, ela é invertível. Digamos que
 \begin{equation*}
-	M^{-1} = \begin{bmatrix}
+	G^{-1} = \begin{bmatrix}
 		g^{1,1} & \cdots & g^{1,n} \\
 		\vdots  &        & \vdots  \\
 		g^{n,1} & \cdots & g^{n,n}
@@ -667,7 +669,7 @@ Segue que
 		\vdots           \\
 		\Gamma_{i,j}^{n}
 	\end{bmatrix}=
-	M^{-1}
+	G^{-1}
 	\begin{bmatrix}
 		\left<X_{1},\nabla_{X_{i}}X_{j}\right> \\
 		\vdots                                 \\

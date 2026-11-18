@@ -2,9 +2,9 @@
 
 \chapter{Geodésicas e o Teorema de Hopf-Rinow}
 \label{cap:geodesicas-hopf-rinow}
-Começamos este capítulo por apresentar a definição de geodésica, depois, garantimos que, dados um ponto e uma velocidade inicial em uma variedade, passa por ele uma única geodésica com tal velocidade.  Na sequência, definimos o mapa exponencial, generalizamos a noção de curva diferenciável definindo curvas diferenciáveis por partes e definimos uma noção de superfície parametrizada em uma variedade, os quais são utilizados no \Cref{teo:lema-de-gauss}, para mostrar que, a grosso modo, a aplicação exponencial é um difeomorfismo de um aberto do espaço tangente em uma vizinhança de um ponto $p \in M$.
+Começamos este capítulo por apresentar a definição de geodésica, depois, garantimos que, dados um ponto e uma velocidade inicial em uma variedade, passa por ele uma única geodésica com tal velocidade.  Na sequência, definimos o mapa exponencial, generalizamos a noção de curva diferenciável definindo curvas diferenciáveis por partes e definimos uma noção de superfície parametrizada em uma variedade, os quais são utilizados na \Cref{prop:exp-diferenciavel} para mostrar que, em suma, a aplicação exponencial é um difeomorfismo de um aberto do espaço tangente em uma vizinhança de um ponto $p \in M$.
 
-Também, relacionamos as geodésicas às curvas que realizam a menor distância entre dois pontos. Garantimos que toda curva diferenciável por partes que minimiza a distância é uma geodésica e, no caso de uma curva ser geodésica, ela minimiza localmente a distância entre dois pontos.
+Também relacionamos as geodésicas às curvas que realizam a menor distância entre dois pontos, garantimos que toda curva diferenciável por partes que minimiza a distância é uma geodésica e, no caso de uma curva ser geodésica, ela minimiza localmente a distância entre dois pontos.
 
 Na sequência, definimos uma distância na variedade, cuja completude pode ser caracterizada utilizando as geodésicas em certas variedades denominadas completas. Finalmente, juntamos diversos resultados exibidos até o momento para demonstrar o Teorema de Hopf-Rinow, o qual estende certas propriedades locais para propriedades globais.
 \section{Geodésicas}
@@ -30,23 +30,22 @@ Logo, como $\langle \frac{d\gamma}{dt},\frac{d\gamma}{dt} \rangle$ é uma funç�
 Deste resultado, segue que $\left|\frac{d\gamma}{dt}\right|$ é constante.
 Outro fato interessante é o de que o comprimento de uma geodésica é diretamente proporcional ao seu parâmetro. De fato,
 \begin{equation*}
-	s(t)=\int_{t_{0}}^{t}\left|\frac{d\gamma}{dt}\right|dt=c(t-t_{0}),
+	s(t)=\int_{t_{0}}^{t}\left|\frac{d\gamma}{dt}\right|dt=k(t-t_{0}),
 \end{equation*}
-em que $c=\left|\frac{d\gamma}{dt}(t_{0})\right|$.
-Se $c=1$, dizemos que a geodésica é normalizada.
+em que $k=\left|\frac{d\gamma}{dt}(t_{0})\right|$.
+Se $k=1$, dizemos que a geodésica é normalizada.
 Como de costume, gostaríamos de analisar o comportamento das geodésicas através das parametrizações da variedade.
 Seja $\gamma$ uma  curva parametrizada tal que sua imagem esteja contida em uma vizinhança parametrizada $V=\mathbf{x}(U)$.
 Fazendo $(x_{1}(t), \dots, x_{n}(t))=\mathbf{x}^{-1} \circ \gamma(t)$, temos que, pela \Cref{prop:derivada-transformacao-linear},
 \begin{align*}
-	\frac{d\gamma}{dt}(t) & =d\gamma_{t}\left( \frac{d}{dt} \right)                                                         \\
+	\frac{d\gamma}{dt}(t) & =d\gamma_{t}\left( \frac{d}{dt} \right)                                                                                               \\
 	                      & =\begin{bmatrix}
 		                         \frac{dx_{1}}{dt}(t), \dots, \frac{dx_{n}}{dt}(t)
 	                         \end{bmatrix}
 	\begin{bmatrix}
 		1
-	\end{bmatrix}                                                                                                          \\
-	                      & =\left( \frac{dx_{1}}{dt}(t), \dots, \frac{dx_{n}}{dt}(t) \right)                               \\
-	                      & = \sum_{i=1}^{n}\frac{dx_{i}}{dt}(t)X_{i}(t).
+	\end{bmatrix}                                                                                                                                                \\
+	                      & =\left( \frac{dx_{1}}{dt}(t), \dots, \frac{dx_{n}}{dt}(t) \right)                       = \sum_{i=1}^{n}\frac{dx_{i}}{dt}(t)X_{i}(t).
 \end{align*}
 Logo, utilizando a expressão \eqref{eq:covariant} obtida na \Cref{prop:derivada-covariante}, $\gamma$ é geodésica se, e somente se,
 \begin{equation}
@@ -170,7 +169,7 @@ O próximo resultado diz que, para todo ponto em uma variedade, existe uma vizin
 \end{proposition}
 \begin{example}
 	\label{ex:geodesicas}
-	Seja $M=P^{2}(\mathbb{R})$ o plano projetivo, conforme definido no \Cref{ex:variedades-diferenciaveis} Podemos munir $M$ de uma métrica por munir $S^{2}$ com a métrica induzida por $\mathbb{R}^{3}$ e tomar a métrica quociente, a qual é definida por $\left< v,w \right>_{p}=\left< d\pi ^{-1}_{p}(v),d\pi ^{-1}_{p}(w) \right>_{\pi ^{-1}(p)}$, onde $\pi:S^{2}\to M$ é a projeção.
+	Seja $M=P^{2}(\mathbb{R})$ o plano projetivo, conforme definido em \textcite{doCarmo1992}. Podemos munir $M$ de uma métrica por munir $S^{2}$ com a métrica induzida por $\mathbb{R}^{3}$ e tomar a métrica quociente, a qual é definida por $\left< v,w \right>_{p}=\left< d\pi ^{-1}_{p}(v),d\pi ^{-1}_{p}(w) \right>_{\pi ^{-1}(p)}$, onde $\pi:S^{2}\to M$ é a projeção.
 	Obtemos, primeiramente, uma métrica para $S^{2}$ e classificamos as geodésicas em $S^{2}$. Faça $A=\{ (\theta,\phi)\in \mathbb{R}^{2}; 0<\theta<\pi; 0<\phi<2\pi \}$ e defina $\mathbf{x}:A\to S^{2}$ pondo $\mathbf{x}(\theta,\phi)=(\sin \theta \cos \phi,\sin \theta\sin \phi,\cos \theta)$.
 	Temos que
 	\begin{equation*}
@@ -262,7 +261,7 @@ Esse lema garante um intervalo de definição para as geodésicas, conforme demo
 	\label{prop:geodesicas-tempo-2}
 	Dado $p \in M$, existem
 	\begin{enumerate}[label=(\roman*)]
-		\item Vizinhança $V$ de $p$;
+		\item uma vizinhança $V$ de $p$;
 		\item $\epsilon>0$;
 		\item $\mathcal{U}=\{ (q,w)\in TM;q\in V; w \in T_{q}M; |w|<\epsilon \}$;
 		\item $\gamma:(-2,2)\times \mathcal{U}\to M$ diferenciável;
@@ -302,7 +301,7 @@ Não existe nenhum motivo profundo pela escolha do número $2$, além de ser o m
 \end{proposition}
 Note que a curva $\gamma\left( t,q, \frac{v}{|v|} \right)$ é uma geodésica normalizada. Logo,
 \begin{equation*}
-	l(\gamma|_{[0,|v|]})=\int_{0}^{|v|}\left|\frac{d\gamma}{dt}\left( t,q,\frac{v}{|v|} \right)\right|=\left|\frac{v}{|v|}\right| |v|=|v|.
+	l(\gamma|_{[0,|v|]})=\int_{0}^{|v|}\left|\frac{d\gamma}{dt}\left( t,q,\frac{v}{|v|} \right)\right|dt=\left|\frac{v}{|v|}\right| |v|=|v|.
 \end{equation*}
 \begin{proposition}
 	\label{prop:exp-difeomorfismo}
@@ -336,7 +335,7 @@ Se $c(t_{i})$ é um vértice, definimos o ângulo de $c(t_{i})$ pondo
 \begin{align*}
 	v^{-}=c'|_{[t_{i-1},t_{i}]}(t_{i}) &  & v^{+}=c'|_{[t_{i},t_{i+1}]}(t_{i}) \\
 \end{align*}
-e tomando $\theta_{i}$ o menor ângulo entre $0$ e $\pi$ que satisfaz
+e tomando $\theta_{i}$ o ângulo entre $0$ e $\pi$ que satisfaz
 \begin{equation*}
 	\cos\theta_{i}=\frac{\langle v^{-},v^{+} \rangle_{c(t_{i})} }{|v^{-}| |v^{+}|}.
 \end{equation*}
@@ -402,7 +401,7 @@ Um campo de vetores diferenciável $V$ ao longo de $s$ é uma aplicação que as
 \begin{definition}
 	\label{def:derivadas-superficie}
 	Sejam $s:A\to M$ uma superfície parametrizada, $(u_{0},v_{0})\in A$ e a projeção na primeira coordenada $\pi:A\to \mathbb{R}$. Seja
-	$$I=\{ u \in \mathbb{R}; u \in \text{mesma componente conexa de } \pi(u_{0},v_{0}) \text{ na imagem de } \pi \}$$.
+	$$I=\text{componente conexa de } \{ u \in \mathbb{R}; (u, v_0) \in A \} \text{ que contém } u_0.$$
 	A aplicação
 	\begin{align*}
 		c:I & \longrightarrow M      \\
@@ -526,16 +525,18 @@ Com a estrutura das superfícies parametrizadas, conseguimos mostrar o Lema de G
 		\end{equation*}
 		Note que, utilizando o fato de $\Phi ^{-1}(w_{N})$ ser ortogonal a $v$,
 		\begin{align*}
-			|v(s)|^{2} & =\langle v(s),v(s) \rangle                                                                                                                                                                                                       \\
-			           & =\cos ^{2}\left(\frac{|\Phi ^{-1}(w_{N})|}{|v|}s \right)\langle v,v \rangle + |v|^{2}\sin^{2}\left( \frac{|\Phi ^{-1}(w_{N})|}{|v|}s \right)\frac{1}{|\Phi ^{-1}(w_{N})|^{2}}\langle \Phi ^{-1}(w_{N}), \Phi ^{-1}(w_{N})\rangle \\
-			           & =\cos ^{2}\left(\frac{|\Phi ^{-1}(w_{N})|}{|v|}s \right)\langle v,v \rangle + \sin^{2}\left( \frac{|\Phi ^{-1}(w_{N})|}{|v|}s \right)\langle v,v \rangle                                                                         \\
+			|v(s)|^{2} & =\langle v(s),v(s) \rangle                                                                                                                                 \\
+			           & =\cos ^{2}\left(\frac{|\Phi ^{-1}(w_{N})|}{|v|}s \right)\langle v,v \rangle                                                                                \\
+			           & \quad + |v|^{2}\sin^{2}\left( \frac{|\Phi ^{-1}(w_{N})|}{|v|}s \right)\frac{1}{|\Phi ^{-1}(w_{N})|^{2}}\langle \Phi ^{-1}(w_{N}), \Phi ^{-1}(w_{N})\rangle \\
+			           & =\cos ^{2}\left(\frac{|\Phi ^{-1}(w_{N})|}{|v|}s \right)\langle v,v \rangle + \sin^{2}\left( \frac{|\Phi ^{-1}(w_{N})|}{|v|}s \right)\langle v,v \rangle   \\
 			           & = \langle v,v \rangle =|v|^{2} .
 		\end{align*}
 		Calculando a derivada da forma usual do cálculo, obtemos
 		\begin{align*}
-			v'(s) & = \frac{d}{ds} \left[ \cos\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \right] v + |v| \frac{d}{ds} \left[ \sin\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \right] \frac{\Phi ^{-1}(w_N)}{|\Phi ^{-1}(w_N)|}                                    \\
-			      & = -\left( \frac{|\Phi ^{-1}(w_N)|}{|v|} \right) \sin\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) v + |v| \left( \frac{|\Phi ^{-1}(w_N)|}{|v|} \right) \cos\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \frac{\Phi ^{-1}(w_N)}{|\Phi ^{-1}(w_N)|} \\
-			      & = -\frac{|\Phi ^{-1}(w_N)|}{|v|} \sin\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) v + \frac{|v| |\Phi ^{-1}(w_N)|}{|v| |\Phi ^{-1}(w_N)|} \cos\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \Phi ^{-1}(w_N)                                       \\
+			v'(s) & = \frac{d}{ds} \left[ \cos\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \right] v + |v| \frac{d}{ds} \left[ \sin\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \right] \frac{\Phi ^{-1}(w_N)}{|\Phi ^{-1}(w_N)|} \\
+			      & = -\left( \frac{|\Phi ^{-1}(w_N)|}{|v|} \right) \sin\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) v                                                                                                             \\
+			      & \quad + |v| \left( \frac{|\Phi ^{-1}(w_N)|}{|v|} \right) \cos\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \frac{\Phi ^{-1}(w_N)}{|\Phi ^{-1}(w_N)|}                                                            \\
+			      & = -\frac{|\Phi ^{-1}(w_N)|}{|v|} \sin\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) v + \frac{|v| |\Phi ^{-1}(w_N)|}{|v| |\Phi ^{-1}(w_N)|} \cos\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \Phi ^{-1}(w_N)    \\
 			      & = -\frac{|\Phi ^{-1}(w_N)|}{|v|} \sin\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) v + \cos\left( \frac{|\Phi ^{-1}(w_N)|}{|v|}s \right) \Phi ^{-1}(w_N)
 		\end{align*}.
 		Quando $s=0$, temos
@@ -590,11 +591,10 @@ Com a estrutura das superfícies parametrizadas, conseguimos mostrar o Lema de G
 		\end{align*}
 		Logo,
 		\begin{align*}
-			\langle (d\exp_p)_v (w_N), (d\exp_p)_v (v) \rangle & = \left\langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial s} \right\rangle (1,0)                                   \\
-			                                                   & = \lim_{t \to 0} \left\langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial s} \right\rangle (t,0)                    \\
-			                                                   & = \left\langle \lim_{t \to 0} \frac{\partial f}{\partial t}(t,0), \lim_{t \to 0} \frac{\partial f}{\partial s}(t,0) \right\rangle \\
-			                                                   & = \left\langle \lim_{t \to 0} \frac{\partial f}{\partial t}(t,0), {0} \right\rangle                                               \\
-			                                                   & = 0 = {\langle w_N, v \rangle} .
+			\langle (d\exp_p)_v (w_N), (d\exp_p)_v (v) \rangle & = \left\langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial s} \right\rangle (1,0)                                                                    \\
+			                                                   & = \lim_{t \to 0} \left\langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial s} \right\rangle (t,0)                                                     \\
+			                                                   & = \left\langle \lim_{t \to 0} \frac{\partial f}{\partial t}(t,0), \lim_{t \to 0} \frac{\partial f}{\partial s}(t,0) \right\rangle                                  \\
+			                                                   & = \left\langle \lim_{t \to 0} \frac{\partial f}{\partial t}(t,0), {0} \right\rangle                                               = 0 = {\langle w_N, v \rangle} .
 		\end{align*}
 	\end{proof}
 \end{theorem}
@@ -626,10 +626,8 @@ Utilizando o \Cref{teo:lema-de-gauss} e essas definições, podemos tornar preci
 		Mostremos que $0$ é valor regular de $f$, isto é, para todo $v \in T_pM$ tal que $f(v) = 0$, $df_v$ é sobrejetiva.
 		Sejam $v \in T_{p}M$, com $|v|=\epsilon$ e    $\alpha: (-\delta, \delta) \to T_pM$ tal que $\alpha(t) = v + tv$. Temos que $\alpha'(t) = v$ implicando que
 		\begin{align*}
-			df_v(v) & = df_v(\alpha'(0))                                                   \\
-			        & = (f \circ \alpha)'(0)                                               \\
-			        & = \frac{d}{dt}(|\alpha(t)| - \epsilon) \Big|_{t=0}                   \\
-			        & =  \frac{d}{dt} \langle v+tv, v+tv \rangle^{1/2} \Big|_{t=0}         \\
+			df_v(v) & = df_v(\alpha'(0))   = (f \circ \alpha)'(0)                                                                       \\
+			        & = \frac{d}{dt}(|\alpha(t)| - \epsilon) \Big|_{t=0}   =  \frac{d}{dt} \langle v+tv, v+tv \rangle^{1/2} \Big|_{t=0} \\
 			        & = \frac{d}{dt} (|v|^2 + t^2|v|^2 + 2t|v|^2)^{1/2}\Big|_{t=0} \neq 0.
 		\end{align*}
 		o que mostra que $df_{v}$ é sobrejetora, pois é uma aplicação linear não nula em $\mathbb{R}$.
