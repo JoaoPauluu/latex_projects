@@ -1,0 +1,31 @@
+% =====================================================================
+% comum/pacotes/figuras.tex — figuras, TikZ e legendas
+% =====================================================================
+% graphicx            : \includegraphics (imagens ficam em ../figures/)
+% tikz + bibliotecas  : as usadas nos projetos (setas, ângulos, sombras...)
+% pgfplots            : gráficos de funções
+% float               : opção [H] para fixar figuras
+% caption/subcaption  : legendas e subfiguras
+% asymptote           : figuras 3D em .asy (TCC). Desligado por padrão
+%                       porque exige o programa `asy` instalado; para
+%                       ligar, defina \newcommand{\comumAsymptote}{} antes
+%                       de carregar os módulos (veja comandos.tex: \asyimage).
+% =====================================================================
+
+\usepackage{graphicx}
+\graphicspath{{../figures/}{figures/}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, positioning, decorations.markings,
+  angles, quotes, shapes.geometric, shapes.symbols, shadows}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\ifdefined\comumAsymptote
+  \usepackage{asymptote}
+\fi

@@ -1,0 +1,68 @@
+% =====================================================================
+% TEMPLATE: ARTIGO / NOTAS / LISTA DE EXERCÍCIOS
+% Documento curto em article, com os mesmos pacotes e ambientes do TCC.
+% Compilar com: latexmk -xelatex -outdir=../build main.tex
+% =====================================================================
+\documentclass[12pt, a4paper]{article}
+
+% ---------- Configuração dos módulos comuns ----------
+\newcommand{\comumNumeracao}{section}        % Teorema 1.1, 1.2, ...
+\newcommand{\comumBibliografia}{referencias.bib}
+\newcommand{\comumContadorUnico}{}           % Def. 1.1, Teo. 1.2, Lema 1.3, ...
+
+\input{comum/packages}
+
+% Artigo não usa cabeçalho com régua: só o número da página no rodapé.
+\pagestyle{plain}
+
+% ---------- Dados do documento ----------
+\title{Título do Artigo}
+\author{%
+  Nome do Autor\thanks{Unespar, \textit{campus} de Campo Mourão.}
+  \and
+  Nome do Coautor%
+}
+\date{\today}
+
+\hypersetup{pdftitle={Título do Artigo}, pdfauthor={Nome do Autor}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  Resumo do trabalho (entre 100 e 250 palavras).
+
+  \medskip
+  \noindent\textbf{Palavras-chave:} palavra 1; palavra 2; palavra 3.
+\end{abstract}
+
+\section{Introdução}
+\label{sec:introducao}
+
+Texto da introdução \parencite{doCarmo1992}.
+
+\section{Desenvolvimento}
+\label{sec:desenvolvimento}
+
+\begin{definition}
+  \label{def:exemplo}
+  Definição de exemplo.
+\end{definition}
+
+\begin{theorem}
+  \label{teo:exemplo}
+  Pela \cref{def:exemplo}, vale \ldots
+\end{theorem}
+
+\begin{proof}
+  Demonstração.
+\end{proof}
+
+\section{Considerações finais}
+
+Conforme o \Cref{teo:exemplo} \ldots
+
+\printbibliography[title={Referências}]
+
+\end{document}

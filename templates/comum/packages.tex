@@ -1,0 +1,33 @@
+% =====================================================================
+% comum/packages.tex — PONTO DE ENTRADA DOS MÓDULOS COMPARTILHADOS
+% =====================================================================
+% Uso (no preâmbulo do documento, logo após \documentclass):
+%
+%     % (opcional) configurações ANTES do \input:
+%     \newcommand{\comumNumeracao}{chapter}   % chapter | section | (vazio)
+%     \newcommand{\comumBibliografia}{referencias.bib}
+%     \input{comum/packages}
+%
+% Carrega, NESTA ORDEM, os módulos abaixo. A ordem importa:
+%   1. idioma       — codificação, fontes e babel (sempre primeiro)
+%   2. matematica   — ams*, mathtools, bm, tikz-cd
+%   3. figuras      — graphicx, tikz, pgfplots, float, (sub)caption
+%   4. layout-abnt  — margens ABNT, espaçamento 1,5, cabeçalho
+%   5. referencias  — biblatex-abnt, hyperref e cleveref
+%                     (hyperref/cleveref precisam vir depois de quase tudo)
+%   6. theoremstyles — ambientes de teorema + nomes do cleveref
+%                     (precisa do cleveref já carregado)
+%   7. comandos     — macros próprias (\asyimage, ambiente citacao)
+%
+% Para desligar um módulo, comente a linha correspondente.
+% Em beamer NÃO use este arquivo inteiro: beamer já define teoremas e
+% layout; carregue só os módulos 1, 2, 3 e 5 (veja templates/slides-unespar).
+% =====================================================================
+
+\input{comum/pacotes/idioma}
+\input{comum/pacotes/matematica}
+\input{comum/pacotes/figuras}
+\input{comum/pacotes/layout-abnt}
+\input{comum/pacotes/referencias}
+\input{comum/theoremstyles}
+\input{comum/comandos}

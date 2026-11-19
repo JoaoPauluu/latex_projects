@@ -24,3 +24,18 @@
 *.bbl
 *.blg
 *.vrb
+# biber / biblatex
+*.bcf
+*.run.xml
+*-SAVE-ERROR
+
+# latexmk / xelatex intermediários
+*.xdv
+*.pre
+
+# asymptote: arquivos gerados pelo pacote asymptote dentro de build/
+**/build/*-[0-9]*.asy
+**/build/*-[0-9]*.tex
+
+# latexindent
+indent.log

@@ -1,0 +1,31 @@
+% =====================================================================
+% comum/pacotes/referencias.tex — bibliografia e referências cruzadas
+% =====================================================================
+% biblatex  : backend biber, estilo ABNT (pacote biblatex-abnt).
+%             Arquivo .bib: \comumBibliografia (padrão: referencias.bib).
+%             Para outro estilo, defina antes:
+%               \newcommand{\comumEstiloBib}{authoryear}
+% hyperref  : links no PDF (pretos para não "poluir" a impressão).
+%             Ajuste título/autor com \hypersetup{pdftitle=..., pdfauthor=...}.
+% cleveref  : \cref / \Cref em português, com nome capitalizado.
+%             Precisa vir DEPOIS do hyperref — por isso fica neste módulo.
+%
+% Compilação: latexmk detecta o biber automaticamente.
+% =====================================================================
+
+\providecommand{\comumBibliografia}{referencias.bib}
+\providecommand{\comumEstiloBib}{abnt}
+
+\usepackage{csquotes}
+\usepackage[backend=biber, style=\comumEstiloBib, sorting=nyt]{biblatex}
+\addbibresource{\comumBibliografia}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+}
+
+\usepackage[brazilian, capitalise]{cleveref}

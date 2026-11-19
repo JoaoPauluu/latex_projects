@@ -1,0 +1,61 @@
+% =====================================================================
+% TEMPLATE: TCC / MONOGRAFIA (Unespar — Licenciatura em Matemática)
+% Baseado em: projects/[TCC] - Geometria Riemanniana
+% Compilar com: latexmk -xelatex -outdir=../build main.tex
+% =====================================================================
+\documentclass[12pt, oneside]{book}
+
+% =====================================================
+% Preâmbulo (pacotes, ambientes de teorema, etc.)
+% =====================================================
+\input{preambulo}
+
+% =====================================================
+% Dados do trabalho (usados na capa e nos metadados do PDF)
+% =====================================================
+\newcommand{\tituloTCC}{Título do Trabalho de Conclusão de Curso}
+\newcommand{\autorUm}{Nome do Autor}
+\newcommand{\autorDois}{Nome do Orientador}
+\newcommand{\autorTres}{Nome do Coorientador}
+
+\title{\tituloTCC}
+\author{\autorUm \and \autorDois \and \autorTres}
+\date{\today}
+
+\hypersetup{
+  pdftitle={\tituloTCC},
+  pdfauthor={\autorUm, \autorDois, \autorTres}
+}
+
+\begin{document}
+
+% =====================================================
+% Elementos pré-textuais
+% =====================================================
+\input{capitulos/capa}
+
+\frontmatter
+\tableofcontents
+\clearpage
+
+% (opcional) Resumo/Abstract
+% \input{capitulos/resumo}
+
+% =====================================================
+% Corpo do texto — cada capítulo em um arquivo próprio
+% =====================================================
+\mainmatter
+
+\input{capitulos/cap1_introducao}
+% \input{capitulos/cap2_preliminares}
+% ...
+\input{capitulos/cap_conclusao}
+
+% =====================================================
+% Referências bibliográficas
+% =====================================================
+\printbibliography[
+  title={Referências Bibliográficas},
+  heading=bibintoc
+]
+\end{document}

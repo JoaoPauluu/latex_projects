@@ -1,0 +1,95 @@
+% =====================================================================
+% comum/theoremstyles.tex — ambientes de teorema (amsthm) + cleveref
+% =====================================================================
+% Requer: amsthm (pacotes/matematica.tex) e cleveref (pacotes/referencias.tex).
+%
+% Ambientes disponíveis:
+%   estilo plain      : theorem, proposition, lemma, corollary
+%   estilo definition : definition, axiom, example, examples, observation
+%   sem número        : theorem*, definition*, example*, observation*
+%
+% Configuração (defina ANTES de carregar este arquivo):
+%   \newcommand{\comumNumeracao}{chapter}  % Teorema 2.1  (livro/TCC)
+%   \newcommand{\comumNumeracao}{section}  % Teorema 2.1  (artigo)
+%   (não definir)                           % Teorema 1, 2, ...
+%
+%   \newcommand{\comumContadorUnico}{}     % todos os ambientes dividem um
+%                                          % contador (Def. 2.1, Teo. 2.2, ...)
+%                                          % padrão: um contador por ambiente
+%
+% Uso com cleveref: \cref{teo:x} -> "teorema 2.1"; \Cref{teo:x} -> "Teorema 2.1".
+% Prefixos de rótulo sugeridos: teo:, prop:, lem:, cor:, def:, ax:, ex:, obs:
+% =====================================================================
+
+\providecommand{\comumNumeracao}{}
+\ifdefined\comumContadorUnico
+  \RequirePackage{aliascnt}
+\fi
+
+\makeatletter
+% \comum@novoteorema{ambiente}{Nome}
+\newcommand{\comum@novoteorema}[2]{%
+  \ifdefined\comumContadorUnico
+    % o primeiro ambiente (theorem) cria o contador; os demais o reutilizam
+    \@ifundefined{c@theorem}%
+      {\comum@teoremasimples{#1}{#2}}%
+      {% aliascnt: contador "apelido" de theorem, para o cleveref saber
+       % que o rótulo é uma definição/lema/... e não um teorema
+       \newaliascnt{#1}{theorem}%
+       \newtheorem{#1}[#1]{#2}%
+       \aliascntresetthe{#1}}%
+  \else
+    \comum@teoremasimples{#1}{#2}%
+  \fi
+}
+\newcommand{\comum@teoremasimples}[2]{%
+  \if\relax\detokenize\expandafter{\comumNumeracao}\relax
+    \newtheorem{#1}{#2}%
+  \else
+    \newtheorem{#1}{#2}[\comumNumeracao]%
+  \fi
+}
+
+% ---------- Estilo plain (itálico): resultados ----------
+\theoremstyle{plain}
+\comum@novoteorema{theorem}{Teorema}
+\comum@novoteorema{proposition}{Proposição}
+\comum@novoteorema{lemma}{Lema}
+\comum@novoteorema{corollary}{Corolário}
+\newtheorem*{theorem*}{Teorema}
+
+% ---------- Estilo definition (reto): definições e exemplos ----------
+\theoremstyle{definition}
+\comum@novoteorema{definition}{Definição}
+\comum@novoteorema{axiom}{Axioma}
+\comum@novoteorema{example}{Exemplo}
+% examples compartilha o contador de example
+\newtheorem{examples}[example]{Exemplos}
+\comum@novoteorema{observation}{Observação}
+\newtheorem*{definition*}{Definição}
+\newtheorem*{example*}{Exemplo}
+\newtheorem*{observation*}{Observação}
+
+% ---------- Fim de demonstração ----------
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ---------- Nomes para \cref (minúsculo) e \Cref (maiúsculo) ----------
+\crefname{theorem}{teorema}{teoremas}
+\Crefname{theorem}{Teorema}{Teoremas}
+\crefname{proposition}{proposição}{proposições}
+\Crefname{proposition}{Proposição}{Proposições}
+\crefname{lemma}{lema}{lemas}
+\Crefname{lemma}{Lema}{Lemas}
+\crefname{corollary}{corolário}{corolários}
+\Crefname{corollary}{Corolário}{Corolários}
+\crefname{definition}{definição}{definições}
+\Crefname{definition}{Definição}{Definições}
+\crefname{axiom}{axioma}{axiomas}
+\Crefname{axiom}{Axioma}{Axiomas}
+\crefname{example}{exemplo}{exemplos}
+\Crefname{example}{Exemplo}{Exemplos}
+\crefname{examples}{exemplos}{exemplos}
+\Crefname{examples}{Exemplos}{Exemplos}
+\crefname{observation}{observação}{observações}
+\Crefname{observation}{Observação}{Observações}
+\makeatother

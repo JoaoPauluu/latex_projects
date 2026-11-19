@@ -1,0 +1,35 @@
+% =====================================================================
+% comum/comandos.tex — macros e ambientes próprios
+% =====================================================================
+% \asyimage[opções]{arquivo}{Legenda}[rótulo]
+%     Figura flutuante [H] centralizada com legenda e rótulo opcional.
+%     Feita para os PDFs gerados a partir de .asy (TCC), mas serve para
+%     qualquer imagem. Ex.:
+%       \asyimage[width=0.6\linewidth]{asyimages/diagram1.pdf}
+%                {Parametrizações}[fig:param]
+%
+% \begin{citacao} ... \end{citacao}
+%     Citação longa no padrão ABNT (NBR 10520): recuo de 4cm,
+%     fonte menor e espaçamento simples.
+% =====================================================================
+
+\NewDocumentCommand{\asyimage}{O{width=0.8\linewidth} m m o}{%
+  \begin{figure}[H]%
+    \centering
+    \includegraphics[#1]{#2}%
+    \caption{#3}%
+    \IfValueT{#4}{\label{#4}}%
+  \end{figure}%
+}
+
+\newenvironment{citacao}{%
+  \par\smallskip
+  \begingroup
+  \leftskip=4cm
+  \small
+  \ifdefined\singlespacing\singlespacing\fi
+  \noindent\ignorespaces
+}{%
+  \par\endgroup
+  \smallskip
+}

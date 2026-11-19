@@ -1,0 +1,149 @@
+% =====================================================================
+% TEMPLATE: SLIDES UNESPAR (beamer 16:9, tema sthlmnord)
+% Baseado em: [TCC] - Slides Projeto e nos slides do Ágora 2026.
+% Compilar com: latexmk -xelatex -outdir=../build main.tex
+%
+% DEPENDÊNCIA: o tema beamer "sthlmnord" não vem no TeX Live.
+% Veja a seção "Requisitos" do README.md na raiz do repositório.
+% Sem ele, troque a linha \usetheme abaixo por \usetheme{default}.
+% =====================================================================
+\documentclass[aspectratio=169]{beamer}
+
+% ---------- Módulos comuns ----------
+% Beamer já define layout e ambientes de teorema (Teorema, Definição,
+% Exemplo, ...), então NÃO carregamos comum/packages.tex inteiro, só:
+\newcommand{\comumBibliografia}{referencias.bib}
+\input{comum/pacotes/idioma}
+\input{comum/pacotes/matematica}
+\input{comum/pacotes/figuras}
+\input{comum/pacotes/referencias}
+
+% Fonte sem serifa estilo Helvetica (equivale ao \usepackage{helvet})
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage{helvet}
+\else
+  % TeX Gyre Heros vem com o TeX Live; carregada pelo nome do arquivo
+  % para funcionar mesmo sem a fonte instalada no sistema.
+  \setsansfont{texgyreheros}[
+    Extension=.otf, UprightFont=*-regular, BoldFont=*-bold,
+    ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+\fi
+\renewcommand{\familydefault}{\sfdefault}
+\AtBeginDocument{\shorthandoff{"}}   % evita conflito do babel com tikz-cd
+
+% Nomes dos blocos de teorema do beamer em português
+% (sem isto aparecem "Theorem", "Definition", ...)
+\deftranslation[to=brazilian]{Theorem}{Teorema}
+\deftranslation[to=brazilian]{Definition}{Definição}
+\deftranslation[to=brazilian]{Definitions}{Definições}
+\deftranslation[to=brazilian]{Example}{Exemplo}
+\deftranslation[to=brazilian]{Examples}{Exemplos}
+\deftranslation[to=brazilian]{Lemma}{Lema}
+\deftranslation[to=brazilian]{Corollary}{Corolário}
+\deftranslation[to=brazilian]{Fact}{Fato}
+\deftranslation[to=brazilian]{Proof}{Demonstração}
+
+\usetheme[mode=light]{sthlmnord}
+
+% =====================================================================
+% EVENTO (opcional) — para apresentações em eventos (ex.: Ágora).
+% Descomente as duas linhas e coloque o logo em ../figures/logo_evento.png
+% =====================================================================
+% \newcommand{\eventoNome}{X Ágora Matemática – Unespar, campus de Campo Mourão}
+% \newcommand{\eventoLogo}{logo_evento.png}
+
+% ---------- Página de título: título, autores e faixa de logos ----------
+\setbeamertemplate{title page}{
+  \vfill
+  \begin{centering}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\Huge \textbf{\inserttitle}}\par
+    \vspace{1cm}
+    {\usebeamerfont{author}\large \insertauthor}\par
+  \end{centering}
+  \vfill
+  \begin{center}
+    \includegraphics[height=1.6cm]{logo_unespar.png} \hfill
+    \ifdefined\eventoLogo
+      \includegraphics[height=1.2cm]{\eventoLogo} \hfill
+    \fi
+    \includegraphics[height=1.2cm]{mat.png}
+    % \hfill \includegraphics[height=1.2cm]{prpgem.png}
+  \end{center}
+  \vspace{0.2cm}
+}
+
+% ---------- Rodapé (a partir do 2º slide) ----------
+% Com evento: nome do evento à esquerda e logo do evento à direita.
+% Sem evento: apenas o logo da Unespar à direita.
+\setbeamertemplate{footline}{
+  \ifnum\insertframenumber>1
+  \hbox{%
+    \begin{beamercolorbox}[wd=.8\paperwidth,ht=1cm,dp=0.5cm,leftskip=1cm]{}
+      \ifdefined\eventoNome\scriptsize\color{gray}\eventoNome\fi
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=1cm,dp=0.5cm,right,rightskip=0.8cm]{}
+      \ifdefined\eventoLogo
+        \includegraphics[height=1.2cm]{\eventoLogo}%
+      \else
+        \includegraphics[height=1.2cm]{logo_unespar.png}%
+      \fi
+    \end{beamercolorbox}%
+  }
+  \fi
+}
+
+% ---------- Dados da apresentação ----------
+\title{Título da Apresentação}
+\author{\Large
+  Nome do Autor\\
+  Nome do Orientador\\
+}
+\date{}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}{Conteúdo}
+  \tableofcontents
+\end{frame}
+
+\section{Introdução}
+
+\begin{frame}{Contexto}
+  \begin{itemize}
+    \item Primeiro ponto \parencite{doCarmo1992};
+    \item<2-> Segundo ponto (aparece no clique).
+  \end{itemize}
+\end{frame}
+
+\section{Resultados}
+
+\begin{frame}{Resultado principal}
+  \begin{definition}
+    Um \emph{objeto} é \ldots
+  \end{definition}
+  \begin{theorem}
+    Todo objeto satisfaz $\displaystyle\int_M \omega = 0$.
+  \end{theorem}
+\end{frame}
+
+\begin{frame}[fragile]{Diagrama}  % tikz-cd usa &: exige [fragile]
+  \[
+    \begin{tikzcd}
+      A \arrow[r, "f"] \arrow[d, "g"'] & B \arrow[d, "h"] \\
+      C \arrow[r, "k"'] & D
+    \end{tikzcd}
+  \]
+\end{frame}
+
+\section{Referências}
+
+\begin{frame}[allowframebreaks]{Referências}
+  \printbibliography[heading=none]
+\end{frame}
+
+\end{document}

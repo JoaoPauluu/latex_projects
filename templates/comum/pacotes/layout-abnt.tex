@@ -1,0 +1,29 @@
+% =====================================================================
+% comum/pacotes/layout-abnt.tex — página no padrão ABNT (NBR 14724)
+% =====================================================================
+% Margens: superior/esquerda 3cm, inferior/direita 2cm.
+% Espaçamento 1,5; recuo no primeiro parágrafo; número da página no
+% canto superior direito (fancyhdr); tabelas com booktabs/multirow.
+%
+% Documentos com cabeçalho/margens próprios (ex.: relatório PRPPG)
+% podem sobrescrever depois com \geometry{...} e \fancyhead{...}.
+% NÃO usar em beamer.
+% =====================================================================
+
+\usepackage[a4paper, top=3cm, bottom=2cm, left=3cm, right=2cm,
+  headheight=14.5pt]{geometry}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\usepackage{booktabs}
+\usepackage{multirow}

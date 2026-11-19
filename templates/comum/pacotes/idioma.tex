@@ -1,0 +1,27 @@
+% =====================================================================
+% comum/pacotes/idioma.tex — codificação, fontes e idioma
+% =====================================================================
+% Detecta o motor de compilação:
+%   * XeLaTeX / LuaLaTeX (padrão do repositório, ver .vscode/settings.json):
+%       fontspec com Latin Modern (Unicode nativo, sem inputenc).
+%   * pdfLaTeX: inputenc utf8 + fontenc T1 + lmodern.
+% Para trocar a fonte principal em XeLaTeX, use DEPOIS deste módulo:
+%       \setmainfont{Liberation Serif}   % ex.: Times-compatível (IC/PRPPG)
+%       \setsansfont{texgyreheros}[Extension=.otf, ...]  % Helvetica (slides)
+% =====================================================================
+
+\usepackage{iftex}
+
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+\fi
+
+\usepackage[brazilian]{babel}
+
+% Listas: enumitem (rótulos/espaçamento) e moreenum (\roman, \greek, ...)
+\usepackage{enumitem}
+\usepackage{moreenum}
