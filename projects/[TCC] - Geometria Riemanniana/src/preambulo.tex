@@ -36,7 +36,7 @@
 % ---------- Figuras .asy + caption ----------
 % \asyimage[options]{file.asy}{Caption}[label]
 \NewDocumentCommand{\asyimage}{O{width=0.8\linewidth} m m o}{%
-  \begin{figure}[!htbp]
+  \begin{figure}[H]%[!htbp]
     \centering
     \includegraphics[#1]{#2}
     \caption{#3}

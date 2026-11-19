@@ -161,13 +161,13 @@ Cabe, antes de iniciarmos o estudo dos campos de vetores, enunciar um lema que s
 		\begin{enumerate}[label=(\roman*)]
 			\item Seja $M$ uma variedade diferenciável e $p \in M$. Uma função diferenciável $\alpha:(-\epsilon, \epsilon) \subset \mathbb{R} \to M$, com $\epsilon>0$, é chamada \emph{curva diferenciável}.
 			\item Sejam $\alpha:(-\epsilon, \epsilon)\to M$ curva diferenciável, com $\alpha(0)=p$ e $\mathcal{D}=\{ f:M\to \mathbb{R}; f \text{ diferenciável} \}$. O \emph{vetor tangente} à curva $\alpha$ em $t=0$ é o funcional $\alpha'(0):\mathcal{D}\to \mathbb{R}$ tal que $\alpha'(0)f=\frac{d(f\circ\alpha)}{dt}|_{t=0}$.
-			\item Seja $p \in M$. Definimos o plano tangente
+			\item Seja $p \in M$. Definimos o espaço tangente
 		\end{enumerate}
 		\begin{equation*}
 			T_{p}M=\{ \alpha'(0); \alpha:(-\epsilon, \epsilon)\to M \text{ é curva diferenciável, com } \alpha(0)=p \}.
 		\end{equation*}
 	\end{definition}
-	Vamos mostrar que um plano tangente é um espaço vetorial.
+	Vamos mostrar que um espaço tangente é um espaço vetorial.
 	\begin{proposition}
 		\label{prop:vetor-tangente-coordenadas}
 		Seja $M$ uma variedade diferenciável e $p \in M$. O espaço tangente $T_{p}M$ é um espaço vetorial.
@@ -735,7 +735,7 @@ Note, em particular, que $\mathbb{R}^{n}$ é uma variedade diferenciável em que
 		\label{prop:esfera-orientavel}
 		Seja $S^{n}=\{ \left( x_{1}, \dots, x_{n+1}\right)\in \mathbb{R}^{n+1};\sum x_{i}^{2}=1 \}$. $S^{n}$ é orientável. Basta considerar as projeções estereográficas do polo norte e do polo sul.
 	\end{proposition}
-	Como todo espaço vetorial finitamente gerado tem apenas duas orientações, faz sentido pensar se existe algum limitante para o número de orientações de uma variedade diferenciável. Primeiro, notemos que se uma variedade é orientável, então ela possuí pelo menos duas orientações. Intuitivamente, basta selecionar uma orientação da variedade, a qual é uma orientação de todos os planos tangentes da mesma e inverter a orientação do plano tangente.
+	Como todo espaço vetorial finitamente gerado tem apenas duas orientações, faz sentido pensar se existe algum limitante para o número de orientações de uma variedade diferenciável. Primeiro, notemos que se uma variedade é orientável, então ela possuí pelo menos duas orientações. Intuitivamente, basta selecionar uma orientação da variedade, a qual é uma orientação de todos os planos tangentes da mesma e inverter a orientação do espaço tangente.
 
 	lemma:
 	Toda variedade orientável admite pelo menos duas orientações.
@@ -844,19 +844,21 @@ composta de campos vetoriais, definindo $(VW)f = V (Wf)$. Entretanto, perceba qu
 composta de campos vetoriais não é um campo vetorial, pois sua expressão em
 coordenadas envolve derivadas de segunda ordem.
 
-\begin{lemma}
-	\label{lem:definicao-local-global}
-	Sejam $M$ um espaço topológico, $\{ V_{\alpha}\}$ uma cobertura com abertos de $M$, $N$  um conjunto arbitrário fixo, e $\{ f_{\alpha} \}$ uma família de funções $f_{\alpha}:V_{\alpha}\to N$ tais que se $V_{\alpha} \cap V_{\beta}\neq0$ então $f_{\alpha}|_{V_{\beta}}=f_{\beta}|_{V_{\alpha}}$. Então, está bem definida a função
-	\begin{equation*}
-		F:M  \ni p \rightsquigarrow f_{\alpha}(p) \in N,
-	\end{equation*}
-	onde $\alpha$ é um índice arbitrário em que $p \in V_{\alpha}$. Mais ainda, se $M$ for uma variedade diferenciável, onde os $V_{\alpha}$ são vizinhanças coordenadas e os $f_{\alpha}$ diferenciáveis, $F$ também será diferenciável.
-	\begin{proof}
+\iffalse % POSIÇÃO DESSE LEMA FOI ALTERADA!
+	\begin{lemma}
+		%\label{lem:definicao-local-global}
+		Sejam $M$ um espaço topológico, $\{ V_{\alpha}\}$ uma cobertura com abertos de $M$, $N$  um conjunto arbitrário fixo, e $\{ f_{\alpha} \}$ uma família de funções $f_{\alpha}:V_{\alpha}\to N$ tais que se $V_{\alpha} \cap V_{\beta}\neq0$ então $f_{\alpha}|_{V_{\beta}}=f_{\beta}|_{V_{\alpha}}$. Então, está bem definida a função
+		\begin{equation*}
+			F:M  \ni p \rightsquigarrow f_{\alpha}(p) \in N,
+		\end{equation*}
+		onde $\alpha$ é um índice arbitrário em que $p \in V_{\alpha}$. Mais ainda, se $M$ for uma variedade diferenciável, onde os $V_{\alpha}$ são vizinhanças coordenadas e os $f_{\alpha}$ diferenciáveis, $F$ também será diferenciável.
+		\begin{proof}
 
-		Sejam $p \in M$ e $\alpha, \beta$ índices distintos, tais que $p \in(V_{\alpha})\cap (V_{\beta})$. Pela hipótese, segue que $f_{\beta}(p)=f_{\alpha}(p)$ e, portanto $F$ está bem definida.
-		Supondo agora que os $f_{\alpha}$ são diferenciáveis, tome $\mathbf{x}_{\alpha}:U_{\alpha}\to V_{\alpha}$, com $p \in V_{\alpha}$. Temos que $F|_{V_{\alpha}}=f_{\alpha}$ e, portanto, é diferenciável em $p$.
-	\end{proof}
-\end{lemma}
+			Sejam $p \in M$ e $\alpha, \beta$ índices distintos, tais que $p \in(V_{\alpha})\cap (V_{\beta})$. Pela hipótese, segue que $f_{\beta}(p)=f_{\alpha}(p)$ e, portanto $F$ está bem definida.
+			Supondo agora que os $f_{\alpha}$ são diferenciáveis, tome $\mathbf{x}_{\alpha}:U_{\alpha}\to V_{\alpha}$, com $p \in V_{\alpha}$. Temos que $F|_{V_{\alpha}}=f_{\alpha}$ e, portanto, é diferenciável em $p$.
+		\end{proof}
+	\end{lemma}
+\fi
 
 \begin{theorem}
 	\label{teo:equacoes-diferenciais}
@@ -867,7 +869,7 @@ coordenadas envolve derivadas de segunda ordem.
 	Dizemos que $\varphi_{t}:U\to M$, definida por $\varphi_{t}(q)=\varphi(t, q)$ é o fluxo local de $X$.
 \end{theorem}
 \begin{proof}
-	Consultar \textcite{leeSmooth2013} para a demonstração.
+	Consultar \textcite{leeSmooth2013}.
 \end{proof}
 
 \asyimage{asyimages/diagram2_local_flow}{Fluxo local do campo vetorial $X$.}
@@ -894,7 +896,7 @@ coordenadas envolve derivadas de segunda ordem.
 
 
 
-Finalizaremos este capítulo apresentando alguns resultados topológicos acerca das variedades diferenciáveis. Eles serão úteis posteriormente para mostrar que toda variedade diferenciável possui uma métrica riemanniana.
+Finalizaremos este capítulo apresentando alguns resultados topológicos acerca das variedades diferenciáveis. Eles serão úteis posteriormente para mostrar que toda variedade diferenciável possui uma métrica Riemanniana.
 
 Retomemos, primeiramente, algumas definições topológicas:
 \begin{definition}
@@ -925,7 +927,7 @@ Retomemos, primeiramente, algumas definições topológicas:
 	\label{teo:particao-da-unidade}
 	Uma variedade diferenciável $M$ possui partição diferenciável da unidade se, e somente se, toda componente conexa de $M$ é Hausdorff e tem base enumerável.
 	\begin{proof}
-		Consultar \textcite{leeSmooth2013} para a demonstração.
+		Consultar \textcite{leeSmooth2013}.
 	\end{proof}
 \end{theorem}
 Além desses, convém mencionar a existência das funções \textit{bump}, as quais são úteis quando temos algo definido localmente e precisamos estender a definição diferenciávelmente.

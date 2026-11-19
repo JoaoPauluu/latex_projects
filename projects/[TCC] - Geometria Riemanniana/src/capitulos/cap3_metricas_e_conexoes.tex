@@ -2,18 +2,18 @@
 
 \chapter{Métricas e Conexões}
 \label{cap:metricas-conexoes}
-O objetivo deste capítulo é explorar a noção de métrica riemanniana, a qual generaliza a primeira forma fundamental estudada em geometria diferencial. Aqui, deixamos de estudar topologia diferencial e passamos, de fato, a estudar geometria Riemanniana, quando analisamos variedades riemannianas, as quais são variedades diferenciáveis munidas de uma métrica.
+O objetivo deste capítulo é explorar a noção de métrica Riemanniana, a qual generaliza a primeira forma fundamental estudada em geometria diferencial. Aqui, deixamos de estudar topologia diferencial e passamos, de fato, a estudar geometria Riemanniana, quando analisamos variedades Riemannianas, as quais são variedades diferenciáveis munidas de uma métrica.
 
-Uma métrica riemanniana em uma variedade diferenciável é uma regra para definir um produto interno definido positivo em cada espaço tangente, que varia diferenciavelmente. Resumidamente, uma métrica riemanniana permite calcular distâncias e ângulos em uma variedade diferenciável, assim como uma métrica em um espaço euclidiano.
+Uma métrica Riemanniana em uma variedade diferenciável é uma regra para definir um produto interno definido positivo em cada espaço tangente, que varia diferenciavelmente. Resumidamente, uma métrica Riemanniana permite calcular distâncias e ângulos em uma variedade diferenciável, assim como uma métrica em um espaço euclidiano.
 
-Mostramos que toda variedade diferenciável, sob certas condições, pode ser munida de uma métrica riemanniana. Esse resultado estende a aplicabilidade desse capítulo e dos posteriores a uma grande classe de variedades diferenciáveis. Posteriormente, com o teorema de Hopf-Rinow, vemos que tais ferramentas da Geometria Riemanniana nos ajudam a deduzir certas propriedades das próprias variedades diferenciáveis.
+Mostramos que toda variedade diferenciável, sob certas condições, pode ser munida de uma métrica Riemanniana. Esse resultado estende a aplicabilidade desse capítulo e dos posteriores a uma grande classe de variedades diferenciáveis. Posteriormente, com o teorema de Hopf-Rinow, vemos que tais ferramentas da Geometria Riemanniana nos ajudam a deduzir certas propriedades das próprias variedades diferenciáveis.
 
-Também introduzimos o conceito de conexão, o qual serve como uma forma de identificar vetores em diferentes espaços tangentes, permitindo estender o conceito de diferenciabilidade ao longo de campos vetoriais. Mostramos o teorema de Levi-Civita, que afirma que toda variedade riemanniana possui uma única conexão compatível com a topologia e com a métrica da variedade.
+Também introduzimos o conceito de conexão, o qual serve como uma forma de identificar vetores em diferentes espaços tangentes, permitindo estender o conceito de diferenciabilidade ao longo de campos vetoriais. Mostramos o teorema de Levi-Civita, que afirma que toda variedade Riemanniana possui uma única conexão compatível com a topologia e com a métrica da variedade.
 \section{Métricas Riemannianas}
-\label{sec:metricas-riemannianas}
+\label{sec:metricas-Riemannianas}
 Iniciamos formalizando a noção de métrica.
 \begin{definition}
-	\label{def:metrica-riemanniana}
+	\label{def:metrica-Riemanniana}
 	Seja $M$ uma variedade diferenciável. Uma métrica Riemanniana é uma correspondência que associa a cada $p \in M$ um produto interno $\left<\cdot, \cdot\right>_{p}$, isto é, uma aplicação bilinear $\left<\cdot,\cdot\right>_{p}:T_{p}M\times T_{p}M\to \mathbb{R}$ que satisfaz:
 	\begin{enumerate}[label=(\roman*)]
 		\item Simétrica: $\left<u, v\right>_{p}= \left<v,u\right>_{p}$;
@@ -25,7 +25,7 @@ Iniciamos formalizando a noção de métrica.
 		      é diferenciável em $U$.
 	\end{enumerate}
 \end{definition}
-Dizemos que uma variedade diferenciável munida de uma métrica riemanniana é uma variedade riemanniana.
+Dizemos que uma variedade diferenciável munida de uma métrica Riemanniana é uma variedade Riemanniana.
 
 A transformação que preserva propriedades derivadas da métrica é denominada isometria, e é definida da seguinte maneira:
 
@@ -58,7 +58,7 @@ A transformação que preserva propriedades derivadas da métrica é denominada 
 		      A bilinearidade e a simetria seguem trivialmente e o fato da métrica ser diferenciável segue do fato de ser constante, fixados $i,j$. Essa métrica é denominada de métrica canônica ou euclidiana.
 		\item Variedades Imersas:
 		      seja $f:M^{n}\to N^{n+k}$ uma imersão, isto é, $f$ é diferenciável e $df_{p}$ é injetora para todo $p \in M$.
-		      Se $N$ é uma variedade riemanniana, podemos induzir uma métrica em $M$, pondo $\left< u, v \right>_{p}=\left< df_{p}(u), df_{p}(v) \right>_{f(p)}$. De fato, isso define uma métrica:
+		      Se $N$ é uma variedade Riemanniana, podemos induzir uma métrica em $M$, pondo $\left< u, v \right>_{p}=\left< df_{p}(u), df_{p}(v) \right>_{f(p)}$. De fato, isso define uma métrica:
 		      \begin{itemize}
 			      \item A bilinearidade segue do fato de $df_{p}$ ser linear;
 			      \item A simetria segue da métrica de $N$;
@@ -68,8 +68,8 @@ A transformação que preserva propriedades derivadas da métrica é denominada 
 		      Note que precisamos da injetividade de $df_{p}$ apenas para mostrar o fato de que a métrica é positiva definida.
 
 		\item Para construir uma métrica na esfera $S^{n}$, considere o mergulho dado pela função inclusão $i:S^{n}\to \mathbb{R}^{n+1}$ o qual é, em particular, uma imersão. Logo, munimos $\mathbb{R}^{n+1}$ da métrica canônica e $S^{n}$ da métrica induzida por tal.
-		\item Considere o semiplano superior aberto $\mathbb{R}^{2}_{+}=\{ (x,y) \in \mathbb{R}^{2}; y >0 \}$ munido da estrutura diferenciável $\{ (\mathbb{R}^{2}_{+},Id) \}$ com a métrica $\left<u,v\right>_{(x,y)}= \frac{1}{y^2}\left<u,v\right>_{\mathbb{R}^{2}}$, onde $\left<u,v\right>_{\mathbb{R}^{2}}$ denota a métrica euclidiana em $\mathbb{R}^{2}$. Essa variedade riemanniana é chamada de modelo de semiplano de Poincaré e ela serve como modelo da geometria hiperbólica de Lobachevsky.
-		\item Analogamente ao semiplano de Poincaré, temos o disco de Poincaré, o qual é construído tomando $D=\{ (x,y)\in \mathbb{R}^{2}|x^{2}+y^{2}< 1 \}$, munindo-o com a estrutura diferenciável identidade e com a métrica $\left<u,v\right>_{(x,y)}=\frac{4\left<u,v\right>_{\mathbb{R}^{2}}}{(1-(x^{2}+y^{2}))^{2}}$, temos outro modelo da geometria hiperbólica. A idealização dessa variedade é encontrada no livro \textit{Ciência e Hipótese} \cite{poincare1905}, onde a métrica riemanniana é substituída pela dilatação térmica. Poincaré explica intuitivamente da seguinte maneira:
+		\item Considere o semiplano superior aberto $\mathbb{R}^{2}_{+}=\{ (x,y) \in \mathbb{R}^{2}; y >0 \}$ munido da estrutura diferenciável $\{ (\mathbb{R}^{2}_{+},Id) \}$ com a métrica $\left<u,v\right>_{(x,y)}= \frac{1}{y^2}\left<u,v\right>_{\mathbb{R}^{2}}$, onde $\left<u,v\right>_{\mathbb{R}^{2}}$ denota a métrica euclidiana em $\mathbb{R}^{2}$. Essa variedade Riemanniana é chamada de modelo de semiplano de Poincaré e ela serve como modelo da geometria hiperbólica de Lobachevsky.
+		\item Analogamente ao semiplano de Poincaré, temos o disco de Poincaré, o qual é construído tomando $D=\{ (x,y)\in \mathbb{R}^{2}|x^{2}+y^{2}< 1 \}$, munindo-o com a estrutura diferenciável identidade e com a métrica $\left<u,v\right>_{(x,y)}=\frac{4\left<u,v\right>_{\mathbb{R}^{2}}}{(1-(x^{2}+y^{2}))^{2}}$, temos outro modelo da geometria hiperbólica. A idealização dessa variedade é encontrada no livro \textit{Ciência e Hipótese} \cite{poincare1905}, onde a métrica Riemanniana é substituída pela dilatação térmica. Poincaré explica intuitivamente da seguinte maneira:
 		      \begin{citacao}
 			      Observemos, em primeiro lugar, que embora do ponto de vista da nossa geometria comum este mundo seja finito, para os seus habitantes ele parece infinito. À medida que se aproximam da superfície da esfera, eles tornam-se mais frios e, ao mesmo tempo, cada vez menores. Os passos que dão são, portanto, também cada vez menores, de modo que nunca poderão alcançar a fronteira da esfera \footnote{Tradução realizada pelos autores.} (p.65).
 		      \end{citacao}
@@ -78,7 +78,7 @@ A transformação que preserva propriedades derivadas da métrica é denominada 
 
 \begin{example}
 	\label{ex:metrica-produto}
-	Sejam $M_{1}$ e $M_{2}$ variedades riemannianas. Definimos uma métrica na variedade produto $M_{1}\times M_{2}$ pondo
+	Sejam $M_{1}$ e $M_{2}$ variedades Riemannianas. Definimos uma métrica na variedade produto $M_{1}\times M_{2}$ pondo
 	\begin{equation*}
 		\left< u, v \right>_{(p,q)}=\left< d\pi_{1}(u), d\pi_{1}(v) \right>_{p}+\left< d\pi_{2}(u),d\pi_{2}(v)  \right>_{q}
 	\end{equation*}
@@ -86,7 +86,7 @@ A transformação que preserva propriedades derivadas da métrica é denominada 
 \end{example}
 \begin{example}
 	\label{ex:geometria-diferencial}
-	Na Geometria Diferencial, a primeira forma fundamental é um exemplo de métrica riemanniana, a qual pode ser obtida definindo em $\mathbb{R}^{3}$ a métrica euclidiana e induzindo tal métrica numa superfície, a qual está imersa em $\mathbb{R}^{3}$.
+	Na Geometria Diferencial, a primeira forma fundamental é um exemplo de métrica Riemanniana, a qual pode ser obtida definindo em $\mathbb{R}^{3}$ a métrica euclidiana e induzindo tal métrica numa superfície, a qual está imersa em $\mathbb{R}^{3}$.
 \end{example}
 Agora, generalizamos a noção de curva diferenciável para a de curva parametrizada.
 \begin{definition}
@@ -124,13 +124,15 @@ Aqui, a impossibilidade de encontrar um campo diferenciável que induz $c'$ se d
 \end{equation*}
 o que é um absurdo quando $t=0$.
 
-\begin{figure}
+
+Ajustamos então nossa pergunta: Se $c$ é uma curva simples e regular, isto é, injetora, com derivada não nula, e $V$ um campo ao longo de $c$, existe um campo $X$ tal que $V=X \circ c$? A resposta agora é positiva, se assumirmos que $c$ está definida em um intervalo compacto (incentivamos o leitor a encontrar um contraexemplo quando uma curva é simples e regular, porém definida em um intervalo não fechado e, em particular, não compacto). Precisamos primeiro estender a noção de vetor derivada para curvas em variedades diferenciáveis.
+
+\begin{figure}[H]
 	\centering
 	\input{tikzpictures/function_graphs.tex}
 	\caption{Gráfico das curvas.}
 \end{figure}
 
-Ajustamos então nossa pergunta: Se $c$ é uma curva simples e regular, isto é, injetora, com derivada não nula, e $V$ um campo ao longo de $c$, existe um campo $X$ tal que $V=X \circ c$? A resposta agora é positiva, se assumirmos que $c$ está definida em um intervalo compacto (incentivamos o leitor a encontrar um contraexemplo quando uma curva é simples e regular, porém definida em um intervalo não fechado e, em particular, não compacto). Precisamos primeiro estender a noção de vetor derivada para curvas em variedades diferenciáveis.
 \begin{definition}
 	\label{def:campo-velocidade}
 	O campo velocidade de uma curva parametrizada é o campo
@@ -144,7 +146,7 @@ Agora, podemos enunciar o resultado
 	\label{teo:extensao-campo-ao-longo-de-curva}
 	Seja $c:[a,b]\to M$ uma curva parametrizada regular simples, isto é, com $\frac{dc}{dt}(t)\neq0$, para todo $t \in [a,b]$ e $c$  injetora. Se $V$ é um campo vetorial diferenciável ao longo de $c$, existe um campo vetorial $Y$ em $M$ tal que $V=Y \circ c$.
 	\begin{proof}
-		Consultar \textcite{leeRiemannian} para a demonstração. %Teorema 3.4.
+		Consultar \textcite{leeRiemannian}. %Teorema 3.4.
 	\end{proof}
 \end{theorem}
 Com a noção de métrica e de curva, podemos definir comprimentos na variedade.
@@ -157,10 +159,10 @@ Com a noção de métrica e de curva, podemos definir comprimentos na variedade.
 \end{definition}
 Em breve, analisaremos curvas que minimizam localmente o comprimento. Tais curvas, denominadas geodésicas, são o principal interesse no nosso estudo.
 
-O próximo resultado mostra que toda variedade diferenciável Hausdorff, de base enumerável, admite uma métrica riemanniana.
+O próximo resultado mostra que toda variedade diferenciável Hausdorff, de base enumerável, admite uma métrica Riemanniana.
 \begin{theorem}
 	\label{teo:existencia-metrica}
-	Seja $M$ uma variedade diferenciável (Hausdorff e de base enumerável). Então $M$ é uma variedade riemanniana, isto é, existe uma métrica riemanniana em $M$.
+	Seja $M$ uma variedade diferenciável (Hausdorff e de base enumerável). Então $M$ é uma variedade Riemanniana, isto é, existe uma métrica Riemanniana em $M$.
 	\begin{proof}
 
 		Pelo \Cref{teo:particao-da-unidade}, $M$ possui partição da unidade, isto é, existe uma coleção $\{ f_{\alpha} \}$, com $f_{\alpha}:M\to \mathbb{R}$ tal que $f_{\alpha}\geq0$ e $suppf_{\alpha}\subset V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$, para todo $\alpha$. Mais ainda, a coleção $\{ V_{\alpha} \}$ é localmente finita e $\sum_{\alpha}f_{\alpha}(p)=1$, para todo $p \in M$.
@@ -171,7 +173,7 @@ O próximo resultado mostra que toda variedade diferenciável Hausdorff, de base
 		\end{equation*}
 		em que o produto interno à direita é o produto interno euclidiano, identificando $T_{\mathbf{x}_{\alpha}^{-1}(p)}U_{\alpha}$ com $\mathbb{R}^{n}$, conforme feito no \Cref{lem:espaco-tangente-espaco-vetorial}.
 
-		Mostremos que isso define uma métrica riemanniana em cada $V_{\alpha}$.
+		Mostremos que isso define uma métrica Riemanniana em cada $V_{\alpha}$.
 		A simetria e o fato de ser positiva definida seguem do produto interno euclidiano. Para mostrar a diferenciabilidade, tomemos uma parametrização $\mathbf{y}$ em uma vizinhança de $p$. Escrevendo $\frac{\partial}{\partial y_{i}}(q)=d\mathbf{y}_{q}(0, \dots, 0, 1, 0, \dots, 0)$, temos que
 		\begin{equation*}
 			\left<\frac{\partial}{\partial y_{i}}(q),\frac{\partial}{\partial y_{j}}(q)\right>_{\mathbf{y}(q)}^{\alpha}=\left<d\mathbf{x}_{\alpha}^{-1} \circ d\mathbf{y}_{q}\left(e_i\right),d\mathbf{x}_{\alpha}^{-1} \circ d\mathbf{y}_{q}\left(e_j\right)\right>,
@@ -222,7 +224,7 @@ Sendo assim, seguiremos a tradição moderna e introduziremos a noção de conex
 
 	Isto é, $\nabla$ é linear na primeira entrada, é aditiva na segunda e satisfaz a regra de Leibniz.
 \end{definition}
-Intuitivamente, uma conexão é uma noção da derivada de um campo vetorial ao longo de outro campo vetorial. A propriedade (i) é a linearidade da direção da derivada, a propriedade (ii) é análoga à regra da soma usual e a propriedade (iii) é análoga à regra do produto usual.  Apresentaremos adiante que toda variedade riemanniana admite uma única conexão afim que atende a certas propriedades, o que remove a ambiguidade da escolha de uma conexão em uma variedade e realça a importância do estudo das conexões afins.
+Intuitivamente, uma conexão é uma noção da derivada de um campo vetorial ao longo de outro campo vetorial. A propriedade (i) é a linearidade da direção da derivada, a propriedade (ii) é análoga à regra da soma usual e a propriedade (iii) é análoga à regra do produto usual.  Apresentaremos adiante que toda variedade Riemanniana admite uma única conexão afim que atende a certas propriedades, o que remove a ambiguidade da escolha de uma conexão em uma variedade e realça a importância do estudo das conexões afins.
 \begin{example}
 	\label{ex:conexao-afim}
 	Quando $M=\mathbb{R}^{n}$, identificando $e_{i}$ com $X_{i}$ e, sendo $X = \sum\alpha_{i}e_{i}$ e $Y=\sum\beta_{j}e_{j}$ campos vetoriais diferenciáveis,
@@ -306,7 +308,23 @@ O seguinte lema nos permite introduzir o conceito de derivada covariante.
 		Dessa forma, podemos estender $X$ em toda a variedade $M$. Para isso, tomemos $\bar{U}\subset U$ compacto, conforme o \Cref{lem:funcoes-bump}, de forma que $p \in \bar{U}$, e $f:M\to \mathbb{R}$ uma função com suporte compacto em $\bar{U}$. O campo $\bar{X}={f}X$ é o que satisfaz $X_{p}=v$.
 	\end{proof}
 \end{lemma}
-Tomando $p \in M$ e $v \in T_{p}M$ e utilizando o \Cref{lem:vetor-estendido-a-campo} e o \Cref{lem:conexao-afim-local}, dado $Y \in \chi(M)$ podemos considerar $(\nabla_{v}Y)_{p}$ substituindo $v$ por um campo $X \in \chi(M)$, com $X_{p}=v$. De fato,
+
+% LEMA REALOCADO DO CAPÍTULO PRELIMINARES PARA CÁ!
+\begin{lemma}
+	\label{lem:definicao-local-global}
+	Sejam $M$ um espaço topológico, $\{ V_{\alpha}\}$ uma cobertura com abertos de $M$, $N$  um conjunto arbitrário fixo, e $\{ f_{\alpha} \}$ uma família de funções $f_{\alpha}:V_{\alpha}\to N$ tais que se $V_{\alpha} \cap V_{\beta}\neq0$ então $f_{\alpha}|_{V_{\beta}}=f_{\beta}|_{V_{\alpha}}$. Então, está bem definida a função
+	\begin{equation*}
+		F:M  \ni p \rightsquigarrow f_{\alpha}(p) \in N,
+	\end{equation*}
+	onde $\alpha$ é um índice arbitrário em que $p \in V_{\alpha}$. Mais ainda, se $M$ for uma variedade diferenciável, onde os $V_{\alpha}$ são vizinhanças coordenadas e os $f_{\alpha}$ diferenciáveis, $F$ também será diferenciável.
+	\begin{proof}
+
+		Sejam $p \in M$ e $\alpha, \beta$ índices distintos, tais que $p \in(V_{\alpha})\cap (V_{\beta})$. Pela hipótese, segue que $f_{\beta}(p)=f_{\alpha}(p)$ e, portanto $F$ está bem definida.
+		Supondo agora que os $f_{\alpha}$ são diferenciáveis, tome $\mathbf{x}_{\alpha}:U_{\alpha}\to V_{\alpha}$, com $p \in V_{\alpha}$. Temos que $F|_{V_{\alpha}}=f_{\alpha}$ e, portanto, é diferenciável em $p$.
+	\end{proof}
+\end{lemma}
+
+Tomando $p \in M$ e $v \in T_{p}M$ e utilizando o \Cref{lem:conexao-afim-local} e o \Cref{lem:vetor-estendido-a-campo}, dado $Y \in \chi(M)$ podemos considerar $(\nabla_{v}Y)_{p}$ substituindo $v$ por um campo $X \in \chi(M)$, com $X_{p}=v$. De fato,
 \begin{equation*}
 	(\nabla_{X}Y)_{p} = \left.\sum_{k}\left[\left( \sum_{i,j}x_{i}y_{j}\Gamma_{i,j}^{k} \right)+X(y_{k})\right]X_{k}\right|_{p} = \sum_{k}\left[\left( \sum_{i,j}v_{i}y_{j}\Gamma_{i,j}^{k} \right)+v(y_{k})\right]X_{k}.
 \end{equation*}
@@ -425,7 +443,7 @@ Dada uma variedade diferenciável com partição da unidade, existem diversas co
 Agora, relacionaremos o conceito de métrica com o de conexão afim.
 \begin{definition}
 	\label{def:conexao-compativel}
-	Seja $M$ uma variedade riemanniana de métrica $\left<,\right>$ e conexão $\nabla$.
+	Seja $M$ uma variedade Riemanniana de métrica $\left<,\right>$ e conexão $\nabla$.
 	A conexão é dita compatível com a métrica quando, para toda curva parametrizada $c$ e quaisquer pares de campos de vetores paralelos $P$ e $P'$ ao longo de $c$ tivermos
 	\begin{equation*}
 		\left<P,P'\right> = \text{constante}.
@@ -434,7 +452,7 @@ Agora, relacionaremos o conceito de métrica com o de conexão afim.
 Essa noção generaliza a regra de Leibniz para produtos internos na geometria diferencial. A próxima proposição torna isso evidente e motiva tal definição:
 \begin{proposition}
 	\label{prop:leibniz-compativel}
-	Uma conexão $\nabla$ em uma variedade riemanniana com uma métrica $\left<,\right>$ é compatível se, e somente se, para quaisquer campos $V,W$ diferenciáveis ao longo da curva parametrizada $c:I\to M$ tivermos
+	Uma conexão $\nabla$ em uma variedade Riemanniana com uma métrica $\left<,\right>$ é compatível se, e somente se, para quaisquer campos $V,W$ diferenciáveis ao longo da curva parametrizada $c:I\to M$ tivermos
 	\begin{equation}
 		\label{eq:leibnz-para-covariante}
 		\frac{d}{dt}\left<V,W\right> =\left<\frac{DV}{dt},W\right> +\left<V,\frac{DW}{dt}\right>.
@@ -471,7 +489,7 @@ Essa noção generaliza a regra de Leibniz para produtos internos na geometria d
 Outra equivalência da compatibilidade é dada pelo corolário a seguir.
 \begin{corollary}
 	\label{cor:leibniz-direcional}
-	Uma conexão $\nabla$ em uma variedade riemanniana $M$ munida com uma métrica $\left<,\right>$ é compatível com a métrica se, e somente se, para quaisquer $X, Y, Z \in \chi(M)$,
+	Uma conexão $\nabla$ em uma variedade Riemanniana $M$ munida com uma métrica $\left<,\right>$ é compatível com a métrica se, e somente se, para quaisquer $X, Y, Z \in \chi(M)$,
 	\begin{equation}
 		\label{eq:leibnz-para-covariante-2}
 		X\left<Y,Z\right> =\left<\nabla_{X}Y,Z\right> +\left<Y,\nabla_{X}Z\right> .
@@ -573,13 +591,13 @@ O nome da propriedade é justificado pelo corolário a seguir:
 \end{corollary}
 A \Cref{prop:conexao-simetrica-equivalencia} nos ajuda a compreender melhor o comportamento de uma conexão simétrica. Fica claro que uma conexão simétrica preserva uma propriedade interessante do cálculo em $\mathbb{R}^{n}$: derivadas parciais comutam. Na terminologia das conexões, isso se torna $\nabla_{X_{i}}X_{j}=\nabla_{X_{j}}X_{i}$. Também, impor simetria sobre uma conexão implica automaticamente que a conexão é compatível com uma certa estrutura intrínseca da variedade diferenciável: o colchete, isto é, a ``não comutatividade'' da conexão é exatamente a ``não comutatividade'' medida pelo colchete.
 
-Agora, apresentaremos um dos resultados centrais deste capítulo: o Teorema de Levi-Civita. Esse resultado garante que, dada qualquer variedade riemanniana, existe exatamente uma conexão afim simétrica que é compatível com a métrica.
+Agora, apresentaremos um dos resultados centrais deste capítulo: o Teorema de Levi-Civita. Esse resultado garante que, dada qualquer variedade Riemanniana, existe exatamente uma conexão afim simétrica que é compatível com a métrica.
 \begin{theorem}[Levi-Civita]
 	\label{teo:levi-civita}
-	Dada $M$ uma variedade riemanniana, existe uma única conexão afim $\nabla$ em $M$ tal que:
+	Dada $M$ uma variedade Riemanniana, existe uma única conexão afim $\nabla$ em $M$ tal que:
 	\begin{enumerate}[label=(\roman*)]
 		\item $\nabla$ é simétrica;
-		\item $\nabla$ é compatível com a métrica riemanniana.
+		\item $\nabla$ é compatível com a métrica Riemanniana.
 	\end{enumerate}
 	\begin{proof}
 
@@ -623,11 +641,11 @@ Agora, apresentaremos um dos resultados centrais deste capítulo: o Teorema de L
 		onde $P_{i}$ é uma base ortonormal e $\left<P_{i},\nabla_{X_{i}}X_{j}\right>$ denota a expressão em \eqref{eq:levicivita-4}. O resultado segue do \Cref{lem:definicao-local-global}.
 	\end{proof}
 \end{theorem}
-De agora em diante, sempre que considerarmos uma variedade riamanniana, assumiremos que a variedade está munida com a conexão compatível com a métrica e simétrica. Tal conexão é chamada de conexão riemanniana ou conexão Levi-Civita.
+De agora em diante, sempre que considerarmos uma variedade riamanniana, assumiremos que a variedade está munida com a conexão compatível com a métrica e simétrica. Tal conexão é chamada de conexão Riemanniana ou conexão de Levi-Civita.
 
-Chamaremos os coeficientes $\Gamma_{i,j}^{k}$ de uma conexão Levi-Civita de símbolos de Christoffel.
+Chamaremos os coeficientes $\Gamma_{i,j}^{k}$ de uma conexão de Levi-Civita de símbolos de Christoffel.
 
-Perceba a grandeza desse resultado: ele afirma que existe uma conexão que, de certa maneira, é intrínseca à variedade riemanniana. Quando consideramos a conexão Levi-Civita, não estamos fazendo uma conexão arbitrária entre planos tangentes, mas sim, estabelecendo um referencial que permite estudar propriedades de tal variedade riemanniana.
+Perceba a grandeza desse resultado: ele afirma que existe uma conexão que, de certa maneira, é intrínseca à variedade Riemanniana. Quando consideramos a conexão de Levi-Civita, não estamos fazendo uma conexão arbitrária entre planos tangentes, mas sim, estabelecendo um referencial que permite estudar propriedades de tal variedade Riemanniana.
 Podemos calcular os símbolos de Christoffel em uma parametrização apenas utilizando os produtos internos desta. De fato, escrevendo $g_{i,j}=\left<X_{i},X_{j}\right>$, temos que
 \begin{equation*}
 	\left<X_{l},\nabla_{X_{i}}X_{j}\right> = \left<X_{l},\sum_{k}\Gamma_{i,j}^{k}X_{k}\right>= \sum_{k}\Gamma_{i,j}^{k}g_{l,k}  .
@@ -708,10 +726,10 @@ Conforme comentado anteriormente, analisemos exemplos de conexões Levi-Civita e
 	\begin{equation*}
 		(\nabla_{X}Y)_{p}=proj_{T_{p}S}(D_{X}Y(p)),
 	\end{equation*}
-	em que $proj$ é a projeção ortogonal e $D$ é a derivada usual de $\mathbb{R}^{3}$. É possível mostrar que essa é a conexão Levi-Civita da superfície e seus símbolos de Christoffel em uma parametrização coincidem com os estudados na Geometria Diferencial.
+	em que $proj$ é a projeção ortogonal e $D$ é a derivada usual de $\mathbb{R}^{3}$. É possível mostrar que essa é a conexão de Levi-Civita da superfície e seus símbolos de Christoffel em uma parametrização coincidem com os estudados na Geometria Diferencial.
 
-	3. Pelo Exemplo 2, conseguimos considerar o transporte paralelo estabelecido pela conexão Levi-Civita de maneira análoga ao que é feito na Geometria Diferencial. Em outras palavras, o transporte paralelo de um vetor ao longo da curva $c$ é, do ponto de vista de um habitante da variedade, uma forma de movimentar o vetor de um ponto até o outro de maneira que eles permaneçam paralelos. A \Cref{fig:transporte-paralelo-S2} ilustra o transporte paralelo de um vetor ao longo de uma curva na superfície $S^{2}$.
+	3. Pelo Exemplo 2, conseguimos considerar o transporte paralelo estabelecido pela conexão de Levi-Civita de maneira análoga ao que é feito na Geometria Diferencial. Em outras palavras, o transporte paralelo de um vetor ao longo da curva $c$ é, do ponto de vista de um habitante da variedade, uma forma de movimentar o vetor de um ponto até o outro de maneira que eles permaneçam paralelos. A \Cref{fig:transporte-paralelo-S2} ilustra o transporte paralelo de um vetor ao longo de uma curva na superfície $S^{2}$.
 
-	\asyimage[width=0.5\linewidth]{asyimages/diagram7_parallel_transport_S2}{Transporte paralelo de um vetor ao longo de uma curva na superfície $S^{2}$.}[fig:transporte-paralelo-S2]
+	\asyimage[width=0.4\linewidth]{asyimages/diagram7_parallel_transport_S2}{Transporte paralelo de um vetor ao longo de uma curva na superfície $S^{2}$.}[fig:transporte-paralelo-S2]
 \end{examples}
-Este capítulo deixa clara a importância do estudo das métricas riemannianas e das conexões e como esses conceitos carregam propriedades semelhantes às que temos no cálculo em $\mathbb{R}^{n}$, incluindo propriedades de derivação em produtos internos e derivadas de campos vetoriais ao longo de outros campos.
+Este capítulo deixa clara a importância do estudo das métricas Riemannianas e das conexões e como esses conceitos carregam propriedades semelhantes às que temos no cálculo em $\mathbb{R}^{n}$, incluindo propriedades de derivação em produtos internos e derivadas de campos vetoriais ao longo de outros campos.
