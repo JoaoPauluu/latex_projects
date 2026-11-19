@@ -220,9 +220,9 @@ Sendo assim, seguiremos a tradição moderna e introduziremos a noção de conex
 		\item $\nabla_{X}(fY)=f\nabla_{X}Y+(Xf)Y$.
 	\end{enumerate}
 
-	Isto é, $\nabla$ é linear na primeira entrada, distribui para a soma na segunda e satisfaz a regra de Leibniz.
+	Isto é, $\nabla$ é linear na primeira entrada, é aditiva na segunda e satisfaz a regra de Leibniz.
 \end{definition}
-Intuitivamente, uma conexão é uma noção da derivada de um campo vetorial ao longo de outro campo vetorial. A propriedade (i) é a linearidade da direção da derivada, a propriedade (ii) é análoga à regra da soma usual e a propriedade (iii) é análoga à regra do produto usual.  Apresentaremos adiante que toda variedade riemanniana admite uma única conexão afim que atende certas propriedades, o que remove a ambiguidade da escolha de uma conexão em uma variedade e realça a importância do estudo das conexões afins.
+Intuitivamente, uma conexão é uma noção da derivada de um campo vetorial ao longo de outro campo vetorial. A propriedade (i) é a linearidade da direção da derivada, a propriedade (ii) é análoga à regra da soma usual e a propriedade (iii) é análoga à regra do produto usual.  Apresentaremos adiante que toda variedade riemanniana admite uma única conexão afim que atende a certas propriedades, o que remove a ambiguidade da escolha de uma conexão em uma variedade e realça a importância do estudo das conexões afins.
 \begin{example}
 	\label{ex:conexao-afim}
 	Quando $M=\mathbb{R}^{n}$, identificando $e_{i}$ com $X_{i}$ e, sendo $X = \sum\alpha_{i}e_{i}$ e $Y=\sum\beta_{j}e_{j}$ campos vetoriais diferenciáveis,
@@ -239,11 +239,11 @@ Intuitivamente, uma conexão é uma noção da derivada de um campo vetorial ao 
 		                & = \left. \sum_i \frac{\partial Y}{\partial x_i}(c(t)) \frac{dc_i}{dt}(t) \right|_{t=0}  = \sum_i \frac{\partial Y}{\partial x_i}(p) \frac{dc_i}{dt}(0)                                                 \\
 		                & = \sum_i \left( \sum_j \frac{\partial \beta_j}{\partial x_i}(p) e_j \right) \alpha_i(p)  = \sum_j \left( \sum_i \alpha_i(p) \frac{\partial \beta_j}{\partial x_i}(p) \right) e_j  = (\nabla_{X}Y)_{p}.
 	\end{align*}
-	Em outras palavras, essa conxão afim, definida em $\mathbb{R}^{n}$, coincide com a derivada usual.
+	Em outras palavras, essa conexão afim, definida em $\mathbb{R}^{n}$, coincide com a derivada usual.
 \end{example}
 Esse exemplo permite olhar para as conexões afins como uma generalização da ideia de derivada direcional em $\mathbb{R}^{n}$.
 
-Como é de se esperar, imitando a sua análoga para os espaços euclidianos, a conexão afim é uma propriedade local. Isto é, $(\nabla_{X}Y)_{p}$ depende apenas de $Y$ e do valor que $X$ assume em $p$
+Como é de se esperar, imitando a sua análoga para os espaços euclidianos, a conexão afim é uma propriedade local. Isto é, $(\nabla_{X}Y)_{p}$ depende apenas de $Y$ numa vizinhança de $p$ e do valor que $X$ assume em $p$.
 \begin{lemma}
 	\label{lem:conexao-afim-local}
 	Seja $p \in M$ e $v \in T_{p}M$. Se $X, Y \in \chi(M)$ são tais que $X_{p}=Y_{p}$, então para qualquer campo $Z \in \chi(M)$, temos que
@@ -288,7 +288,7 @@ Como é de se esperar, imitando a sua análoga para os espaços euclidianos, a c
 		\end{align*}
 	\end{proof}
 \end{lemma}
-O seguinnte lema nos permite introduzir o conceito de derivada covariante.
+O seguinte lema nos permite introduzir o conceito de derivada covariante.
 \begin{lemma}
 	\label{lem:vetor-estendido-a-campo}
 	Para cada $p \in M$ e $v \in T_{p}M$ existe um campo vetorial $X \in \chi (M)$ tal que $X_{p}=v$.
@@ -303,7 +303,7 @@ O seguinnte lema nos permite introduzir o conceito de derivada covariante.
 			X_{q}=\sum v_{i}(q)X_{i}(q).
 		\end{equation*}
 		Note que $X$ é diferenciável, uma vez que $X_{i}$ e $v_{i}$ são diferenciáveis. Também, não é difícil ver que $X_{p}=v$.
-		Dessa forma, podemos estender $X$ em toda variedade $M$. Para isso, tomemos $\bar{U}\subset U$ compacto, conforme o \Cref{lem:funcoes-bump}, de forma que $p \in \bar{U}$, e $f:M\to \mathbb{R}$ uma função com suporte compacto em $\bar{U}$. O campo $\bar{X}={f}X$ é o que satisfaz $X_{p}=v$.
+		Dessa forma, podemos estender $X$ em toda a variedade $M$. Para isso, tomemos $\bar{U}\subset U$ compacto, conforme o \Cref{lem:funcoes-bump}, de forma que $p \in \bar{U}$, e $f:M\to \mathbb{R}$ uma função com suporte compacto em $\bar{U}$. O campo $\bar{X}={f}X$ é o que satisfaz $X_{p}=v$.
 	\end{proof}
 \end{lemma}
 Tomando $p \in M$ e $v \in T_{p}M$ e utilizando o \Cref{lem:vetor-estendido-a-campo} e o \Cref{lem:conexao-afim-local}, dado $Y \in \chi(M)$ podemos considerar $(\nabla_{v}Y)_{p}$ substituindo $v$ por um campo $X \in \chi(M)$, com $X_{p}=v$. De fato,
@@ -313,7 +313,7 @@ Tomando $p \in M$ e $v \in T_{p}M$ e utilizando o \Cref{lem:vetor-estendido-a-ca
 Portanto, obtemos a seguinte proposição:
 \begin{proposition}
 	\label{prop:derivada-covariante}
-	Seja $M$ uma variedade diferenciável, com uma conexão afim $\nabla$. Existe uma única correspondência que associa um campo vetorial $V$ ao longo de uma curva parametrizada $c:I\to M$ a outro campo $\frac{DV}{dt}$ ao longo de $c$, chamado de derivada covariante, tal que, para quaisquer campos $V$ e $W$ ao longo de $c$ e $f:I\to \mathbb{R}$, temos :
+	Seja $M$ uma variedade diferenciável, com uma conexão afim $\nabla$. Existe uma única correspondência que associa um campo vetorial $V$ ao longo de uma curva parametrizada $c:I\to M$ a outro campo $\frac{DV}{dt}$ ao longo de $c$, chamado de derivada covariante, tal que, para quaisquer campos $V$ e $W$ ao longo de $c$ e $f:I\to \mathbb{R}$, temos:
 	\begin{enumerate}[label=(\roman*)]
 		\item $\dfrac{D}{dt}(V+W)= \dfrac{D}{dt}V +\dfrac{D}{dt}W$;
 		\item $\dfrac{D}{dt}(fV)=\dfrac{df}{dt}V+f\dfrac{DV}{dt}$;
@@ -321,7 +321,7 @@ Portanto, obtemos a seguinte proposição:
 	\end{enumerate}
 	\begin{proof}
 
-		Pelo \Cref{lem:definicao-local-global}, inicialmente mostraremos a unicidade.
+		Mostraremos primeiro a unicidade; a existência segue do \Cref{lem:definicao-local-global}.
 		Suponha que exista $\dfrac{D}{dt}$ satisfazendo (i), (ii), e (iii). Seja $\mathbf{x}:U\to M$ uma parametrização tal que $\mathbf{x}(U)\cap c(I)\neq \emptyset$ e seja
 		\begin{equation*}
 			\tilde{c}(t)=\mathbf{x}^{-1} \circ c(t)=(x_{1}(t), \dots, x_{n}(t))
@@ -347,9 +347,9 @@ Portanto, obtemos a seguinte proposição:
 	\end{proof}
 \end{proposition}
 Esse resultado estende a noção de conexão para campos definidos ao longo de curvas diferenciáveis. Isso permite, por exemplo, calcular acelerações de curvas computando a derivada covariante do campo velocidade de uma curva $c$.
-O item (iii) da \Cref{prop:derivada-covariante} afirma que calcular a covariante de um campo induzido é equivalente a calcular a conexão afim desse campo ao longo da curva $c(t)$. A derivada covariante também é semelhante a derivada covariante da Geometria Diferencial, exceto pelo fato de que na Geometria Riemanniana, precisamos da noção de conexão, a qual é implicitamente presente nas superfícies diferenciáveis devido à existência do espaço ambiente.
+O item (iii) da \Cref{prop:derivada-covariante} afirma que calcular a derivada covariante de um campo induzido é equivalente a calcular a conexão afim desse campo ao longo da curva $c(t)$. A derivada covariante também é semelhante à derivada covariante da Geometria Diferencial, exceto pelo fato de que na Geometria Riemanniana, precisamos da noção de conexão, a qual está implicitamente presente nas superfícies diferenciáveis devido à existência do espaço ambiente.
 
-Agora, introduzimos a noção de transporte paralelo.
+Agora, introduzimos a noção de transporte paralelo:
 \begin{definition}
 	\label{def:paralelismo}
 	Seja $M$ uma variedade diferenciável com uma conexão afim $\nabla$. Um campo vetorial $V$ ao longo de uma curva $c$ é dito paralelo se $\frac{DV}{dt}=0$.
@@ -362,7 +362,7 @@ Agora, introduzimos a noção de transporte paralelo.
 		\emph{Caso 1}: $c(I)$ está contido em uma vizinhança parametrizada $\mathbf{x}(U)$.
 
 		Sejam $\tilde{c}(t)=\mathbf{x}^{-1} \circ c(t) = (x_{1}(t), \dots, x_{n}(t))$ e $V_{0}=\sum V_{0}^{j}X_{j}$, onde $X_{j}=\frac{\partial}{\partial x_{j}}(c(t_{0}))$.
-		Pela demonstração de \Cref{prop:derivada-covariante}, temos que um campo $V$ em $\mathbf{x}(U)$ ao longo de $c$, com $V(t_{0})=V_{0}$ é paralelo se, e somente se,
+		Pela demonstração da \Cref{prop:derivada-covariante}, temos que um campo $V$ em $\mathbf{x}(U)$ ao longo de $c$, com $V(t_{0})=V_{0}$ é paralelo se, e somente se,
 		\begin{equation*}
 			0=\frac{DV}{dt}=\sum_{j}\frac{dv^{j}}{dt}X_{j}+\sum_{i,j}\frac{dx_{i}}{dt}v^{j}\nabla_{X_{i}}X_{j}.
 		\end{equation*}
@@ -410,17 +410,17 @@ Agora, introduzimos a noção de transporte paralelo.
 		Fixando $t_{0}\in I$, para todo $t_{1} \in I$ tal que $t_{0} \leq t_{1}$, o intervalo $[t_{0}, t_{1}]$ é compacto. Logo, como $c$ é contínua, $c([t_{0},t_{1}])$ é compacto, isto é, podemos cobrir o segmento com finitas vizinhanças coordenadas, digamos $\mathbf{x}_{i}(U_{i})$ com $i=1, \dots, m$.
 		Pelo que foi argumentado no Caso 1, existe um único $V_{i}$ paralelo ao longo de $c$ em cada $\mathbf{x}_{i}(U_{i})$.
 
-		O resultado segue fazendo, $f_{i}=V_{i}$, notando que se $\mathbf{x}_{i}(U_{i})\cap \mathbf{x}_{j}(U_{j})\neq \emptyset$ então $f_{i}$ e $f_{j}$ coincidem nos pontos em comum e aplicando o \Cref{lem:definicao-local-global} no segmento $c([t_{0},t_{1}])$.
+		O resultado segue fazendo $f_{i}=V_{i}$, notando que se $\mathbf{x}_{i}(U_{i})\cap \mathbf{x}_{j}(U_{j})\neq \emptyset$ então $f_{i}$ e $f_{j}$ coincidem nos pontos em comum e aplicando o \Cref{lem:definicao-local-global} no segmento $c([t_{0},t_{1}])$.
 	\end{proof}
 \end{proposition}
 O transporte paralelo, conforme já comentado, identifica diferentes espaços tangentes através de um caminho na variedade. É possível recuperar a conexão a partir do seu transporte paralelo, notando que
 \begin{equation*}
-	(\nabla_XY)_{p}=\lim_{ t \to 0 } \frac{\Gamma(\alpha|_{[0,t]},Y(\alpha(t)))^{-1}-Y(p)}{t}
+	(\nabla_XY)_{p}=\lim_{ t \to 0 } \frac{\Gamma(\alpha|_{[0,t]})^{-1}(Y(\alpha(t))-Y(p)}{t}
 \end{equation*}
 com $\alpha$ curva diferenciável tal que $\alpha(0)=p$ e $\alpha'(t)=X(\alpha(t))$, é, de fato, uma conexão afim e seu transporte paralelo é dado por $\Gamma$. O leitor interessado pode consultar \textcite{doCarmo1992} e \textcite{leeRiemannian}.
 Note a semelhança desta fórmula com a derivada de campos vetoriais usual do $\mathbb{R}^{n}$.
 
-Dada uma variedade diferenciável com partição de unidade, existem diversas conexões afins nesta. De fato, seja $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ uma estrutura diferenciável de uma variedade $M$, de forma que os $V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$ formem uma família localmente finita. Em cada $V_{\alpha}$ podemos definir uma conexão $\nabla^{\alpha}$ tomando uma matriz $M^{\alpha}_{k}=[\Gamma_{i,j}^{\alpha,k}]$ e pondo $\nabla^{\alpha}_{X_{i}}X_{j}=\sum\Gamma_{i,j}^{\alpha,k}X_{k}$. Definimos uma conexão afim global pondo $(\nabla_{X}Y)_{p}=\sum_{\alpha}f_{\alpha}(p)(\nabla_{X}^{\alpha}Y)_{p}$, conforme feito na demonstração do \Cref{teo:existencia-metrica}. Devido a isso, o comportamento do transporte paralelo é imprevisível. Entretanto, o transporte paralelo assume uma forma muito mais intuitiva na conexão de Levi-Civita, a qual será introduzida adiante.
+Dada uma variedade diferenciável com partição da unidade, existem diversas conexões afins nesta. De fato, seja $\{ (U_{\alpha}, \mathbf{x}_{\alpha}) \}$ uma estrutura diferenciável de uma variedade $M$, de forma que os $V_{\alpha}=\mathbf{x}_{\alpha}(U_{\alpha})$ formem uma família localmente finita. Em cada $V_{\alpha}$ podemos definir uma conexão $\nabla^{\alpha}$ tomando uma matriz $M^{\alpha}_{k}=[\Gamma_{i,j}^{\alpha,k}]$ e pondo $\nabla^{\alpha}_{X_{i}}X_{j}=\sum\Gamma_{i,j}^{\alpha,k}X_{k}$. Definimos uma conexão afim global pondo $(\nabla_{X}Y)_{p}=\sum_{\alpha}f_{\alpha}(p)(\nabla_{X}^{\alpha}Y)_{p}$, conforme feito na demonstração do \Cref{teo:existencia-metrica}. Devido a isso, o comportamento do transporte paralelo é imprevisível. Entretanto, o transporte paralelo assume uma forma muito mais intuitiva na conexão de Levi-Civita, a qual será introduzida adiante.
 
 Agora, relacionaremos o conceito de métrica com o de conexão afim.
 \begin{definition}
@@ -431,10 +431,10 @@ Agora, relacionaremos o conceito de métrica com o de conexão afim.
 		\left<P,P'\right> = \text{constante}.
 	\end{equation*}
 \end{definition}
-Essa noção generaliza a regra de Leibnz para produtos internos na geometria diferencial. A próxima proposição torna isso evidente e motiva tal definição:
+Essa noção generaliza a regra de Leibniz para produtos internos na geometria diferencial. A próxima proposição torna isso evidente e motiva tal definição:
 \begin{proposition}
 	\label{prop:leibniz-compativel}
-	Uma conexão $\nabla$ em uma variedade riemanniana com uma métrica $\left<,\right>$ é compatível se, e somente se, para todo $V,W$ campos diferenciáveis ao longo da curva parametrizada $c:I\to M$ tivermos
+	Uma conexão $\nabla$ em uma variedade riemanniana com uma métrica $\left<,\right>$ é compatível se, e somente se, para quaisquer campos $V,W$ diferenciáveis ao longo da curva parametrizada $c:I\to M$ tivermos
 	\begin{equation}
 		\label{eq:leibnz-para-covariante}
 		\frac{d}{dt}\left<V,W\right> =\left<\frac{DV}{dt},W\right> +\left<V,\frac{DW}{dt}\right>.
@@ -485,7 +485,7 @@ Outra equivalência da compatibilidade é dada pelo corolário a seguir.
 			                      & =\left<\frac{D(Y \circ  c)}{dt}(t_{0}),Z_{p}\right> +\left<Y_{p},\frac{D(Z \circ c)}{dt}(t_{0})\right>                                        \\
 			                      & = \left<\left( \nabla_{\frac{dc}{dt}(t_{0})}Y \right)_{p},Z_{p}\right> +\left<Y_{p},\left( \nabla_{\frac{dc}{dt}(t_{0})}Z \right)_{p}\right>.
 		\end{align*}
-		Logo, como $\frac{dc}{dt}(t_{0})=X_{p}$, pelo \Cref{lem:vetor-estendido-a-campo}, temos que
+		Logo, como $\frac{dc}{dt}(t_{0})=X_{p}$, pelo \Cref{lem:conexao-afim-local}, temos que
 		\begin{equation*}
 			X_{p}\left<Y,Z\right> =\left<(\nabla_{X}Y)_{p},Z_{p}\right> + \left<Y_{p},(\nabla _{X}Z)_{p}\right> =(\left<\nabla_{X}Y,Z\right> +\left<Y,\nabla_{X}Z\right> )_{p},
 		\end{equation*}
@@ -513,7 +513,7 @@ Outra equivalência da compatibilidade é dada pelo corolário a seguir.
 \end{corollary}
 Intuitivamente, o \Cref{cor:leibniz-direcional} afirma que a regra de Leibniz  é válida quando derivamos o produto interno de dois campos vetoriais ao longo de outro campo vetorial.
 
-É evidente que buscamos sempre uma conexão afim compatível com a métrica. Outra propriedade interessante de uma conexão afim é a simetria.
+É evidente que buscamos sempre uma conexão afim compatível com a métrica. Outra propriedade interessante de uma conexão afim é a simetria:
 
 \begin{definition}
 	\label{def:colchete}
@@ -571,9 +571,9 @@ O nome da propriedade é justificado pelo corolário a seguir:
 		Segue da \Cref{prop:conexao-simetrica-equivalencia}.
 	\end{proof}
 \end{corollary}
-A \Cref{prop:conexao-simetrica-equivalencia} nos ajuda a compreender melhor o comportamento de uma conexão simétrica. Fica claro que uma conexão simétrica preserva uma propriedade interessante do cálculo em $\mathbb{R}^{n}$: derivadas parciais comutam. Na terminologia das conexões, isso se torna $\nabla_{X_{i}}X_{j}=\nabla_{X_{j}}X_{i}$. Também, impor simetria sobre uma conexão implica automaticamente que a conexão é compatível com uma certa estrutura intrínseca da variedade diferenciável: o colchetes, isto é, a ``não comutatividade'' da conexão é exatamente a ``não comutatividade'' medida pelo colchetes.
+A \Cref{prop:conexao-simetrica-equivalencia} nos ajuda a compreender melhor o comportamento de uma conexão simétrica. Fica claro que uma conexão simétrica preserva uma propriedade interessante do cálculo em $\mathbb{R}^{n}$: derivadas parciais comutam. Na terminologia das conexões, isso se torna $\nabla_{X_{i}}X_{j}=\nabla_{X_{j}}X_{i}$. Também, impor simetria sobre uma conexão implica automaticamente que a conexão é compatível com uma certa estrutura intrínseca da variedade diferenciável: o colchete, isto é, a ``não comutatividade'' da conexão é exatamente a ``não comutatividade'' medida pelo colchete.
 
-Agora, apresentaremos um dos resultados centrais desse capítulo: o Teorema de Levi-Civita. Esse resultado garante que, dada qualquer variedade riemanniana, existe exatamente uma conexão afim simétrica que é compatível com a métrica.
+Agora, apresentaremos um dos resultados centrais deste capítulo: o Teorema de Levi-Civita. Esse resultado garante que, dada qualquer variedade riemanniana, existe exatamente uma conexão afim simétrica que é compatível com a métrica.
 \begin{theorem}[Levi-Civita]
 	\label{teo:levi-civita}
 	Dada $M$ uma variedade riemanniana, existe uma única conexão afim $\nabla$ em $M$ tal que:
@@ -627,7 +627,7 @@ De agora em diante, sempre que considerarmos uma variedade riamanniana, assumire
 
 Chamaremos os coeficientes $\Gamma_{i,j}^{k}$ de uma conexão Levi-Civita de símbolos de Christoffel.
 
-Perceba a grandeza desse resultado: ele afirma que existe uma conexão que, de certa maneira, é intrínseca à variedade riemanniana. Quando consideramos a conexão Levi-Civita, não estamos fazendo uma conexão arbitrária entre planos tangentes, mas sim, estabelecendo um referencial que permite estudar propriedades de tal variedade riemannniana.
+Perceba a grandeza desse resultado: ele afirma que existe uma conexão que, de certa maneira, é intrínseca à variedade riemanniana. Quando consideramos a conexão Levi-Civita, não estamos fazendo uma conexão arbitrária entre planos tangentes, mas sim, estabelecendo um referencial que permite estudar propriedades de tal variedade riemanniana.
 Podemos calcular os símbolos de Christoffel em uma parametrização apenas utilizando os produtos internos desta. De fato, escrevendo $g_{i,j}=\left<X_{i},X_{j}\right>$, temos que
 \begin{equation*}
 	\left<X_{l},\nabla_{X_{i}}X_{j}\right> = \left<X_{l},\sum_{k}\Gamma_{i,j}^{k}X_{k}\right>= \sum_{k}\Gamma_{i,j}^{k}g_{l,k}  .
@@ -706,7 +706,7 @@ Conforme comentado anteriormente, analisemos exemplos de conexões Levi-Civita e
 
 	2. Sendo $S \subseteq \mathbb{R}^{3}$ uma superfície regular e $X,Y$ campos de vetores em $S$, definimos
 	\begin{equation*}
-		(\nabla_{X}Y)_{p}=proj_{T_{p}M}(D_{X}Y(p)),
+		(\nabla_{X}Y)_{p}=proj_{T_{p}S}(D_{X}Y(p)),
 	\end{equation*}
 	em que $proj$ é a projeção ortogonal e $D$ é a derivada usual de $\mathbb{R}^{3}$. É possível mostrar que essa é a conexão Levi-Civita da superfície e seus símbolos de Christoffel em uma parametrização coincidem com os estudados na Geometria Diferencial.
 
@@ -714,4 +714,4 @@ Conforme comentado anteriormente, analisemos exemplos de conexões Levi-Civita e
 
 	\asyimage[width=0.5\linewidth]{asyimages/diagram7_parallel_transport_S2}{Transporte paralelo de um vetor ao longo de uma curva na superfície $S^{2}$.}[fig:transporte-paralelo-S2]
 \end{examples}
-Este capítulo deixa claro a importância do estudo das métricas riemannianas e das conexões e como esses conceitos carregam propriedades semelhantes as que temos no cálculo em $\mathbb{R}^{n}$, incluindo propriedades de derivação em produtos internos e derivadas de campos vetoriais ao longo de outros campos.
+Este capítulo deixa clara a importância do estudo das métricas riemannianas e das conexões e como esses conceitos carregam propriedades semelhantes às que temos no cálculo em $\mathbb{R}^{n}$, incluindo propriedades de derivação em produtos internos e derivadas de campos vetoriais ao longo de outros campos.

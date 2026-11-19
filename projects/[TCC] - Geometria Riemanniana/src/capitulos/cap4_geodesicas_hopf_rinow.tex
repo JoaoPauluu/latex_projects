@@ -2,14 +2,14 @@
 
 \chapter{Geodésicas e o Teorema de Hopf-Rinow}
 \label{cap:geodesicas-hopf-rinow}
-Começamos este capítulo por apresentar a definição de geodésica, depois, garantimos que, dados um ponto e uma velocidade inicial em uma variedade, passa por ele uma única geodésica com tal velocidade.  Na sequência, definimos o mapa exponencial, generalizamos a noção de curva diferenciável definindo curvas diferenciáveis por partes e definimos uma noção de superfície parametrizada em uma variedade, os quais são utilizados na \Cref{prop:exp-diferenciavel} para mostrar que, em suma, a aplicação exponencial é um difeomorfismo de um aberto do espaço tangente em uma vizinhança de um ponto $p \in M$.
+Começamos este capítulo apresentando a definição de geodésica, depois, garantimos que, dados um ponto e uma velocidade inicial em uma variedade, passa por ele uma única geodésica com tal velocidade.  Na sequência, definimos o mapa exponencial, generalizamos a noção de curva diferenciável definindo curvas diferenciáveis por partes e definimos uma noção de superfície parametrizada em uma variedade, os quais são utilizados na \Cref{prop:exp-diferenciavel} para mostrar que, em suma, a aplicação exponencial é um difeomorfismo de um aberto do espaço tangente em uma vizinhança de um ponto $p \in M$.
 
 Também relacionamos as geodésicas às curvas que realizam a menor distância entre dois pontos, garantimos que toda curva diferenciável por partes que minimiza a distância é uma geodésica e, no caso de uma curva ser geodésica, ela minimiza localmente a distância entre dois pontos.
 
-Na sequência, definimos uma distância na variedade, cuja completude pode ser caracterizada utilizando as geodésicas em certas variedades denominadas completas. Finalmente, juntamos diversos resultados exibidos até o momento para demonstrar o Teorema de Hopf-Rinow, o qual estende certas propriedades locais para propriedades globais.
+Na sequência, definimos uma métrica na variedade, cuja completude pode ser caracterizada utilizando as geodésicas em certas variedades denominadas geodésicamente completas. Finalmente, juntamos diversos resultados exibidos até o momento para demonstrar o Teorema de Hopf-Rinow, o qual estende certas propriedades locais para propriedades globais.
 \section{Geodésicas}
 \label{sec:geodesicas}
-Nessa seção, apresentaremos uma generalização das retas do espaço euclidiano: as geodésicas. Começamos por defini-las como curvas cuja aceleração, do ponto de vista da variedade, é nula. Posteriormente, mostramos que elas também generalizam as retas no sentido de que, localmente, traçam o único caminho que realiza a menor distância entre dois pontos em uma vizinhança do ponto inicial.
+Nesta seção, apresentaremos uma generalização das retas do espaço euclidiano: as geodésicas. Começamos por defini-las como curvas cuja aceleração, do ponto de vista da variedade, é nula. Posteriormente, mostramos que elas também generalizam as retas no sentido de que, localmente, traçam o único caminho que realiza a menor distância entre dois pontos em uma vizinhança do ponto inicial.
 
 Durante este capítulo, $M$ denotará uma variedade diferenciável munida de uma métrica riemanniana $\left< \cdot, \cdot\right>$, $\nabla$ será a conexão de Levi-Civita de $M$ e $\frac{D}{dt}$ a derivada covariante induzida por $\nabla$.
 \begin{definition}
@@ -36,7 +36,7 @@ em que $k=\left|\frac{d\gamma}{dt}(t_{0})\right|$.
 Se $k=1$, dizemos que a geodésica é normalizada.
 Como de costume, gostaríamos de analisar o comportamento das geodésicas através das parametrizações da variedade.
 Seja $\gamma$ uma  curva parametrizada tal que sua imagem esteja contida em uma vizinhança parametrizada $V=\mathbf{x}(U)$.
-Fazendo $(x_{1}(t), \dots, x_{n}(t))=\mathbf{x}^{-1} \circ \gamma(t)$, temos que, pela \Cref{prop:derivada-transformacao-linear},
+Fazendo $(x_{1}(t), \dots, x_{n}(t))=\mathbf{x}^{-1} \circ \gamma(t)$, temos que, pela expressão da diferencial nas parametrizações \parencite[p.~9, prop.~2.7]{doCarmo1992},
 \begin{align*}
 	\frac{d\gamma}{dt}(t) & =d\gamma_{t}\left( \frac{d}{dt} \right)                                                                                               \\
 	                      & =\begin{bmatrix}
@@ -47,7 +47,7 @@ Fazendo $(x_{1}(t), \dots, x_{n}(t))=\mathbf{x}^{-1} \circ \gamma(t)$, temos que
 	\end{bmatrix}                                                                                                                                                \\
 	                      & =\left( \frac{dx_{1}}{dt}(t), \dots, \frac{dx_{n}}{dt}(t) \right)                       = \sum_{i=1}^{n}\frac{dx_{i}}{dt}(t)X_{i}(t).
 \end{align*}
-Logo, utilizando a expressão \eqref{eq:covariant} obtida na \Cref{prop:derivada-covariante}, $\gamma$ é geodésica se, e somente se,
+Logo, utilizando a expressão \eqref{eq:covariant} obtida na \Cref{prop:transporte-paralelo}, $\gamma$ é geodésica se, e somente se,
 \begin{equation}
 	\label{eq:geodesic1}
 	\frac{d^{2}x_{k}}{dt}+\sum_{i,j}\Gamma_{i,j}^{k}\frac{dx_{i}}{dt}\frac{dx_{j}}{dt}=0,
@@ -57,7 +57,7 @@ para $k =1, \dots, n$.
 \begin{observation}
 	\label{obs:geodesica-no-fibrado}
 	Toda curva parametrizada $\gamma:I\to M$ determina uma curva parametrizada em $TM$.
-	De fato, sejam $t_{0} \in I$ e $\mathbf{x}:U\to M$ parametrização em torno do ponto $\gamma(t_{0})$. Sejam $(\gamma(t_{0}),\gamma'(t_{0})) \in TM$ e $\mathbf{y}:U\times \mathbb{R}^{n}\to TM$ tal que $\mathbf{y}$ é uma parametrização de $TM$ induzida por $\mathbf{x}$, conforme feito na \Cref{def:fibrado-tangente}. Como $\gamma$ é diferenciável em $M$, a curva $\mathbf{x}^{-1} \circ \gamma$ é diferenciável em $\mathbb{R}^{n}$. Logo,
+	De fato, sejam $t_{0} \in I$ e $\mathbf{x}:U\to M$ parametrização em torno do ponto $\gamma(t_{0})$. Sejam $(\gamma(t_{0}),\gamma'(t_{0})) \in TM$ e $\mathbf{y}:U\times \mathbb{R}^{n}\to TM$ tal que $\mathbf{y}$ é uma parametrização de $TM$ induzida por $\mathbf{x}$, conforme \textcite[p.~15, ex.~4.1]{doCarmo1992}. Como $\gamma$ é diferenciável em $M$, a curva $\mathbf{x}^{-1} \circ \gamma$ é diferenciável em $\mathbb{R}^{n}$. Logo,
 	\begin{equation*}
 		\mathbf{y}^{-1} \circ (\gamma, \gamma')=\mathbf{y}^{-1}(\gamma(t),\gamma'(t))=\left( \mathbf{x}^{-1}\circ \gamma(t), \frac{dx_{1}}{dt}(t), \dots,\frac{dx_{n}}{dt} \right),
 	\end{equation*}
@@ -67,7 +67,7 @@ para $k =1, \dots, n$.
 	\begin{equation}
 		\begin{cases}
 			\label{eq:geodesic2}
-			\frac{dx_{k}}{dt}=yk,                                   & k=1, \dots, n \\
+			\frac{dx_{k}}{dt}=y_{k},                                & k=1, \dots, n \\
 			\frac{dy_{k}}{dt}=-\sum_{i,j}\Gamma_{i,j}^{k}y_{i}y_{j} & k=1, \dots, n
 		\end{cases}
 	\end{equation}
@@ -103,7 +103,7 @@ Isso nos motiva a analisar o fibrado tangente $TM$. Tal análise esclarece algum
 			           & =G(\mathbf{y}(x_{1}(t), \dots, x_{n}(t), y_{1}(t), \dots, y_{n}(t)))                          \\
 			           & =\left( y_{1}(t), \dots, y_{n}(t), \frac{dy_{1}}{dt}(t), \dots, \frac{dy_{n}}{dt}(t) \right).
 		\end{align*}
-		Pondo $x(t)=(x_{1}(t), \dots, x_{n}(t))$ e $y(t) = (y_{1}(t), \dots, y_{n}(t))$, utilizando a igualdade acima e a \Cref{prop:vetor-tangente-coordenadas}, temos que
+		Pondo $x(t)=(x_{1}(t), \dots, x_{n}(t))$ e $y(t) = (y_{1}(t), \dots, y_{n}(t))$, utilizando a igualdade acima e a expressão do vetor tangente a uma curva em uma parametrização \parencite[p.~8, def.~2.6, expressão (2)]{doCarmo1992}, temos que
 		\begin{equation*}
 			\left( y(t), \frac{dy}{dt}(t) \right)=\alpha'(t)=\left( \frac{dx}{dt}(t),\frac{dy}{dt}(t) \right).
 		\end{equation*}
@@ -118,7 +118,7 @@ Isso nos motiva a analisar o fibrado tangente $TM$. Tal análise esclarece algum
 Antes de mostrarmos o próximo resultado acerca das geodésicas, convém mostrar um lema sobre os abertos do fibrado tangente.
 \begin{lemma}
 	\label{lem:topologia-fibrado-tangente}
-	Seja $M^{n}$ uma variedade riemanniana e $TM$ seu fibrado. Se $\mathcal{U}$ é um aberto de $TM$, com $(p,0)\in \mathcal{U}$, existem $V$ aberto de $M$ e $\epsilon>0$ tais que $B_{\epsilon}(0)=\{ (q,v);q \in V; v \in T_{q}M;|v|<\epsilon\} \subseteq \mathcal{U}$ onde $|\cdot|$ é a norma induzida pela métrica riemanniana.
+	Seja $M^{n}$ uma variedade riemanniana e $TM$ seu fibrado tangente. Se $\mathcal{U}$ é um aberto de $TM$, com $(p,0)\in \mathcal{U}$, existem $V$ aberto de $M$ e $\epsilon>0$ tais que $B_{\epsilon}(0)=\{ (q,v);q \in V; v \in T_{q}M;|v|<\epsilon\} \subseteq \mathcal{U}$ onde $|\cdot|$ é a norma induzida pela métrica riemanniana.
 	\begin{proof}
 
 		Seja $\mathbf{x}:W\to M$ uma parametrização de uma vizinhança de $p=\mathbf{x}(q_{0}) \in M$ e $\mathbf{y}:W\times \mathbb{R}^{n}\to TM$ a parametrização induzida por $\mathbf{x}$ de $(p,0)\in TM$.
@@ -138,7 +138,7 @@ Antes de mostrarmos o próximo resultado acerca das geodésicas, convém mostrar
 			|\pi_{2} \circ  \mathbf{y}(q,w)|\geq \sqrt{ \lambda }|w|
 		\end{equation*}
 		para todo $(q,w) \in \overline{B_{r}(q_{0})}\times \mathbb{R}^{n}$, onde a norma da esquerda é induzida pela métrica riemanniana e a norma da direita é a norma euclidiana.
-		Defina $V=\mathbf{x}(B_{r}(q_{0}))$ e $\epsilon=\delta \sqrt{ \lambda }$. Esse $V$, juntamente com $\epsilon$ satisfazem a hipótese. De fato, seja $q \in V$ e $v \in T_{q}M$, com $|v|<\epsilon$. Escrevendo $v=\sum w_{i}X_{i}$ e $q=\mathbf{x}(q')$, com $q' \in B_{r}(q_{0})$, temos que $\mathbf{y}(q',w)=(q,v)$, implicando que
+		Defina $V=\mathbf{x}(B_{r}(q_{0}))$ e $\epsilon=\delta \sqrt{ \lambda }$. Esse $V$, juntamente com $\epsilon$ satisfazem o enunciado. De fato, seja $q \in V$ e $v \in T_{q}M$, com $|v|<\epsilon$. Escrevendo $v=\sum w_{i}X_{i}$ e $q=\mathbf{x}(q')$, com $q' \in B_{r}(q_{0})$, temos que $\mathbf{y}(q',w)=(q,v)$, implicando que
 		\begin{equation*}
 			\sqrt{ \lambda }|w|\leq |\pi_{2} \circ  \mathbf{y}(q,w)|=|v|,
 		\end{equation*}
@@ -169,7 +169,7 @@ O próximo resultado diz que, para todo ponto em uma variedade, existe uma vizin
 \end{proposition}
 \begin{example}
 	\label{ex:geodesicas}
-	Seja $M=P^{2}(\mathbb{R})$ o plano projetivo, conforme definido em \textcite{doCarmo1992}. Podemos munir $M$ de uma métrica por munir $S^{2}$ com a métrica induzida por $\mathbb{R}^{3}$ e tomar a métrica quociente, a qual é definida por $\left< v,w \right>_{p}=\left< d\pi ^{-1}_{p}(v),d\pi ^{-1}_{p}(w) \right>_{\pi ^{-1}(p)}$, onde $\pi:S^{2}\to M$ é a projeção.
+	Seja $M=P^{2}(\mathbb{R})$ o plano projetivo, conforme definido em \textcite{doCarmo1992}. Podemos munir $M$ de uma métrica munindo $S^{2}$ com a métrica induzida por $\mathbb{R}^{3}$ e tomar a métrica quociente, a qual é definida por $\left< v,w \right>_{p}=\left< d\pi ^{-1}_{p}(v),d\pi ^{-1}_{p}(w) \right>_{\pi ^{-1}(p)}$, onde $\pi:S^{2}\to M$ é a projeção.
 	Obtemos, primeiramente, uma métrica para $S^{2}$ e classificamos as geodésicas em $S^{2}$. Faça $A=\{ (\theta,\phi)\in \mathbb{R}^{2}; 0<\theta<\pi; 0<\phi<2\pi \}$ e defina $\mathbf{x}:A\to S^{2}$ pondo $\mathbf{x}(\theta,\phi)=(\sin \theta \cos \phi,\sin \theta\sin \phi,\cos \theta)$.
 	Temos que
 	\begin{equation*}
@@ -228,7 +228,7 @@ O próximo resultado diz que, para todo ponto em uma variedade, existe uma vizin
 	\end{equation*}
 	É possível verificar que as únicas curvas parametrizadas com velocidade constante que satisfazem tal sistema são arcos de grandes círculos na esfera $S^{2}$. Apesar de $\mathbf{x}(A)\neq S^{2}$, podemos considerar outra parametrização análoga, de forma a cobrir toda a esfera, chegando no mesmo resultado e, dessa forma, classificando as geodésicas de $S^{2}$.
 
-	Para analisarmos as geodésicas de $M$, note que $\pi:S^{2}\to M$ é uma isometria local. Logo, como o leitor pode verificar, preserva as geodésicas, implicando que as geodésicas com velocidade constante de $M$ são imagens dos arcos dos grandes círculos de $S^{2}$. É fácil ver que quaisquer duas geodésicas prolongadas indefinidamente e distintas, têm exatamente um ponto de interseção. De fato, em $S^{2}$, duas dessas geodésicas têm dois pontos de interseção, digamos $p$ e $-p$. Quando essas geodésicas são projetadas $\pi(p)=\pi(-p)$, implicando que possuem apenas um ponto de interseção.
+	Para analisarmos as geodésicas de $M$, note que $\pi:S^{2}\to M$ é uma isometria local. Logo, como o leitor pode verificar, preserva as geodésicas, implicando que as geodésicas com velocidade constante de $M$ são imagens dos arcos dos grandes círculos de $S^{2}$. É fácil ver que quaisquer duas geodésicas distintas, prolongadas indefinidamente, têm exatamente um ponto de interseção. De fato, em $S^{2}$, duas dessas geodésicas têm dois pontos de interseção, digamos $p$ e $-p$. Quando essas geodésicas são projetadas $\pi(p)=\pi(-p)$, implicando que possuem apenas um ponto de interseção.
 \end{example}
 \begin{lemma}[Homogeneidade das geodésicas]
 	\label{lem:homogeneidade-geodesicas}
@@ -273,7 +273,7 @@ Esse lema garante um intervalo de definição para as geodésicas, conforme demo
 		Fazendo $\epsilon=\frac{\delta\epsilon_{1}}{2}$ temos que, se $|w|<\epsilon$, então $|w|<\frac{\delta e_{1}}{2}$, isto é, $|\frac{2w}{\delta}|<\epsilon_{1}$. Logo, $\gamma\left( t,q,\frac{\delta}{2}\frac{2}{\delta}w \right)=\gamma(t,q,w)$ está bem definida para todo $t$, com $|t|<2$.
 	\end{proof}
 \end{proposition}
-Não existe nenhum motivo profundo pela escolha do número $2$, além de ser o menor inteiro $n$ cujo intervalo $(-n,n)$ contém o $1$. Isso é útil para definirmos o mapa exponencial.
+Não existe nenhum motivo profundo pera a escolha do número $2$, além de ser o menor inteiro $n$ cujo intervalo $(-n,n)$ contém o $1$. Isso é útil para definirmos o mapa exponencial.
 \begin{definition}
 	\label{def:aplicacao-exponencial}
 	Seja $\mathcal{U}\subseteq TM$ o aberto dado pela \Cref{prop:geodesicas-tempo-2}.
@@ -313,7 +313,7 @@ Note que a curva $\gamma\left( t,q, \frac{v}{|v|} \right)$ é uma geodésica nor
 	é um difeomorfismo sobre um aberto de $M$.
 	\begin{proof}
 
-		Sejam $\epsilon'>0$ e $B_{\epsilon'}(0)$ tais que $\exp_{q}$ esteja definida em $B_{\epsilon'}(0)$. Consideremos $B_{\epsilon'}(0)$ como uma variedade de dimensão $n$. Se mostrarmos que $d(\exp _{q})_{0}$ é um isomorfismo, pelo \Cref{teo:funcao-inversa}, teremos que $\exp$ é um difeomorfismo em uma vizinhança de $0 \in B_{\epsilon'}(0)$. Ora, fazendo $\alpha(t)=tv$, pela identificação feita no \Cref{lem:espaco-tangente-espaco-vetorial}, temos que $\alpha'(t)=v$. Da definição de derivada e da homogeneidade das geodésicas, temos
+		Sejam $\epsilon'>0$ e $B_{\epsilon'}(0)$ tais que $\exp_{q}$ esteja definida em $B_{\epsilon'}(0)$. Consideremos $B_{\epsilon'}(0)$ como uma variedade de dimensão $n$. Se mostrarmos que $d(\exp _{q})_{0}$ é um isomorfismo, pelo Teorema da Função Inversa \parencite[p.~11, teo.~2.10]{doCarmo1992}, teremos que $\exp_{q}$ é um difeomorfismo em uma vizinhança de $0 \in B_{\epsilon'}(0)$. Ora, fazendo $\alpha(t)=tv$, pela identificação feita no \Cref{lem:espaco-tangente-espaco-vetorial}, temos que $\alpha'(t)=v$. Da definição de derivada e da homogeneidade das geodésicas, temos
 		\begin{align*}
 			d(\exp_{q})_{0}(v) & =\left.\frac{d}{dt}\exp_{q}(\alpha(t))\right|_{t=0}
 			=\left.\frac{d}{dt}\gamma(1,q,\alpha(t))\right|_{t=0}                    \\
@@ -325,7 +325,7 @@ Note que a curva $\gamma\left( t,q, \frac{v}{|v|} \right)$ é uma geodésica nor
 		Devido à estrutura diferenciável de $B_{\epsilon'}(0)$, existe $\epsilon>0$ tal que $B_{\epsilon}(0)\subseteq B\subseteq B_{\epsilon'}(0)$. Tal $\epsilon$ satisfaz a hipótese.
 	\end{proof}
 \end{proposition}
-Esse resultado diz que uma variedade riemanniana é, do ponto de vista da topologia diferencial, localmente indistinguível do seu plano tangente. Os próximos resultados servem de base para mostrarmos que o mapa $\exp$, além de ser difeomorfismo é, de certa maneira, uma isometria radial, isto é, preserva comprimentos na direção radial.
+Esse resultado diz que uma variedade riemanniana é, do ponto de vista da topologia diferencial, localmente indistinguível do seu plano tangente. Os próximos resultados servem de base para mostrarmos que a aplicação $\exp_{q}$, além de ser difeomorfismo é, de certa maneira, uma isometria radial, isto é, preserva comprimentos na direção radial.
 \begin{definition}
 	\label{def:curva-por-partes}
 	Uma curva diferenciável por partes é uma aplicação contínua $c:[a,b]\to M$, com $[a,b]\subset \mathbb{R}$ tal que existe uma partição $\{ t_{0}, t_{1}, \dots, t_{k} \}$ de $[a,b]$, com $a=t_{0} <t_{1} < \dots <t_{k}=b$ em que $c|_{[t_{i-1},t_{i}]}$ é uma curva diferenciável, para cada $i=1, \dots, k$.
@@ -343,7 +343,7 @@ e tomando $\theta_{i}$ o ângulo entre $0$ e $\pi$ que satisfaz
 
 \asyimage{asyimages/diagram5_piecewise_curve}{Curva diferenciável por partes.}
 
-Podemos estender o \Cref{prop:transporte-paralelo} para curvas diferenciáveis por partes.
+Podemos estender a \Cref{prop:transporte-paralelo} para curvas diferenciáveis por partes.
 \begin{proposition}
 	\label{prop:transporte-paralelo-por-partes}
 	Seja $c:[a,b]\to M$ uma curva diferenciável por partes e $c(t_{i}), i=0, \dots, k$ seus vértices.
@@ -354,7 +354,7 @@ Podemos estender o \Cref{prop:transporte-paralelo} para curvas diferenciáveis p
 
 		Faça $c_{1}=c|_{[a,t_{1}]}$ e $c_{2}=c|_{[t_{1},b]}$. Pela hipótese, $c_{1}$ e $c_{2}$ são diferenciáveis.
 		Dado $V_{0} \in T_{c(a)}M$, pela \Cref{prop:transporte-paralelo}, existe um único campo diferenciável $V_{1}$ ao longo de $c_{1}$ tal que $V_{1}(a)=V_{0}$ e $\frac{D}{dt}V_{1}=0$. Note que $V_{1}(t_{1})\in T_{c(t_{1})}M$.
-		Aplicando novamente este resultado, conseguimos um único campo diferenciável paralelo $V_{2}$
+		Aplicando novamente a \Cref{prop:transporte-paralelo}, conseguimos um único campo diferenciável paralelo $V_{2}$
 		ao longo de $c_{2}$ tal que $V_{2}(t_{1})=V_{1}(t_{1})$.
 
 		Considere o campo vetorial $V$ definido por
@@ -370,7 +370,7 @@ Podemos estender o \Cref{prop:transporte-paralelo} para curvas diferenciáveis p
 \end{proposition}
 \begin{definition}
 	\label{def:segmento-minimizante}
-	Sendo $l(c)$ o comprimento de uma curva diferenciável, dizemos que um segmento de geodésica $\gamma:[a,b]\to M$ é minimizante se $l(\gamma)\leq l(c)$ para toda curva diferenciável $c$ que passa por $\gamma(a)$ e $\gamma(b)$.
+	Sendo $l(c)$ o comprimento de uma curva diferenciável, dizemos que um segmento de geodésica $\gamma:[a,b]\to M$ é minimizante se $l(\gamma)\leq l(c)$ para toda curva diferenciável por partes $c$ que passa por $\gamma(a)$ e $\gamma(b)$.
 \end{definition}
 \begin{definition}
 	\label{def:dominio-regular}
@@ -380,7 +380,7 @@ Podemos estender o \Cref{prop:transporte-paralelo} para curvas diferenciáveis p
 \end{definition}
 \begin{definition}
 	\label{def:superficie-parametrizada}
-	Seja $A\subseteq \mathbb{R}^{2}$ um domínio regular suave por partes. Uma aplicação $s:A\to M$ é chamada de superfície parametrizada se for diferenciável, no sentido que existe $V\supset A$ aberto tal que $s$ é estendida diferencialmente.
+	Seja $A\subseteq \mathbb{R}^{2}$ um domínio regular suave por partes. Uma aplicação $s:A\to M$ é chamada de superfície parametrizada se for diferenciável, no sentido de que existe $V\supset A$ aberto tal que $s$ é estendida diferenciavelmente.
 \end{definition}
 \begin{lemma}
 	\label{lem:extensao-unica-por-partes}
@@ -407,7 +407,7 @@ Um campo de vetores diferenciável $V$ ao longo de $s$ é uma aplicação que as
 		c:I & \longrightarrow M      \\
 		u   & \longmapsto s(u,v_{0})
 	\end{align*}
-	é uma curva diferenciável. De fato, $I$ é um intervalo, pois todo conjunto conexo de $\mathbb{R}$ é um intervalo. Também, $c$ é diferenciável por \Cref{lem:derivadas-produto-2}.
+	é uma curva diferenciável. De fato, $I$ é um intervalo, pois todo conjunto conexo de $\mathbb{R}$ é um intervalo. Também, $c$ é diferenciável, pois é a composição de $s$ com a aplicação diferenciável $u \mapsto (u, v_{0})$.
 
 	Definimos
 	\begin{equation*}
@@ -462,7 +462,7 @@ Um campo de vetores diferenciável $V$ ao longo de $s$ é uma aplicação que as
 	\end{equation*}
 	\begin{proof}
 
-		Seja $\mathbf{x}:V\subseteq \mathbb{R}^{n}\to M$ uma parametrização de algum ponto de $s(A)$. Segue que
+		Seja $\mathbf{x}:U\subseteq \mathbb{R}^{n}\to M$ uma parametrização de $s(u,v) \in s(A)$. Segue que
 		$\tilde{s}(u,v)=\mathbf{x}^{-1}\circ s(u,v)=(x_{1}(u,v), \dots, x_{n}(u,v))$, o que implica que
 		\begin{equation*}
 			\frac{\partial s}{\partial u}=ds(e_{1})=\sum\frac{\partial x_{i}}{\partial u}X_{i}.
@@ -489,7 +489,7 @@ Um campo de vetores diferenciável $V$ ao longo de $s$ é uma aplicação que as
 Com a estrutura das superfícies parametrizadas, conseguimos mostrar o Lema de Gauss, isto é, que as geodésicas radiais são ortogonais às esferas geodésicas.
 \begin{theorem}[Lema de Gauss]
 	\label{teo:lema-de-gauss}
-	Seja $p \in M$ e $v \in T_{p}M$ tal que $\exp_{p}v$ esteja definida. Seja $\Phi:T_{p}M\to T_{v}(T_{p}M)$ a identificação construída em \Cref{lem:espaco-tangente-espaco-vetorial}.
+	Seja $p \in M$ e $v \in T_{p}M$ tal que $\exp_{p}v$ esteja definida. Seja $\Phi:T_{p}M\to T_{v}(T_{p}M)$ a identificação construída no \Cref{lem:espaco-tangente-espaco-vetorial}.
 	Se $w \in T_{v}(T_{p}M)$, então
 	\begin{equation*}
 		\left< (d\exp_{p})_{v}(\Phi(v)),(d\exp_{p})_{v}(w) \right> = \left< v,\Phi ^{-1}(w) \right> .
@@ -504,7 +504,7 @@ Com a estrutura das superfícies parametrizadas, conseguimos mostrar o Lema de G
 
 		Consultar \textcite{coelho2005algebra} para uma demonstração.
 
-		\emph{Afirmação 2:} A hipótese vale para $w_{T}$.
+		\emph{Afirmação 2:} A igualdade vale para $w_{T}$.
 
 		De fato, fazendo $\alpha(t)=tv+v$, notando que $\Phi(v)=\alpha'(t)$, e utilizando o fato da norma da velocidade de uma geodésica ser constante, temos
 		\begin{align*}
@@ -550,7 +550,7 @@ Com a estrutura das superfícies parametrizadas, conseguimos mostrar o Lema de G
 		\begin{equation*}
 			v'(0)=\Phi(\Phi ^{-1}(w_{N}))=w_{N}.
 		\end{equation*}
-		O resultado segue, notando que $|tv(s)|\leq t|v(s)|=t|v| \leq|v|$.
+		O resultado segue, notando que $|tv(s)|= t|v(s)|=t|v| \leq|v|$.
 
 		Tome $A=\{ (t,s)\in \mathbb{R}^{2}; 0\leq t\leq1;v(s) \text{ está bem definida}\}$ e defina
 		\begin{align*}
@@ -573,7 +573,7 @@ Com a estrutura das superfícies parametrizadas, conseguimos mostrar o Lema de G
 
 		\emph{Afirmação 5:} $\left\langle \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \right\rangle$ é constante com respeito a $t$.
 
-		Note que as curvas $t \mapsto f(t,s_{0})$ são geodésicas. De fato, $f(t,s_{0})=\exp_{p}(tv_{0})=\gamma(1,p,tv_{0})=\gamma(t,p,v_{0})$. Segue que, para todo, $(t,s) \in A$, temos, utilizando a conexão Levi-Civita,
+		Note que as curvas $t \mapsto f(t,s_{0})$ são geodésicas. De fato, $f(t,s_{0})=\exp_{p}(tv_{0})=\gamma(1,p,tv_{0})=\gamma(t,p,v_{0})$. Segue que para todo $(t,s) \in A$, temos, utilizando a conexão Levi-Civita,
 		\begin{align*}
 			\frac{\partial}{\partial t}\left\langle \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \right\rangle & = \left\langle \frac{D}{dt}\frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \right\rangle+ \left\langle \frac{\partial f}{\partial s}, \frac{D}{dt}\frac{\partial f}{\partial t} \right\rangle                                        \\
 			                                                                                                                   & = \left\langle \frac{D}{dt}\frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \right\rangle        = \frac{1}{2}\frac{\partial}{\partial s}\left\langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial t} \right\rangle = 0.
@@ -638,7 +638,7 @@ Utilizando o \Cref{teo:lema-de-gauss} e essas definições, podemos tornar preci
 	Seja $S_{\epsilon}(p)$ a esfera normal de um ponto $p$ em uma variedade $M$. $S_{\epsilon}(p)$ é ortogonal a toda geodésica que parte de $p$, isto é, se $\gamma$ é uma geodésica que parte de $p$ e tal que $\gamma(1, p, v) = q \in S_\epsilon(p)$, então  $\langle w, \gamma'(1, p, v) \rangle = 0$ para todo $w \in T_q S_\epsilon(p)$.
 	\begin{proof}
 
-		Inicialmente, note que $\frac{d}{dt} \gamma(t, p, v) \big\vert{}_{t=t_0} = \frac{d}{dt} \exp_p(tv) \big\vert{}_{t=t_0}$. Com efeito, sabendo que $\gamma(t, p, v) = \gamma(1, p, tv) = \exp_p(tv)$, podemos derivar essa expressão em relação a $t$ no ponto $t_0$. Considerando a curva $\alpha(s) = t_0 + s$, reescrevemos essa derivada como $\frac{d}{ds} \exp_p(\alpha(s) \cdot v) \big\vert{}_{s=0}$, o que equivale a $\frac{d}{ds} \exp_p(t_0v + sv) \big\vert{}_{s=0}$. Pela definição de diferencial, isso resulta em $(d\exp_p)_{t_0v}(\alpha'(0))$, o que nos dá $\gamma'(t_0, p, v) = (d\exp_p)_{t_0v}(v)$.
+		Inicialmente, note que $\frac{d}{dt} \gamma(t, p, v) \big\vert{}_{t=t_0} = \frac{d}{dt} \exp_p(tv) \big\vert{}_{t=t_0}$. Com efeito, sabendo que $\gamma(t, p, v) = \gamma(1, p, tv) = \exp_p(tv)$, podemos derivar essa expressão em relação a $t$ no ponto $t_0$. Considerando a curva $\alpha(s) = (t_0 + s)v$ em $T_pM$, reescrevemos essa derivada como $\frac{d}{ds} \exp_p(\alpha(s) \cdot v) \big\vert{}_{s=0}$, o que equivale a $\frac{d}{ds} \exp_p(t_0v + sv) \big\vert{}_{s=0}$. Pela definição de diferencial, isso resulta em $(d\exp_p)_{t_0v}(\alpha'(0))$, o que nos dá $\gamma'(t_0, p, v) = (d\exp_p)_{t_0v}(v)$.
 
 		Seja $w \in T_q S_\epsilon(p)$, então $w = (d\exp_p)_v(w')$, com $w' \in T_v(\partial B_\epsilon(0)) \subset T_v(T_pM)$.
 		De fato, como $w \in T_q S_\epsilon(p)$ e $\exp_p|_{\partial B_\epsilon(0)} \to \partial B_\epsilon(p)$ é um difeomorfismo, então
@@ -655,9 +655,9 @@ Utilizando o \Cref{teo:lema-de-gauss} e essas definições, podemos tornar preci
 	\end{proof}
 \end{proposition}
 
-\asyimage[width=0.5\linewidth]{asyimages/diagram6_gauss_lemma_S2}{Esfera geodésica é ortogonal as geodésicas radiais.}[fig:gauss-lemma-S2]
+\asyimage[width=0.5\linewidth]{asyimages/diagram6_gauss_lemma_S2}{Esfera geodésica é ortogonal às geodésicas radiais.}[fig:gauss-lemma-S2]
 
-Também com o \Cref{teo:lema-de-gauss}, conseguimos mostrar uma das principais propriedades das geodésicas: o fato de que elas minimizam distâncias. Mostremos, primeiramente, alguns lemas
+Também com o \Cref{teo:lema-de-gauss}, conseguimos mostrar uma das principais propriedades das geodésicas: o fato de que elas minimizam distâncias. Mostremos, primeiramente, alguns lemas:
 \begin{lemma}
 	\label{lem:desigualdade-radial}
 	Sejam $p \in M$, $U=\exp_{p}(V)$ vizinhança normal de $p$ e $B=B_{\epsilon}(p)=\exp_{p}(B_{\epsilon}(0))$ uma bola normal centrada em $p$ tal que $\overline{B}=\exp_{p}(\overline{B_{\epsilon}(0)})\subseteq U$. Para $q\in U$, denote $r(q)=|\exp_{p}^{-1}(q)|$.
@@ -744,7 +744,7 @@ Também com o \Cref{teo:lema-de-gauss}, conseguimos mostrar uma das principais p
 		\begin{equation*}
 			l(c)\geq r(\gamma(1))=l(\gamma).
 		\end{equation*}
-		Se $l(c)=l(\gamma)$, vale a igualdade no lema. Logo, existe $s\in[0,1)$ tal que $c$ é constante igual a$p$ em $[0,s]$ e $c|_{[s,1]}$ é uma reparametrização monótona de $\tau\mapsto\exp_{p}(\tau w)=\gamma(\tau)$. Portanto, $c$ é uma reparametrização monótona de $\gamma$ e $c([0,1])=\gamma([0,1])$.
+		Se $l(c)=l(\gamma)$, vale a igualdade no lema. Logo, existe $s\in[0,1)$ tal que $c$ é constante igual a $p$ em $[0,s]$ e $c|_{[s,1]}$ é uma reparametrização monótona de $\tau\mapsto\exp_{p}(\tau w)=\gamma(\tau)$. Portanto, $c$ é uma reparametrização monótona de $\gamma$ e $c([0,1])=\gamma([0,1])$.
 
 		\emph{Caso 2:} $c([0,1])\nsubseteq B$.
 
@@ -755,7 +755,7 @@ Também com o \Cref{teo:lema-de-gauss}, conseguimos mostrar uma das principais p
 		Em particular, neste caso não vale a igualdade, e a desigualdade $l(\gamma)\leq l(c)$ é satisfeita, concluindo a demonstração.
 	\end{proof}
 \end{theorem}
-Uma versão global desse resultado não vale. De fato, considere a esfera $S^{2}\subseteq \mathbb{R}^{3}$ como uma superfície regular. Conforme mostrado no \Cref{ex:geodesicas} , suas geodésicas são seções de grandes círculos. Seja, então, $p,q \in S^{2}$ dois pontos distintos, com $q\neq-p$. Existe um único grande círculo que passa por ambos. Podemos dividir esse círculo em duas partes que ligam $p$ à $q$, (ambas geodésicas). Claramente uma dessas partes tem comprimento maior que a outra.
+Uma versão global desse resultado não vale. De fato, considere a esfera $S^{2}\subseteq \mathbb{R}^{3}$ como uma superfície regular. Conforme mostrado no \Cref{ex:geodesicas}, suas geodésicas são arcos de grandes círculos. Sejam, então, $p,q \in S^{2}$ dois pontos distintos, com $q\neq-p$. Existe um único grande círculo que passa por ambos. Podemos dividir esse círculo em duas partes que ligam $p$ a $q$, (ambas geodésicas). Claramente uma dessas partes tem comprimento maior que a outra.
 
 Sua recíproca, porém, vale globalmente. Isto é, se uma curva minimiza a distância entre dois pontos, então é uma geodésica. Antes de mostrá-la, mostraremos um lema.
 \begin{lemma}
@@ -771,7 +771,7 @@ Sua recíproca, porém, vale globalmente. Isto é, se uma curva minimiza a dist�
 		\begin{equation*}
 			\frac{\partial \exp_{q}v}{\partial q}(p,0)=\frac{d\exp_{q}0}{dq}=\frac{dq}{dq}=I,
 		\end{equation*}
-		utilizando a demonstração da \Cref{prop:exp-difeomorfismo} e aplicando o \Cref{lem:derivadas-produto-1}, temos que
+		utilizando a demonstração da \Cref{prop:exp-difeomorfismo} e calculando a matriz jacobiana de $F$ nas parametrizações $\mathbf{y}$ de $TM$ e $\mathbf{x}\times\mathbf{x}$ da variedade produto $M\times M$ \parencite[p.~34, exercício~1; p.~9, prop.~2.7]{doCarmo1992}, temos que
 		\begin{equation*}
 			dF_{(p,0)}=
 			\begin{bmatrix}
@@ -783,7 +783,7 @@ Sua recíproca, porém, vale globalmente. Isto é, se uma curva minimiza a dist�
 				0 & I
 			\end{bmatrix}.
 		\end{equation*}
-		O que implica, pelo \Cref{teo:funcao-inversa}, que $F$ é um difeomorfismo local em uma vizinhança de $(p,0)$, isto é, existe um aberto $\mathcal{V'\subseteq V}$ de $(p,0)\in TM$ tal que $F$ aplica $\mathcal{V}'$ difeomorficamente em uma vizinhança $W'$ de $(p,p)\in M\times M$. Devido ao \Cref{lem:topologia-fibrado-tangente}, podemos tomar $\mathcal{V'}$ da forma $\{ (q,v); q \in V'; v \in T_{q}M; |v|<\delta \}$, onde $V'\subseteq V$ é uma vizinhança de $p$ em $M$ e $\delta>0$.
+		O que implica, pelo Teorema da Função Inversa \parencite[p.~11, teo.~2.10]{doCarmo1992}, que $F$ é um difeomorfismo local em uma vizinhança de $(p,0)$, isto é, existe um aberto $\mathcal{V'\subseteq V}$ de $(p,0)\in TM$ tal que $F$ aplica $\mathcal{V}'$ difeomorficamente em uma vizinhança $W'$ de $(p,p)\in M\times M$. Devido ao \Cref{lem:topologia-fibrado-tangente}, podemos tomar $\mathcal{V'}$ da forma $\{ (q,v); q \in V'; v \in T_{q}M; |v|<\delta \}$, onde $V'\subseteq V$ é uma vizinhança de $p$ em $M$ e $\delta>0$.
 
 		Seja $W$ uma vizinhança de $p$ em $M$ tal que $W\times W\subseteq W'$. O $\delta$ e o $W$ obtidos satisfazem o desejado.
 		Com efeito, fixando $q \in W$ e tomando $w \in W$ arbitrário, temos que $(q,w)\in \{ q \}\times W$, então $F^{-1}(q,w)\in \{ q \}\times B_{\delta}(0)$. Segue que $(q,w)\in F(\{ q \}\times B_{\delta}(0))=\{ q \}\times \exp_{q}(B_{\delta}(0))$, implicando que $W\subseteq \exp_{q}(B_{\delta}(0))$.
@@ -791,34 +791,36 @@ Sua recíproca, porém, vale globalmente. Isto é, se uma curva minimiza a dist�
 		Também, se $v \in B_{\delta}(0)$ e $r \in \exp_{q}(B_{\delta}(0))$, temos que $\exp_{q}(v)=\pi_{2}(F(q,v))$ e $\exp ^{-1}_{q}(r)= \pi_{2}(F^{-1}(q,r))$, onde $\pi_{2}$ denota ambas as projeções nas segundas coordenadas, mostrando que $\exp_{q}$ é um difeomorfismo de $B_{\delta}(0)\subseteq T_{q}M$ sobre sua imagem.
 	\end{proof}
 \end{lemma}
+
+Tal vizinhança recebe o nome de vizinhança totalmente normal. Com ela, podemos mostrar a recíproca do \Cref{teo:geodesica-minimiza-distancia}.
 \begin{theorem}
 	\label{teo:menor-distancia-geodesica}
-	Seja $M$ variedade riemanniana e $\gamma:[a,b]\to M$ uma curva diferenciável por partes, parametrizada pelo comprimento de arco. Se, para toda curva diferenciável por partes $c$ ligando $\gamma(a)$ à $\gamma(b)$, temos que $l(\gamma)\leq l(c)$, então $\gamma$ é uma geodésica. Em particular, $\gamma$ é regular.
+	Seja $M$ variedade riemanniana e $\gamma:[a,b]\to M$ uma curva diferenciável por partes, parametrizada pelo comprimento de arco. Se, para toda curva diferenciável por partes $c$ ligando $\gamma(a)$ a $\gamma(b)$, temos que $l(\gamma)\leq l(c)$, então $\gamma$ é uma geodésica. Em particular, $\gamma$ é regular.
 	\begin{proof}
 
-		Sejam $t \in [a,b]$ e $W$ uma vizinhança geodésica totalmente normal de $\gamma(t)$. Existe um intervalo $I \subset [a,b]$ fechado não degenerado tal que $\gamma(I) \subset W$, e $t \in I$. Note que a restrição $\gamma_I: I \to W$ é uma curva diferenciável por partes ligando dois pontos da vizinhança normal $W$. Pela hipótese, $l(\gamma_I)$ é menor que toda curva ligando os mesmos pontos pois, se fosse o contrário, poderíamos trocar essa parte na curva original, obtendo uma curva que liga $\gamma(a)$ a $\gamma(b)$ e tem comprimento menor que $\gamma$.
-		Pelo \Cref{teo:geodesica-minimiza-distancia}, tomando $W$ como vizinhança normal do ponto inicial de $\gamma_I$, existe uma geodésica $\gamma'$ ligando os extremos de $\gamma_I$ tal que $l(\gamma') \le l(\gamma_I)$. Como $l(\gamma_I) \le l(\gamma')$, temos que  $l(\gamma') = l(\gamma_I)$, o que implica, novamente pelo \Cref{teo:geodesica-minimiza-distancia}, que $\gamma_{I}$ é uma reparametrização monótona de $\gamma_{I}$. Logo, como $\gamma_{I}$ é parametrizada pelo comprimento de arco, é uma geodésica, implicando que $\gamma$ é geodésica em $t$. Como $t$ é arbitrário, $\gamma$ é geodésica.
+		Sejam $t \in [a,b]$ e $W$ uma vizinhança geodésica totalmente normal de $\gamma(t)$. Existe um intervalo $I \subset [a,b]$ fechado não degenerado tal que $\gamma(I) \subset W$, e $t \in (a,b)$. Note que a restrição $\gamma_I: I \to W$ é uma curva diferenciável por partes ligando dois pontos da vizinhança normal $W$. Pela hipótese, $l(\gamma_I)$ é menor ou igual ao comprimento de toda curva ligando os mesmos pontos pois, se fosse o contrário, poderíamos trocar essa parte na curva original, obtendo uma curva que liga $\gamma(a)$ a $\gamma(b)$ e tem comprimento menor que $\gamma$.
+		Pelo \Cref{teo:geodesica-minimiza-distancia}, tomando $W$ como vizinhança normal do ponto inicial de $\gamma_I$, existe uma geodésica $\sigma$ ligando os extremos de $\gamma_I$ tal que $l(\sigma) \le l(\gamma_I)$. Como $l(\gamma_I) \le l(\sigma)$, temos que  $l(\sigma) = l(\gamma_I)$, o que implica, novamente pelo \Cref{teo:geodesica-minimiza-distancia}, que $\gamma_{I}$ é uma reparametrização monótona de $\gamma$. Logo, como $\gamma_{I}$ é parametrizada pelo comprimento de arco, é uma geodésica, implicando que $\gamma$ é geodésica em $t$. Como $t$ é arbitrário, $\gamma$ é geodésica.
 	\end{proof}
 \end{theorem}
 \section{Teorema de Hopf-Rinow}
 \label{sec:teorema-hopf-rinow}
-Até o momento, discutimos propriedades locais das geodésicas, inclusive garantindo a existência de geodésicas minimizantes em bolas abertas em tornos de pontos. Existe, porém, uma certa classe de variedades riemannianas cujas geodésicas podem ser estendidas globalmente, isto é, quaisquer dois pontos podem ser ligados por uma geodésica que minimiza a distância entre eles.
+Até o momento, discutimos propriedades locais das geodésicas, inclusive garantindo a existência de geodésicas minimizantes em bolas abertas em torno de pontos. Existe, porém, uma certa classe de variedades riemannianas cujas geodésicas podem ser estendidas globalmente, isto é, quaisquer dois pontos podem ser ligados por uma geodésica que minimiza a distância entre eles e que pode ser estendida indefinidamente.
 
-O objetivo dessa seção é tornar preciso esse resultado. Começamos por tornar uma variedade conexa em um espaço métrico, cuja topologia induzida coincide com a topologia inicial da variedade. Finalmente, utilizamos os resultados obtidos até o momento para demonstrar o teorema de Hopf-Rinow, o qual afirma, dentre outras coisas, que a completude métrica da variedade é equivalente à completude geodésica e também que tal completude pode ser alcançada apenas analisando o espaço tangente em um único ponto arbitrário.
+O objetivo desta seção é tornar preciso esse resultado. Começamos tornando uma variedade conexa em um espaço métrico, cuja topologia induzida coincide com a topologia original da variedade. Finalmente, utilizamos os resultados obtidos até o momento para demonstrar o teorema de Hopf-Rinow, o qual afirma, dentre outras coisas, que a completude métrica da variedade é equivalente à completude geodésica e também que tal completude pode ser alcançada apenas analisando o espaço tangente em um único ponto arbitrário.
 
-Durante essa seção assumiremos que todas as variedades riemannianas são conexas.
+Durante esta seção assumiremos que todas as variedades riemannianas são conexas.
 \begin{lemma}
 	\label{lem:conexidade}
 	Uma variedade riemanniana $M$ é conexa se, e somente se, é conexa por caminhos.
 	\begin{proof}
 
 		Conforme demonstrado em \textcite{munkres2000topology}, basta mostrar que $M$ é localmente conexa por caminhos, isto é, que todo ponto $p \in M$ admite uma vizinhança conexa por caminhos.
-		Seja $\mathbf{x}:U\to M$ uma parametrização, com $\mathbf{x}(q)=p$. Como $U$ é aberto em $\mathbb{R}^{n}$, existe $\epsilon>0$ tal que a bola euclidiana de raio $\epsilon$ e centro q, digamos $B$, está contida em $U$. Como $B$ é um aberto conexo por caminhos de $\mathbb{R}^{n}$ e $\mathbf{x}$ é um homeomorfismo sobre um aberto de $M$ (\Cref{prop:aberto-estrutura-diferencial}), $\mathbf{x}(B)$ é um aberto conexo por caminhos contendo $p$.
+		Seja $\mathbf{x}:U\to M$ uma parametrização, com $\mathbf{x}(q)=p$. Como $U$ é aberto em $\mathbb{R}^{n}$, existe $\epsilon>0$ tal que a bola euclidiana de raio $\epsilon$ e centro q, digamos $B$, está contida em $U$. Como $B$ é um aberto conexo por caminhos de $\mathbb{R}^{n}$ e $\mathbf{x}$ é contínua, injetiva e tem imagem aberta em $M$ \parencite[p.~4, obs.~2.3]{doCarmo1992}, $\mathbf{x}(B)$ é um aberto conexo por caminhos contendo $p$.
 	\end{proof}
 \end{lemma}
 \begin{definition}
 	\label{def:variedade-estendivel}
-	Uma variedade riemanniana $M$ é estendível se existe variedade riemanniana $M'$ tal que $M$ é isométrica a um subconjunto próprio aberto de $M'$. Caso contrário, $M$ é dita não-estendível.
+	Uma variedade riemanniana $M$ é estendível se existe variedade riemanniana $M'$ tal que $M$ é isométrica a um subconjunto próprio aberto de $M'$. Caso contrário, $M$ é dita não estendível.
 \end{definition}
 \begin{definition}
 	\label{def:geodesicamente-completa}
@@ -830,7 +832,7 @@ Equivalentemente, uma variedade é geodesicamente completa se, e somente se, par
 \end{equation*}
 A recíproca é mostrada de forma análoga.
 
-Analisaremos, nessa seção, as variedades completas e buscaremos propriedades e condições necessárias para garantir completude. A primeira delas é dada pelo próximo resultado.
+Analisaremos, nesta seção, as variedades completas e buscaremos propriedades e condições necessárias para garantir completude. A primeira delas é dada pelo próximo resultado.
 \begin{proposition}
 	\label{prop:completa-nao-estendivel}
 	Se $M$ é completa, então $M$ é não-estendível.
@@ -852,7 +854,7 @@ A recíproca desse resultado é falsa. Isto é, existem variedades riemannianas 
 		d(p,q) = \inf\{\ell(c) \mid c \text{ é curva diferenciável por partes ligando } p, q\}.
 	\end{equation*}
 \end{definition}
-Note que, pelo \Cref{lem:conexidade}, conseguimos garantir a existência de pelo menos uma curva diferenciável por partes ligando quaisquer par de pontos $p,q \in M$. Com efeito, se $c:[0,1]\to M$ é um caminho contínuo ligando $p$ a $q$, o conjunto $c([0,1])\subseteq M$ é compacto e, portanto, pode ser coberto por um número finito de vizinhanças parametrizadas. Podemos então tomar uma cobertura minimal, de forma que cada aberto intercepte com no máximo dois outros abertos. Construímos então caminhos diferenciáveis em cada vizinhança aberta e os concatenamos, construindo um caminho diferenciável por partes que liga $p$ a $q$. Isso implica que $d(p,q)$ está bem definido.
+Note que, pelo \Cref{lem:conexidade}, conseguimos garantir a existência de pelo menos uma curva diferenciável por partes ligando qualquer par de pontos $p,q \in M$. Com efeito, se $c:[0,1]\to M$ é um caminho contínuo ligando $p$ a $q$, o conjunto $c([0,1])\subseteq M$ é compacto e, portanto, pode ser coberto por um número finito de vizinhanças parametrizadas. Podemos então tomar uma cobertura de $c([0,1])$, de forma que cada aberto intercepte com no máximo dois outros abertos. Construímos então caminhos diferenciáveis em cada vizinhança aberta e os concatenamos, construindo um caminho diferenciável por partes que liga $p$ a $q$. Isso implica que $d(p,q)$ está bem definido.
 
 \asyimage{asyimages/diagram4_curve_cover}{Existência de curva diferenciável por partes.}
 
@@ -866,7 +868,7 @@ Note que, pelo \Cref{lem:conexidade}, conseguimos garantir a existência de pelo
 		\begin{equation*}
 			U = \bigcup_{p \in U} B_{r_p}(p).
 		\end{equation*}
-		O resultado segue do fato de que toda bola geodésica ser aberta em $M$.
+		O resultado segue do fato de que toda bola geodésica é aberta em $M$.
 	\end{proof}
 \end{lemma}
 \begin{proposition}
@@ -937,7 +939,7 @@ Utilizando esses fatos, podemos mostrar que a topologia que a métrica induz é 
 		Basta notar que $f$ é contínua na topologia induzida por $d$. Como tal topologia coincide com a inicial, $f$ é contínua na topologia inicial de $M$.
 	\end{proof}
 \end{corollary}
-Finalmente, temos tudo que precisamos para enunciar e demonstrar o principal resultado desse trabalho.
+Finalmente, temos tudo que precisamos para enunciar e demonstrar o principal resultado deste trabalho.
 \begin{lemma}[Hopf-Rinow]
 	\label{lem:hopf-rinow}
 	Sejam $M$ uma variedade riemanniana e $p \in M$. Se $\exp_p$ está definida em todo o $T_pM$, então, para todo $q \in M$, existe uma geodésica $\gamma$ ligando $p$ a $q$, com $\ell(\gamma) = d(p,q)$.
@@ -1033,7 +1035,7 @@ Finalmente, temos tudo que precisamos para enunciar e demonstrar o principal res
 	\begin{equation*}
 		g_{11}(x,y) = g_{22}(x,y) = 1, \quad g_{12}(x,y) = g_{21}(x,y) = 0.
 	\end{equation*}
-	Em tal variedade, todo par de pontos pode ser ligado por uma geodésica, mas as geodésicas não podem ser prolongadas infinitamente. Mais ainda, tal variedade é estendível, pois é isométrica a um subconjunto próprio aberto do plano euclidiano $\mathbb{R}^2$.
+	Em tal variedade, todo par de pontos pode ser ligado por uma geodésica, mas as geodésicas não podem ser prolongadas indefinidamente. Mais ainda, tal variedade é estendível, pois é isométrica a um subconjunto próprio aberto do plano euclidiano $\mathbb{R}^2$.
 \end{observation}
 
 \begin{theorem}[Hopf-Rinow]
@@ -1057,9 +1059,9 @@ Finalmente, temos tudo que precisamos para enunciar e demonstrar o principal res
 	\begin{proof}
 		$ $
 
-		\emph{a) $\Rightarrow$ f).} Segue do Lema.
+		\emph{a) $\Rightarrow$ f).} Segue do \Cref{lem:hopf-rinow}.
 
-		\emph{a) $\Rightarrow$ b).} Seja $A \subset M$ limitada e fechada. Como $A$ é limitado, existe uma bola da métrica $d$, de centro $p$ e raio $r$ tal que $A \subset B$.
+		\emph{a) $\Rightarrow$ b).} Seja $A \subset M$ limitada e fechada. Como $A$ é limitado, existe uma bola $B$ da métrica $d$, de centro $p$ e raio $r$ tal que $A \subset B$.
 
 		Por f), existe uma bola $B_{r'}(0) \subset T_pM$ tal que $B \subset \exp_p(\overline{B_{r'}(0)})$. De fato, para todo $q \in B$, existe $v \in T_pM$ tal que $\exp_p(v) = q$. Isto é, $\gamma(1,p,v) = q$, implicando que $|v| = \ell(\gamma|_{[0,1]}) = d(p,q) < r$. Logo, $\exp_p^{-1}(B)$ é limitado em $T_pM$.
 
@@ -1068,15 +1070,17 @@ Finalmente, temos tudo que precisamos para enunciar e demonstrar o principal res
 		\emph{b) $\Rightarrow$ c).} Seja $\{p_n\} \subset M$ uma sequência de Cauchy na métrica $d$. O conjunto $\{p_n\}$ é limitado, implicando que $\overline{\{p_n\}}$ é limitado e fechado, e, portanto, compacto, por b).
 		Como $M$ está munida da topologia métrica, $p_n$ possui subsequência convergente \cite{munkres2000topology}. Por ser de Cauchy, $p_n$ converge \cite{lima2020espacos}.
 
-		\emph{c) $\Rightarrow$ d).} Por absurdo, suponha que $M$ não é geodesicamente completa, isto é, existe $p$ em $M$ e $v \in T_pM$ tal que $\exp_p(v)$ não está definida.
+		\emph{c) $\Rightarrow$ d).} Por absurdo, suponha que $M$ não é geodesicamente completa, isto é, existe $p_1 \in M$ e $v \in T_{p_1}M$ tal que $\exp_{p_1}(v)$ não está definida.
 
-		Como, pela \Cref{prop:exp-difeomorfismo}, existe uma bola $B_\varepsilon(0) \subset T_pM$ tal que $\exp_p|_{B_\varepsilon(0)}$ é difeomorfismo, a geodésica $\gamma(t) = \exp_p(tv)$ está definida para $t$ suficientemente pequeno, mas não está para $t = 1$, implicando que $D = \{t \in \mathbb{R}^+ \mid \gamma(t) \text{ não está definida}\}$ é não vazio. Mostremos que $t_0 = \inf D \in D$.
+		Sem perda de generalidade, podemos assumir que $\gamma$ é normalizada, isto é, $\ell(\gamma|_{[0,t]}) = t$.
 
-		De fato, se $t \in \mathbb{R}^+ \setminus D$, $\gamma(t)$ está bem definida. Existe $\varepsilon$ tal que $\exp_{\gamma(t)}(B_\varepsilon(0))$ é vizinhança normal de $\gamma(t)$.
+		Como, pela \Cref{prop:exp-difeomorfismo}, existe uma bola $B_\varepsilon(0) \subset T_{p_1}M$ tal que $\exp_{p_1}|_{B_\varepsilon(0)}$ é difeomorfismo, a geodésica $\gamma(t) = \exp_{p_1}(tv)$ está definida para $t$ suficientemente pequeno, mas não está para $t = 1$, implicando que $D = \{t \in \mathbb{R}^+ \mid \gamma(t) \text{ não está definida}\}$ é não vazio. Mostremos que $t_0 = \inf D \in D$.
 
-		Seja $w = \gamma'(t) \in T_{\gamma(t)}M$. Para $\delta$ suficientemente pequeno, $\exp_{\gamma(t)}(sw)$ está definida para $|s| < \delta_1$, isto é, $\gamma(s, \gamma(t), w)$ está definida. Note que $\gamma(s, \gamma(t), w) = \gamma(t+s)$, implicando que $t + s \in \mathbb{R}^+ \setminus D$, para todo $s < \delta_1$, o que mostra que $\mathbb{R}^+ \setminus D$ é aberto e, consequentemente, $D$ é fechado. Logo, $t_0 \in D$.
+		De fato, se $t \in \mathbb{R}^+ \setminus D$, $\gamma(t)$ está bem definida. %Existe $\varepsilon$ tal que $\exp_{\gamma(t)}(B_\varepsilon(0))$ é vizinhança normal de $\gamma(t)$.
 
-		Seja $t_n \in \mathbb{R}^+$ uma sequência tal que $t_n < t_0$ e $t_n \to t_0$. Sem perda de generalidade, podemos assumir que $\gamma$ é normalizada, isto é, $\ell(\gamma|_{[0,t]}) = t$.
+		Seja $w = \gamma'(t) \in T_{\gamma(t)}M$. Para $\delta$ suficientemente pequeno, $\exp_{\gamma(t)}(sw)$ está definida para $|s| < \delta$, isto é, $\gamma(s, \gamma(t), w)$ está definida. Note que $\gamma(s, \gamma(t), w) = \gamma(t+s)$, implicando que $t + s \in \mathbb{R}^+ \setminus D$, para todo $s < \delta_1$, o que mostra que $\mathbb{R}^+ \setminus D$ é aberto e, consequentemente, $D$ é fechado. Logo, $t_0 \in D$.
+
+		Seja $t_n \in \mathbb{R}^+$ uma sequência tal que $t_n < t_0$ e $t_n \to t_0$.
 
 		Como $t_n$ é de Cauchy, para todo $\varepsilon > 0$, existe $n_0$ tal que se $n, m > n_0$,
 		\begin{equation*}
@@ -1097,7 +1101,7 @@ Finalmente, temos tudo que precisamos para enunciar e demonstrar o principal res
 
 		\emph{d) $\Rightarrow$ a).} Segue trivialmente da definição de variedade completa.
 
-		\emph{b) $\iff$ e)} Consultar \textcite{munkres2000topology} para uma demonstração.
+		\emph{b) $\iff$ e)} Consultar \textcite{doCarmo1992} para uma demonstração.
 	\end{proof}
 \end{theorem}
 Esse resultado estabelece a equivalência entre a completude métrica e a completude geodésica nas variedades riemannianas conexas, estendendo a existência de geodésicas minimizantes para toda a variedade.
@@ -1121,4 +1125,4 @@ Esse resultado estabelece a equivalência entre a completude métrica e a comple
 		Como $M'$ é completa, $F$ é compacto em $M'$ e, portanto, compacto em $M$, por $i$ ser homeomorfismo.
 	\end{proof}
 \end{corollary}
-A título de exemplo, as esferas $S^{n}$ são todas geodesicamente completas, porém, as bolas abertas $B=\{ p \in \mathbb{R}^{n}; |p|<r \}$ não o são, pois possuem sequências de Cauchy divergentes.
+A título de exemplo, as esferas $S^{n}$ são todas geodesicamente completas, porém, as bolas abertas $B=\{ p \in \mathbb{R}^{n}; |p|<r \}$ não o são, pois possuem sequências de Cauchy não convergentes.
